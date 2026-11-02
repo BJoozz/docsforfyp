@@ -1,0 +1,766 @@
+#37	MERGED	BJoozz	created 2026-10-30	merged 2026-10-30	bj/review-session-3 → main	Playback: the graph keeps a step's elapsed time across Speed changes, a sorting restart always plays, Autoplay and Next both start a run
+Three findings of the 2026-10-29 review (session 3, playback and run lifecycle), each reproduced before the fix; the owner's answers of 2026-10-29. One commit.
+
+- **S3-01 — the graph stalled while the Speed slider kept changing.** Its step timer restarted the full delay on every change; the tree kept the elapsed time. Owner: make the graph the same. Both hooks now share `src/shared/visualization/playbackCountdown.ts`: the countdown restarts only when the session changes (tick, seek, play, pause, a new run), a speed change mid-step keeps what has elapsed, a stale tick is still ignored (the sessionId guard). Node tests for the helper; an e2e with Playwright's clock changes Speed every 150 ms for 1.2 s and sees frames advance; DD-17 and TP-05 record it.
+- **S3-02 — a sorting restart depended on the button that first started the run.** `playOnStart` was set only by Next/Autoplay from idle, so Next → Autoplay → four panes left the new run paused while Autoplay → four panes played it; SP-01 says a restart plays. Owner: always play. Every restart (pane count, pane algorithm) mounts its run playing, whatever the start and status; Next's paused start applies to that start alone. Hook tests and an e2e; SP-01 records it.
+- **S3-03 — stale records and comments.** The owner's commit `a074f50` (2026-10-21) made Next start a paused run and renamed Play to Autoplay without touching the records. `prototypes/AGENTS.md`'s rule, DD-24 and its tree/sorting mirrors, the guides and the graph's e-Lecture slides now say Autoplay and Next both start a run; sorting's comments on End (wired) and on the scrubber's reach (`seekableRange`, the tick every pane can replay from what it holds) say what the code does.
+
+**Left for the owner (not blocking):** the tree's e-Lecture slides and the traversal strip's placeholders still tell the visitor to press "Play" (visitor text pinned by tests); ~150 record/comment lines still name the button Play (DD-24 now says Play is Autoplay since 2026-10-21); no regression-signal lines were added to DD-24/SP-01.
+
+**Checks:** lint, typecheck, `npm test` 654 + 2619, build, full browser suite 150/150; play + graph + sorting + tree specs again 88/88.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#36	MERGED	BJoozz	created 2026-10-30	merged 2026-10-30	bj/docs-graph-sorting → main	Graph and sorting docs: paths of the unified app, and the shell copy rule retired
+Docs only, one commit, the counterpart of the tree sweep (#30's `a82071e`) for `docs/graph` and `docs/sorting`, plus the owner's answers to the 2026-10-27 review (session 2).
+
+- **Paths and links.** Old-layout paths (`src/algorithms/…`, `src/components/…`, `src/app/…`, ports 5183/5185, the sandbox) now name the real files under `src/graph`, `src/sorting` or `src/shared`; relative links resolve (62 links, 0 broken; before: 26 of 37 and 31 of 44 broken).
+- **Files gone with the standalone builds (2026-10-18)** — the sandbox, the layout/workspace e2e specs, `exportImage`, `TopBar`, `bundle.test.ts`, the submodules — are described as gone, with what does their job now.
+- **Browser coverage in the guides** lists the 14 specs of the app's suite; the shell's drag/split/splitter scenarios stay manual (the owner, 2026-10-28: guides only, no new shell e2e — review S2-02).
+- **The shell copy rule is retired** in the tree's, graph's and sorting's `AGENTS.md` (the owner, 2026-10-28: "Rút luật, thay bằng src/shared"): the shell lives once in `src/shared/components/layout`, one fix one place; one sentence of history; the `cmp` blocks go. No other rule changes (the tree's 500 kB sentence is still the owner's separate call) — review S2-03.
+
+Built by agents in a run that stalled before its review; I finished the last stale lines and checked the result myself: every changed line of the three `AGENTS.md` read; a script over all backticked paths and links; CRLF everywhere; no code change.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#35	MERGED	BJoozz	created 2026-10-28	merged 2026-10-30	bj/tab-strip-reveal → main	Groups shell: the strip keeps its front tab in view when its width changes
+Review of 2026-10-27, finding S2-01, reproduced first: at /dfsbfs with the four panels in the left group and Status in front, Home on the left column's splitter (or a pointer drag, or a 720px window) left the strip at x 0..184 with the Status tab at 279..350 — wholly hidden while its panel showed. The reveal re-ran on the group's active tab, its tabs and its `size`, which for a side group is its height, so a width change never re-ran it.
+
+**Fix** (one shell file, `src/shared/components/layout/GroupView.tsx`, so the graph, tree and sorting pages all take it): the reveal is one function; a `ResizeObserver` on the strip re-runs it when the strip's width changes; a front tab already whole in view is left alone, so a strip the wheel moved keeps its scroll (DD-54's wheel rule unchanged). Guarded where `ResizeObserver` is undefined, disconnected on unmount.
+
+**Test:** a browser case in `e2e/graph.spec.ts` — Home on the splitter, a pointer drag to the minimum, a 720×900 window: the selected tab within the strip's visible area (±1px) and its panel shown each time; a wheel-scrolled strip with the front tab visible is not re-scrolled by ArrowLeft/ArrowRight on the splitter. It fails on main at the first step (Status 166px out of view). No vitest case: happy-dom's ResizeObserver never calls back.
+
+**Records:** DD-54 states the keep-in-view rule (it never had) with the width case, the measured numbers and its origin (the implementer's, with the V10 shell); TP-23 mirrors it; the graph guide's coverage sentence and checklist.
+
+**Checks:** lint, typecheck, `npm test` 650 + 2616, build, full browser suite 149/149; graph + tree specs again 76/76.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#34	MERGED	BJoozz	created 2026-10-28	merged 2026-10-30	bj/review-session-1 → main	Tooling: the browser suite insists on Inter, Node 22.12 is the floor, root scripts forward flags, CI keeps failure traces
+Four findings of the 2026-10-26 review (session 1), each reproduced before the fix. One commit.
+
+- **F01 — an LCA browser case fails where Google Fonts is unreachable.** Reproduced by blocking `fonts.googleapis.com`: the page declares no Inter face, `document.fonts.check` is true vacuously, text is measured in the fallback face (a column note 278px wide instead of 243, 52px over the legend instead of 34.5). The layout is fine; the suite's text pins only mean anything in Inter. `ready()` now asks for the Inter faces themselves and fails with the reason. The owner kept Google Fonts (2026-10-27); the tree guide says the suite needs the network.
+- **F02 — Node floor.** `test:graph` runs TypeScript through `--experimental-strip-types` (Node 22.6+); engines, README and AGENTS.md now say Node 22.12 or later (the owner's floor, 2026-10-27), the lockfile's root entry with them.
+- **F03 — root scripts swallowed flags.** `npm run test:e2e -- --workers=1 --output <dir>` from the root fed the flags to the nested `npm run` (npm took them as config; the path became a positional filter → "No tests found"). The root `test` and `test:e2e` scripts end in `--`; `npm run test:e2e -- --list --workers=1` now lists the 148 tests, and plain `npm test` runs as before.
+- **F04 — CI uploaded traces that were never written.** On CI: `retain-on-failure` traces, `only-on-failure` screenshots, an HTML report (open never) under the paths `app.yml` already uploads; locally unchanged.
+
+**Checks:** lint; `tsc -p tsconfig.test.json`; the config parses with `CI=1`; the strict guard fails with its message when Google is blocked (throwaway probe); tree + graph + dijkstra specs 83/83; `npm test` 650 + vitest.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#33	MERGED	BJoozz	created 2026-10-26	merged 2026-10-26	bj/legend-trim → main	Canvas legend: Binary Lifting's Query drops u = v and LCA, and the shared legend is smaller at 12px
+Branch from `main` after #32. Two commits.
+
+**1. The legend, trimmed** (`19aaef3`) — the owner's ask of 2026-10-25 and answers of 2026-10-25/26.
+- Binary Lifting's Query legend lists Current u, v · Visited · 2^k-th ancestor read · Lift path · Hovered; the canvas keeps drawing u = v and LCA with their badges (TP-35's drawn-classes test excepts those two classes).
+- The shared legend (tree and graph alike): text 13 → 12px (the owner's one exception to the 13px floor, recorded in DD-58, TP-28, AGENTS.md and the typeScale test), padding 12 → 8px, tighter gaps, swatches 20 → 16px, box 288 → 264px (16.5rem, the owner's choice: the narrowest in quarter rems that cuts no name but "Maximum Flow · Residual", already cut before), compact height threshold 261 → 221px. The Query legend goes from 288 × 206 to 264 × 148; every graph legend is 14–22% shorter; "Maximum Flow · Flow" is whole again.
+
+**2. Step notes meet the smaller legend** (`1671990`) — with the 264px legend the page's own layouts no longer put a note under it at 1366 × 768, so the three browser cases that prove a note keeps its place whatever the legend (DD-61, TP-36) now pan the node under the open legend first (`panNodeTo`, shared with the DD-13 case) and read the note against it (`readNoteOverLegend`); TP-34/35/36 and DD-13/DD-61 carry the numbers measured on this branch.
+
+**Checks:** lint and typecheck clean; `npm test` 650 (graph) + 2616 (vitest); build; full browser suite 148/148.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#32	MERGED	BJoozz	created 2026-10-25	merged 2026-10-26	bj/dijkstra-step-notes → main	Graph: Dijkstra's relax step writes its verdict on the drawing (DD-61), on the shared step-note layer
+Branch from `main` (163688c). Step notes (tree TP-34/TP-36) come to the graph: Dijkstra's relax step writes its verdict over the target node (DD-61). Five commits:
+
+**1. The layer moves to `src/shared`, and the graph canvas mounts it** (`08590ef`)
+- The note writer and types, the generic half of the placement and the layer itself live in `src/shared`; the tree keeps its badge model and a thin wrapper, so its note tests keep their assertions (vitest 23 files / 159 tests unchanged, 20,000-scenario fuzz 0 mismatches).
+- The graph mounts the layer after its legend panel with an anchor resolver (distance badge counted at its 1.55× flash, PIN, weight labels as obstacles) and tracks each step's arrival. No visible change.
+
+**2. The canvas legend is no longer an obstacle** (`157d9a9`) — the owner's answer of 2026-10-25: the legend has Hide, so a note keeps its place over its node whatever the legend; its rise is not capped by it; it draws over the see-through legend. Both canvases; TP-34/35/36 record it.
+
+**3. Dijkstra's relax step writes its verdict** (`6b1a4fc`)
+- One note per relax step, from the step's own `relaxation` metadata: first reach `0 + 4 = 4` and update `4 + 3 < 8 · update` in green; equal `2 + 1 = 3 · keep`, longer `3 + 5 > 4 · keep` and `already settled` in red (the owner's choices). Nothing on an inspection (its verdict waits), a select, a settle or the end; no ∞ on the canvas; keys carry the run; forward arrival only (the one arrival effect Previous does not replay).
+- Status's relax sentences say the sum and the verdict; the false "Keep the shorter existing distance" on an equal candidate is gone; an overflowed sum prints ∞ as the Relaxation row does. The engine's frames, distances and predecessors are unchanged (probe diff: sentences only).
+- The graph's placement keeps a note to its own node and clears marks at the note's pop — two options of the shared placement, off for the tree.
+
+**4. e2e waits for Inter** (`8d73c04`) — `ready()` loads the face and waits for it before a test measures text; a note's width in the fallback face failed one run in four.
+
+**5. Records** — DD-61 and amendments to DD-13/17/22/32/37/42/43; tree TP-34/TP-36 and backlog 17 (one shared layer; Dijkstra done; Segment, Kruskal, Kahn, Bellman-Ford and sorting still open); guides and backlogs.
+
+**Left for the owner (in the backlogs):** on the crowded samples at fit zoom (Large, MRT) the least-covered fallback still puts some notes on another vertex or a weight (34 / 95 of 444 notes); the tree's identical pop overshoot (525 of 49,947 fuzz notes would move with `clearAtPop`); decimal rounding of badge, table and note together; an overflow guard at Play.
+
+**Checks:** lint and typecheck clean; `npm test` 650 (graph) + 2615 (vitest); build; full browser suite 148/148 (e2e/dijkstra.spec.ts 8 new cases).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#31	MERGED	BJoozz	created 2026-10-24	merged 2026-10-24	bj/step-notes → main	Tree: step notes for the BST, AVL and heap steps (TP-36), onto main
+PR #30 was stacked on `bj/step-notes` (PR #29's branch) and merged there after #29 had already gone into `main`, so its six commits never reached `main`. This PR brings them: it is `bj/step-notes` as it stands now, that is PR #30's merge and nothing else.
+
+The six commits, each checked green on the branch (lint, typecheck, `npm test`, build, full browser suite 140/140):
+
+- `7180d81` Tree: step notes for AVL Inspection, AVL Insert, AVL Delete and BST Delete
+- `277405c` Tree: step notes for the BST queries, traversals and Insert, and a NONE end badge
+- `94ec5db` Tree: step notes for the Binary Heap, and TP-36 complete
+- `e282096` Tree docs: the owner's answers on the NONE legend and the rise over the row above
+- `a82071e` Tree docs: paths of the unified app, and the canvas legend's open points out of the backlog
+- `1df8a0c` TreeCanvas: the stepNotes comment names the Heap among the workspaces that pass notes
+
+See #30 for the description.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#30	MERGED	BJoozz	created 2026-10-24	merged 2026-10-24	bj/step-notes-2 → bj/step-notes	Tree: step notes for the BST, AVL and heap steps (TP-36)
+Stacked on #29 (base `bj/step-notes`); retarget to `main` once #29 merges.
+
+Extends TP-34's step notes from Binary Lifting to every other tree algorithm (TP-36): a step that changes nothing on the drawing writes its verdict over the node instead of only in Status. Three commits, each complete with tests, docs and e2e.
+
+**1. AVL Inspection, AVL Insert, AVL Delete and BST Delete** (`7180d81`)
+- The note layer learns the badges drawn below a node (`h= bf=`, `rank=`, `size=`), the number popups, the heap's `i=` badge and the open canvas legend, so a note never covers them.
+- AVL Inspection: `h = 3 · bf = +1` (ink) on the compute step, `balanced` (green) / `bf = −2 · unbalanced` (red) on the assess step. AVL Insert / Delete: the balance check, the heavy child and the rotation about to happen. BST / AVL Delete: the walk's comparisons, the case (`leaf · remove`, `two children · find successor`) and `4 removed` on the parent.
+- Status loses the Comparison row in those three panels; three false sentences fixed (AVL Insert's "continue upward" at the root, AVL Delete's balance factor shown a step early, AVL Insert's classify naming the rotation).
+
+**2. BST queries, traversals and Insert, and a NONE end badge** (`277405c`)
+- Search, Insert, Min / Max, Pred / Succ, Lower Bound, Select, the three traversals. A comparison that only tells a direction is ink (`2 < 8 · left`, `rank 4 < k 5 · right, k = 1` with the subtree's local k over the parent that decided), a hit is green (`2 = 2 · found`, `candidate 10`, `rank 1 = k`), a dead end is red (`no left child`, `has right child · not pred`, `no key ≥ 21`, `no predecessor`). The traversals note only their dead frames.
+- Pred / Succ's and Lower Bound's "none" ends wear **NONE** in MISS's look (TP-19): on v for Pred / Succ, below the last node for Lower Bound.
+- Status loses the Comparison row in Search, Insert, Lower Bound and Select; Lower Bound's row was false on move frames, which its removal ends.
+
+**3. Binary Heap** (this commit)
+- Every sift's comparison: a swap is green (`1 < 7 · swap up`, `10 > 3 · swap down`, the sign by Min / Max), a stop is ink (`no swap · order satisfied`), a tie adds `tie · left` over the chosen child, Update key's unchanged value says `3 = 3 · no sift`. No note on a popup step.
+- Insert, Extract once and both Creates move onto `useHeapRunView`; `HeapMode` passes the notes to the tree canvas (the array view has no layer).
+- Status loses the Comparison row in the six heap inspectors; the climb / sink sentences now live in one place (`heapSifts.ts`).
+
+**Owner's answers recorded in TP-36 (2026-10-23):** direction-only comparisons in ink; a heap stop in ink, not red (Binary Lifting's red `keep` stays: a tried jump is rejected there); Status loses only the Comparison rows; a NONE end badge.
+
+**One point left for the owner:** the Pred / Succ Status legend does not name the red dashed style v takes on the NONE end (Search's legend names "Not found", Lower Bound's "No lower bound"). A "No predecessor / No successor" swatch was built and then removed as beyond "only drop the Comparison row"; adding it back is one line plus its three assertions.
+
+**Checks:** lint and typecheck clean; `npm test` 626 (graph) + 2603 (vitest); `npm run build`; full browser suite 140/140, `e2e/tree.spec.ts` 62/62 (8 new scenarios across the three commits).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#29	MERGED	BJoozz	created 2026-10-23	merged 2026-10-24	bj/step-notes → main	Tree: step notes, floating text on the canvas (Binary Lifting first)
+## Why
+
+The owner's request (2026-10-23): floating text on the canvas for the steps that change nothing on the drawing ("dead steps"), floating in and gone soon after like the Segment Trees' value popups (TP-20), **red when a step rejects, green when it accepts**; Binary Lifting first; Status trimmed where the drawing now says it. Codex's note was checked claim by claim first; several of its proposed labels were false on hops clamped at the root, and two of its proposals contradicted TP-20.
+
+The owner's four answers to the plan, recorded in **TP-34**:
+- "Lớp riêng, không co theo zoom" — the notes live in a canvas layer outside the pan/zoom transform, always 14px, following their node.
+- "1.6s rồi tắt" — 1.6s stepped by hand, cut to the step while playing, none on Previous/First/Last/scrub (TP-20's rule).
+- "Bỏ Columns ready dưới Query + câu ngắn hơn" — Status drops the constant row under Query; the depth checks and comparisons say their verdict in a shorter sentence.
+- "Phần tử dùng chung + Query + Preprocessing" — one PR: the shared element, the layer, every note of both runs, the wording fixes, TP-34.
+
+## What changed
+
+- **One shared element** (`src/shared/components/canvas/FloatingText.tsx`, `src/shared/styles/floating-text.css`, `src/shared/visualization/{floatingText,floatingTextTiming,useStepArrival}.ts`): TP-20's popup moved out of the tree with two forms. The **number form** is unchanged on screen for the Segment Trees and the Heap (+7 / −11, 0.8s). The **text form** is a 14px pill on the card colour in three tones, `accept` (green), `reject` (red) and `note` (ink), as theme tokens that read at 4.89:1 or better on the pill in all nine themes.
+- **The note layer** (`StepNoteLayer.tsx`, `stepNotePlacement.ts`): a child of `<ReactFlow>` outside the transform; places each note over its node clear of every badge, beside it when the node is near the canvas top, or below; a whole-table note at the top centre or a top corner; stacks overlapping notes; hides a note whose node leaves the canvas (clock still running, so no replay); never changes the canvas size.
+- **Binary Lifting's notes** (`stepNotes.ts`): `gap 3 < 4 · keep u` (red) / `gap 5 ≥ 4 · lift u` (green) over the deeper cursor; `↑ 4 levels` where the cursor lands; `same ancestor · keep u, v` (red, one note on the shared ancestor, so a stay never reads as "LCA found") / `differ · lift both` (green); `↑ n` on both landing nodes; `mid · ↑n` and `↑n more` / `root · stays` on the worked examples; `column k = 2 filled · 4 up, or the root` at the canvas top. None on the start, the wave, the common parent and the end. **Every distance is the levels the hop really walks**, never 2^k.
+- **Wording fixes** in the step descriptions, which were false on hops that reach the root early ("another 2 levels up" for one level; "two jumps of 2 make one jump of 4" where the cell holds the root), plus "1 levels" and "a 8-level"; the shorter verdict sentences; Columns ready under Preprocessing only.
+- **Records:** TP-34 (owner's words quoted and dated, the implementer's choices named); TP-20's regression clause narrowed to the number form, and its and TP-17's stale "saved image" sentences corrected (Save image was removed in 3c79d36); README, ARCHITECTURE, DEVELOPER_GUIDE, backlog (item 17: candidates for the graph and sorting; "over the row above" at low zoom; the 12.8px cell popup that predates this round).
+
+## Checks
+
+- lint clean (two existing warnings in `src/site/ModuleBar.tsx`), typecheck clean, build OK
+- `npm test`: 626 graph + 2462 vitest, all passing (41 new tests: note builder on every frame of three trees and every distance against the depths on every pair of four trees; timing; tones in nine themes; placement; layer; corrected descriptions on five trees; Status row)
+- full browser suite 123/123; the tree spec 46/46 rerun by me on a fresh port
+- two review passes (browser behaviour; code, records and tests) found six issues, all reproduced and fixed: a note clamped over a root's badges near the canvas top (now beside the node), the column note over the deep chain's ROOT (now a corner), a flaky zoom read in a new e2e test (now waits for the fit to rest), a note held on the canvas while its node was panned off (now hidden)
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#28	MERGED	BJoozz	created 2026-10-22	merged 2026-10-22	bj/graph-traversal-ts-bgc-cvb → main	Graph Traversal: Topological Sort, Bipartite Graph Check, Cut Vertex & Bridge
+## Why
+
+The Graph Traversal card listed seven of visualgo.net's algorithms and had three (BFS, both DFS). This adds the next three; Strongly Connected Components and 2-SAT are a later round. Codex's research note was checked claim by claim against visualgo.net's `dfsbfs.blade.php` and this app before planning; it was input only.
+
+The owner's choices (2026-10-21), recorded in **DD-60**:
+- "thực hiện trước 3 thuật đầu tiên" — do the first three now.
+- "Một mục mỗi thuật toán, chọn biến thể trong Action" — one switcher entry per algorithm, its variant chosen by a **Method** control in the run form (in place of DD-33's one entry per variant).
+- "Dừng tại bằng chứng, kết luận ngay" — Topological Sort on a cyclic graph stops at the evidence and concludes, where visualgo.net discards the run and prints an error.
+- "Deck ngắn như graph hiện có, lấy slide gốc nơi có" — short decks, visualgo.net's own slide text where it has some.
+- "Một PR, ba commit trọn vẹn" — one PR, three complete commits.
+
+## The three commits
+
+1. **Topological Sort** (TOPO; Method DFS | Kahn) and the Method control (`algorithmMethods.ts`: listings and legends keyed by method only for algorithms that have one; the run keeps its method; a new method ends a run, as a new start node does). Directed only: an undirected graph is refused when Autoplay starts the run, as Max Flow refuses one, without flipping Directed. DFS uses three states and stops at the first back edge, drawing the cycle as Bellman-Ford draws its witness (a self-loop included, which visualgo's DFS misses); a root's start and entry are one step (DD-44). Kahn badges indegrees, removes one edge per step, and when stuck rings the vertices left, saying each lies on a cycle or behind one. With an order, every vertex is badged with its place, 1 first.
+2. **Bipartite Graph Check** (BIP; Method DFS | BFS), read undirected through DD-30's view. Each vertex with no side roots a traversal on side A; a same-side edge stops the run and draws the odd cycle it closes (down the call stack, or up the two BFS-tree paths). Sides are two node looks plus an A/B badge, so they never rest on colour alone.
+3. **Cut Vertex & Bridge** (CVB; no Method), read undirected. DFS with `num,low` badges; the parent edge is skipped **by edge id**, so a second edge to the parent is a back edge (visualgo.net skips by vertex and would call a doubled edge a bridge). Cut vertices keep a double ring, bridges a wide green. CP4 4.22 and Large, Cycles answer otherwise than visualgo.net, which merges opposite arcs into one edge; their descriptions say so. The undirected adjacency moves to `undirectedAdjacency.ts`, shared with Bipartite.
+
+Common to all three: no start node, every component covered in node order, adjacency built once in the canonical edge order (visualgo sorts by target index; recorded), parallel edges and self-loops as ordinary edges, a Status inspector with search, visualgo's nine traversal examples as samples, short decks, and no two consecutive frames drawing the same canvas (DD-44). Both card lists (Graph Traversal, Graph Editor) gain the three; the Graph Traversal card stays partial (5 of 7).
+
+## Checks (on the branch rebased onto main 01a1a4a)
+
+- lint clean (two existing warnings in `src/site/ModuleBar.tsx`), typecheck clean, build OK
+- `npm test`: 626 graph tests + 2421 vitest, all passing
+- full browser suite: 117/117 (new `e2e/graph-traversal.spec.ts`)
+- per algorithm, seeded property tests: Topological Sort's order on random DAGs and its refusal on cyclic graphs, Bipartite against an independent 2-colouring, Cut Vertex & Bridge against brute-force removal on random multigraphs with parallel edges and self-loops
+- each step was built and then reviewed twice (browser behaviour; engines, records and tests); every finding was reproduced before it was fixed
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#27	MERGED	BJoozz	created 2026-10-20	merged 2026-10-20	bj/heap-value-rule → main	Binary Heap: heap values follow the Segment Trees' decimal rule (no overflowing popup)
+## Why
+
+Codex's review of #25/#26 reported one defect: Update key's value popup read `+Infinity` for a min heap `[-1e308, 5]` with A[1] set to `1e308`. The heap took any finite number, and the popup's change fell back to floating point once a value was past the decimals the tree holds, where `1e308 − (−1e308)` overflows a double; v = `1e20` likewise floated a 21-digit change. Reproduced in both directions before fixing.
+
+The owner's choice (2026-10-21): "Giới hạn giá trị nhập trong ±1e15 (15 chữ số như quy tắc thập phân)" — limit heap values to the Segment Trees' decimal rule (TP-13): at most 6 decimal places and 15 digits in all, so |v| < 10^15 and every change is exact.
+
+## What changed
+
+- **One rule, one place**: `src/tree/heap/model/heapValue.ts`. `readHeapValueText` reads a typed value as written (via `parseDecimalText`, never `Number()`, so `0x10` and `1_000` are refused rather than read as 16 and 1000); `heapValueProblem` says why a number is not a heap value.
+- **Every entry uses it**: the editor's items (`parseHeapText`), Create's Values, Insert's value, Update key's v (`heapIndexInput.ts`), and `validateHeap`; the Insert, Update key, Create and Delete engines guard with it, so a value is refused in the same words wherever it comes from:
+  - editor / Create: `Heap item 3 ("1e20") has more than 15 digits.`, `Heap item 1 ("0.1234567") has more than 6 decimal places.`
+  - Insert / Update key: `Heap value has more than 15 digits.`, `Heap value has more than 6 decimal places.`, `Heap value must be a finite number.`
+- **Popups**: `changeBetween` lost its float fallback; the change is exact, and one that would need 16 digits (−999999999999999 set to 999999999999999) floats nothing rather than a rounded or infinite one.
+- **Delete's raise** refuses a root whose A[1] ∓ 1 needs 16 digits (`Delete needs a value smaller than the root -999999999999999, and A[1] - 1 has more than 15 digits.`); **Update key's default v** falls back to the root's own value at that edge, so the field never starts on a value it refuses. Both are implementer's choices, named as such in TP-33.
+- Heap e-Lecture slide 1 states the rule; `docs/tree` (TP-33 record, README, ARCHITECTURE, DEVELOPER_GUIDE, backlog) describe the current state.
+
+## Checks
+
+- lint clean (two pre-existing warnings in `src/site/ModuleBar.tsx`, untouched), typecheck clean
+- `npm test`: 543 (graph) + 2421 (vitest) passing; tree alone 281 in the heap/editor folders
+- build OK
+- `e2e/tree.spec.ts` 40/40 (new: a value past 15 digits refused by Update key and by the editor); full browser suite 107/107
+- probe: `1e308`, `-1e308`, `1e20` now refused at the form in both directions; `999999999999999` and `2.5` accepted; the engine refuses a 16-digit value already in the array with `Cannot run Update key: Heap item at index 1 has more than 15 digits.`
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#26	MERGED	BJoozz	created 2026-10-20	merged 2026-10-20	bj/heap-rename-ids → main	Binary Heap: name the extract by the extreme it takes, not by min
+Stacked on #25; its base moves to `main` once #25 merges. A mechanical rename, no behaviour change: the owner's choice of 2026-10-21 ("đổi tên ngay … trong một PR riêng").
+
+Since the heap serves either order (TP-33), the internal names that said *min* while meaning the root's extreme now say so: operation id `heap-extract-min` → `heap-extract`; phases `select-min` / `remove-min` → `select-extreme` / `remove-extreme`; line ids `save-minimum` / `return-minimum` → `save-extreme` / `return-extreme`; `HeapExtractMin*` types and functions → `HeapExtract*`; the files `createHeapExtractSequence.ts`, `heapExtractPseudocode.ts`, `useHeapExtractVisualization.ts`, `HeapExtractInspector.tsx`; the class `heap-extract-item--extreme`, the legend swatch `heap-legend__extreme` and its tokens. Kept: every word that really means the minimum under Min (the order words, narration, the MIN badge, "Extract Min" labels under Min, visualgo.net's own names, the samples, the route's former id). No id reaches storage or the URL, so no fallback was needed.
+
+Checks: lint and typecheck clean; `npm test` 543 + 2411; build; full browser suite 106/106; grep confirms no old identifier remains outside the kept meanings.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#25	MERGED	BJoozz	created 2026-10-20	merged 2026-10-20	bj/heap-operations → main	Binary Heap: Min/Max order, 1-based indices and visualgo.net's operations (TP-33)
+The Binary Heap round, the owner's request of 2026-10-20: do for the heap what the BST/AVL round did (TP-15) — visualgo.net's missing operations, and "Binary Min Heap" becomes **Binary Heap** with a Min heap / Max heap switch.
+
+**The owner's choices** (TP-33): all six groups; switching the order heapifies a custom array silently in O(N) (a sample reloads its twin); Heap sort is query-only (the heap is unchanged after Stop); indices are **1-based** as visualgo.net's; the page draws at most 31 items (visualgo.net's own normal-scale limit; the owner asked for 31 or 63).
+
+**What is in it**
+- A "Heap order: Min heap | Max heap" control above the operation radios; every comparison, message, badge, listing sign and label follows the order. Workspace id `binary-heap`; `/heap/min-heap` redirects.
+- Six groups in the BST round's form: **Create** (O(N log N) | O(N), from a values field with visualgo.net's default list and its best/worst-case presets), **Insert**, **Extract** (Once | K times, with an output rail under the array), **Update key**(i, v) with value popups, **Delete**(i) by the original's root∓1 trick, **Heap sort** (Default | In-place: the sorted tail leaves the heap, faded on the tree, SORTED on the tiles). Mutating runs preview and Apply; the sorts only show.
+- 1-based `i=` badges, array indices, forms and listings (parent i div 2, children 2i, 2i+1).
+- The e-Lecture deck rewritten after visualgo.net's fifty slides (36 slides, Try its checked by the deck test against the engines); TP-33; README, ARCHITECTURE, the guide and the backlog.
+- The original's slips not copied: UpdateKey's wrong lit line and missing closing frame, HeapSort stopping at N−1, the never-shown extract error, PartialSort forbidding K = N.
+
+**Checks:** lint and typecheck clean; `npm test` 543 + 2411; build; full browser suite 106/106 (14 heap specs). Each step was built by one agent and reviewed by two (browser behaviour; engines, records and tests, with property tests over random heaps under both orders), the findings fixed before the next step.
+
+**For the owner, recorded in backlog item 16:** the home card still says "1 of 2" for the heap module (whether this page also counts as visualgo.net's Priority Queue entry); the output rail lists values in the order they leave, where visualgo.net fills its list from the back; the internal ids keep their `-min` names.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#24	MERGED	BJoozz	created 2026-10-19	merged 2026-10-19	bj/lca-hover-ancestors → main	LCA: hover a node to see its path to the root and its 2^k-th ancestors (TP-32)
+The owner's request of 2026-10-19: in LCA (Binary Lifting), something like Dijkstra's last-step hover, but on every step while the run rests: hover a node and see its path to the root and its 2^k-th ancestors (distance 1, 2, 4, 8, …) emphasised.
+
+**What it does**
+- While a Preprocessing or Query run is **paused or finished** (not while it plays, not without a run), the node under the pointer draws its parent path to the root in the accent (5px), a thin ring on each path node and a **double ring with the distance label** ("1", "2", "4", …) on each 2^k-th ancestor; only k with 2^k ≤ depth, so cells clamped to the root never stack rings on it.
+- Under **Preprocessing** only the columns already filled at that step are ringed; the path to the root is always shown.
+- The **Ancestor table** marks the hovered row and the ringed `up[v][k]` cells, without opening, paging or scrolling; **Status** shows one line while the pointer rests ("6 → 4 → 8 (root) · up[6]: 4, 8"); the LCA legend gains the entry.
+- The step's own fills, badges, glows and streaks stay underneath (classes are added, nothing replaced); nothing animates on hover, mouse leave clears at once, the session is never touched, and neither "Animate paused steps" nor reduced motion changes it. One pure query (`hoverQuery.ts`) and one presentation layer (`hoverPresentation.ts`), wired in `TreeMode` from React Flow's node hover.
+- TP-32 records it (the owner's four answers and the implementer's choices apart); TP-17 and TP-04 name the pointer effect; README, ARCHITECTURE, the guide and the LCA deck's query slide follow.
+
+**One departure for the owner's word** (recorded in TP-32 and backlog item 15): on the Preprocessing initialisation frame the 7px depth wave would cover the 5px hover path, so a wave on a path edge takes the accent instead of its own colour (it does not replay). Removing one CSS rule restores the wave's colour.
+
+**Checks:** lint and typecheck clean; `npm test` 543 + 2241 pass; build; full browser suite 92/92 (two new tree specs: the hover's path, rings, labels, table row and Status line on a paused Query step and on the finished frame, the Preprocessing column gate, nothing during playback; and that the hover ignores the motion toggle and reduced motion and starts no easing). Screenshots of the four states were taken and checked.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#23	MERGED	BJoozz	created 2026-10-19	merged 2026-10-19	bj/lca-two-runs → bj/tree-centre-edges	LCA: Preprocessing and Query as two runs chosen in the Action panel (TP-31)
+Stacked on #22 (tree edges); its base moves to `main` once #22 merges.
+
+The owner's request of 2026-10-19: LCA (Binary Lifting) as two separate runs, **Preprocessing** and **Query**, instead of one run with two phases; the two Status buttons that jumped between the phases go; the phase is chosen in the Action panel.
+
+**What it does**
+- A radio at the top of the run form, "Preprocessing | Query", as BST, Heap and the Segment Tree choose their operations. The tab opens on Query (the owner's choice).
+- **Preprocessing** fills the ancestor table (the same 11 steps on the default tree) and reads no u or v: the two selects stay in view but dimmed and disabled (the owner's choice; the tree otherwise hides a field an operation does not use).
+- **Query** starts with the table complete and lifts u and v (6 steps for the default pair 6, 2 → 4). It runs at any time; nothing switches the radio when Preprocessing finishes.
+- Status names the running operation and keeps its state per phase; each operation has its own pseudocode listing (4 and 7 lines) and strip text; the Ancestor table tab is offered under both; changing the root, the tree, u or v still ends a run. One engine builds both sequences (`buildBinaryLiftingContext`).
+- TP-31 records it; TP-04, the README, ARCHITECTURE, the developer guide and the e-Lecture deck (slides 1, 2-1, 3) say the new shape. Tests that pinned the one-run model (`queryStartIndex`, the "Query phase" button, one Play tooltip) now pin the two-run model.
+
+Also: `src/shared/styles/typeScale.test.ts` now finds the shared stylesheets on Windows (it matched `/shared/` against backslash paths); the invariant is unchanged.
+
+**Checks:** lint and typecheck clean; tree vitest 1532/1532; `npm test` 543 + 2226 pass; build; full browser suite 90/90 twice. Screenshots of both operations idle and mid-run were taken and checked.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#22	MERGED	BJoozz	created 2026-10-19	merged 2026-10-19	bj/tree-centre-edges → main	Tree edges between the node centres, rim to rim (TP-30)
+The owner's request of 2026-10-19: tree edges run from the parent's centre to the child's centre, as the graph's do, instead of from the parent's bottom handle to the child's top handle.
+
+**How:** every edge lies on the line through the two node centres and is drawn from rim to rim (`treeEdgeGeometry.ts`), so it reads as centre-to-centre under an opaque node and never shows through a translucent one (Segment Tree's faded nodes). The wave, the paused streaks and the Trie's letter share that one path, so a wave still ends where the child begins and the lazy popups keep their timing. Centres come from the displayed node positions, so edges follow their nodes through BST/AVL rotations, heap sifts and root changes; overlapping circles draw nothing for that frame. Source stays the parent; layouts, timelines and algorithms are untouched. One rule for all seven workspaces, no setting (TP-30).
+
+**Adjusted where the diagonal edge now ran under something:** the +/− collapse button sits at the node's right side instead of its bottom-right corner; a heap parent's `i=N` index sits at its left side (leaves keep the bottom); a faded Segment Tree node is drawn opaque over the canvas colour so its range label hides the edge as before.
+
+**Checks:** 9 geometry unit tests, 3 component tests, 7 new browser tests (edge ends 32px from each centre on the centre line in both orientations; nothing under the +/− buttons or heap indices); frame-by-frame probes during AVL, lazy Segment Tree and LCA runs (28k samples, every end at 32.0); full browser suite 89/89; typecheck and lint clean; unit suites 543 + 2211 pass. The one failing unit test on Windows, `src/shared/styles/typeScale.test.ts`, is a path-separator issue already on main and not touched here.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#21	MERGED	kerktaiheng	created 2026-10-18	merged 2026-10-18	v10-polish → main	V10 polish: one font, one control look, graph's editor layout everywhere, better drag, less chrome
+Stacked on #20 (base `v10-single-app`). Merge #20 first; GitHub then retargets this to `main`.
+
+The owner's ten requests of 2026-10-18 (choices 33–41 in `design/proposals/viz-shell-v10` §0.1), plus the dead-code removal.
+
+| # | Request | What changed |
+| --- | --- | --- |
+| — | Delete the dead standalone code | Each visualizer's own `TopBar`, its `SettingsMenu`, and the theme writer behind them are gone. The site draws the only bar and owns the theme; the visualizers only follow it (`useTheme()`). Tree's App tests mount the app under a small test bar. |
+| 1 | One font | Buttons, tabs, selects and inputs rendered in **Arial**, because form controls don't inherit the page font. They now take Inter. Code and data use the design system's JetBrains Mono through `--font-mono`; no stylesheet names a monospace face of its own. |
+| 2 | Everything looks like the Select preset dropdown | `src/shared/styles/controls.css` styles every control once: 8px corners, hairline border, sunken fill. The design system's 2–5px radii are 8px across the app. The top bar's language picker and Settings button match. |
+| 3 | No "valid" stuff | Editors show errors only: no `valid` badge, no "Valid undirected tree…" line. |
+| 4 | Drag regressed | Over the held tab's **own group** (when it holds other tabs) the body splits in halves, so dragging e-Lecture down past the middle stacks it under Action. Over other groups the split bands are **a fifth** of the body, no 32px cap. |
+| 5 | Tree tabs = graph tabs | Every edit action uses the graph's layout from `src/shared/styles/editor.css`: summary tiles, then the data, then sections (Structure, Subtrees). Gone: the collapsible data section, Load sample, the Selection box, "Display only". |
+| 6 | Add node / Delete selected under Graph data | Done (`GraphDataActions`). |
+| 7 | Remove Login | The design system `TopBar` takes `account={false}`. |
+| 8 | Remove About · Team · Terms | Removed from the visualizer footer and the homepage footer (Privacy policy stays). |
+| 9 | Remove the ▽ on the search | The toggle and the tag filters it opened are gone. |
+| 10 | Card icons missing | The asset sync deleted `public/ds` on every build, which left a running dev server serving the page instead of every image. It now copies in place. |
+
+Kept on purpose: the tree picker's **Load balanced sample** (the BST and AVL e-Lectures tell readers to use it), and the trie's selected-prefix and segment trees' selected-range readouts.
+
+## Checks (local, Node 24)
+
+- lint: clean apart from the 2 existing `ModuleBar.tsx` fast-refresh warnings
+- typecheck: clean
+- unit: 545 graph (`node --test`) + 2,203 vitest, all pass
+- build with `VA_BASE=/visualgo-plus-design/`: OK
+- browser suite: 83/83. Two sorting tests timed out under load and passed when rerun alone. The Prim test that measured the Login button is updated.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+-----
+#20	MERGED	kerktaiheng	created 2026-10-18	merged 2026-10-18	v10-single-app → main	Keep V10 only: one app in prototypes/, npm run dev from the root
+V10 wins; everything else is gone. **This branch includes #19** (the six V10 fixes), so merging this one merges both.
+
+## What changed
+
+- **Deleted** the split-rails (V2) and docks (V7) copies of graph, tree and sorting, their two sites, and the three upstream submodules (`graph-visualizer-v2`, `tree-visualizer`, `sorting-algorithm-visualizer`; the repos on GitHub are untouched).
+- **One app in `prototypes/`.** The V10 site is `src/site`. The visualizers are `src/graph`, `src/tree` and `src/sorting`, and each is only a route of the site (`/sssp`, `/bst/avl`, `/sorting`, …). The standalone pages are gone, along with their entry points, the graph sandbox and their browser suites; the site's suite drives every route and stays.
+- **No more copies.** The 40 files the three visualizers held byte for byte (the panel-groups shell, the chrome, storage, themes, the shared sheets) now live once in `src/shared`, with one copy of their tests. A shell fix is now one edit.
+- **Run from the root.** npm workspaces: `npm install`, then `npm run dev` from the repository root, served on http://127.0.0.1:5186. `build`, `preview`, `lint`, `typecheck`, `test` and `test:e2e` work from the root too.
+- **CI** is one job set (`app.yml`, replacing the six-folder matrix). **Pages** builds the app from the root; the engine stays at `/engine/`.
+- **Docs.** A new `prototypes/AGENTS.md` and a root `README.md`. Each visualizer's docs moved to `prototypes/docs/<module>/`, and its old `AGENTS.md`/`README.md` is marked historical.
+
+Size: 3,510 files changed, 346k lines deleted; `prototypes/` went from ~3,400 tracked files to 927.
+
+## Checks (local, Node 24)
+
+- `npm run lint`: clean, apart from 2 existing fast-refresh warnings in `src/site/ModuleBar.tsx`
+- `npm run typecheck`: clean
+- `npm test`: 545 graph (`node --test`) + 2,217 vitest, all pass. The rewritten type-scale test now covers every stylesheet; it caught three `font:` shorthands still under 13px, which are now fixed.
+- `npm run build` with `VA_BASE=/visualgo-plus-design/`: OK
+- `npm run test:e2e`: 83/83. The first runs had 12–16 failures from `net::ERR_NETWORK_CHANGED`: Chromium on this WSL machine drops every in-flight request when Windows reports a network change. All of them passed on rerun.
+
+## Not done
+
+- Each visualizer still carries its standalone-only code path (its own `TopBar`, settings menu and theme handling) behind `renderTopBar`. It's dead now that every visualizer is hosted, and removing it is a follow-up.
+- Near-identical files that differ slightly (footer, pseudocode panel, keyboard shortcuts, `viz-page.css`) are not merged yet.
+- Bao's open branches against the deleted folders will not merge.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+-----
+#19	MERGED	kerktaiheng	created 2026-10-18	merged 2026-10-18	v10-owner-fixes → main	V10: thin split bands, vector transport, Select preset, Draw graph toggle, push-only Live layout, no small text
+The owner's six fixes to the deployed V10 build, choices 27 to 32 in `design/proposals/viz-shell-v10` §0.1. Each one is made in `graph-visualizer-groups` and carried into the tree and sorting copies; the shell files stay byte-identical across the three.
+
+| # | Fix | What changed |
+| --- | --- | --- |
+| 27 | Drag a pane: only worked past the centre of the destination | A group's split bands are now thin strips, 15% of its body and at most 32px (were 30%), so a tab held anywhere else over a group joins it. `dropTargets.ts`, DD-52 |
+| 28 | Low-res, ugly transport icons | `TransportIcon.tsx`: First, Previous, Play, Pause, Next and Last as vectors in the bar's text colour, replacing 10 to 16px PNGs |
+| 29 | The picker should say Select preset, not Graph | Reads **Select preset** · "Custom graph" or the sample's name; the tree's says "Custom tree", "Custom heap" and so on |
+| 30 | Draw graph should be an open/close toggle | A full-width disclosure with a chevron that flips, `aria-expanded` instead of `aria-pressed`; the tree's Edit tree/heap/words/array the same |
+| 31 | Live force layout moved the whole graph | `src/editor/pushApart.ts`: a drag pushes away only the nodes it comes within 104px of (node + 40px gap), and those push their own near neighbours; nothing else moves, pinned nodes never do. Auto layout unchanged. DD-57 |
+| 32 | Remove all small text; size up the lecture | The grey how-to hint lines are deleted (status idle text, sample notes, no-parameter hints, complexity lines, editor format lines, shortcut notes). Warnings and status readouts stay. Every font size under 13px is 13px, and the e-Lecture is 20px/16px. DD-58, TP-28, SP-19 |
+
+Not changed: sorting's bar and bucket labels, which are drawn on a `<canvas>` sized to fit their bars; the V2 (split rails) and V7 (docks) copies.
+
+## Checks (local, Node 24, Chromium)
+
+- graph: lint, both tsc, 622 unit (8 new for `pushApart`), build, browser suite 176/176
+- tree: lint, both tsc, 1626 vitest, build, browser suite 121/121
+- sorting: lint, tsc -b, 669 vitest, build, browser suite 91/91
+- visualgo-web-groups: lint, tsc -b, 24 vitest, build with `VA_BASE=/visualgo-plus-design/`, browser suite 83/83
+
+Some browser tests failed on the first pass because the dev server was slow or the network dropped (pages that never rendered, `ERR_NETWORK_CHANGED`). Each passed when rerun on its own.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+-----
+#18	MERGED	kerktaiheng	created 2026-10-18	merged 2026-10-18	deploy-v10-pages → main	Deploy V10 to GitHub Pages, with the engine demo at /engine/
+Pages served the wasm-arch engine demo at the root. It now serves:
+
+- `/` — the V10 site, `prototypes/visualgo-web-groups`, built with `VA_BASE=/visualgo-plus-design/` so its asset URLs, router basename and icon prefix follow the subpath. The build's `404.html` keeps deep links such as `/bst/avl` working.
+- `/engine/` — the wasm-arch build, as before but with `VITE_BASE=/visualgo-plus-design/engine/`.
+
+The site aliases the three groups visualizers' sources, so the job runs `npm ci` in all four folders. A pull request that changes `pages.yml` runs the build without deploying.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+-----
+#17	MERGED	BJoozz	created 2026-10-18	merged 2026-10-18	bj/v10-review-fixes → main	V10 shell: fit only on a size change, bottom groups keep 240px, hidden groups keep their space
+Fixes three verified findings of a review of the merged V10 panel-groups shell, as the owner chose on 2026-10-18 (choices 24 to 26 in `design/proposals/viz-shell-v10/README.md`). The shell is fixed in `graph-visualizer-groups` and copied byte for byte into the tree and sorting copies.
+
+- **Fit only when the drawing changes size.** A tab press, the chevron, a menu item, a group splitter or a drop that leaves the drawing as it was no longer throws away the visitor's zoom and pan (it used to fit after every operation). Full screen and Reset still fit. This departs from V7, which fits on every drop.
+- **Bottom groups keep 240px.** Opening a column or widening one could squeeze two bottom groups to 177/176px. The centre now needs the larger of the drawing's floor and the bottom row's minimum, in the resolver, the column splitters' limit and the column-opening check; a split in the bottom row still takes no width from the columns.
+- **Hidden groups neither take nor give space (tree).** With the Ancestor table hidden, the preview and the release ran the move on different states, so the frame could be off by a whole group (502 vs 629px) and the hidden group grew silently. Both now run one transition on the saved state; the freed space goes to a shown group, and a group holding only hidden tabs keeps its size.
+
+Checks: graph lint, both tsc, 614 unit, full browser suite 176/176; tree lint, both tsc, 1626 vitest, full suite 121/121; sorting lint, tsc -b, 669 vitest, full suite 91/91. Shell files cmp-identical across the three copies. Each fix was reproduced before and re-checked after by separate review agents.
+
+Sorting's Compare mode hides core panels outside the shell, which the shell's availability filter cannot express; its drops already agree (no mismatch among its reachable drops), so it is left unwired and recorded in SP-13/SP-14.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#16	MERGED	BJoozz	created 2026-10-17	merged 2026-10-17	bj/faint-scrollbars-trim-hints → main	Faint scrollbars, fewer hint lines, and a larger graph layout board
+Two follow-ups to #15, both the owner's choices of 2026-10-17. The first commit was pushed to #15's branch after #15 had been merged, so it is carried here.
+
+- **Faint scrollbars** in all nine visualizer prototypes (graph, tree, sorting × split rails, docks, groups; the sites inherit it): every scrollbar inside the page is thin, its thumb the body ink at 22%, and 55% while the pointer is inside the area that bar scrolls; a nested scroller stays faint until the pointer enters it. One rule in each `viz-page.css`; the per-component scrollbar colours and `::-webkit-scrollbar` blocks go, gutters stay; the top bar takes its thumb from the bar's ink so the classic theme's black bar still shows one.
+- **Hint lines removed** in all nine prototypes. Graph: the e-Lecture placeholder note, the run form's footer-bar hint, "Updates the canvas live", "Changes invalidate the current run", "Reinterpret every stored endpoint pair", the node-handle hint and "Does not change revision". The Directed toggle still explains why it is locked. Tree: the e-Lecture note, the run form's Play hint (its tests now expect none) and "Updates the canvas live". Sorting: the e-Lecture note.
+
+- **A larger layout board for the graph** (all three copies): the node-count tiers are multiplied by 1.3, so nodes lie further apart. The visualgo samples keep their drawings' shape exactly (178 layouts compared on the old and new board: one uniform scale, 0 px error); a sample that had been shrunk to fit spreads by up to 1.36. Full browser suites: groups 172/172, split rails 140/140; unit tests in all three copies.
+
+Checks: lint and both type checks in the three graph copies, unit tests 542 / 567 / 607; browser specs touching the editor and run form 10/10 in split rails and groups; tree and sorting: lint, type checks and panel tests in all six copies, tree groups page-shell + working-copies 20/20, sorting groups study-mode + dataset-and-run 19/19; for the scrollbars, the full split-rails browser suites (graph, tree, sorting), layout and panel specs of the docks and groups copies, and the sites' unit tests and builds.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#15	MERGED	BJoozz	created 2026-10-17	merged 2026-10-17	bj/viz-shell-v10 → main	V10 panel groups: a third layout for the visualisation page
+The third layout of the visualisation page, **V10 "Panel groups"**: V2's and V7's ideas merged. Three regions around a fixed canvas, each a stack of collapsible tab groups; tabs reorder in a strip, join another group, or split a group along its region's axis; the canvas is never a tab, never a drop target, never remounted. Drag feedback follows VS Code: the frame shows the area the tab will take, named, with a ghost under the pointer; an empty region opens from an edge band of the drawing; a refused drop says why.
+
+The proposal, with the owner's 23 dated choices, the measurements and the records' drafts: [design/proposals/viz-shell-v10/README.md](design/proposals/viz-shell-v10/README.md). Frames V10 and V11 in the desktop wireframe.
+
+Repo shape (the owner's choice 2): a third copied prototype set, `*-visualizer-groups`, and a third site `visualgo-web-groups`; the V2 and V7 prototypes and sites are not touched, bar one spec fix in the two older sites (below).
+
+| Folder | Port | Records | Checks |
+| --- | --- | --- | --- |
+| `prototypes/graph-visualizer-groups` (the shell's source; dev sandbox at `/sandbox.html`) | 5183 | DD-50 to DD-56 | lint, tsc, 607 unit, e2e 171/171, CI |
+| `prototypes/tree-visualizer-groups` | 5184 | TP-21 to TP-27 | lint, tsc, 1619 unit, e2e 118 (one 24px-font test times out only under heavy local load, as V7's does), CI |
+| `prototypes/sorting-visualizer-groups` | 5185 | SP-12 to SP-18 | lint, tsc, 662 unit, e2e 91/91 |
+| `prototypes/visualgo-web-groups` | 5186 | site README/RUNNING | lint, tsc, 24 unit, e2e 83/83 after the spec fix |
+
+The shell files (`src/components/layout/*`, `src/styles/groups.css`) are byte-identical in the three prototypes; each AGENTS.md lists them and the `cmp` loop.
+
+Also in this PR: the three sites' `bellman-ford.spec.ts` now run a sample that still exists (`CP4 4.20 -ve weight (DAG)`), since DD-48's samples removed the one they used.
+
+Left for the owner, recorded in each `docs/IMPROVEMENT_BACKLOG.md`: a chevron, a tab press or a reveal can still expand a collapsed group in a column too short for it (drawn under 120px; drops there are refused); a visit without a reveal saves its arrival on mount, as V7 did; Compare's front Status tab no longer toggles its row (choice 17); LCA at its 200px floor with a 24px font clips the top of Zoom in by a few pixels, as V7 does.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#14	MERGED	BJoozz	created 2026-10-16	merged 2026-10-17	bj/node-label-fit → main	Size a node's label to fit its node
+Stacked on the samples PR (`bj/visualgo-samples`): its base is that branch, so it shows only its own two commits, and GitHub retargets it to `main` once the samples PR merges.
+
+The owner, looking at MRT's two-digit ids on 2026-10-16, asked for node labels that fit the node: the longer the smaller, the shorter the larger, and then larger still after a first look. A label of one or two characters is now drawn at 30px, three at 24px, four at 18px and longer ones at 14px, inside the same 64px node with its 48px label box and ellipsis. Every label was 16px before. Both graph prototypes. The decision record is DD-49.
+
+**How**
+- `resolveGraphLabelFontSize` in `src/components/graph/labelSize.ts` (pure, tested) gives the size; `CsaGraphNode` sets it as `--graph-label-size` and `.nodeLabel` reads it.
+- `node-label-size.spec.ts` checks the canvas draws A at 30px, ABC at 24px, ABCD at 18px and ABCDE at 14px, with the ellipsis kept.
+- The graph prototypes' captures and the sites' captures are retaken; the sites' also pick up the centred footer of #11, which had not been recaptured.
+
+**Validation**
+- Both graph builds: lint, both type-checks, `git diff --check`.
+- Unit tests: 542/542 (V2), 567/567 (V7).
+- Full e2e: 140/140 (V2), 149/149 (V7).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#13	MERGED	BJoozz	created 2026-10-16	merged 2026-10-16	bj/visualgo-samples → main	Make the samples visualgo.net's example graphs, drawn where visualgo draws them
+Prof Halim teaches with visualgo.net's example graphs, many of them figures of the CP4 book, so the graph prototypes' samples now mimic them: the same vertices, edges, weights and vertex positions, under visualgo's names and in its order, with vertices numbered 0 to n−1. Both graph prototypes (split-rails V2 and docks V7). The decision record is DD-48.
+
+**The owner's choices (2026-10-16)**
+- Replace the samples, keeping these hand-made ones after visualgo's: BFS "Parallel edges and loops"; DFS "Same order, different tree"; Dijkstra "Explicit zero shortcut", "Parallel-edge improvement", "Omitted weight means one"; Bellman-Ford "Unreachable negative cycle", "Undirected negative edge"; Kruskal "Equal weights and parallel edges", "Self-loop rejection", "Omitted weight edge"; Prim "Stale candidates", "Disconnected forest", "Parallel edges and loops", "Omitted weight edge", "Singleton"; Max Flow "Reverse residual cancellation", "40-node layered stress test", "Parallel source channels", "Zero-capacity barrier".
+- Take visualgo's CP4 figures, its small extra graphs and its large graphs. Not CLRS 22.5, which needs curved single edges (planned later behind a setting), and not the MCMF examples 9.23 and 9.24, which need costs.
+- Graphs the book draws undirected (CP4 4.1, 4.2, 4.36, MRT and every MST example) are undirected here, one edge per pair.
+- After a review of the first build: keep the DFS/BFS samples' weights with their labels hidden while the selected algorithm does not read them, and widen the board to the drawing so the large samples do not overlap.
+
+**What is in the lists**
+- BFS, stack DFS, recursive DFS: CP4 4.1, 4.2, 4.3 DAG, 4.7, 4.16*, 4.20, 4.22, Large Graph, Large, Cycles.
+- Dijkstra: 17 examples (4.1 U/U … RAIL (DAG)); Bellman-Ford: the same plus the three with a negative weight (4.20, 4.22, 4.21 Dijkstra's Killer), which our Dijkstra refuses before a run.
+- Kruskal and Prim: CP 4.10, CP 4.14, K5, Rail, Tessellation, Large.
+- Max Flow: CP4 8.11* (FF Killer) … CP4 8.29* (MWVC), 13 networks, source 0 and sink the last vertex.
+
+**How**
+- `visualgoExamples.ts` holds the 37 examples copied from visualgo's source (vertex centres on its 1000×600 frame, arcs in its order); every one was re-verified against the source after two extraction errors were found and fixed (House of Cards' arcs written `v` before `u`; the Max Flow page's own 8.17.B).
+- `sampleGraph.ts` builds a sample: one edge per pair when undirected, visualgo's weights kept, labels hidden for the traversals and shown for the others.
+- `positionedLayout.ts` draws it in shape: one uniform scale, at most 1.6, shrunk to fit the board but never below 80px between the nearest two centres; a large drawing grows the board, and `layoutBoard.ts` keeps the editor on that board, so a drag no longer pulls a drawing back in.
+- `interpretGraphDocument` shows a hidden weight while the selected algorithm reads weights, so switching from BFS to Dijkstra on CP4 4.16* gives the book's distances and CP4 4.22 keeps its negative cycle.
+- DD-48, with DD-43, DD-36, DD-30 and the DD-08 and DD-15 status rows, the README, ARCHITECTURE, DEVELOPER_GUIDE and AGENTS.md updated. The Bellman-Ford captures are retaken on the new samples.
+
+**Validation**
+- Both graph builds:
+  - lint
+  - `tsconfig.app.json` and `tsconfig.test.json` type-checks
+  - `git diff --check`
+- Unit tests: 538/538 (V2), 563/563 (V7).
+- Full e2e: 139/139 (V2), 148/148 (V7). Every test that named an old sample was ported to a new one with its expected values recomputed by our engines.
+- Two review rounds (agents, then an external review) with every finding verified and fixed.
+
+**Known limits**
+- visualgo's own data puts Large's vertices 20 and 49 on one point; the copy keeps that.
+- Edge weight labels keep their size; node labels are sized in the follow-up PR.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#12	MERGED	BJoozz	created 2026-10-15	merged 2026-10-15	bj/final-frame-motion → main	Keep every algorithm's finished last frame moving (DD-47)
+When a graph run has finished and rests on its last frame, its result now keeps moving, like a paused step (DD-42). It follows the same **Animate paused steps** setting, including the system's reduced motion, and it stays out of a saved image. This is in both graph prototypes (split-rails V2 and docks V7) and is recorded in DD-47.
+
+**The owner's choices**
+- 2026-10-15: on Max Flow's last frame the minimum cut's dashes run; on BFS's a spreading light runs.
+- 2026-10-16: do the same for every other algorithm, with Kruskal lighting all at once.
+
+**What each last frame does**
+- **Max Flow:** the minimum cut's long dash marches from the source side to the sink side.
+- **BFS, Dijkstra:** the tree reveal the last step arrived with repeats from the start outwards. Each tree edge fills with light, and its node rings as the light arrives.
+- **Recursive DFS:** each tree edge fills toward the node it entered, in call order, so the light runs down one branch before the next.
+- **Stack DFS:** it draws no tree, so its nodes ring in visit order.
+- **Bellman-Ford:** light spreads through the tree of finite distances level by level. With a reachable negative cycle, it runs round the witness cycle instead.
+- **Prim:** accepted edges fill from the tree side in acceptance order, and each later component's root rings when its tree begins.
+- **Kruskal:** every accepted edge fills at once, then their nodes ring together.
+
+Every spread starts within the first 1.2s of a 3s cycle, and the cycle ends still, so each repeat reads on its own. The pace does not depend on Speed.
+
+**How**
+- `App` treats a finished session as paused for the canvas.
+- A `spread` emphasis variant is drawn as `edgeFinalSpread` and `nodeFinalSpread`.
+- BFS's presenter names its own spread. `finalSpread.ts` lays it on the other six algorithms' last step.
+- A `{ toNodeId }` wave direction carries recursive DFS's edges.
+- The cut's march is a CSS rule under `[data-paused-step]`.
+- DD-42, README, ARCHITECTURE, DEVELOPER_GUIDE and AGENTS.md no longer say that a finished frame never moves.
+
+**Validation**
+- Both graph builds:
+  - lint
+  - `tsconfig.app.json` and `tsconfig.test.json` type-checks
+  - `git diff --check`
+- Unit tests: 511/511 (V2), 536/536 (V7). This includes the new `finalSpread.test.ts` and the BFS spread test.
+- Full e2e: 137/137 (V2), 146/146 (V7). `paused-step-motion.spec.ts` checks BFS's rings and fills by level, and that the cut marches and stands still when Animate paused steps is off.
+- Two review agents checked the BFS and Max Flow part: ring timing on deep trees, stale comments and doc claims. Their findings were fixed before this PR.
+- Captures over time of BFS, recursive DFS and Kruskal show the spread order and Kruskal's all-at-once lighting.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#11	MERGED	BJoozz	created 2026-10-15	merged 2026-10-15	bj/footer-centre-transport → main	Centre the footer's transport and Stop, with position and speed on the left
+The footer's First, Previous, Play or Pause, Next, Last and Stop now sit centred on the bar. The bar is split into two equal sides:
+- **Left:** the frame, sorting's exact-operation field, and the speed slider with its pace line.
+- **Right:** Full screen, Save image, Shortcuts and the links.
+
+The owner chose this on 2026-10-16. It applies to all six prototypes: graph, tree and sorting, each in its split-rails and docks version.
+
+**Changes**
+- `FooterBar.tsx`: the row is three cells, and the speed control moves before the transport, so Tab follows the visual order.
+- `footer-bar.css`: the row is a `minmax(0, 1fr) auto minmax(0, 1fr)` grid with `.footer-bar__side` wrappers.
+- Each prototype's README and DD-24 note describe the new layout.
+
+**Validation**
+- The transport group's centre is measured at the page centre: 640 at 1280px and 720 at 1440px.
+- In all six prototypes, lint, type-checks and unit tests pass.
+- Full e2e:
+  - graph: 136 (V2) and 145 (V7), all passed;
+  - sorting: 76 and 76, all passed;
+  - tree: 100 and 114 passed. Five tree tests failed while the machine's network was suspended (`ERR_NETWORK_IO_SUSPENDED`); all five pass on a rerun.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#10	MERGED	BJoozz	created 2026-10-15	merged 2026-10-15	bj/live-layout-off → main	Start Live force layout off
+**Live force layout** in Draw graph now starts off, in both graph prototypes (split-rails V2 and docks V7). A drag on a sample therefore moves only the dragged node, instead of setting every node in motion. Anyone who wants the neighbours to respond ticks the box. With Live on, a drag behaves exactly as before. Upstream graph-visualizer-v2 starts it on. DD-46 records the change.
+
+**The owner's decision (2026-10-15):** for now, start with Live force layout off; whoever needs it turns it on. The owner keeps the behaviour of Live when it is on as it is. A Restore layout button, layout undo and a local "Tidy" are under the owner's consideration and are not part of this PR.
+
+**Builds on #9.** This branch starts from #9's head so that their docs edits do not conflict. Please merge #9 first. Until then, this PR also lists #9's three commits; its own change is `6b953d5`.
+
+**Changes**
+- `useGraphEditor.ts`: `liveLayoutEnabled` starts `false`, marked DD-46.
+- `drag-follows-pointer.spec.ts`: the first Live-off spec checks that the box starts unticked, and the Live-on spec ticks it first.
+- New DD-46. README, AGENTS.md, ARCHITECTURE.md and DEVELOPER_GUIDE.md describe the new default.
+
+**Validation**
+- Both graph builds:
+  - lint
+  - `tsconfig.app.json` and `tsconfig.test.json` type-checks
+  - `git diff --check`
+- Unit tests: 503/503 (V2), 528/528 (V7).
+- Full e2e: 136/136 (V2), 145/145 (V7).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#9	MERGED	BJoozz	created 2026-10-15	merged 2026-10-15	bj/sssp-end-node → main	Apply the owner's review of the End node: one short hint, no Selection box
+Follow-up to #8, from the owner's review on 2026-10-15. Both graph prototypes (split-rails V2 and docks V7) change the same way.
+
+**Changes**
+- **The run form.** The hint under the End node select is gone. The Play hint now reads only "Pause, step and scrub it from the footer bar; after Stop, Play starts afresh." This hint appears under every graph algorithm's run form.
+- **Draw graph.** The Selection box under Layout is gone: the count of selected nodes and edges and the "Use Delete or Backspace" line. Delete selected, Pin, Unpin and the Delete and Backspace keys work as before.
+- **DD-45.** The record now notes that the owner approved its details on review: the blue with filled path vertices and a ring on the end, a sample clearing the End node, "0 edges" for the BFS start, and the "Path from start" legend entry. The one exception is the hint, which the owner had removed. AGENTS.md says the same, and lists the Selection box among the inherited files that depart from graph-visualizer-v2.
+- **Captures.** The graph prototypes' captures (main states, Prim, Bellman-Ford) and the sites' graph, editor and module captures are retaken. They now show the End node select, the one-line hint, the Path from start legend entry and Bellman-Ford's Status path row. Captures with no changed pixel are unchanged.
+
+**Validation**
+- Both graph builds:
+  - lint
+  - `tsconfig.app.json` and `tsconfig.test.json` type-checks
+  - `git diff --check`
+- Unit tests: 503/503 (V2), 528/528 (V7).
+- Full e2e: 136/136 (V2), 145/145 (V7).
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#8	MERGED	BJoozz	created 2026-10-15	merged 2026-10-15	bj/sssp-end-node → main	Add an End node whose path only the last frame of BFS, Dijkstra and Bellman-Ford shows
+BFS, Dijkstra and Bellman-Ford get an **End node** next to the Start node, in both graph prototypes (split-rails V2 and docks V7). The new decision record is DD-45.
+
+**How it behaves**
+- The select reads **All vertices** by default. With that setting the last frame looks as it did before.
+- Picking an End node is not a run parameter. It never ends, restarts or re-times the run, and no frame before the last changes. On the last frame the path from the start is drawn in its own blue, and Status names it, for example `1 → 3 → 6 → 5 · distance 20`. BFS shows the path and its number of edges, with no distance table.
+- On the last frame, hovering a vertex previews the path to that vertex. Leaving it brings back the End node's path. Hover never selects anything, and a vertex being dragged previews nothing.
+- An unreachable vertex is named as such. So is, in Bellman-Ford, a vertex that a reachable negative cycle sets to −∞.
+- The path is read from the run's last step (`shortestPathQuery.ts`) and laid over the presenter's last frame (`shortestPathPresentation.ts`). The run, its frames and their timing are untouched. The End node stays page state. The custom graph keeps its own End node, and loading a sample clears it.
+
+**The owner's choices (2026-10-15):** BFS, Dijkstra and Bellman-Ford only; changing the End node changes only the last frame; hover previews a path, and clicking does not set one; the default reads "All vertices", not "None"; BFS shows only the path.
+
+**Implementer's choices awaiting the owner's review**
+- Colour: `#1d4ed8` in light themes, `#93c5fd` in dark ones. Path vertices are filled, and the end vertex gets a ring.
+- Loading a sample clears the End node.
+- When the End node is the start, BFS reads "A is the start · 0 edges".
+- Legend entry: "Path from start".
+- A hint under the End select.
+
+**Validation**
+- Both graph builds:
+  - lint
+  - `tsconfig.app.json` and `tsconfig.test.json` type-checks
+  - build
+  - `git diff --check`
+- Unit tests: 503/503 (V2), 528/528 (V7).
+- `shortest-path-end-node.spec.ts` and `canvas-legend.spec.ts`: 13/13 in each build. The full e2e suites (58 per build) and both site suites (83 + 83) passed before the last review fixes.
+- The drag test fails if the drag guard is removed.
+
+Rebased onto main after #7, so the tree jobs include the traversal fix.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+-----
+#7	MERGED	BJoozz	created 2026-10-14	merged 2026-10-14	bj/fix-traversal-ci → main	Fix tree traversal CI assertions across platform fonts
+The tree browser jobs fail on main because the traversal test assumes a 20-character label must overflow at fixed narrow viewports. In the CI screenshot the label fits completely, so the required-ellipsis assertion fails even though the chip is visible.
+
+Keep the viewport checks for chip visibility and keyboard focus, and test truncation separately by constraining the cells below the measured label width. The new case checks actual overflow, ellipsis styling, full accessible names/tooltips, and visible focus rings. Mirror the test and its documentation in V2 and V7; application code is unchanged.
+
+Validation: both test TypeScript checks and lint; 16 traversal browser tests per build. Removing either the chip width limit or the label ellipsis rule makes the new test fail. GitHub Actions run 38655792143 passed all eight prototype jobs, including both previously failing tree browser suites; the engine CI job also passed (9/9 PR checks).
+
+Fixes the tree browser failures in runs 38607055769 and 38651990822. Prepared in an isolated worktree so the ongoing SSSP work is untouched.
+
+-----
+#6	MERGED	BJoozz	created 2026-10-08	merged 2026-10-08	bj/visualgo-web-editors → main	Bj/visualgo web editors
+
+-----
+#5	CLOSED	BJoozz	created 2026-09-29	merged -	main → main	Configure Vercel SPA routing for both websites
+
+-----
+#4	MERGED	BJoozz	created 2026-09-28	merged 2026-09-28	bj/visualgo-web-site → main	Add VisuAlgo+ V2 and V7 websites with integrated visualizers
+## Summary
+
+Add two runnable VisuAlgo+ websites that put the real Graph, Tree, and Sorting visualizers behind a shared homepage and site shell:
+
+- `prototypes/visualgo-web-split-rails` for the V2 layout (port 5181).
+- `prototypes/visualgo-web-docks` for the V7 layout (port 5182).
+
+The homepage provides module search, tag filters, availability labels, partner logos, tips, and informational overlays. Module and algorithm URLs mount the existing visualizers with one site-owned top bar and theme control, while preserving each visualizer's panels, canvas, playback transport, and layout behavior.
+
+## Changes
+
+- Add host-chrome adapters to all six visualizer prototypes and an optional Home callback to the design-system TopBar.
+- Keep theme ownership with the site when hosted; retain standalone behavior. Preserve the complete saved Sorting pane set when opening an algorithm deep link.
+- Add site Settings, navigation and overlay handling, V7 layout-menu integration, subpath-aware routing/assets, and static-host fallback files.
+- Correct Sorting comparison highlights so indices whose current values no longer match the compared operands are not highlighted as those operands.
+- Include the website design proposal, review notes, screenshots, and browser/data regression suites.
+
+The Sorting prototype addition from PR #3 is already merged into main. This PR contains the seven subsequent website commits through `ad20f0d`. The three original submodule pointers and `wasm-arch` are unchanged.
+
+## Validation
+
+Both site builds include browser coverage for module journeys, deep links, saved Compare layouts, theme persistence, chrome/keyboard interactions, overlays, and theme contrast, plus data tests. The Sorting highlight change includes engine regression tests in both variants.
+
+Earlier independent integration review verified the V2 site's TypeScript checks, lint, production build, and then-current 14 browser tests. Subsequent fixes and the V7 site have additional implementation-reported validation documented in the proposal; the complete final suites were not independently rerun when opening this PR.
+
+The existing `prototypes.yml` workflow does not yet include the two website applications or the Sorting prototypes in its matrices, so its results do not represent full website validation.
+
+## Review notes
+
+Unbuilt modules remain labelled as coming soon; this is a prototype site, not a replacement deployment of visualgo.net. Known design-system contrast issues and remaining visualization limitations are recorded in the proposal. For insertion/merge comparisons whose operands are held outside the displayed array, a fuller visualization of the temporary values/buffers remains follow-up work.
+-----
+#3	MERGED	BJoozz	created 2026-09-27	merged 2026-09-27	bj/sorting-wireframe-v2-v7 → main	Add Sorting Visualizer V2 and V7 prototypes
+## Summary
+
+Add Sorting Visualizer to the visualization-page layout comparison, with standalone V2 split-rails and V7 movable-docks prototypes. Both support Study and 2/4-pane Compare modes using the same dataset and shared operation clock.
+
+- Add the upstream sorting visualizer as a submodule pinned to `9236a65`, and fork its domain code into the two standalone prototypes.
+- Support all eight sorting algorithms, Generate/Go/Stop, autoplay, replay, exact-operation seeking, and pseudocode highlighting. Eager production is capped at 60,000 retained-history operations across panes, with lazy continuation for larger runs.
+- Add theme-aware rendering, per-pane density warnings, a 200px Compare canvas floor with scrolling fallback, and persisted experiment setup and mode-specific V7 layouts.
+- Include the design proposal, annotated wireframes, architecture/decision/developer/backlog documentation, and review captures.
+
+The diff is limited to `.gitmodules`, `prototypes/sorting-algorithm-visualizer`, `prototypes/sorting-visualizer-split-rails`, `prototypes/sorting-visualizer-docks`, and `design/proposals/sorting-v2-v7`. Existing Graph/Tree prototypes and submodule pointers, `wasm-arch`, and the engine experiment are unchanged.
+
+## Validation
+
+Implementation-reported results at `4a8f1f2`:
+
+| Check | V2 split rails | V7 docks |
+| --- | --- | --- |
+| Lint, TypeScript, build | Pass | Pass |
+| Unit tests | 537 | 571 |
+| Browser tests | 68 | 68 |
+
+Independent review verification included focused TypeScript, unit, and browser checks throughout the implementation. At the final commit, the density/floor browser suite passed 7/7 in each prototype. Additional V7 browser measurements confirmed canvas heights remain at least 200px with warnings, the pane floor returns to its original size when warnings disappear, and maximizing the bottom dock uses grid scrolling while preserving the canvas floor.
+
+The complete final suites were not independently rerun. The current `prototypes.yml` path filters and matrices cover Graph/Tree only; this PR does not add Sorting to GitHub Actions.
+
+## Remaining work
+
+Known follow-ups are recorded in each prototype's `docs/IMPROVEMENT_BACKLOG.md`, including shared-shell reconciliation, remaining renderer palette literals, Compare legend, and setup-strip collapse persistence. e-Lecture content remains explicitly labelled as prototype placeholders. U7 keeps the 240-value custom-input cap with density warnings; U9 keeps the four-panel set.
+-----
+#2	MERGED	BJoozz	created 2026-09-23	merged 2026-09-23	bj/tree-wireframe-v2-v7 → main	Add Tree V2/V7 prototypes and align Graph/Tree page behavior
+Adds Tree Visualizer prototypes in the V2 split-rails and V7 movable-docks layouts, alongside the existing Graph prototypes. The tree workspaces cover Binary Lifting LCA, BST, AVL, Min Heap, Trie and Segment Tree, preserving preview/Apply semantics and workspace state.
+
+Changes:
+- Reuse the graph page shell, themes, footer transport and panel layouts for the two standalone tree apps; add documentation and review screenshots.
+- Fix Classic-theme pseudocode contrast and modal keyboard/focus handling across all four prototypes.
+- Make Graph Go start playback immediately, and place the Max Flow Flow/Residual control below Go in Action.
+- Hide React Flow corner attribution across the four canvases.
+- Extend prototype CI to all four apps; correct font-sensitive layout measurements and production bundle tests.
+
+Scope is the four prototype folders and `.github/workflows/prototypes.yml`. Existing submodule pointers and the engine experiment are unchanged.
+
+Validation:
+- Independent focused checks through be37809: 42 tree workspace/shell E2E tests, 8 modal/contrast E2E tests across four prototypes, and 8 graph footer E2E tests passed; focused App, Dialog, page-command and reducer unit tests passed.
+- Full local suites were reported passing by the implementation author; they were not all independently rerun. The two later commits (Flow/Residual placement and attribution) have not had an independent browser rerun in this review.
+- All nine GitHub CI jobs pass at the current head.
+
+Known prototype limitations include placeholder lecture content and no tab reordering within a dock; additional layout improvements are tracked in each prototype's backlog.
+
+-----
+#1	MERGED	BJoozz	created 2026-09-20	merged 2026-09-20	bj/graph-wireframe-v2-v7 → main	Add visualization prototypes and V2/V7 layout variants
+Adds the four visualization entries under `prototypes/` so the original graph/tree implementations and the two layout experiments can be reviewed together.
+
+## Changes
+
+- register `graph-visualizer-v2` and `tree-visualizer` as git submodules
+- add the V2 split-rails graph visualizer with independent left/right accordion panels and one scrollbar per rail
+- add the V7 docks graph visualizer with movable tabs, resizable docks, persistence, and layout reset
+- move algorithm selection to the top bar and keep Draw graph, Example graphs, parameters, and Go in the Action panel
+- let Kruskal draw and run an undirected view without changing the authored Directed setting or graph revision
+- add page-owned searches to the Dijkstra, Kruskal, and Maximum Flow tables; simplify the flow table to Edge and Flow / capacity
+- reuse the repository design-system themes through the `@ds` alias
+- add a prototype-only GitHub Actions workflow for lint, type checking, unit tests, builds, whitespace checks, and Playwright tests
+
+## Validation
+
+- split rails: lint, app/test TypeScript checks, build, 299 unit tests, and 43 Playwright tests pass
+- docks: lint, app/test TypeScript checks, build, 311 unit tests, and 51 Playwright tests pass
+
+## Scope
+
+The implementation changes are limited to the four entries under `prototypes/`, the required `.gitmodules` registration, and `.github/workflows/prototypes.yml`. `wasm-arch` and the separate engine experiment are unchanged.
+-----

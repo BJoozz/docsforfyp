@@ -1,0 +1,282 @@
+662e7b3	2026-10-31	BJoozz	HEAD -> main, origin/main, origin/HEAD	Merge pull request #37 from kerktaiheng/bj/review-session-3
+f58ed5f	2026-10-31	BJoozz		Merge pull request #36 from kerktaiheng/bj/docs-graph-sorting
+6fa4981	2026-10-30	BJoozz	origin/bj/review-session-3	Integrate reviewed main and docs refresh without losing playback coverage
+876ed0d	2026-10-30	BJoozz	origin/bj/docs-graph-sorting	Merge main into docs refresh; retain current tab-strip coverage
+4dedee1	2026-10-30	BJoozz		Merge pull request #35 from kerktaiheng/bj/tab-strip-reveal
+ad5e119	2026-10-30	BJoozz		Merge pull request #34 from kerktaiheng/bj/review-session-1
+9baa117	2026-10-30	BJoozz	bj/review-session-3	Playback: the graph keeps a step's elapsed time across Speed changes, a sorting restart always plays, and the records say Autoplay and Next both start a run
+02c4e12	2026-10-30	BJoozz	bj/docs-graph-sorting	Graph and sorting docs: paths of the unified app, and the shell copy rule retired
+fd9ff5c	2026-10-29	BJoozz	origin/bj/tab-strip-reveal, bj/tab-strip-reveal	Groups shell: the strip keeps its front tab in view when its width changes
+a5bb08f	2026-10-28	BJoozz	origin/bj/review-session-1, bj/review-session-1	Tooling: the browser suite insists on Inter, Node 22.12 is the floor, root scripts forward flags, CI keeps failure traces
+c984e63	2026-10-26	BJoozz		Merge pull request #33 from kerktaiheng/bj/legend-trim
+b5506e9	2026-10-26	BJoozz		Merge pull request #32 from kerktaiheng/bj/dijkstra-step-notes
+1671990	2026-10-26	BJoozz	origin/bj/legend-trim, bj/legend-trim	Step notes and the smaller legend: the browser cases pan a node under the legend, and the records take the measured numbers
+19aaef3	2026-10-26	BJoozz		Canvas legend: Binary Lifting's Query drops u = v and LCA, and the shared legend is smaller at 12px
+b309309	2026-10-25	BJoozz	origin/bj/dijkstra-step-notes, bj/dijkstra-step-notes	e2e: the legend overlap of a note is pinned as a bound, not a width
+b47d437	2026-10-25	BJoozz		Docs: DD-61, the shared note layer in the tree's records, and the guides
+8d73c04	2026-10-25	BJoozz		e2e: a page is ready only once Inter has arrived
+6b1a4fc	2026-10-25	BJoozz		Graph: Dijkstra's relax step writes its verdict on the drawing
+157d9a9	2026-10-25	BJoozz		Step notes: the canvas legend is no longer an obstacle, by the owner's word
+08590ef	2026-10-25	BJoozz		Step notes: the layer, its placement and its writer move to src/shared, and the graph canvas mounts the layer
+163688c	2026-10-25	BJoozz		Merge pull request #31 from kerktaiheng/bj/step-notes
+a1a6f28	2026-10-25	BJoozz	origin/bj/step-notes	Merge pull request #30 from kerktaiheng/bj/step-notes-2
+eb4c4d8	2026-10-25	BJoozz		Merge pull request #29 from kerktaiheng/bj/step-notes
+1df8a0c	2026-10-25	BJoozz	origin/bj/step-notes-2, bj/step-notes-2	TreeCanvas: the stepNotes comment names the Heap among the workspaces that pass notes
+a82071e	2026-10-24	BJoozz		Tree docs: paths of the unified app, and the canvas legend's open points out of the backlog
+e282096	2026-10-24	BJoozz		Tree docs: the owner's answers on the NONE legend and the rise over the row above
+94ec5db	2026-10-24	BJoozz		Tree: step notes for the Binary Heap, and TP-36 complete
+277405c	2026-10-24	BJoozz		Tree: step notes for the BST queries, traversals and Insert, and a NONE end badge
+7180d81	2026-10-24	BJoozz		Tree: step notes for AVL Inspection, AVL Insert, AVL Delete and BST Delete
+1f763dc	2026-10-23	BJoozz	bj/step-notes	Binary Lifting: u and v in one colour, and the canvas legend shared and on the tree
+116588e	2026-10-23	BJoozz		Step notes: plain text that floats up and fades, as the number popup does
+d82aa18	2026-10-23	BJoozz		Tree: a step writes its verdict on the drawing, Binary Lifting first
+4621b1f	2026-10-23	BJoozz		Merge pull request #28 from kerktaiheng/bj/graph-traversal-ts-bgc-cvb
+0fc105c	2026-10-22	BJoozz	origin/bj/graph-traversal-ts-bgc-cvb, bj/graph-traversal-ts-bgc-cvb	Graph Traversal: Cut Vertex & Bridge, by DFS with num and low
+84c5917	2026-10-22	BJoozz		Graph Traversal: Bipartite Graph Check, by DFS or BFS, with an odd cycle as its evidence
+b88952d	2026-10-21	BJoozz		Graph Traversal: Topological Sort, by DFS or Kahn, chosen by a Method in the run form
+01a1a4a	2026-10-22	Kerk Tai Heng		Autoplay and Stop become green and red chips; steps one size again
+a074f50	2026-10-21	Kerk Tai Heng		Stepping leads the footer, Autoplay sits beside Stop, e-Lecture nav pinned
+7380025	2026-10-21	BJoozz		Merge pull request #27 from kerktaiheng/bj/heap-value-rule
+ea37326	2026-10-21	BJoozz	origin/bj/heap-value-rule, bj/heap-value-rule	Binary Heap: every value obeys the Segment Trees' decimal rule, so no popup can overflow
+a436873	2026-10-21	BJoozz		Merge pull request #26 from kerktaiheng/bj/heap-rename-ids
+e267352	2026-10-21	BJoozz		Merge pull request #25 from kerktaiheng/bj/heap-operations
+3fec43c	2026-10-21	BJoozz	origin/bj/heap-rename-ids, bj/heap-rename-ids	Name the heap's extract by the extreme it takes, not by min
+908f8a3	2026-10-21	BJoozz	origin/bj/heap-operations, bj/heap-operations	Name the whole card's status as the type spells it
+f8fb1ab	2026-10-21	BJoozz		Name the whole card's status as the type spells it
+ae59183	2026-10-21	BJoozz		Count the Binary Heap card as whole: visualgo.net's Priority Queue entry is this page's deck
+88e8396	2026-10-21	BJoozz		Binary Heap: the e-Lecture deck after visualgo.net's, and TP-33 as one record
+3409565	2026-10-20	BJoozz		Binary Heap: Extract K times, Heap sort in two variants, the output rail, 31 items at most
+1804565	2026-10-20	BJoozz		Binary Heap: Update key(i, v) and Delete(i)
+40a63bd	2026-10-20	Kerk Tai Heng		Remove the tips from the landing page
+0a86739	2026-10-20	BJoozz		Binary Heap: Create(A) in O(N log N) and in O(N), from a values field
+92369a2	2026-10-20	BJoozz		Name the heap's tied lines as the listing now writes them, in the highlight comments
+7d39c38	2026-10-20	BJoozz		Binary Heap: Min or Max order, 1-based indices, operation groups
+48e58d9	2026-10-20	BJoozz		Merge pull request #24 from kerktaiheng/bj/lca-hover-ancestors
+60ccc44	2026-10-20	BJoozz	origin/bj/lca-hover-ancestors, bj/lca-hover-ancestors	Hovering a node in Binary Lifting shows its path to the root and its 2^k-th ancestors
+15c0cc7	2026-10-19	BJoozz		Merge pull request #22 from kerktaiheng/bj/tree-centre-edges
+1119740	2026-10-19	BJoozz	origin/bj/tree-centre-edges	Merge pull request #23 from kerktaiheng/bj/lca-two-runs
+409a200	2026-10-19	BJoozz	origin/bj/lca-two-runs	Let the type-scale test find the shared stylesheets on Windows
+e55de1c	2026-10-19	BJoozz		Binary Lifting is two runs, Preprocessing and Query, chosen in the Action panel
+499cb42	2026-10-19	BJoozz		Draw tree edges on the line between the two node centres, rim to rim
+3c79d36	2026-10-19	Kerk Tai Heng		Hotfix: LCA indentation, no Save image, Full screen and Shortcuts by Settings, a longer speed slider
+fae8418	2026-10-18	kerktaiheng		Merge pull request #21 from kerktaiheng/v10-polish
+8d7a63a	2026-10-18	kerktaiheng		Merge pull request #20 from kerktaiheng/v10-single-app
+5235fcf	2026-10-18	Kerk Tai Heng		Style the visualizer's Settings items again, as the site's own
+c59c155	2026-10-18	Kerk Tai Heng		V10 polish: one font, one control look, the graph's editor layout, drag, and less chrome
+0394b64	2026-10-18	Kerk Tai Heng		Keep V10 only: one app in prototypes/, run from the repository root
+ae63a62	2026-10-18	Kerk Tai Heng		Apply the owner's V10 choices 27 to 32 to the three groups copies
+94cdaf3	2026-10-18	kerktaiheng		Merge pull request #18 from kerktaiheng/deploy-v10-pages
+c39b3cf	2026-10-18	Kerk Tai Heng	origin/deploy-v10-pages	Deploy the V10 site at the Pages root, and the engine demo at /engine/
+b9ec8fa	2026-10-18	kerktaiheng		Merge pull request #17 from kerktaiheng/bj/v10-review-fixes
+b8f1c1a	2026-10-18	BJoozz	origin/bj/v10-review-fixes, bj/v10-review-fixes	Carry the shell fixes into the tree and sorting groups copies
+649f42e	2026-10-18	BJoozz		Fit only on a size change, keep bottom groups at 240, and let hidden groups keep their space
+c0166f2	2026-10-18	BJoozz		Record the owner's choices 24 to 26 in the V10 proposal
+f286712	2026-10-17	BJoozz		Merge pull request #16 from kerktaiheng/bj/faint-scrollbars-trim-hints
+867b428	2026-10-17	BJoozz	origin/bj/faint-scrollbars-trim-hints, bj/faint-scrollbars-trim-hints	Lay graphs out on a board 1.3 times upstream's, in the three graph copies
+c81a679	2026-10-17	BJoozz		Drop the same hint lines from the tree and sorting panels
+a077f8a	2026-10-17	BJoozz		Drop seven hint lines from the graph's panels, in all three copies
+9bf60f6	2026-10-17	BJoozz		Draw every scrollbar thin and faint until the pointer is in the area it scrolls
+46234cd	2026-10-17	BJoozz	origin/bj/viz-shell-v10, bj/viz-shell-v10	Draw every scrollbar thin and faint until the pointer is in the area it scrolls
+c899b69	2026-10-17	BJoozz		Merge pull request #15 from kerktaiheng/bj/viz-shell-v10
+5902020	2026-10-17	BJoozz		Scroll a crowded tab strip with the wheel, in the three groups prototypes
+7338a77	2026-10-17	BJoozz		Point the sites' Bellman-Ford deep-link tests at a sample that still exists
+2397826	2026-10-17	BJoozz		Record the owner's choices 22 and 23 in the V10 proposal, and the stages as built
+d445364	2026-10-17	BJoozz		Add visualgo-web-groups, the site around the three groups prototypes
+25159a7	2026-10-17	BJoozz		Finish the tree doc corrections: TP-21 names drawingFloor.ts, TP-26 keeps DD-55's sentence
+a7825ba	2026-10-17	BJoozz		Say which tree files differ from split rails, and what a visit saves
+d82a24c	2026-10-17	BJoozz		Add tree-visualizer-groups, the tree visualizer in panel groups
+6f81130	2026-10-17	BJoozz		Retake sorting's compare pairs against the graph groups prototype
+0e3857f	2026-10-17	BJoozz		Add sorting-visualizer-groups, the sorting visualizer in panel groups
+e66fbba	2026-10-17	BJoozz		Record the owner's drag-feedback choices 19 to 21 in the V10 proposal
+12cdf92	2026-10-17	BJoozz		Record DD-50 to DD-56 and describe the groups prototype
+950ab6f	2026-10-17	BJoozz		Lay the graph page out in panel groups and retire the docks shell from this copy
+a876206	2026-10-17	BJoozz		Build the V10 groups shell: GroupsLayout, the tab menu, the drag overlay, a sandbox
+af828eb	2026-10-17	BJoozz		Record the owner's choices 16 to 18 and the model's state in the V10 proposal
+238f603	2026-10-17	BJoozz		Run the prototype checks on graph-visualizer-groups too
+72450e1	2026-10-17	BJoozz		Add the V10 groups model and its drop-target geometry
+de7b1fe	2026-10-17	BJoozz		Copy the docks prototype as graph-visualizer-groups, the V10 start
+7a3b4e8	2026-10-17	BJoozz		Record the owner's choices 13 to 15 in the V10 proposal
+cdbc18b	2026-10-17	BJoozz		Record the owner's stage-0 answers in the V10 proposal
+55f3387	2026-10-16	BJoozz		Propose the V10 panel-groups layout: stage 0
+acbf138	2026-10-17	BJoozz		Merge pull request #14 from kerktaiheng/bj/node-label-fit
+8d4c15f	2026-10-17	BJoozz	bj/viz-shell-v10-stage0	Record the owner's stage-0 answers in the V10 proposal
+95b3030	2026-10-16	BJoozz		Propose the V10 panel-groups layout: stage 0
+8bb2720	2026-10-16	BJoozz		Merge pull request #13 from kerktaiheng/bj/visualgo-samples
+96f85e2	2026-10-16	BJoozz	origin/bj/node-label-fit, bj/node-label-fit	Draw node labels larger still
+e360df1	2026-10-16	BJoozz		Size a node's label to fit its node
+32de95c	2026-10-16	BJoozz	origin/bj/visualgo-samples, bj/visualgo-samples	Keep the samples' hidden weights, and grow the board to a drawn sample
+174b417	2026-10-16	BJoozz		Drop the blank line that ended the visualgo examples file
+bc46260	2026-10-16	BJoozz		Make the samples visualgo.net's example graphs, drawn where visualgo draws them
+420c202	2026-10-16	BJoozz		Merge pull request #12 from kerktaiheng/bj/final-frame-motion
+36086f3	2026-10-16	BJoozz		Merge pull request #11 from kerktaiheng/bj/footer-centre-transport
+fced77a	2026-10-16	BJoozz	origin/bj/final-frame-motion, bj/final-frame-motion	Spread light through every algorithm's finished last frame
+d6ce97b	2026-10-16	BJoozz	origin/bj/footer-centre-transport, bj/footer-centre-transport	Centre the footer's transport and Stop, with position and speed on the left
+be570eb	2026-10-16	BJoozz		Keep the finished run's last frame moving: BFS's spread, Max Flow's cut
+6470083	2026-10-15	BJoozz		Merge pull request #10 from kerktaiheng/bj/live-layout-off
+504fcab	2026-10-15	BJoozz		Merge pull request #9 from kerktaiheng/bj/sssp-end-node
+6b953d5	2026-10-15	BJoozz	origin/bj/live-layout-off, bj/live-layout-off	Start Live force layout off
+b596101	2026-10-15	BJoozz	origin/bj/sssp-end-node, bj/sssp-end-node	Retake the graph captures with the End node and the shorter hint
+8a5f607	2026-10-15	BJoozz		Drop the Selection box from Draw graph
+2511937	2026-10-15	BJoozz		Approve the End node's details and leave the run form one short hint
+240b688	2026-10-15	BJoozz		Merge pull request #8 from kerktaiheng/bj/sssp-end-node
+9e6e7bd	2026-10-15	BJoozz		Add an End node whose path only the last frame of BFS, Dijkstra and Bellman-Ford shows
+fb0b6a9	2026-10-15	BJoozz		Merge pull request #7 from kerktaiheng/bj/fix-traversal-ci
+3a6443b	2026-10-15	BJoozz	origin/bj/fix-traversal-ci, bj/fix-traversal-ci	Test traversal ellipsis against measured text width across platforms
+f510477	2026-10-15	BJoozz	origin/bj/dock-drop-zones, bj/dock-drop-zones	Say the drop zones go by the page, not by the dock under them
+285b8bc	2026-10-15	BJoozz		Let the dock drop zones reach the window's edges, in fixed shares
+c3f6508	2026-10-15	BJoozz	origin/bj/uiux-pass-1, bj/uiux-pass-1	Keep the see-through legend legible, and test a drag and a pan through it
+f1d9e40	2026-10-14	BJoozz		Let the drawing show through the canvas legend, and the pointer too
+ff77eca	2026-10-13	BJoozz		Float a changed number's change off it, first on the Segment Trees
+fd84fe3	2026-10-13	BJoozz		Space the Draw graph panel and drop its spare hint and rule
+a7e732a	2026-10-13	BJoozz		Retake the captures that show merge sort's new last line
+471fc0d	2026-10-13	BJoozz		Keep the first unbalanced vertex red where it is found, and fix two texts
+467d1f7	2026-10-13	BJoozz		Glow on the node a relaxation decides, and record the owner's motion choices
+0b9e063	2026-10-13	BJoozz		Fix three paused-motion slips a review found
+752a5ac	2026-10-13	BJoozz		Retake the captures that tied lines, else and merge's tail change
+bfb2373	2026-10-13	BJoozz		Skip merge sort's in-place right tail, and carry tied lines in sorting
+65c0fe5	2026-10-13	BJoozz		Write BFS's discovery line's no-break spaces as escapes
+28e08f8	2026-10-13	BJoozz		Light the heap's move lines with their swaps, and end runs on their badge
+d72c4e3	2026-10-13	BJoozz		Let tied pseudocode lines light together, and apply the owner's graph fixes
+2f3aedb	2026-10-13	BJoozz		Retake the captures after the step merges, and note them on the site
+54a3f6e	2026-10-13	BJoozz		Write BFS's discovery test and its body as one numbered line (DD-44)
+4a54f7f	2026-10-13	BJoozz		Merge a sorting step into the one it completes, and fix wrong lines (SP-11)
+f935bc6	2026-10-13	BJoozz		Merge a tree step into the one it completes, and fix wrong lines (TP-18)
+0d1f6de	2026-10-13	BJoozz		Merge a graph step into the one it completes, and fix wrong readings (DD-44)
+38c726f	2026-10-12	BJoozz		Record that upstream is a reference only, never changed or synced
+74a4958	2026-10-12	BJoozz		Let a node dragged with Live force layout off follow the pointer (DD-43)
+62558bb	2026-10-12	BJoozz		Show the visualizers' Animate paused steps in the site's Settings menu
+a8c191c	2026-10-12	BJoozz		Keep a paused tree step's focus moving, behind a Settings switch (TP-17)
+7e92baf	2026-10-12	BJoozz		Keep a paused graph step's focus moving, behind a Settings switch (DD-42)
+b596354	2026-10-12	BJoozz		Press Tab in the editors' keyboard test, and measure both headings in the themes sweep
+d63fd2f	2026-10-12	BJoozz		Retake the homepage captures with the editors in their own section
+5e745b2	2026-10-12	BJoozz		Give the two editors a section of their own on the homepage, under the tip
+febee26	2026-10-11	BJoozz		Retake the captures with the picker at the top of the Action panel
+04e8836	2026-10-11	BJoozz		Put the picker at the top of the tree's Action panel, and make the first edit on a sample the custom data
+5d03867	2026-10-11	BJoozz		Put a picker at the top of the graph's Action panel, and make the first edit on a sample the custom graph
+7713128	2026-10-11	BJoozz		Press the canvas's Fit view in the Prim capture script, and retake its captures
+06b34cc	2026-10-11	BJoozz		Retake the captures with the Action panel naming the graph or data on the canvas
+95bf326	2026-10-11	BJoozz		Keep every example's working copy for the visit in the tree prototypes
+57d0144	2026-10-11	BJoozz		Keep every graph's working copy for the visit: the custom graph and each sample
+da43c83	2026-10-11	BJoozz		Size the canvas control buttons in px, so the 24px font preset no longer clips Zoom in
+5e1d211	2026-10-11	BJoozz		Retake the captures of the six prototypes with the control icons on the canvas
+fe8418f	2026-10-11	BJoozz		Say that the sorting footer no longer differs over Zoom and Fit
+84db920	2026-10-11	BJoozz		Put the control icons back on the tree canvas, and take Zoom and Fit out of the footer
+9672481	2026-10-11	BJoozz		Put the control icons back on the graph canvas, and take Zoom and Fit out of the footer
+4a123db	2026-10-10	BJoozz		Start the sites' browser runs with the footer's Play, and say so in their documents
+c00694b	2026-10-10	BJoozz		Retake the captures of the six prototypes without the Go button
+6fec0d3	2026-10-10	BJoozz		Say Play where the graph acceptance records and the Prim proposal still said Go
+66c12b8	2026-10-10	BJoozz		Let the footer's Play start a run in the sorting prototypes, and drop Go and Run again
+d431074	2026-10-10	BJoozz		Let the footer's Play start a run in the tree prototypes, and drop the Go button
+117975a	2026-10-10	BJoozz		Let the footer's Play start a run in the graph prototypes, and drop the Go button
+c620145	2026-10-10	BJoozz	origin/bj/bst-avl-operations, bj/bst-avl-operations	Show AVL Delete's walk to the root in its listing, and let the decks say how to get the first tree back
+5e9f0ef	2026-10-10	BJoozz		Teach the new BST and AVL operations in the e-Lecture, and finish TP-15's documents
+9a2f04b	2026-10-10	BJoozz		Add AVL Delete, rebalancing on the way up to the root
+e7f2fec	2026-10-10	BJoozz		Add Inorder, Preorder and Postorder to BST and AVL, with a traversal strip under the tree
+c56eb7b	2026-10-10	BJoozz		Add Select(k) to BST and AVL, with the ranks and sizes visualgo.net draws
+a6c9965	2026-10-09	BJoozz		Add Predecessor, Successor and Lower Bound to BST and AVL
+c364204	2026-10-09	BJoozz		Add Find Min and Find Max to BST and AVL, in grouped operation radios
+a521c13	2026-10-09	BJoozz	origin/bj/segment-tree-lazy, bj/segment-tree-lazy	Read typed Segment Tree numbers as written, and refuse a lazy run it could not draw
+7cfc537	2026-10-09	BJoozz		Write the other five tree e-Lectures after visualgo.net's
+3a429ad	2026-10-09	BJoozz		Write both Segment Tree e-Lectures after visualgo.net's, in the panel
+fc4172d	2026-10-09	BJoozz		Add a Segment Tree with lazy propagation beside the eager one, and exact decimal sums in both
+ae2f31f	2026-10-08	BJoozz	origin/bj/visualgo-web-editors, bj/visualgo-web-editors	Say on the homepage that the site is an experimental version of Prof Halim's visualgo.net, by Kerk and Bao
+b0d099b	2026-10-08	BJoozz		Give the open LCA sheet room for rows on a laptop, and write down the target screens
+75d0bae	2026-10-08	BJoozz		Keep the LCA strip one height everywhere and Follow on the table whenever it can show
+303e50b	2026-10-07	BJoozz		Put the Binary Lifting ancestor table under the tree, as a step strip that opens it
+00ed4c2	2026-10-07	BJoozz		Let a workspace offer an extra dock panel
+bff732d	2026-10-05	BJoozz		Shorten pseudocode lines to fit the panel in the graph, tree and sorting prototypes
+6b1791a	2026-10-05	BJoozz		Review Prim: mark the current edge, keep inspections neutral, fix the module bars and the documents
+490e1d1	2026-10-05	BJoozz		Complete Prim acceptance, contrast checks and profiling
+65634cf	2026-10-05	BJoozz		Integrate Prim into hosted MST and Graph Editor
+686c06b	2026-10-05	BJoozz		Integrate Prim into standalone graph V2 and V7
+5428ed3	2026-10-04	BJoozz		Implement lazy Prim engine and immutable timelines in graph prototypes
+4bd0879	2026-10-04	BJoozz		Establish Prim input and timeline contracts for graph prototypes
+e6ce1ac	2026-10-04	BJoozz		Call a vertex unreachable once the Bellman-Ford passes end, in the table too
+eac9fbd	2026-10-04	BJoozz		Review Bellman-Ford: say "not reached", write the minus sign, fix its documents
+6417767	2026-10-04	BJoozz		Complete Bellman-Ford acceptance checks and evidence (stage E)
+0aac567	2026-10-03	BJoozz		Integrate Bellman-Ford presentation and hosted workflows (stages C-D)
+aef5d0b	2026-10-03	BJoozz		Add signed graph input and Bellman-Ford engine (stages A-B)
+c4e597d	2026-10-02	BJoozz		Run a reverse wave back along its edge's own path
+bcbed32	2026-10-02	BJoozz		Show which way each step crosses an edge (DD-37)
+c49e8c8	2026-10-02	BJoozz		Let a splitter press that moves nothing change nothing, and save every Reset
+2a1d2a6	2026-10-02	BJoozz		Save a host's reveal only after a real change, and make the shell sheets match
+7c91fe7	2026-10-01	BJoozz		Keep the site's bar when a tree card's frame is replaced (Q10)
+9bcb00a	2026-10-01	BJoozz		Make the tags readable in Classic, and sample them in the sweep
+1a96b82	2026-10-01	BJoozz		Show an editor's Action panel for that visit, without saving it (Q8)
+17f9edd	2026-10-01	BJoozz		Leave Max Flow's direction to the engine, as the owner chose (Q9)
+13c461a	2026-10-01	BJoozz		Keep the Tree Editor to LCA, BST and AVL, and record what the review found
+cfb4df0	2026-10-01	BJoozz		Write down how a host mounts each visualizer, and give the graph the action tuple
+0919126	2026-10-01	BJoozz		Read an edge with no weight as 1, and bring the graph docs up to date
+cc38942	2026-10-01	BJoozz		Add the Graph Editor and Tree Editor cards, marked New
+17e98cc	2026-10-01	BJoozz		Open a visualizer on its editor when a host asks, and say before Go what a drawn graph will do
+65766cc	2026-09-29	BJoozz		Send the old DFS URL to the stack variant instead of to BFS
+4ab075c	2026-09-29	BJoozz		Add a recursive DFS beside the stack one, and name both for what they hold
+6fc6150	2026-09-29	BJoozz		Put Dijkstra's distances on the nodes, where the question is
+c9e4598	2026-09-29	BJoozz	bj/vercel-spa-routing	Configure Vercel SPA routing for both websites
+9cc009f	2026-09-28	BJoozz		Merge pull request #4 from kerktaiheng/bj/visualgo-web-site
+ad20f0d	2026-09-28	BJoozz	origin/bj/visualgo-web-site, bj/visualgo-web-site	Stop the Compared highlight pointing at bars that hold something else
+c32c9ed	2026-09-28	BJoozz		Show both partners, and measure the themes instead of the clock
+a972917	2026-09-28	BJoozz		Write up the VisuAlgo+ site: the plan, the decisions and the reviews
+8aeb543	2026-09-28	BJoozz		Add visualgo-web-docks: the V7 site
+87db4a3	2026-09-28	BJoozz		Add visualgo-web-split-rails: the V2 site
+a8dd634	2026-09-28	BJoozz		Let a host page render the six visualizers' top bar
+d3ab325	2026-09-28	BJoozz	backup/before-reword-044908	Show both partners, and measure the themes instead of the clock
+a63550c	2026-09-28	BJoozz		Write up the VisuAlgo+ site: the plan, the decisions and the reviews
+4184121	2026-09-28	BJoozz		Add visualgo-web-docks: the V7 site
+94e11da	2026-09-28	BJoozz		Add visualgo-web-split-rails: the V2 site
+a3d777b	2026-09-28	BJoozz		Let a host page render the six visualizers' top bar
+57912e8	2026-09-28	BJoozz		Let the design system's wordmark be a Home button
+ca56cef	2026-09-27	BJoozz		Merge pull request #3 from kerktaiheng/bj/sorting-wireframe-v2-v7
+4a8f1f2	2026-09-27	BJoozz	origin/bj/sorting-wireframe-v2-v7, bj/sorting-wireframe-v2-v7	Grow the pane floor by the warning row, so U13 actually holds
+c3356da	2026-09-27	BJoozz		Measure radix with radix's own arithmetic, and stop the warning covering the drawing
+3c61e81	2026-09-27	BJoozz		Answer U7 and U9: keep the 240 cap, and warn when the bars get too thin
+bdd0a89	2026-09-27	BJoozz		Describe the buffers by what transfers between them
+e2e37cb	2026-09-27	BJoozz		Describe the operation buffers as they are
+f86062b	2026-09-27	BJoozz		Fix the Pseudocode heading, and four things the documents got wrong
+613bca7	2026-09-27	BJoozz		Stage 10: documentation and review captures
+c3a9da4	2026-09-26	BJoozz		Stage 9: every algorithm reports which line it is on
+3e62f2c	2026-09-26	BJoozz		Stage 8: test Pseudocode and e-Lecture, and fix a highlight that vanished
+6f27013	2026-09-26	BJoozz		Read the tick field with valueAsNumber, not parseInt
+8fe262a	2026-09-26	BJoozz		Finish stage 7: an exact-operation field, and a total in Status
+fed2420	2026-09-25	BJoozz		Stop Replay wiping the run, and bound the scrubber to what every pane holds
+5ccef45	2026-09-25	BJoozz		Produce the run eagerly on Go, and implement Last
+9d9e728	2026-09-25	BJoozz		Drain a pending seek before the next transport command
+2ae6375	2026-09-25	BJoozz		Record stage 7 in the checklist
+42d1597	2026-09-25	BJoozz		Add seeking: a scrubber over the retained past
+cc57008	2026-09-25	BJoozz		Wrap the strip's seed and alert anywhere, not only where there is a hyphen
+0a915b6	2026-09-25	BJoozz		State the Compare floor on the canvas, and stop the setup strip clipping
+661a2b2	2026-09-25	BJoozz		Fix four Compare defects and give both variants a drawing floor
+eeba29d	2026-09-25	BJoozz		Add Compare mode: the pane grid, the setup strip, and the two variants
+786b278	2026-09-25	BJoozz		Keep layout and experiment setup per mode, and fix two dock defects
+ee4bb72	2026-09-25	BJoozz		Add sorting visualizer prototypes in the V2 and V7 page layouts
+e7a44f9	2026-09-23	BJoozz		Add sorting visualizer submodule
+495fa73	2026-09-23	BJoozz		Merge pull request #2 from kerktaiheng/bj/tree-wireframe-v2-v7
+1af2c72	2026-09-23	BJoozz	origin/bj/tree-wireframe-v2-v7, bj/tree-wireframe-v2-v7	Fix tree prototype whitespace checks
+05b4b4a	2026-09-23	BJoozz		Hide React Flow's corner attribution on every canvas
+f7066d4	2026-09-23	BJoozz		Graph: the Flow/Residual switch sits under Go while a maximum-flow run exists
+be37809	2026-09-23	BJoozz		Graph: Go plays the run at once, as the tree module does
+152735b	2026-09-23	BJoozz		Measure after the fonts load, and measure the production bundle
+65eee09	2026-09-23	BJoozz		Fix two shell defects in all four prototypes: modal Shortcuts dialog, readable pseudocode in Classic
+7b16bf3	2026-09-22	BJoozz		WIP: first version of the tree visualizer in layouts V2 and V7
+6a621df	2026-09-21	BJoozz		Merge pull request #1 from kerktaiheng/bj/graph-wireframe-v2-v7
+75d9760	2026-09-21	BJoozz	origin/bj/graph-wireframe-v2-v7, bj/graph-wireframe-v2-v7	Add inspector table search and single-scroll V2 rails
+c458755	2026-09-21	BJoozz		Move algorithm controls to top bar and normalize Kruskal graph view
+fab4005	2026-09-20	BJoozz		Fix V7 dock limits and keyboard interactions
+37075b1	2026-09-20	BJoozz		Refine V2 and V7 page behavior, documentation, and CI
+0073875	2026-09-20	BJoozz		Add split-rails (V2) and docks (V7) clones of graph-visualizer-v2
+053064f	2026-09-17	BJoozz	bj/engine-package-spike	wip(package): M4a packaging spike for @visualgo/kerk-bfs-runtime
+ffb9274	2026-09-17	BJoozz	origin/bj/engine-v2-experiment, bj/engine-v2-experiment	feat(engine): add experimental Kerk BFS runtime
+ee65bef	2026-09-17	BJoozz		test(engine): dispatch a Node-safe error event in the client worker test
+e348a6d	2026-09-17	BJoozz		refactor(engine): extract reusable browser engine client
+53d2ef4	2026-09-17	BJoozz	bj/bfs-wasm-spike	currently paused
+478174f	2026-09-17	BJoozz		feat(engine): add stable edge identity across runtime and playback
+4bd9ca9	2026-09-16	BJoozz	origin/bj/visualization-work, live_prototype, bj/visualization-work	Merge remote-tracking branch 'origin/main' into bj/visualization-work
+df99dac	2026-09-14	Kerk Tai Heng		Restore wasm-arch/scripts and update workflow actions for Pages
+986deba	2026-09-13	BJoozz		Add graph and tree visualizer prototypes as submodules
+598193b	2026-09-13	Kerk Tai Heng		remove ZoneId files
+aa541a1	2026-09-04	Kerk Tai Heng		One log stream for every hop in the chain
+69aa8e4	2026-09-04	Kerk Tai Heng		wireframs
+e396e06	2026-09-04	Kerk Tai Heng		Array monotype and a Python engine that traces unmodified sorts
+8a59115	2026-09-04	Kerk Tai Heng		Move the engine prototype into wasm-arch/
+b3e86ba	2026-09-03	Kerk Tai Heng		Graph RPC: monotype protobuf between a web page and a C++ WASM engine
+634b5be	2026-09-03	Kerk Tai Heng		init
