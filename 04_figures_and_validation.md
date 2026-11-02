@@ -3,7 +3,7 @@
 Audit date: 2026-11-01/02\
 Repository: `kerktaiheng/visualgo-plus-design`, `main` at `662e7b3`\
 Evidence labels: VERIFIED / DOCUMENTED / INFERENCE / QUESTION\
-The owner's answers of 2026-11-01 are applied: the work from 2026-07-28 until the FYP's August start is "week 0", and all the standalone work is in scope (Q1), AI use is stated but Bao's own review role is still open (Q4), and no supervisor feedback is quoted (Q6). Ids C1–C14 and Q1–Q17 follow note 09 (`evidence/research-notes/09-candidate-contributions.md`).
+The owner's answers of 2026-11-01 and 2026-11-03 are applied (doc 01, the table at its top): week 0 runs from 2026-07-28 to about 08-09 and all the standalone work is in scope; AI-assisted work is Bao's; the checklists were run but not recorded; Kerk's early layout survey has no record with Bao. Ids C1–C14 and Q1–Q17 follow note 09 (`evidence/research-notes/09-candidate-contributions.md`).
 
 **Checked for this document on 2026-11-02 (read-only).** (a) I viewed the eight captures in `figures/` one by one and replayed their steps against the deployed build of `662e7b3`. (b) I re-queried GitHub with `gh` for the workflow runs, the 37 PRs and the standalone repositories' runs. (c) I counted test files, specs, records and checklists with `git` at `662e7b3`. I re-ran no test suite for this document; doc 02 reports a run of seven graph test files on 2026-11-02 (67 of 67 passed). Every other test result below comes from the runs of 2026-11-01: the app's check run (note 07 §2), whose logs I re-read, and the standalone unit runs (note 02). `git status` stayed clean.
 
@@ -11,7 +11,7 @@ The owner's answers of 2026-11-01 are applied: the work from 2026-07-28 until th
 
 ### 1.1 The set
 
-Seven screenshots are recommended (F1–F4 and F6–F8); F5 is a spare. All eight were captured, and the two diagrams still have to be drawn. If only six screenshots fit, drop F7, because C9 is a medium-value group in note 09.
+Seven screenshots (F1–F4 and F6–F8) and the two diagrams D1 and D2 are the set, as Bao chose on 2026-11-03; F5 is a spare. All eight screenshots were captured; the two diagrams still have to be drawn.
 
 | Id | Figure | Supports | File in `figures/` | Status |
 |---|---|---|---|---|
@@ -44,7 +44,7 @@ Seven screenshots are recommended (F1–F4 and F6–F8); F5 is a spare. All eigh
 - Steps: open `/`, wait for the font, and capture the viewport. Then take a full-page capture.
 - Check: 12 cards open (2 editors and 10 modules) and 18 carry "Coming soon". Four cards carry a count badge: "1 of 3", "5 of 7", "2 of 3" and "1 of 4".
 - Caption: *"The VisuAlgo+ homepage at commit 662e7b3: the two editors, then the module catalogue taken from visualgo.net's list; 12 of 30 cards open and 18 are not built yet. The page is built on Kerk Tai Heng's design system and UI kit."*
-- Credit: the design system, the UI kit, the NUS Computing and Optiver logos and the card list are not Bao's work (C5, C12). The permission to use visualgo.net's material is open (Q7).
+- Credit: the design system, the UI kit, the NUS Computing and Optiver logos and the card list are not Bao's work (C5, C12). Prof Halim knows of and agrees to the use of visualgo.net's material (owner, 2026-11-03).
 
 **F2 · A visualizer page in the groups shell** (C6). Captured: `F2-dfsbfs-bfs-frame8.png`. It shows a run in progress, not an idle page.
 - Purpose: the anatomy of a page. The site bar is at the top, the panel groups sit around the canvas and the footer holds the transport.
@@ -61,7 +61,7 @@ Seven screenshots are recommended (F1–F4 and F6–F8); F5 is a spare. All eigh
 - Steps: open `/dfsbfs` and press the ACTION tab. Hold the button and move the pointer to the middle of the Pseudocode group's body (x ≈ 1280, y ≈ 316). Capture while still holding.
 - Check: the Pseudocode body is framed in the accent colour and labelled "ACTION". A caret sits after the PSEUDOCODE tab, a ghost "ACTION" sits beside the pointer, and a dashed band runs along the drawing's bottom edge.
 - Caption: *"Moving a panel: the Action tab is held over the Pseudocode group. The labelled frame and the caret in the tab strip show what a release does (the tab joins that group). The ghost follows the pointer, and the dashed band marks the empty bottom region as another drop target."*
-- Credit: the shell code is Bao's (`72450e1`, `a876206`). 41 lines of `dropTargets.ts` are Kerk's (`c59c155`, `ae63a62`; choices 27 and 33, whose decider is a QUESTION, Q3).
+- Credit: the shell code is Bao's (`72450e1`, `a876206`). 41 lines of `dropTargets.ts` are Kerk's (`c59c155`, `ae63a62`; choices 27 and 33, decided by Kerk and Bao together).
 
 **F4 · Dijkstra's step note** (C10; DD-61, PR #32; Dijkstra itself is inherited from v2, C1). Captured: `F4-sssp-dijkstra-frame24-note.png`.
 - Purpose: the shared note layer (`prototypes/src/shared/components/canvas/StepNoteLayer.tsx`) on the graph. It writes the verdict of a relax step on the drawing (`6b1a4fc`).
@@ -99,7 +99,7 @@ Seven screenshots are recommended (F1–F4 and F6–F8); F5 is a spare. All eigh
 - Steps: press Select preset, then CP4 4.7. The list stays open, as DD-29 intends. Then press Next and Last.
 - Check: Frame 51 / 51. Status ends "Done: 3 cut vertices (4, 3, 1) and 2 bridges (3 — 4, 0 — 1)."
 - Caption: *"Cut Vertex & Bridge on visualgo.net's example graph CP4 4.7, last frame (51 of 51). Each vertex shows num,low. Vertices 1, 3 and 4 are cut vertices (double ring), and edges 0–1 and 3–4 are bridges (green)."*
-- Credit: the sample graph comes from visualgo.net (Q7).
+- Credit: the sample graph comes from visualgo.net (used with Prof Halim's agreement, owner 2026-11-03).
 
 ### 1.4 Diagrams to draw (not captured)
 
@@ -179,7 +179,7 @@ The suite runs in Chromium only, at desktop viewports only (720 × 900 to 1920 �
 | `tree/algorithms/heap/createHeapCreateSequence.test.ts:166` | 200 random lists per order and method | a valid heap of the same values |
 | `shared/components/layout/groupsModel.test.ts:1210` | 4,000 seeded random layout operations on 5 page sizes and 3 drawing floors | every model invariant after every step |
 
-### 2.5 Standalone repositories (week 0 and the first FYP weeks; in scope under Q1)
+### 2.5 Standalone repositories (week 0 and the first FYP weeks; in scope)
 
 | Repository @ commit | Unit run on 2026-11-01 (note 02, on `git archive` copies) | CI history (`gh`, 2026-11-02) |
 |---|---|---|
@@ -233,7 +233,7 @@ Lines that mention a measurement: 14 in the graph records, 16 in the tree record
 | `prototypes/docs/graph/BELLMAN_FORD_ACCEPTANCE.md` | 2026-10-04 (`6417767`) | checks "the original A-E plan, Codex's, which the owner asked for but has not reviewed" against the code; unit, browser and hosted-route gates; the timings of §2.7 | no: its profile script went with the standalone builds on 2026-10-18 |
 | `prototypes/docs/graph/PRIM_ACCEPTANCE.md` | 2026-10-05 (`490e1d1`) | the final gates; a nine-theme contrast sweep; profiles; "eight engine mutants were caught again using the V2 mutation tool" | no: the profile, mutation and acceptance scripts went on 2026-10-18 |
 
-Both were first committed under Bao's identity, in the untrailered stage commits `6417767` and `490e1d1`, which belong to the work DD-38 and DD-39 record as planned and built with Codex; who wrote them is Q4. Their last edit is `02c4e12` (2026-10-30). The tree and sorting have no acceptance record. VERIFIED (commits).
+Both were written with Codex in the stage commits `6417767` and `490e1d1`, at Bao's request (DD-38, DD-39); their last edit is `02c4e12` (2026-10-30). The tree and sorting have no acceptance record. VERIFIED (commits).
 
 | Manual checklist | Section (line) | Items | Ticked |
 |---|---|---:|---:|
@@ -241,7 +241,7 @@ Both were first committed under Bao's identity, in the untrailered stage commits
 | `prototypes/docs/sorting/DEVELOPER_GUIDE.md` | "Manual checklist for the page" (111) | 10 boxes | 0 |
 | `prototypes/docs/tree/DEVELOPER_GUIDE.md` | "Checklist for a page change" (493) | 26 bullets | no boxes |
 
-No file records a dated run of any checklist (VERIFIED; whether they were run outside the repository is Q11). The shell's drag, split and splitter scenarios appear in the graph and tree checklists, not in the sorting one. Bao's PR #36 records them as manual (review S2-02, 2026-10-28; DOCUMENTED); one browser case, `prototypes/e2e/graph.spec.ts:299` (PR #35), drives a column splitter by keyboard and pointer (VERIFIED).
+No file records a dated run of any checklist (VERIFIED). Per Bao (2026-11-03), they were run partly by him by hand and partly by agents, and nothing was recorded (DOCUMENTED). The shell's drag, split and splitter scenarios appear in the graph and tree checklists, not in the sorting one. Bao's PR #36 records them as manual (review S2-02, 2026-10-28; DOCUMENTED); one browser case, `prototypes/e2e/graph.spec.ts:299` (PR #35), drives a column splitter by keyboard and pointer (VERIFIED).
 
 ### 2.9 Review sessions
 
@@ -251,28 +251,28 @@ No file records a dated run of any checklist (VERIFIED; whether they were run ou
 | 2 (2026-10-27) | S2-01 a narrowed side strip hid its front tab; S2-02 the shell drag scenarios stay manual; a docs sweep, and S2-03 the shell copy rule retired | #35 `fd9ff5c`; #36 `02c4e12` | `prototypes/e2e/graph.spec.ts:299` (DD-54) |
 | 3 (2026-10-29) | S3-01 the graph stalled while Speed kept changing; S3-02 a sorting restart did not always play; S3-03 stale records | #37, `9baa117` | `prototypes/src/graph/visualization/playbackCountdown.test.ts`, `prototypes/e2e/graph.spec.ts:113` (DD-17), `prototypes/e2e/sorting.spec.ts:107` (SP-01) |
 
-PRs #34, #35 and #37 say each finding was "reproduced before the fix"; #36 is docs only (DOCUMENTED). Earlier review findings appear in two places. PR #17 fixed "three verified findings of a review" of the V10 shell (choices 24–26). PR #27 fixed a defect from "Codex's review of #25/#26". The repository holds no review document, and it does not record who produced the findings (QUESTION, Q6).
+PRs #34, #35 and #37 say each finding was "reproduced before the fix"; #36 is docs only (DOCUMENTED). Earlier review findings appear in two places. PR #17 fixed "three verified findings of a review" of the V10 shell (choices 24–26). PR #27 fixed a defect from "Codex's review of #25/#26". The repository holds no review document. Per Bao (2026-11-03), the three sessions were Codex reviews that he read first; Claude verified each finding before fixing it, and the fix options were Bao's choices (DOCUMENTED).
 
-### 2.10 Who wrote the tests (Q2, Q4)
+### 2.10 Who wrote the tests
 
 `git blame -w -M` at `662e7b3` (VERIFIED [07]):
-- BJoozz (`123baoek31@gmail.com`, Bao's email by his answer to Q2) last changed 4,887 of the 4,952 spec lines and almost all unit-test lines. Kerk last changed 65 spec lines.
+- Bao (`123baoek31@gmail.com`) last changed 4,887 of the 4,952 spec lines and almost all unit-test lines. Kerk last changed 65 spec lines.
 - 159 of Bao's non-merge commits on `main` touch a test or spec file, and 148 of these carry a `Co-Authored-By: Claude` trailer (re-checked on 2026-11-02).
 
-A trailer proves that a tool was used, not who designed or reviewed a test. What Bao himself did in reviewing and testing must be confirmed before the report describes it (Q4). This audit can state only that the tests exist and passed.
+The tests were written with Claude under Bao's direction and are his (owner, 2026-11-03). This audit states that they exist and passed; it did not measure what they cover.
 
 ## 3. What does not exist
 
 | Missing | How it was checked | Label | What the report can say instead |
 |---|---|---|---|
-| A user study, usability test, survey, interview, participant data or any measure of learning | `git grep` over the whole repository (note 07 §6). "participants" matches only AVL rotation nodes, and "survey" only "surveyed from visualgo.net" | VERIFIED | "VisuAlgo+ has not yet been evaluated with users." |
-| Feedback from students, Kerk or the supervisor | no feedback record; 0 comments on 37 PRs. The informal English requests behind V10 choices 27 to 48, in Kerk's commits, may be someone's feedback; whose is Q3. Bao will add the supervisor's remarks later (Q6 answer) | VERIFIED (no record); source of choices 27 to 48 QUESTION (Q3) | nothing, until there is a source |
+| A user study, usability test, survey, interview, participant data or any measure of learning | `git grep` over the whole repository (note 07 §6). "participants" matches only AVL rotation nodes, and "survey" only "surveyed from visualgo.net". Outside the repository: Kerk organised a survey of a group of users that informed the choice of V2 and V7 (owner, 2026-11-03); Bao holds no record of it | VERIFIED (repository); DOCUMENTED (owner) | "VisuAlgo+ has not yet been evaluated with users; an early survey of a group of users, run by Kerk, informed the choice of two layouts." Cite its data only once Kerk provides it |
+| Feedback from students, Kerk or the supervisor | no feedback record in the repository; 0 comments on 37 PRs. The V10 choices 27 to 48 record Kerk's and Bao's joint decisions after testing the deployed build (owner, 2026-11-03). The supervisor's early direction is in Bao's project description (doc 05 §1.1) | VERIFIED (no record); DOCUMENTED (owner) | the joint V10 fixes, and the layout survey, as Bao describes them |
 | A benchmark or performance test | no profile or benchmark script in `prototypes/package.json` or `prototypes/scripts`, and no workflow runs one; the dated profiles' scripts are gone | VERIFIED | quote a §2.7 number with its date, build and caveat |
 | A code-coverage figure | no coverage package is installed (`@vitest/coverage-*` appear only as vitest's optional peer dependencies in `package-lock.json`; no `c8`, no `nyc`) and nothing is configured | VERIFIED (2026-11-02) | "3,273 unit cases and 151 browser cases passed on 2026-11-01." |
 | Cross-browser and mobile runs | `playwright.config.ts` has one project, `chromium`. The stated targets are desktop and laptop windows, with "the phone version … designed separately" (`prototypes/docs/graph/AGENTS.md:36-43`) | VERIFIED; DOCUMENTED | "Tested in Chromium at desktop window sizes." |
 | An accessibility audit | no axe-core, Lighthouse or pa11y. Contrast is sampled in `themes.spec.ts` and three unit tests; the Prim sweep says it is "not a full accessibility certification"; graph backlog item 14 lists shared colours below the minimums | VERIFIED | "Text contrast is tested at 4.5:1 for sampled chrome text in nine themes." |
-| PR reviews | 37 PRs (36 merged, 1 closed) with 0 reviews and 0 comments (`gh`, 2026-11-02). 90 of Bao's commits reached `main` without a merge commit (2026-09-29 to 10-15) | VERIFIED | describe §2.9 as findings that were reproduced and fixed; the reviewer is a QUESTION (Q6) |
-| A recorded run of the manual checklists, or browser tests of the shell's drag and split | §2.8; the drag and split scenarios are manual by choice | VERIFIED; DOCUMENTED | "Manual checklists exist; no run of them is recorded." |
+| PR reviews | 37 PRs (36 merged, 1 closed) with 0 reviews and 0 comments (`gh`, 2026-11-02). 90 of Bao's commits reached `main` without a merge commit (2026-09-29 to 10-15) | VERIFIED | describe §2.9 as Codex review findings that Bao read, that were reproduced, and whose fixes he chose |
+| A recorded run of the manual checklists, or browser tests of the shell's drag and split | §2.8; the drag and split scenarios are manual by choice | VERIFIED; DOCUMENTED | "Manual checklists exist and were run by hand and by agents; no run was recorded." |
 
 ## 4. Proposed future evaluation (proposals only, not claimed)
 
@@ -281,18 +281,16 @@ None of these exists or has been run. They would suit the rest of the FYP after 
 | # | Proposal | Question it answers | Outline | Prerequisites |
 |---|---|---|---|---|
 | P1 | A small user study | Can students do typical tasks, and where do they struggle? | 6–10 students who have taken a data-structures course. Four or five tasks, with think-aloud, for example: say when and why E's distance changes in Dijkstra; find LCA(6, 2) and the k values used; insert 1 into the heap and count the swaps; put Status beside Pseudocode. Record task success, time, errors and comments, then give the System Usability Scale questionnaire | the supervisor's agreement; check which NUS ethics approval applies before recruiting (QUESTION); a consent form |
-| P2 | A task comparison with visualgo.net | For the same tasks, is VisuAlgo+ quicker or slower, and is it preferred? | within-subjects, with the order of the two sites counterbalanced; only tasks both sites support, on the same example graphs (DD-48 copied them); record completion, time, errors and the reasons for any preference | P1's setup; Q7 (use of visualgo.net's material) |
+| P2 | A task comparison with visualgo.net | For the same tasks, is VisuAlgo+ quicker or slower, and is it preferred? | within-subjects, with the order of the two sites counterbalanced; only tasks both sites support, on the same example graphs (DD-48 copied them); record completion, time, errors and the reasons for any preference | P1's setup; Prof Halim's agreement to the use of visualgo.net's material (owner, 2026-11-03) |
 | P3 | Performance measurement on large inputs | How does the app behave at its input caps? | a Playwright script against a production build. It records sequence generation, time to first frame, frame intervals during Autoplay and JS heap. Inputs: the Large samples, generated graphs of growing size, sorting at 160 generated and 240 typed values, and a 31-item heap. Take the median of at least 5 runs on two machines, and restore the removed profile scripts in the app | none |
 | P4 | An accessibility audit | Does the app meet WCAG 2.2 AA where it matters? | run `@axe-core/playwright` on every route in all nine themes. Do a keyboard-only pass (the tab menu as the drag alternative, DD-54) and a screen-reader pass (NVDA). Then fix graph backlog item 14 | none |
 | P5 | Cross-browser and window-size runs | Do the 151 cases hold in Firefox and WebKit, and at the target windows? | add `firefox` and `webkit` projects to `playwright.config.ts`, and run at the windows listed in `prototypes/docs/graph/AGENTS.md:36-43` | CI time |
 | P6 | Coverage | Which code do the tests reach? | `@vitest/coverage-v8` for the vitest suites and Node's `--experimental-test-coverage` for the graph suite, reported per folder. Coverage measures how much code the tests reach, not how good they are | none |
-| P7 | Dated manual checks and code review | Close the "never recorded" gaps | run the three checklists at 1440 × 900 and 1280 × 800, recording the date, build, result and screenshots; ask one reviewer per PR and keep the review on GitHub | a reviewer (Q6) |
+| P7 | Dated manual checks and code review | Close the "never recorded" gaps | run the three checklists at 1440 × 900 and 1280 × 800, recording the date, build, result and screenshots; ask one reviewer per PR and keep the review on GitHub | a reviewer |
 
 ## 5. Open questions that touch this document
 
-- **Q1**: the FYP's exact start date, which ends week 0. The standalone evidence (§2.5), from week 0 to 2026-09-17, is included in line with Bao's answer.
-- **Q3**: who decided choices 27–48. This affects how F3's band tuning is credited.
-- **Q4**: what Bao did himself to review and test the AI-assisted changes (§2.10).
-- **Q6**: who produced the review findings (§2.9). Bao will add the supervisor's remarks later; until then, none is quoted.
-- **Q7**: permission for visualgo.net's material (F1's card list, F8's example graph) and for the logos in F1.
-- **Q11**: whether the manual checklists were ever run, and whether the dated profiles of §2.7 should be cited.
+- **Q1**: the exact date of Week 1 of the semester (about 2026-08-10), which ends week 0. The standalone evidence (§2.5) is included in line with Bao's answer.
+- **Q8**: Kerk's survey data behind V2 and V7, if the report is to cite it rather than mention it.
+- **Q11**: whether the dated profiles of §2.7 should be cited.
+- Everything else that touched this document was settled on 2026-11-03 (doc 01, the table at its top).

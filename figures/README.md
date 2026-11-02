@@ -3,7 +3,7 @@
 Audit date: 2026-11-01/02\
 Repository: `kerktaiheng/visualgo-plus-design`, `main` at `662e7b3`\
 Evidence labels: VERIFIED / DOCUMENTED / INFERENCE / QUESTION\
-The owner's answers of 2026-11-01 are applied. Each PNG is described as it appears (I viewed every one). The steps are a reconstruction, because the capture script was lost. Which figures to use, and their captions, are in `../04_figures_and_validation.md` §1.
+The owner's answers of 2026-11-01 and 2026-11-03 are applied. Each PNG is described as it appears (I viewed every one). The steps are a reconstruction, because the capture script was lost. Which figures to use, and their captions, are in `../04_figures_and_validation.md` §1.
 
 ## Common facts
 
