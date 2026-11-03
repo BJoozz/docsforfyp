@@ -6,6 +6,9 @@
 *.log
 *.out
 *.synctex.gz
+*.xdv
+*.toc
+*-build.txt
 main.pdf
 build-output.txt
 check.txt

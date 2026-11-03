@@ -16,6 +16,15 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 The source uses standard TeX Live packages. The seven screenshots are included in `figures/`; the two diagrams are drawn with TikZ. References are in `references.bib`.
 
+## Vietnamese reading versions
+
+Added on 4 November 2026, translated from the English report at commit `675fc73`:
+
+- [Full Vietnamese translation](vi/VisuAlgo_CA_Report_VI.pdf) — source: [vi/full.tex](vi/full.tex).
+- [Vietnamese summary](vi/VisuAlgo_CA_Summary_VI.pdf) — source: [vi/summary.tex](vi/summary.tex).
+
+These are reading aids, not replacements for the English submission. They include the personal motivation and the joint decision with Kerk and the supervisor to adopt V10. Build instructions are in [vi/README.md](vi/README.md); use XeLaTeX for Vietnamese.
+
 ## Review before submission
 
 - Check the registered project title/subtitle and whether the main evaluator's name must appear on the cover. The descriptive subtitle is a working subtitle, not a verified registration title.

@@ -1,0 +1,39 @@
+% Compile with XeLaTeX, from report/vi/.
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}[ItalicFont={DejaVu Serif},ItalicFeatures={FakeSlant=0.2}]
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\usepackage[a4paper,margin=23mm,headheight=16pt]{geometry}
+\usepackage{graphicx,booktabs,tabularx,array,amsmath,enumitem,float}
+\usepackage{xcolor,tikz,caption,fancyhdr,titlesec,needspace,placeins}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\definecolor{navy}{HTML}{183850}
+\definecolor{lightblue}{HTML}{EDF3F7}
+\definecolor{muted}{HTML}{526575}
+\usepackage[colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy,unicode]{hyperref}
+\hypersetup{pdfauthor={Truong Van Quoc Bao}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\linespread{1.12}
+\setlist{itemsep=3pt,topsep=4pt,leftmargin=1.6em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.22}
+\renewcommand{\figurename}{Hình}
+\renewcommand{\tablename}{Bảng}
+\renewcommand{\refname}{Tài liệu tham khảo}
+\renewcommand{\contentsname}{Mục lục}
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{navy}}{\thesubsection}{.6em}{}
+\titlespacing*{\section}{0pt}{12pt}{10pt}
+\titlespacing*{\subsection}{0pt}{13pt}{5pt}
+\captionsetup{font=small,labelfont=bf,skip=6pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{muted}VisuAlgo+}
+\fancyhead[R]{\small\color{muted}Bản tiếng Việt để đọc và rà soát}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\graphicspath{{../figures/}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\shot}[4]{\begin{figure}[htbp]\centering\includegraphics[width=#2\linewidth]{#1}\caption{#3}\label{#4}\end{figure}}
+\newcommand{\nextsection}{\FloatBarrier\par\Needspace{9\baselineskip}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
