@@ -26,13 +26,13 @@ Thế mạnh của tôi là kinh nghiệm lập trình thi đấu với thành t
 
 \begin{tabularx}{\linewidth}{@{}p{24mm}Y@{}}\toprule
 Phụ trách & Phạm vi chính\\\midrule
-Bao & Bộ trực quan hóa đồ thị, cây, sắp xếp; chỉnh sửa đầu vào, phát lại; tích hợp giao diện; mô hình V10 cốt lõi; mở rộng thuật toán, thao tác; lớp floating text dùng chung; phần lớn kiểm thử tự động và hồ sơ quyết định thiết kế.\\
+Bao & Bộ trực quan hóa đồ thị, cây, sắp xếp; chỉnh sửa đầu vào, phát lại; tích hợp giao diện, gồm trang chủ, định tuyến và ranh giới host của website (trên hệ thống thiết kế của Kerk) cùng các thẻ Graph Editor, Tree Editor; mô hình V10 cốt lõi; mở rộng thuật toán, thao tác; lớp floating text dùng chung; phần lớn kiểm thử tự động và hồ sơ quyết định thiết kế.\\
 Kerk & Nền tảng engine WebAssembly (WASM), hệ thống thiết kế website, hạ tầng chung và hợp nhất ứng dụng.\\
 Phối hợp & Quyết định giao diện và tích hợp, như chọn V2/V7 và đề xuất V10.\\\bottomrule
 \end{tabularx}
 
 \section*{3. Quá trình phát triển chính}
-Bắt đầu từ trước học kỳ (commit đầu tiên ghi nhận ngày 28/7/2026), tôi xây dựng các nguyên mẫu đồ thị, sắp xếp và cây độc lập để thử nghiệm hành vi. Tháng 9--10, tôi đưa chúng vào hệ thống thiết kế của Kerk. Sau khảo sát người dùng do Kerk tổ chức, Kerk và tôi chọn V2 (split rails) và V7 (docks) trong chín bố cục V1--V9 của wireframe; tôi xây dựng đồ thị, cây, sắp xếp trên cả hai bố cục với chức năng tương đương (20--27/9). Tuần~9, Kerk và tôi thảo luận đề xuất kết hợp V2 và V7 thành V10; tôi triển khai V10, Kerk góp tinh chỉnh để hoàn thiện bản dùng trong thử nghiệm tuần 10. Ngày 18/10, Kerk hợp nhất các bản sao thành một ứng dụng. Kerk và tôi tổ chức thử nghiệm người dùng ở tuần 10; sau đó tập trung mở rộng thuật toán, thêm floating text và sửa lỗi qua rà soát.
+Từ trước học kỳ (commit đầu tiên ngày 28/7/2026), tôi xây dựng các nguyên mẫu đồ thị, sắp xếp và cây độc lập để thử nghiệm hành vi. Tháng 9--10, tôi đưa chúng vào hệ thống thiết kế của Kerk. Sau khảo sát người dùng do Kerk tổ chức, Kerk và tôi chọn V2 (split rails) và V7 (docks) trong chín bố cục V1--V9 của wireframe; tôi xây dựng đồ thị, cây, sắp xếp trên cả hai bố cục với chức năng tương đương (20--27/9). Tuần~9, Kerk và tôi thảo luận đề xuất kết hợp V2 và V7 thành V10; tôi triển khai V10, Kerk góp tinh chỉnh để hoàn thiện bản dùng trong thử nghiệm tuần 10. Ngày 18/10, Kerk hợp nhất các bản sao thành một ứng dụng. Kerk và tôi tổ chức thử nghiệm người dùng ở tuần 10; sau đó tập trung mở rộng thuật toán, thêm floating text và sửa lỗi qua rà soát.
 
 Khảo sát chỉ là \textbf{đầu vào định hướng thiết kế}; báo cáo không phân tích các câu trả lời.
 
@@ -83,9 +83,10 @@ Số người tham gia, đề test, điểm số và quan sát chi tiết của 
 Claude và Codex hỗ trợ triển khai, kiểm thử và rà soát theo yêu cầu, lựa chọn thiết kế của tôi. Báo cáo nêu quy trình đọc thay đổi, chạy ứng dụng và dùng kết quả kiểm thử/CI để xem xét đầu ra; không coi mã sinh bởi AI hoặc test đạt là bảo đảm đúng đắn.
 
 \section*{8. Tiếp theo nên làm gì?}
+Từ tuần 8, Kerk và tôi đã soạn kế hoạch cho phần việc còn lại; thầy đã xem và đồng ý. Hiện chúng tôi đang chuẩn bị hợp nhất các bộ trực quan hóa với hạ tầng dùng chung và phát triển một ứng dụng web hoàn chỉnh trong học kỳ 2. Các mốc dưới đây đề xuất cách thực hiện hướng đi đã thống nhất này.
 \begin{enumerate}
 \item \textbf{11--12/2026:} thuyết trình CA; tổng hợp phát hiện tuần 10, ổn định bản hiện tại, xác định nhiệm vụ tiếp nối và cập nhật thường xuyên các kiểm tra UI tự động và thủ công.
-\item \textbf{1/2027:} thử tích hợp một thuật toán với engine cùng Kerk, kiểm tra toàn bộ luồng đầu vào--thực thi--hiển thị--phát lại.
+\item \textbf{1/2027:} cùng Kerk bắt đầu hợp nhất các bộ trực quan hóa vào ứng dụng web hoàn chỉnh; phần đầu tiên là một thuật toán đồ thị chạy qua hạ tầng dùng chung và engine, kiểm tra toàn bộ luồng đầu vào--thực thi--hiển thị--phát lại.
 \item \textbf{Tháng 2:} dự kiến đánh giá tiếp nối với 6--10 sinh viên và đo thời gian chuẩn bị, nhảy bước, độ đều khung hình, bộ nhớ. Kế hoạch người tham gia, quy trình xin đồng ý (consent) và mọi yêu cầu xét duyệt đạo đức của NUS sẽ được xác nhận với thầy trước khi tuyển người.
 \item \textbf{Tháng 3:} sửa các vấn đề có ảnh hưởng lớn, cải thiện phần giải thích và khả năng tiếp cận ở một số mô-đun, tổng hợp kết quả và soạn báo cáo cuối.
 \item \textbf{Tháng 4:} nộp báo cáo cuối trước 7/4; thuyết trình cuối và demo (19--23/4, dự kiến); nộp bản điện tử (e-copy) trước 10/5.
