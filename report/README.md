@@ -1,5 +1,7 @@
 # VisuAlgo+ CA Report — complete LaTeX draft
 
+**Source update — 4 November 2026:** The LaTeX sources now include the Week 10 V10 user trial and the post-trial rationale for floating text. **The three checked-in PDFs predate this update and have not been rebuilt.** Compile the sources below before reviewing or submitting the revised report. Page count and layout require a fresh build.
+
 Prepared for Truong Van Quoc Bao on 3 November 2026.
 
 Updated in place on 3 November: added personal motivation based on competitive programming and teaching; clarified that Bao, Kerk and the supervisor agreed on V10 after the survey and V2/V7 implementations, retaining selected strengths of both. These clarifications come directly from Bao and supplement the pinned evidence snapshot.
@@ -39,6 +41,6 @@ These are reading aids, not replacements for the English submission. They includ
 
 Application snapshot: `662e7b3` in `kerktaiheng/visualgo-plus-design`.
 Evidence snapshot: `67ce56c11ec109de22e10c11f9a9847ad2fd02e5` in `BJoozz/docsforfyp`.
-Validation numbers are recorded results from 1 November 2026; application tests were not rerun to produce this report. The report does not claim a user study, learning improvement, performance improvement, complete VisuAlgo parity, or current WASM integration.
+Validation numbers are recorded results from 1 November 2026; application tests were not rerun to produce this report. The revised sources describe a formative Week 10 V10 user trial, based on Bao's account on 4 November and a screenshot of the shared footage folder. Detailed participant counts, test questions, scores and coded observations are not supplied. They do not claim learning improvement, measured attention-switching reduction, comparative usability, performance improvement, complete VisuAlgo parity or current WASM integration. See [the Week 10 addendum](week10_user_trial_addendum.md).
 
 The original screenshots are preserved. The source package is self-contained for compilation; it does not include the application repository or modify its contents.

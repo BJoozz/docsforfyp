@@ -11,7 +11,7 @@
 \vspace{3mm}
 \textbf{Truong Van Quoc Bao · CP4101 · AY2026/27, Học kỳ 1}\\
 Giảng viên hướng dẫn: A/P Steven Halim\\
-Bản đọc nhanh ngày 4/11/2026, theo báo cáo tiếng Anh tại \code{675fc73}.
+Bản đọc nhanh ngày 4/11/2026, đồng bộ với bản tiếng Anh cập nhật cùng ngày.
 
 \section*{1. Dự án muốn làm gì?}
 VisuAlgo+ hướng tới xây dựng lại VisuAlgo bằng nền tảng kỹ thuật hiện đại và giao diện được thiết kế lại, đồng thời giữ mục tiêu giúp người học hiểu thuật toán qua tương tác. Định hướng từ thầy bao gồm đổi mới cả UI/UX và engine thực thi. Sản phẩm hiện tại là một nguyên mẫu chạy được; chưa thay thế hoàn toàn VisuAlgo gốc.
@@ -47,8 +47,8 @@ Vùng vẽ cố định ở giữa; bảng hỗ trợ có thể ghép, tách và
 \textbf{(4) Mở rộng thuật toán và thao tác, có đối chiếu kết quả.}
 Ứng dụng có 11 định danh thuật toán đồ thị, bảy không gian làm việc cho cây và tám thuật toán sắp xếp. Đồ thị bổ sung DFS đệ quy, Bellman--Ford, Prim, sắp xếp tô-pô, kiểm tra hai phía và đỉnh khớp/cạnh cầu. Kiểm thử sử dụng cách tính tham chiếu khác thuật toán đang kiểm tra: ví dụ xóa cạnh rồi đếm thành phần liên thông để kiểm tra cầu, hoặc vét cạn rừng nhỏ để kiểm tra Prim.
 
-\textbf{(5) Ghi chú từng bước ngay trên vùng vẽ.}
-Các lời giải thích ngắn như $4+3<8$ giúp làm rõ lý do cập nhật ngay gần đối tượng. Ghi chú dùng chung cách đặt vị trí và thời gian hiển thị, giữ cỡ chữ khi zoom và ẩn ở tốc độ quá nhanh. Hiện có ở Dijkstra, LCA, BST, AVL và Heap; chưa bao phủ mọi thuật toán.
+\textbf{(5) Floating text: lời giải thích ngay trên vùng vẽ.}
+Đây là cập nhật quan trọng sau thử nghiệm tuần 10: lời giải thích ngắn như $4+3<8$ xuất hiện ngay gần đối tượng, nhằm giúp người dùng ít phải nhìn sang Status và tập trung theo dõi các bước trên vùng vẽ, phù hợp định hướng của thầy Halim. Đây là mục tiêu thiết kế, chưa phải tác động đã đo lường. Ghi chú dùng chung cách đặt vị trí và thời gian hiển thị, giữ cỡ chữ khi zoom và ẩn ở tốc độ quá nhanh. Hiện có ở Dijkstra, LCA, BST, AVL và Heap; chưa bao phủ mọi thuật toán.
 
 \section*{5. Những phân biệt cần nhớ khi đọc báo cáo}
 \begin{itemize}
@@ -72,20 +72,22 @@ Danh mục & 12/30 thẻ mở được mô-đun; 18 thẻ chưa xây dựng\\\bo
 
 Đây là số liệu của các lần chạy đã được lưu trong bộ bằng chứng, không phải kết quả chạy mới để tạo bản dịch. Số lượng kiểm thử và nhãn thẻ danh mục không chứng minh đầy đủ mọi thao tác của VisuAlgo đã được tái tạo.
 
+Trong tuần 10, Kerk và tôi cho một số người dùng tự sử dụng V10 trong 15--20 phút, quay video thao tác, thực hiện bài test ngắn sau sử dụng và thu thập phản hồi. Người tham gia gồm người dùng VisuAlgo.net thường xuyên và ít sử dụng, người có kinh nghiệm CP và người mới học thuật toán. Phản hồi cùng video cho thấy cả điểm tích cực lẫn điểm cần cải thiện để làm quen với UI/UX; đây là đầu vào cho cải tiến floating text sau đó. Đợt này khác với khảo sát V2/V7 trước đó.
+
 \section*{7. Giới hạn hiện tại}
-Chưa có nghiên cứu người dùng cho V10, benchmark hiệu năng hoặc tỷ lệ bao phủ mã. Chuỗi bước đồ thị/cây có thể tốn thời gian và bộ nhớ; lịch sử sắp xếp chưa giới hạn. Ghi chú có thể chồng lấn và mới hỗ trợ một số thuật toán. Kiểm thử kéo/tách bảng, khả năng tiếp cận, nhiều trình duyệt và điện thoại còn thiếu. Thử nghiệm engine của tôi chưa được hợp nhất vào ứng dụng.
+Đã có thử nghiệm định hướng với V10, nhưng báo cáo chưa có số người tham gia, đề test, điểm số và phân tích phản hồi chi tiết. Chưa thể kết luận mức cải thiện học tập, lợi thế so với bản cũ hay tác động đo được của floating text. Chưa có benchmark hiệu năng hoặc tỷ lệ bao phủ mã. Chuỗi bước đồ thị/cây có thể tốn thời gian và bộ nhớ; lịch sử sắp xếp chưa giới hạn. Ghi chú có thể chồng lấn và mới hỗ trợ một số thuật toán. Kiểm thử kéo/tách bảng, khả năng tiếp cận, nhiều trình duyệt và điện thoại còn thiếu. Thử nghiệm engine của tôi chưa được hợp nhất vào ứng dụng.
 
 Claude và Codex hỗ trợ triển khai, kiểm thử và rà soát theo yêu cầu, lựa chọn thiết kế của tôi. Báo cáo nêu quy trình đọc thay đổi, chạy ứng dụng và dùng kết quả kiểm thử/CI để xem xét đầu ra; không coi mã sinh bởi AI hoặc test đạt là bảo đảm đúng đắn.
 
 \section*{8. Tiếp theo nên làm gì?}
 \begin{enumerate}
-\item \textbf{11--12/2026:} ổn định bản hiện tại, kiểm thử các tương tác bảng quan trọng và chuẩn bị nhiệm vụ đánh giá.
+\item \textbf{11--12/2026:} tổng hợp phát hiện tuần 10, ổn định bản hiện tại, kiểm thử tương tác bảng và chuẩn bị nhiệm vụ tiếp nối.
 \item \textbf{1/2027:} thử tích hợp một thuật toán với engine cùng Kerk, kiểm tra toàn bộ luồng đầu vào--thực thi--hiển thị--phát lại.
-\item \textbf{Tháng 2:} dự kiến thử nhiệm vụ với 6--10 sinh viên và đo thời gian chuẩn bị, nhảy bước, độ đều khung hình, bộ nhớ.
+\item \textbf{Tháng 2:} dự kiến đánh giá tiếp nối với 6--10 sinh viên và đo thời gian chuẩn bị, nhảy bước, độ đều khung hình, bộ nhớ.
 \item \textbf{Tháng 3--4:} sửa các vấn đề có ảnh hưởng lớn, đánh giá lại, hoàn thiện báo cáo và demo.
 \end{enumerate}
 Các mốc và phương án đánh giá trên là \textbf{đề xuất để trao đổi với thầy và Kerk}, chưa phải cam kết đã thống nhất. Trọng tâm nên là hoàn thiện, kiểm chứng và đánh giá tập chức năng hiện có trước khi mở rộng toàn bộ danh mục.
 
 \vfill
-{\small\color{muted}Nguồn: báo cáo tiếng Anh trong \code{report/main.tex} tại \code{675fc73}; bộ bằng chứng \code{67ce56c}. Bản dịch đầy đủ: \code{full.tex}.}
+{\small\color{muted}Nguồn: báo cáo tiếng Anh trong \code{report/main.tex} cập nhật ngày 4/11/2026; bộ bằng chứng \code{67ce56c} và thông tin bổ sung về tuần 10. Bản dịch đầy đủ: \code{full.tex}.}
 \end{document}
