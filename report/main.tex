@@ -212,7 +212,7 @@ The main engineering decision was to express layout changes in a pure model rath
 
 A common layout resolver is used for sizing, target validity and drag previews. A proposed move is first represented in the model and then resolved into geometry, so the preview and committed result use the same constraints. Expanded groups keep at least 240 pixels of width and 120 pixels of height. Each module sets its own drawing floor (360 by 320 pixels for the graph; 320 by 200 or 320 by 240 pixels for tree workspaces), which the resolver keeps when the viewport can accommodate it.
 
-Saved layouts are versioned and repaired or replaced with defaults when invalid. The layout behaviour is confirmed by automated and manual checks together: model tests run 4,000 seeded random operations across several viewport sizes with repeated serialization round trips; browser tests move tabs through the tab menu and drag splitters; and manual checklists cover pointer drag-and-split, drop feedback and resizing.
+Saved layouts are versioned and repaired or replaced with defaults when invalid. Automated tests and manual checks were used to verify the layout behaviour: model tests run 4,000 seeded random operations across several viewport sizes with repeated serialization round trips; browser tests move tabs through the tab menu and drag splitters; and manual checklists cover pointer drag-and-split, drop feedback and resizing.
 
 \page
 \subsection{The shared shell in use}
@@ -284,7 +284,7 @@ Lint & 0 errors & Two warnings remained.\\\bottomrule
 
 The recorded environment was Windows 11, Node 24.17.0, npm 11.13 and Playwright 1.64.1 with Chromium. The build emitted a large-chunk warning (about 705 kB before gzip and 206 kB after). From 4 September to 30 October, the repository's CI ran 266 workflow runs, 105 of them in the visualizer workflows and the rest in Kerk's engine CI and the site deployment; eight failed, each followed by a passing run of the same workflow.
 
-Passing tests support regression confidence within the tested cases (Table~\ref{tab:tests}); they do not measure usability, accessibility, browser portability or learning. UI/UX behaviour is confirmed by automated tests together with manual checks (Section~\ref{sec:v10}).
+Passing tests support regression confidence within the tested cases (Table~\ref{tab:tests}); they do not measure usability, accessibility, browser portability or learning. Automated tests and manual checks were used to verify interface behaviour (Section~\ref{sec:v10}). The Week 10 trial provided formative feedback on usability (Section~\ref{sec:trial}).
 
 \page
 \section{User Evaluation, Limitations and Next Steps}
