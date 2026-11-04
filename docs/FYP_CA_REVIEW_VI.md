@@ -190,11 +190,22 @@ Không thêm: số đo hiệu năng (TA-9), so sánh bridge với visualgo.net (
 
 ---
 
-## 6. Câu hỏi cho Bao
+## 6. Câu hỏi cho Bao — và câu trả lời (2026-11-04, ~12:30 SGT)
 
-Xem tin nhắn chat (cùng nội dung): Q1 ngày trial; Q2 chi tiết trial; Q3 consent; Q4 câu về supervisor; Q5 survey V2/V7; Q6 truy cập evidence [6]–[8]; Q7 link app public; Q8 title đăng ký + Main Evaluator; Q9 phạm vi sửa; Q10 bản tiếng Việt; Q11 các mục nhỏ chưa chắc. Câu trả lời sẽ được ghi lại vào file này sau khi nhận.
-
----
+| # | Câu hỏi | Bao trả lời |
+|---|---|---|
+| Q1 | Ngày trial | Khoảng 19–22/10; chỉ cần ghi "Week 10" |
+| Q2 | Chi tiết trial | B: giữ "several users", ghi rõ chưa tổng hợp chi tiết; có **vài refinements** (floating text, **legend**, **Status**) |
+| Q3 | Consent | Người tham gia (sinh viên NUS) đồng ý, vui vẻ; Kerk đã hỏi trước về việc dùng video; video không có mặt, chỉ có thao tác tay và màn hình |
+| Q4 | Câu về A/P Halim | B: bỏ A/P Halim khỏi quyết định V10 và floating text |
+| Q5 | Survey/V10 | Kerk làm survey → Kerk và Bao chọn V2, V7 trong 9 layout wireframe của Kerk → Bao build cả hai (20–27/9) → Kerk thảo luận với Bao về đề xuất V10 (15/10, ghi "Week 9") → Bao triển khai; Kerk tham gia refinement hoàn thiện bản test |
+| Q6 | [6]–[8] | B: "Project records, available on request", giảm cite trong thân bài |
+| Q7 | Link app public | B: không |
+| Q8 | Đăng ký | Project ID **H160390**; title **"Exploring New Information Visualization Techniques for VisuAlgo+"**; supervisor A/P Steven Halim; Main Evaluator **SIM Mong Cheng, Terence**; giữ "Rebuilding Interactive Algorithm Visualizations" làm phụ đề; đồng bộ mọi bản |
+| Q9 | Phạm vi | A: tối thiểu trước, thêm nếu còn thời gian |
+| Q10 | Bản tiếng Việt | A: đồng bộ đầy đủ |
+| Q11 | Test UI/UX | Ghi là đã tự động hóa kèm kiểm tra thủ công để khẳng định chức năng UI/UX (các mục nhỏ khác theo đề xuất) |
+| Q12 | Lý do đổi stack | Mục tiêu của thầy là dùng những công cụ tốt nhất cho bản này; công cụ bản cũ đã hơi lỗi thời, không còn phù hợp cho các kế hoạch cập nhật sau |
 
 ## 7. Bản nháp câu sửa (chỉ áp dụng sau khi Bao duyệt)
 
