@@ -50,7 +50,7 @@
 {Project ID: H160390\\Supervisor: A/P Steven Halim\\Main Evaluator: SIM Mong Cheng, Terence\\Academic Year 2026/27, Semester 1\\4 November 2026\par}
 \vspace{9mm}
 \begin{minipage}{.94\textwidth}
-\textbf{Abstract.} VisuAlgo+ is a collaborative project to rebuild VisuAlgo with a renewed technical foundation and a redesigned interface while preserving its educational purpose. My work focuses on the visualization and interaction layer: graph, tree and sorting visualizers, their editing and playback behaviour, and their integration into a common interface. The work began with standalone prototypes and progressed to a single application using a shared panel layout. This report explains the separation of input, layout and playback state; a shared panel-group layout (V10); algorithm extensions and their validation; and floating text, short explanations placed on the drawing. The current application contains 11 graph algorithms (counting the two DFS variants separately), seven tree workspaces and eight sorting algorithms. Its recorded validation on 1 November 2026 reports 3,273 passing unit tests and 151 passing browser cases. These results support functional progress. A formative user trial in Week 10 informed several UI/UX refinements, including floating text and adjustments to the legend and Status panel. Neither the tests nor the trial establishes improved learning outcomes or comparative usability. In Semester 2, the visualizers will be merged with the shared infrastructure into one complete web application, alongside stronger interaction testing and an evaluation with representative learning tasks.
+\textbf{Abstract.} VisuAlgo+ is a collaborative project to rebuild VisuAlgo with a renewed technical foundation and a redesigned interface while preserving its educational purpose. My work focuses on the visualization and interaction layer: graph, tree and sorting visualizers, their editing and playback behaviour, and their integration into a common interface. The work began with standalone prototypes and progressed to a single application using a shared panel layout. This report explains the separation of input, layout and playback state; a shared panel-group layout (V10); algorithm extensions and their validation; and floating text, short explanations placed on the drawing. The current application contains 11 graph algorithms (counting the two DFS variants separately), seven tree workspaces and eight sorting algorithms. Its recorded validation on 1 November 2026 reports 3,273 passing unit tests and 151 passing browser cases. These results support functional progress. A formative user trial in Week 10 informed several UI/UX refinements, including floating text and adjustments to the legend and Status panel. Neither the tests nor the trial establishes improved learning outcomes or comparative usability. In Semester 2, the visualizers will be merged with the shared infrastructure into one complete web application, with the aim of releasing VisuAlgo+, alongside stronger interaction testing and an evaluation with representative learning tasks.
 \end{minipage}
 \end{titlepage}
 \setcounter{page}{2}
@@ -226,7 +226,7 @@ Figures~\ref{fig:bfs} and~\ref{fig:drag} show why layout is part of algorithm in
 \subsection{Graph extensions and algorithm validation}
 The current graph module contains 11 algorithms, counting recursive and stack-based depth-first search (DFS) separately. Alongside breadth-first search (BFS), stack-based DFS, Dijkstra, Kruskal and Edmonds--Karp, the application supports recursive DFS, Bellman--Ford, Prim, topological sorting, bipartite checking, and cut-vertex/bridge detection. Topological sorting offers DFS and Kahn methods; bipartite checking offers DFS and BFS methods. BFS, Dijkstra and Bellman--Ford also accept an optional End node; their last frame then draws the shortest path to it.
 
-These additions extend both computation and explanation. Recursive DFS exposes a different execution structure from a stack-based traversal. Topological sorting and bipartite checking provide witnesses when the input violates their conditions, rather than displaying only a final success or failure. Bellman--Ford and Prim were planned and built with Codex under my requirements and review.
+These additions extend both computation and explanation. Recursive DFS exposes a different execution structure from a stack-based traversal. Topological sorting and bipartite checking provide witnesses when the input violates their conditions, rather than displaying only a final success or failure. Bellman--Ford and Prim were built to my requirements, with Codex and Claude helping me review and complete the implementation plans I had set out.
 
 \shot{F8-cut-vertex-bridge-cp4-4-7-last.png}{.90}{Final frame of cut-vertex and bridge detection on VisuAlgo's example graph labelled CP4 4.7: the result reports cut vertices 1, 3 and 4 and bridges 0--1 and 3--4.}{fig:cut}
 
@@ -322,17 +322,15 @@ Measurements will use a fixed machine and production build with saved inputs of 
 
 \par\vspace{6pt}
 \section{Plan for the Remaining Project}\label{sec:plan}
-The agreed direction for Semester 2 is to merge the visualizers with the shared infrastructure into one complete web application. Table~\ref{tab:plan} proposes milestones, to be discussed with the supervisor and Kerk. The SoC dates are the CA presentation in Reading Week (14--20 November 2026), the final report by 5 pm on Wednesday 7 April 2027, and the final presentation on 19--23 April 2027 (tentative); the other windows are proposals.
+The agreed direction for Semester 2 is to merge the visualizers with the shared infrastructure into one complete web application and to aim for a release of VisuAlgo+. Table~\ref{tab:plan} proposes milestones, to be discussed with the supervisor and Kerk. The SoC dates are the CA presentation in Reading Week (14--20 November 2026), the final report by 5 pm on Wednesday 7 April 2027, and the final presentation on 19--23 April 2027 (tentative); the other windows are proposals.
 
 \begin{table}[tbp]\small\centering
-\caption{Proposed milestones and completion evidence.}\label{tab:plan}
+\caption{Proposed milestones and completion evidence; February--April is a preliminary plan.}\label{tab:plan}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{20mm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
 Window & Main work & Completion evidence\\\midrule
 Nov--Dec 2026 & CA presentation; consolidate Week 10 findings; stabilize the build; define follow-up tasks; keep automated and manual UI checks current. & Reproducible baseline, updated UI tests and checklists, and reviewed evaluation protocol.\\
 January 2027 & With Kerk, begin merging the visualizers into the complete web application; first slice: one graph algorithm through the shared infrastructure and engine. & Written input/step contract; matching results and playback semantics against the TypeScript reference.\\
-February & Conduct follow-up task evaluation and technical measurements. & Anonymized observations, fixed benchmark inputs, environment and result tables.\\
-March & Address high-impact findings; improve explanation and accessibility for selected modules; consolidate results and draft the final report. & Before/after regression checks, follow-up verification of the changed tasks, and a complete report draft.\\
-April & Submit the final report by 7 April; final presentation and demonstration (19--23 April, tentative); e-copy by 10 May. & Reproducible release snapshot, final evaluation account and presentation materials.\\\bottomrule
+February--April 2027 (preliminary) & Follow-up task evaluation and technical measurements; address high-impact findings; improve explanation and accessibility for selected modules; release VisuAlgo+; submit the final report by 7 April; final presentation and demonstration (19--23 April, tentative); e-copy by 10 May. & Anonymized observations and result tables; before/after regression checks; a released, reproducible VisuAlgo+ build; final report and presentation materials.\\\bottomrule
 \end{tabularx}
 \end{table}
 
@@ -344,7 +342,7 @@ The main technical risks are the cost of long step sequences, inconsistent seman
 The main project risk is scope growth. Adding every unfinished catalogue topic would reduce time for evaluation and refinement. I propose prioritizing the current graph, tree and sorting workflows, selected explanation gaps and the first integration slice. Further features should be chosen with the supervisor according to educational value, missing coverage and available time.
 
 \subsection{Expected outcome}
-By the final assessment, the intended outcome is a documented and tested visualization foundation with a coherent interface, representative algorithm coverage, evidence from user tasks and technical measurements, and a clear account of progress in merging the visualizers into the complete web application. The first-semester work establishes the implementation base.
+The aim for Semester 2 is to release VisuAlgo+ as one complete web application. By the final assessment, the intended outcome is that release, built on a documented and tested visualization foundation with a coherent interface, representative algorithm coverage, and evidence from user tasks and technical measurements. The first-semester work establishes the implementation base.
 
 \page
 \begingroup
