@@ -284,3 +284,8 @@ Chuẩn bị: cửa sổ guest mới ~1440×900, có mạng (font Inter), hoặc
 **Giới hạn của session cloud:** không truy cập được repo app (`kerktaiheng/visualgo-plus-design` hay `BJoozz/visualgo-plus-design`). Các câu dựa trên code dùng bằng chứng đã được hai agent đối chiếu với `662e7b3` trong session trước (file:line trong `fyp-audit-panel-results.json`), không được kiểm lại trực tiếp ở đây.
 
 **Bản tiếng Việt:** `vi/full.tex` và `vi/summary.tex` được đồng bộ bằng 2 agent theo từng đợt sửa tiếng Anh, build lại bằng XeLaTeX.
+
+**Bổ sung của Bao (~13:45 SGT):**
+- Vai trò của Kerk: tìm hiểu công cụ cho UI/UX, cùng Bao quyết định các lựa chọn trực quan hóa, thực hiện khảo sát với nhiều nhóm người dùng mục tiêu → thêm vào §3.2.
+- Giao diện editor (`editor.css`, 122/122 dòng của Kerk theo doc 03) do Kerk chuyển thể từ visualgo.net gốc → thêm vào §3.2; phần đóng góp của Bao ghi "Graph and Tree Editor cards".
+- Kế hoạch từ Week 8 (thầy đã xem và đồng ý): chuẩn bị hợp nhất các visualizer với hạ tầng chung thành một web app hoàn chỉnh trong Sem 2 → §3.2, §7, Table 5, abstract.
