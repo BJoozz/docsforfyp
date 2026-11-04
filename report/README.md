@@ -1,46 +1,46 @@
-# VisuAlgo+ CA Report — complete LaTeX draft
+# VisuAlgo+ CA Report — LaTeX sources
 
-**Source update — 4 November 2026:** The LaTeX sources now include the Week 10 V10 user trial and the post-trial rationale for floating text. The three checked-in PDFs were rebuilt from these sources on 4 November 2026 (MiKTeX 25.12: pdfLaTeX for this report, XeLaTeX for the Vietnamese versions). The `\page` command now breaks the page only when the current page is already about three-quarters full; the hard `\clearpage` it used to expand had left three nearly empty pages after the text grew.
+**Submission file:** [`VisuAlgo_CA_Report.pdf`](VisuAlgo_CA_Report.pdf), built from `main.tex` (15 pages including the cover and references). It replaces the earlier `VisuAlgo_CA_Report_Draft.pdf`.
 
-Prepared for Truong Van Quoc Bao on 3 November 2026.
+Registered project details (confirmed by Bao on 4 November 2026): Project ID **H160390**; title **"Exploring New Information Visualization Techniques for VisuAlgo+"**; supervisor A/P Steven Halim; Main Evaluator SIM Mong Cheng, Terence. "Rebuilding Interactive Algorithm Visualizations" is kept as the subtitle.
 
-Updated in place on 3 November: added personal motivation based on competitive programming and teaching; clarified that Bao, Kerk and the supervisor agreed on V10 after the survey and V2/V7 implementations, retaining selected strengths of both. These clarifications come directly from Bao and supplement the pinned evidence snapshot.
+## Revision of 4 November 2026 (after the CA review)
+
+The review is in [`../docs/FYP_CA_REVIEW_VI.md`](../docs/FYP_CA_REVIEW_VI.md), with Bao's answers in its section 6. Changes applied:
+
+- Removed every draft marker (cover, running header, PDF title, file name). The cover now gives the registered title, project ID, supervisor and Main Evaluator.
+- Week 10 trial: dated as Week 10; several users, all NUS students; consent obtained in advance by Kerk; the recordings show only the screen and hands; several refinements (floating text, the legend and the Status panel); detailed results not yet compiled. It is no longer cited to the evidence snapshot `67ce56c`, which predates it.
+- The supervisor is no longer named in the V10 decision or the floating-text motivation. Section 1.1 gives his aim as Bao states it: the best current tools, because the old stack is dated for planned updates.
+- The survey, V2/V7 and V10 order now follows Bao's account: Kerk's survey; Kerk and Bao picked V2 and V7 from Kerk's nine wireframe layouts; Bao built both (20–27 September); V10 was discussed in Week 9 and implemented by Bao, with refinements from Kerk. Choices 27–48 and the 18 October "keep only V10" decision are credited to Kerk and Bao jointly.
+- Factual corrections from the review: floating-text timing, the anchoring of notes, the captions of Figures 5, 6 and 9, catalogue counts, layout floors per module, sorting history, End-node algorithms, the 700 randomized inputs, CI runs, manual checklists, Figures 1 and 2, Table 1 periods, and the wording on Halim et al. 2012.
+- Tests are described as automated tests together with manual checks of the UI/UX.
+- Section 7 and Table 5 now use the fixed SoC dates: CA presentation in Reading Week; final report by Wednesday 7 April 2027, 5 pm; final presentation 19–23 April 2027 (tentative); e-copy by 10 May 2027.
+- The project records [6]–[8] are "available on request" and are cited three times instead of thirteen. The page-16 notes were replaced by one short note under the references.
+- Layout: floats are now `[tbp]`, and `\page` only keeps a heading with its first lines. This and the removal of repeated caveats bring the report to 15 pages.
 
 ## Compile
 
-The maintained report lives in `report/` in `BJoozz/docsforfyp`. Edit `main.tex` and `references.bib` here, compile from this directory, and update `VisuAlgo_CA_Report_Draft.pdf` in the same commit. The report folder includes its own figure copies so it can also be uploaded to Overleaf independently. Generated LaTeX auxiliary files are ignored.
-
-Upload the contents of this folder to Overleaf and choose `main.tex` as the main document, using pdfLaTeX. Alternatively:
-
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error -jobname=VisuAlgo_CA_Report main.tex
 ```
 
-The source uses standard TeX Live packages. The seven screenshots are included in `figures/`; the two diagrams are drawn with TikZ. References are in `references.bib`. On this machine the sources build with MiKTeX 25.12, installed for the current user with winget (`MiKTeX.MiKTeX`) and set to install missing packages automatically; the DejaVu fonts used by the Vietnamese versions come from its `dejavu` package.
+The source uses standard TeX Live packages (including `cite` and `needspace`). It builds with MiKTeX 25.12 (Bao's machine) and with TeX Live (Debian packages `texlive-latex-extra`, `texlive-fonts-recommended`, `texlive-xetex`, `fonts-dejavu`, `latexmk`). The seven screenshots are in `figures/`; the two diagrams are drawn with TikZ; references are in `references.bib`. It can also be uploaded to Overleaf with `main.tex` as the main document (pdfLaTeX).
+
+After building, check: `pdfinfo` reports at most 15 pages; the log has no `undefined` or `Overfull`; `pdftotext` finds no "Draft".
 
 ## Vietnamese reading versions
 
-Added on 4 November 2026, translated from the English report at commit `675fc73`:
+- [Full Vietnamese translation](vi/VisuAlgo_CA_Report_VI.pdf), source [vi/full.tex](vi/full.tex).
+- [Vietnamese summary](vi/VisuAlgo_CA_Summary_VI.pdf), source [vi/summary.tex](vi/summary.tex).
 
-- [Full Vietnamese translation](vi/VisuAlgo_CA_Report_VI.pdf) — source: [vi/full.tex](vi/full.tex).
-- [Vietnamese summary](vi/VisuAlgo_CA_Summary_VI.pdf) — source: [vi/summary.tex](vi/summary.tex).
+They are reading aids, not the submission, and are kept in sync with the English revision. Build them with XeLaTeX (see [vi/README.md](vi/README.md)).
 
-These are reading aids, not replacements for the English submission. They include the personal motivation and the joint decision with Kerk and the supervisor to adopt V10. Build instructions are in [vi/README.md](vi/README.md); use XeLaTeX for Vietnamese.
+## Before submitting
 
-## Review before submission
-
-- Check the registered project title/subtitle and whether the main evaluator's name must appear on the cover. The descriptive subtitle is a working subtitle, not a verified registration title.
-- Confirm name, matric number and any required departmental cover-page format.
-- Review first-person statements on responsibilities, review/acceptance of AI-assisted work, and the supervisor discussion. They follow the updated evidence pack and your account.
-- Confirm the proposed November–April plan with your supervisor and Kerk. The study size, measurements and integration milestone are proposals, not agreed commitments or completed work.
-- Check the applicable AI-use declaration requirements and adapt the existing workflow disclosure if needed.
-- Evidence-pack GitHub links may require access. Keep the evidence pack available to reviewers if needed.
-- Remove “Draft for review” and the draft header only after completing the review.
+- Send `VisuAlgo_CA_Report.pdf` as a softcopy to both A/P Steven Halim and the Main Evaluator (SIM Mong Cheng, Terence) by 17:00 SGT on 4 November 2026.
+- Arrange the CA presentation with both of them for Reading Week (14–20 November 2026).
+- The project records cited as [6]–[8] are in the private repository `BJoozz/docsforfyp`; share them if an examiner asks.
 
 ## Evidence boundaries
 
-Application snapshot: `662e7b3` in `kerktaiheng/visualgo-plus-design`.
-Evidence snapshot: `67ce56c11ec109de22e10c11f9a9847ad2fd02e5` in `BJoozz/docsforfyp`.
-Validation numbers are recorded results from 1 November 2026; application tests were not rerun to produce this report. The revised sources describe a formative Week 10 V10 user trial, based on Bao's account on 4 November and a screenshot of the shared footage folder. Detailed participant counts, test questions, scores and coded observations are not supplied. They do not claim learning improvement, measured attention-switching reduction, comparative usability, performance improvement, complete VisuAlgo parity or current WASM integration. See [the Week 10 addendum](week10_user_trial_addendum.md).
-
-The original screenshots are preserved. The source package is self-contained for compilation; it does not include the application repository or modify its contents.
+Application snapshot: `662e7b3` in `kerktaiheng/visualgo-plus-design`. Evidence snapshot: `67ce56c` in `BJoozz/docsforfyp`. Validation numbers are recorded results from 1 November 2026; on 4 November the unit tests (654 + 2,619) and lint were re-run and matched. The Week 10 trial rests on Bao's account (see [the addendum](week10_user_trial_addendum.md)). The report does not claim learning improvement, measured attention-switching reduction, comparative usability, performance improvement, complete VisuAlgo parity or current WASM integration.
