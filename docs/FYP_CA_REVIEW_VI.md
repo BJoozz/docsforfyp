@@ -267,3 +267,20 @@ Chuẩn bị: cửa sổ guest mới ~1440×900, có mạng (font Inter), hoặc
 8. Fig. 1–2 dạng vector sạch, dùng lại được cho slide; caption Fig. 8 là mẫu tốt.
 9. §6.4 kế hoạch đo (máy cố định, ≥ 5 lần, median + spread) và §7.1 fallback cho engine.
 10. Abstract thật sự là abstract (182 từ), cover đầy đủ hơn yêu cầu.
+
+---
+
+## 10. Kết quả sửa và kiểm tra cuối (2026-11-04, ~13:15 SGT)
+
+**File nộp:** `report/VisuAlgo_CA_Report.pdf` — 15 trang (tính cả bìa và references), 0 undefined reference, 0 overfull box, không còn "Draft" ở text, header, metadata hay tên file. Branch `claude/jolly-franklin-efl6dx`; chưa merge vào `main`.
+
+**Đã sửa theo Top 5 và câu trả lời Q1–Q12:** xem `report/README.md` (mục "Revision of 4 November 2026"). Sửa thêm theo yêu cầu của Bao: "Automated tests and manual checks were used to verify interface behaviour. The Week 10 trial provided formative feedback on usability."
+
+**Vòng kiểm tra độc lập sau khi sửa** (3 agent: accuracy / official / consistency; read-only):
+- *Accuracy:* khớp câu trả lời của Bao ở mọi điểm; 7 caption khớp ảnh; các finding Critical/Important trước đó đã được xử lý. Còn 3 lỗi nhỏ → **đã sửa**: §2.1 nói trial và follow-up "address" câu hỏi learning (đổi thành "gave formative input…; a structured follow-up is planned"); §4.4 phóng đại phạm vi browser test và checklist (đổi theo doc 04 §2.8: một browser case kéo column splitter, checklist graph và tree có drag/split/splitter); tham chiếu Table 4 đặt sai câu ở §6.3.
+- *Official:* đáp ứng guideline (đủ 6 thành phần, ≤ 15 trang, bìa đúng, hạn chính thức đúng). Lỗi trình bày → **đã sửa**: khoảng trắng lớn p.5/p.9 (`\Needspace` strict + `placeins`), cột bảng ragged-right (Table 1, 4, 5), "UI/UX" chưa định nghĩa, "fixed … (tentative)".
+- *Consistency:* **đã sửa** phần lớn: tên V10/floating text trong abstract, bỏ nhãn "Graph Visualizer V1/V2" (tránh trùng với layout V2), giới thiệu Kerk ở §1.2, "transport" → "playback", "(shown as frames)", định nghĩa topology revision trong Table 2, "eager step sequences", heading §6.2, câu tương lai ở §6.3–6.4, "final report", ghi chú [6]–[8] không lặp. **Không áp dụng:** bỏ câu "The Week 10 trial provided formative feedback on usability" (Bao yêu cầu giữ); ví dụ "odd cycle" cho witness (chưa kiểm chứng được trong session này).
+
+**Giới hạn của session cloud:** không truy cập được repo app (`kerktaiheng/visualgo-plus-design` hay `BJoozz/visualgo-plus-design`). Các câu dựa trên code dùng bằng chứng đã được hai agent đối chiếu với `662e7b3` trong session trước (file:line trong `fyp-audit-panel-results.json`), không được kiểm lại trực tiếp ở đây.
+
+**Bản tiếng Việt:** `vi/full.tex` và `vi/summary.tex` được đồng bộ bằng 2 agent theo từng đợt sửa tiếng Anh, build lại bằng XeLaTeX.

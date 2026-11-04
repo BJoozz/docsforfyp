@@ -1,6 +1,6 @@
 # Bản tiếng Việt của báo cáo CA VisuAlgo+
 
-**Cập nhật nguồn ngày 4/11/2026:** `full.tex` và `summary.tex` đã đồng bộ với bản Anh về thử nghiệm V10 tuần 10 và floating text. Hai PDF đã được biên dịch lại từ nguồn này ngày 4/11/2026 bằng MiKTeX 25.12 (XeLaTeX). Lệnh `\page` trong `style.tex` chỉ ngắt trang khi trang hiện tại đã đầy khoảng ba phần tư, thay cho `\clearpage` cứng từng để lại trang gần trống.
+**Cập nhật ngày 4/11/2026 (sau review CA):** `full.tex` và `summary.tex` được đồng bộ với bản Anh cuối cùng (`report/main.tex`, file nộp `report/VisuAlgo_CA_Report.pdf`, 15 trang). Bìa dùng title đăng ký "Exploring New Information Visualization Techniques for VisuAlgo+", Project ID H160390, Supervisor A/P Steven Halim, Main Evaluator SIM Mong Cheng, Terence; không còn dấu "Draft". Nội dung theo câu trả lời của Bao ghi trong `docs/FYP_CA_REVIEW_VI.md` mục 6. PDF được biên dịch lại bằng TeX Live (XeLaTeX) trên môi trường cloud.
 
 Chuẩn bị ngày 4/11/2026 để Bao đọc và rà soát.
 
