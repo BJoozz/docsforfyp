@@ -1,0 +1,40 @@
+                  CP4101/ XFC4101 ­ BComp Dissertation
+            BT4101 ­ BSc (Business Analytics) Dissertation
+
+                             Final Year Project (FYP)
+                   Submission Guidelines for CA Report
+
+The CA Report is a short report (10-15 pages) that covers:
+      project title;
+      project objectives description;
+      literature review
+      progress made so far (perhaps covering design/investigation alternatives,
+      and thoughts on preliminary design/investigation); and
+      research plan for the next semester.
+      list of references.
+
+1. Read http://advice.writing.utoronto.ca/types-of-writing/literature-review/ to find out what
+literature reviews should and should not be. You may want to check with your supervisor on
+the best way to do a literature review in your research area.
+
+2. Make sure that you are aware of what constitutes as plagiarism. See:
+https://www.comp.nus.edu.sg/cug/plagiarism/#:~:text=NUS%20Plagiarism%20Notice&text=T
+he%20University%20takes%20a%20strict,disciplinary%20action%20by%20the%20University
+.
+
+3. You should submit softcopy of your CA report directly to your supervisor and main
+evaluator by the deadline (Wednesday, Week 12).
+
+4. The CA Report will be used as a basis for your supervisor to decide whether or not you
+have made sufficient progress to continue CP4101/XFC4101/BT4101 (please see the CA
+evaluation form on the FYP website to know the criteria based on which your supervisor and
+main evaluator would evaluate your progress).
+
+5. If your supervisor agrees that you continue the project, you will be automatically registered
+for CP4101/XFC4101/BT4101 next semester; and you will receive an "IP" grade for
+CP4101/XFC4101/BT4101 this semester. However, if your supervisor decides that you have
+not made sufficient progress and recommends that you discontinue the project, you will
+receive a "W" grade for the module. After the withdrawal, onus is on you to ensure that you
+take necessary action to fulfil all the graduation requirements which are relevant to your
+cohort.
+

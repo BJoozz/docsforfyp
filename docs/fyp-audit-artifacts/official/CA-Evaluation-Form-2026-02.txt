@@ -1,0 +1,234 @@
+                                                                                                                           CONFIDENTIAL
+
+                                                                   School of Computing
+                                                       Continual Assessment ­ Supervisor
+                                                 CP4101 / BT4101 / XFC4101 / CP3209 / CP4106
+
+Please tick the relevant button for the chosen level of achievement for each sub-criteria in the tables below.
+Note:
+
+    1. Tick achievement level High or High +, only if you can fully justify. Please provide the justification in table 3.
+    2. This evaluation counts 15 % towards the final grade.
+Table 1: Understanding of the problem, and Technical Achievement
+
+                Sub-criteria                                                Level of Achievement
+
+                                   -4  -3  -2                               -1  0 +1                                      +2 +3 +4
+
+                Motivation and     Does not have good understanding of      Objectives are enumerated, but superficial    Shows clear understanding for the
+                objectives         the scope of the project and objectives  understanding of the problem and motivation   motivation for the project and has
+                                   unclear or unstated.                     for the project                               clearly outlined the objectives.
+
+Understanding   Issues,            Little awareness of constraints &        Poses some questions for further inquiry      Poses a depth and breadth of
+of the problem  Constraints and    assumptions. No idea on issues           mainly based on previous work, but cannot     relevant questions for further inquiry.
+(30%)           assumptions        involved and how to solve the problem.   visualize the assumptions that have to be     Well aware of
+                                   Shows little interest in the project.    made to arrive at the solution.               shortcomings/constraints of
+                                                                                                                          current/own work and ready to
+                                                                                                                          propose new changes to improve the
+                                                                                                                          results achieved at this stage.
+
+                Literature survey  Review of existing work is not evident   Adequate literature survey, but relevance of  Literature review and previous
+                and review of      and references used are outdated or      literature survey to the project is not made  project works is up-to-date and
+                previous works     irrelevant.                              clear.                                        critical.
+
+                Formulation and    Has difficulty in conceptualization and  Has formulated the problem to some extent,    Good formulation of the problem
+                problem            definition of the problem. Problem       and is still putting some efforts towards     statement with clear and viable
+                statement          statement is not formulated clearly or   some viable solutions/plans to address        objectives.
+                                   shows little interest in doing so.       difficulties encountered.
+
+Technical                          Not thought of appropriate               Although the problem not fully researched or  Disciplined, well thought out
+Achievement                        research/design or investigative         investigated; appropriateness of the method   investigation/design method;
+(40%)                              method/ design.                          is adequate.                                  justification for research/design
+                                                                                                                          method is given.
+                Research/design
+                methodology
+            Resources/tools                   No clear specification of the problem;    Partial specification of the problem; Details    Has verified or demonstrated
+            required/used,                    Inadequate details on the                 on the implementation strategy is sketchy;       accuracy of results obtained. Some
+            demos/analysis                    implementation strategy; No idea on       Some tools/resources are identified but not      initial prototype developed/ results
+            of initial results                resources/tools required.                 all.                                             presented Good analysis given to
+                                                                                                                                         support understanding.
+Table 2: Effort/Initiative and Report                                                   Level of Achievement
+                                Sub-criteria                                                                                                          +2 +3 +4
+                                              -4 -3  -2                                 -1  0 +1
+
+            Attitude                          Excuses to meet supervisor; Comes         Meetings with supervisor are intermittent and    Regular meetings with the
+                                              unprepared for meetings.                  irregular; Comes to the meetings with            supervisor. Generally shows
+                                                                                        problems and expects quick fix.                  initiative and self-direction; Explores
+                                                                                                                                         and generates some questions for
+                                                                                                                                         further inquiry.
+
+Effort and  Effort                            Hardly demonstrates any effort and        Demonstrates some responsibility for setting     Highly motivated and gives maximal
+Initiative                                    shows little interest/diligence in the    goals/targets and planning; Demonstrates         effort; Demonstrates perseverance
+(20%)                                         project.                                  effort when prompted but not exert more effort   when difficulties arose or when a
+                                                                                        when difficulties arise.                         solution was not immediately
+                                                                                                                                         obvious.
+
+            Initiative                        No progress report on project even after  Occasionally sends progress report on the        Timely progress report on the
+                                              requests from supervisor; Does not take   project on his own; Shows motivation for         project; Shows considerable
+                                              responsibility for own work.              some activities; Must be reminded to stay on     diligence and independence in
+                                                                                        tasks.                                           tackling problems encountered.
+
+Report      Writing style                     Writing is disorganized and difficult to  Writing style indicates planning that makes      Writing is clear, concise, and
+(10%)                                         read and understand.                      reading easy; Content is sufficient and largely  comprehensive.
+                                                                                        relevant.
+Content  Report is sketchy and appears as last      Work reported presents some preliminary  Work reported is entirely relevant to
+         minute effort. Work reported is either     thoughts on design/investigation.        the work performed. Not only
+         trivial or not used in the work performed                                           presents preliminary thoughts on
+                                                                                             design/investigation, but also
+                                                                                             includes justification for chosen
+                                                                                             design/investigative methodology.
+
+Table 3: Justification
+If you have ticked achievement level High or High + for any of the assessed criteria above, please provide reasons to justify the assessment
+
+Feedback to the Student (please be concise and write one or two sentences for each)
+
+Please provide constructive feedback to the student to enable him/her to make progress in the right direction by indicating the scope of the work the student
+is expected to complete within the project time frame, weakness in the work done so far, and areas for improvement. This will be sent to the student.
+
+   Student's understanding of the problem
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Work done and amount of effort invested so far
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Areas of weakness
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Areas for improvement
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   What is expected at the end of the project
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Other comments
+Is this project worth considering for award, such as "Outstanding Undergraduate Researcher Prize (OURP)", "Best FYP/UROP/Computing Project", SoC Innovation Prize,
+etc.? (please provide justification in the table 3 above)
+
+NO  YES
+
+Project Information
+
+Should student continue with this FYP?
+Yes No
+
+You may update the project title, keywords or project nature if the scope differs from the original proposal now.
+
+Title
+                                                                                                                           CONFIDENTIAL
+
+                 School of Computing
+   Continual Assessment ­ Main Evaluator
+CP4101 / BT4101 / XFC4101 / CP3209 / CP4106
+
+Please tick the relevant button for the chosen level of achievement for each sub-criteria in the tables below.
+
+Note:
+
+    1. Tick achievement level High or High +, only if you can fully justify. Please provide the justification in table 3.
+    2. This evaluation counts 15% towards the final grade.
+Table 1: Understanding of the problem, and Technical Achievement
+
+                Sub-criteria                                               Level of Achievement
+
+                                    -4 -3            -2                    -1  0 +1                                    +2 +3 +4
+
+                Motivation and      Does not have good understanding       Objectives are enumerated, but superficial Shows clear understanding for the
+                objectives          of the scope of the project and
+                                    objectives unclear or unstated.        understanding of the problem and            motivation for the project and has
+
+                                                                           motivation for the project                  clearly outlined the objectives.
+
+Understanding   Issues,             Little awareness of constraints &      Poses some questions for further inquiry    Poses a depth and breadth of
+of the problem  Constraints and     assumptions. No idea on issues         mainly based on previous work, but          relevant questions for further inquiry.
+(30%)           assumptions         involved and how to solve the          cannot visualize the assumptions that       Well aware of
+                                    problem. Shows little interest in the  have to be made to arrive at the solution.  shortcomings/constraints of
+                                    project.                                                                           current/own work and ready to
+                                                                                                                       propose new changes to improve
+                                                                                                                       the results achieved at this stage.
+
+                Literature          Review of existing work is not         Adequate literature survey, but relevance   Literature review and previous
+                survey and          evident and references used are        of literature survey to the project is not  project works is up-to-date and
+                review of           outdated or irrelevant.                made clear.                                 critical.
+                previous works
+
+                Formulation and     Has difficulty in conceptualization    Has formulated the problem to some          Good formulation of the problem
+                problem             and definition of the problem.         extent, and is still putting some efforts   statement with clear and viable
+                statement           Problem statement is not formulated    towards some viable solutions/plans to      objectives.
+                                    clearly or shows little interest in    address difficulties encountered.
+                                    doing so.
+
+Technical       Research/design Not thought of appropriate                 Although the problem not fully researched   Disciplined, well thought out
+Achievement     methodology                                                or investigated; appropriateness of the     investigation/design method;
+(40%)                               research/design or investigative       method is adequate.                         justification for research/design
+                                                                                                                       method is given.
+                                    method/ design.
+
+                Resources/tools     No clear specification of the          Partial specification of the problem;       Has verified or demonstrated
+                required/used,      problem; Inadequate details on the     Details on the implementation strategy is   accuracy of results obtained. Some
+                demos/analysis      implementation strategy; No idea on    sketchy; Some tools/resources are           initial prototype developed/ results
+                of initial results  resources/tools required.              identified but not all.                     presented Good analysis given to
+                                                                                                                       support understanding.
+Table 2: Project/Resource Management and Report/Discussion
+
+            Sub-criteria                                                Level of Achievement
+
+                              -4  -3  -2                                -1  0 +1                                     +2 +3 +4
+
+Project     Project           Little evidence of use of project         Use of project management techniques         Demonstrates continuous usage
+and         Management        management techniques.                    with evidence of application.                of project management
+Resource                                                                                                             techniques
+Management  Resource
+(10%)       Management        Little evidence of good resource          Some evidence of resource management         Has not only identified all tools
+                              management e.g. late decision on          but mainly on a reactive basis. Has          and resources, but has a good
+                              hardware/software platform, tools to      identified the tools/software/hardware       grip on them and has shown
+                              use, or unplanned or no clue.             required, but yet to use it.                 evidence of using them
+                                                                                                                     adequately.
+
+            Report - content  Report is sketchy and appears as last     Report covers relevant prior work as part    Report discusses prior work and
+                              minute effort. Some material under        of literature survey.                        presents ideas clearly and
+                              literature survey are irrelevant.                                                      concisely.
+
+            Report -          Writing is disorganized and difficult to  Writing style indicates planning that makes  Writing is clear, concise, and
+            Writing style     read and understand                       reading easy; Content is sufficient and      comprehensive.
+                                                                        largely relevant.
+
+Report and                    Work reported is either trivial or not    Work reported presents some preliminary      Work reported is entirely
+Discussion                    used in the work performed                thoughts on design/investigation.            relevant to the work performed.
+(20%)                                                                                                                Not only presents preliminary
+            Work reported                                                                                            thoughts on design/investigation,
+                                                                                                                     but also includes justification for
+                                                                                                                     chosen design/investigative
+                                                                                                                     methodology.
+
+            Discussion        Unable to explain what the project is     Able to articulate the problem and work      Has very good grasp of the
+                              about and unable to answer many           done reasonably well. Understands the        project. Understands questions
+                              questions asked.                          questions asked and is able to provide       asked without prompting, and
+                                                                        concise answers in most cases.               provides relevant and detail
+                                                                                                                     answers.
+ Table 3: Justification
+If you have ticked achievement level High or High + for any of the assessed criteria above, please provide reasons to justify the assessment
+
+ Feedback to the Student and Supervisor (please be concise and write one or two sentences for each)
+ Please provide constructive feedback to the student to enable him/her to make progress in the right direction by indicating the scope of the work
+ the student is expected to complete within the project time frame, weakness in the work done so far, and areas for improvement. This will be sent
+ to both supervisor and the student.
+
+     Student's understanding of the problem
+     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     Work done and amount of effort invested so far
+     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     Areas of weakness
+     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Feedback to the Supervisor only (please be concise and write one or two sentences for each)
+
+Please provide feedback to the supervisor on the project, its scope and complexity, and likely contribution of the student based on his/her ability
+and understanding so far. Please also indicate if there is a need to reduce or expand the scope of the project.
+
+Scope of the work involved (too ambitious, too little, typical)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Student's ability to cope with the work
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Nature of the project & whether it encompasses different phases of project development
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Is this project worth considering for award, such as "Outstanding Undergraduate Researcher Prize (OURP)", "Best FYP/UROP/Computing Project", SoC
+Innovation Prize, etc.? (please provide justification in the table 3 above)
+
+NO  YES
+

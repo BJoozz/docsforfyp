@@ -1,0 +1,452 @@
+Report Writing - NUS Computing
+[link:#main] Skip to content
+No results
+* [link:https://www.comp.nus.edu.sg/] Home
+* [link:https://www.comp.nus.edu.sg/about/] About
+* [link:#] The School
+* [link:https://www.comp.nus.edu.sg/about/] Overview
+* [link:https://www.comp.nus.edu.sg/about/deansmessage/] Dean’s Message
+* [link:https://www.comp.nus.edu.sg/about/our-history/] Our History
+* [link:https://www.comp.nus.edu.sg/about/awards/] Teaching Awards
+* [link:https://www.comp.nus.edu.sg/careers/] Work with Us
+* [link:https://www.comp.nus.edu.sg/about/getting-here/] Locate Us
+* [link:https://www.comp.nus.edu.sg/contactus/] Contact Us
+* [link:https://www.comp.nus.edu.sg/about/depts/] Departments
+* [link:/cs/] Department of Computer Science
+* [link:/disa/] Department of Information Systems and Analytics
+* [link:#] People
+* [link:https://www.comp.nus.edu.sg/about/leadership/] Leadership
+* [link:https://www.comp.nus.edu.sg/conversation-with/] Conversation With Leadership
+* [link:https://www.comp.nus.edu.sg/about/iac/] Industry Advisory Committee
+* [link:https://www.comp.nus.edu.sg/about/staff-tribute/] Staff Tribute
+* [link:https://www.comp.nus.edu.sg/about/faculty/] Faculty & Staff
+* [link:#] News and Events
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg/] Events
+* [link:https://www.comp.nus.edu.sg/features/] Knowledge@Computing
+* Admissions
+* [link:https://www.comp.nus.edu.sg/admissions/] Undergraduate
+* [link:https://www.comp.nus.edu.sg/graduate/] Graduate
+* [link:https://www.comp.nus.edu.sg/programmes/] Education
+* [link:/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ai/] Artificial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ba/] Business Analytics
+* [link:https://www.comp.nus.edu.sg/programmes/ug/bais/] Business Artificial Intelligence Systems
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ceg/] Computer Engineering
+* [link:https://www.comp.nus.edu.sg/programmes/ug/cs/] Computer Science
+* [link:https://www.comp.nus.edu.sg/programmes/ug/isc/] Information Security
+* [link:https://chs.nus.edu.sg/programmes/gi/] Geospatial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/sp/] Special Programmes
+* [link:https://www.comp.nus.edu.sg/programmes/sp/c-innovators/] Computing Innovators Programme
+(C-Innovators)*NEW
+* [link:https://www.comp.nus.edu.sg/cug/] Current Undergraduate Students
+* [link:https://www.comp.nus.edu.sg/freshmen/] Information for Freshmen
+* [link:/programmes/#graduate] Graduate
+* [link:https://www.comp.nus.edu.sg/programmes/pg/phdcs/] PhD in Computer Science
+* [link:https://www.comp.nus.edu.sg/programmes/pg/phdis/] PhD in Information Systems
+* [link:/programmes/#mcomp] Master of Computing (with Specialisations)
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mcomp-gen/] Master of Computing (General Track)
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mcomp-ai/] Master of Computing in Artificial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mdft/] Master of Science in Digital FinTech
+* [link:https://msba.nus.edu.sg/] Master of Science in Business Analytics
+* [link:https://www.aidf.nus.edu.sg/executive-master-in-ai-and-digital-transformation/] Executive Master in AI & Digital Transformation
+* [link:https://www.comp.nus.edu.sg/programmes/pg/certs/] Graduate Certificates
+* [link:https://www.comp.nus.edu.sg/programmes/pg/certcf/] Graduate Certificates in Computing Foundations
+* [link:/programmes/#exec] Executive Education & Part-time Programmes
+* [link:http://comp.nus.edu.sg/executive-education] NUS Computing Executive Education
+* [link:https://scale.nus.edu.sg/programmes/undergraduate-programmes/btech-computing] Bachelor of Technology
+* [link:https://www.comp.nus.edu.sg/studentlife/] Community
+* [link:#] Student Life
+* [link:https://www.comp.nus.edu.sg/studentlife/] Overview
+* [link:https://www.comp.nus.edu.sg/studentlife/awards/] Student Awards
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+* [link:https://www.comp.nus.edu.sg/studentlife/clubs/] Student Clubs/Interest Groups
+* [link:https://www.comp.nus.edu.sg/studentlife/wellness/] STUDENT SUPPORT AND WELLBEING
+* [link:#] Social Good and Excellence
+* [link:https://www.ccsgp.comp.nus.edu.sg/] Centre for Computing for Social Good and Philanthropy (CCSGP)
+* [link:https://cence.comp.nus.edu.sg/] Centre for Nurturing Computing Excellence (CENCE)
+* [link:#] Our Heritage
+* [link:https://comgallery.nus.edu.sg/] NUS Computing Gallery
+* [link:https://www.comp.nus.edu.sg/research/] Research
+* [link:#] Research
+* [link:https://www.comp.nus.edu.sg/research/] Overview
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+* [link:https://www.comp.nus.edu.sg/research/partnership/] Research Partnership
+* [link:#] Research Highlights
+* [link:https://www.comp.nus.edu.sg/features/] Knowledge@Computing
+* [link:https://www.comp.nus.edu.sg/wp-content/uploads/2025/11/NUS_Computing-Research-Bulletin_2025.pdf] Research Bulletin 2025
+* [link:#] Research Prize
+* [link:https://www.comp.nus.edu.sg/research/nus-computing-ascent-prize/] NUS Computing Ascent Prize Awards
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Entrepreneurship
+* [link:#] Innovation and Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Overview
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/leadership/] Leadership
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/innovation/] Innovation
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/funding/imc/] Funding Opportunities
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/alumni-companies/lists/] Alumni Companies
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/highlights/] News
+* [link:#] Awards & Competitions
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/iepsoc/] Venture Initiation Programme@NUSComputing
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/ia/] NUS Computing Innovation Prize
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/abp-competition/] Asian Business Plan Competition
+* [link:#] The Furnace
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/furnace/application/overview/] Overview
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/furnace/start/] Start-ups
+* [link:https://www.comp.nus.edu.sg/industry/] Industry
+* [link:#] Industry Relations
+* [link:https://www.comp.nus.edu.sg/industry/] Overview
+* [link:https://www.comp.nus.edu.sg/industry/iconnect/] IndustryConnect (iConnect)
+* [link:https://www.comp.nus.edu.sg/industry/careerfair/] Career Fair
+* [link:https://www.comp.nus.edu.sg/industry/careerservices/] Career Services
+* [link:#] Internships
+* [link:https://www.comp.nus.edu.sg/industry/intern/] Overview
+* [link:https://www.comp.nus.edu.sg/industry/intern/employers/] For Employers
+* [link:https://www.comp.nus.edu.sg/industry/intern/student/] For Students
+* [link:https://www.comp.nus.edu.sg/giving/] Giving
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/] Nurturing Computing Talent
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/medals-and-prizes/] Medals and Prizes
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/supporting-student-development/] Supporting Student Development
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/bursaries-and-financial-aid/] Bursaries and Financial Aid
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/scholarships/] Scholarships (Merit-based)
+* [link:https://www.comp.nus.edu.sg/giving/professorships/] Professorships
+* [link:https://www.comp.nus.edu.sg/giving/spearheading-research/] Spearheading Research
+* [link:https://www.comp.nus.edu.sg/cug/] Current Students
+* [link:https://mysoc.nus.edu.sg/] MySoC
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg/] Events
+* [link:https://www.comp.nus.edu.sg/alum/] Alumni
+Privacy Notice
+This site uses cookies. By clicking accept or continuing to use this site, you agree to our use of cookies. For more details, please see our [link:https://www.nus.edu.sg/privacy-notice/] Privacy Policy.
+Accept
+Decline
+[link:https://www.comp.nus.edu.sg/]
+* [link:https://www.comp.nus.edu.sg/cug/] Current Students
+* [link:https://mysoc.nus.edu.sg/] MySoC
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg/] Events
+* [link:https://www.comp.nus.edu.sg/alum/] Alumni
+* [link:https://www.comp.nus.edu.sg/] Home
+* [link:https://www.comp.nus.edu.sg/about/] About
+* [link:#] The School
+* [link:https://www.comp.nus.edu.sg/about/] Overview
+* [link:https://www.comp.nus.edu.sg/about/deansmessage/] Dean’s Message
+* [link:https://www.comp.nus.edu.sg/about/our-history/] Our History
+* [link:https://www.comp.nus.edu.sg/about/awards/] Teaching Awards
+* [link:https://www.comp.nus.edu.sg/careers/] Work with Us
+* [link:https://www.comp.nus.edu.sg/about/getting-here/] Locate Us
+* [link:https://www.comp.nus.edu.sg/contactus/] Contact Us
+* [link:https://www.comp.nus.edu.sg/about/depts/] Departments
+* [link:/cs/] Department of Computer Science
+* [link:/disa/] Department of Information Systems and Analytics
+* [link:#] People
+* [link:https://www.comp.nus.edu.sg/about/leadership/] Leadership
+* [link:https://www.comp.nus.edu.sg/conversation-with/] Conversation With Leadership
+* [link:https://www.comp.nus.edu.sg/about/iac/] Industry Advisory Committee
+* [link:https://www.comp.nus.edu.sg/about/staff-tribute/] Staff Tribute
+* [link:https://www.comp.nus.edu.sg/about/faculty/] Faculty & Staff
+* [link:#] News and Events
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg/] Events
+* [link:https://www.comp.nus.edu.sg/features/] Knowledge@Computing
+* Admissions
+* [link:https://www.comp.nus.edu.sg/admissions/] Undergraduate
+* [link:https://www.comp.nus.edu.sg/graduate/] Graduate
+* [link:https://www.comp.nus.edu.sg/programmes/] Education
+* [link:/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ai/] Artificial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ba/] Business Analytics
+* [link:https://www.comp.nus.edu.sg/programmes/ug/bais/] Business Artificial Intelligence Systems
+* [link:https://www.comp.nus.edu.sg/programmes/ug/ceg/] Computer Engineering
+* [link:https://www.comp.nus.edu.sg/programmes/ug/cs/] Computer Science
+* [link:https://www.comp.nus.edu.sg/programmes/ug/isc/] Information Security
+* [link:https://chs.nus.edu.sg/programmes/gi/] Geospatial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/sp/] Special Programmes
+* [link:https://www.comp.nus.edu.sg/programmes/sp/c-innovators/] Computing Innovators Programme
+(C-Innovators)*NEW
+* [link:https://www.comp.nus.edu.sg/cug/] Current Undergraduate Students
+* [link:https://www.comp.nus.edu.sg/freshmen/] Information for Freshmen
+* [link:/programmes/#graduate] Graduate
+* [link:https://www.comp.nus.edu.sg/programmes/pg/phdcs/] PhD in Computer Science
+* [link:https://www.comp.nus.edu.sg/programmes/pg/phdis/] PhD in Information Systems
+* [link:/programmes/#mcomp] Master of Computing (with Specialisations)
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mcomp-gen/] Master of Computing (General Track)
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mcomp-ai/] Master of Computing in Artificial Intelligence
+* [link:https://www.comp.nus.edu.sg/programmes/pg/mdft/] Master of Science in Digital FinTech
+* [link:https://msba.nus.edu.sg/] Master of Science in Business Analytics
+* [link:https://www.aidf.nus.edu.sg/executive-master-in-ai-and-digital-transformation/] Executive Master in AI & Digital Transformation
+* [link:https://www.comp.nus.edu.sg/programmes/pg/certs/] Graduate Certificates
+* [link:https://www.comp.nus.edu.sg/programmes/pg/certcf/] Graduate Certificates in Computing Foundations
+* [link:/programmes/#exec] Executive Education & Part-time Programmes
+* [link:http://comp.nus.edu.sg/executive-education] NUS Computing Executive Education
+* [link:https://scale.nus.edu.sg/programmes/undergraduate-programmes/btech-computing] Bachelor of Technology
+* [link:https://www.comp.nus.edu.sg/studentlife/] Community
+* [link:#] Student Life
+* [link:https://www.comp.nus.edu.sg/studentlife/] Overview
+* [link:https://www.comp.nus.edu.sg/studentlife/awards/] Student Awards
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+* [link:https://www.comp.nus.edu.sg/studentlife/clubs/] Student Clubs/Interest Groups
+* [link:https://www.comp.nus.edu.sg/studentlife/wellness/] STUDENT SUPPORT AND WELLBEING
+* [link:#] Social Good and Excellence
+* [link:https://www.ccsgp.comp.nus.edu.sg/] Centre for Computing for Social Good and Philanthropy (CCSGP)
+* [link:https://cence.comp.nus.edu.sg/] Centre for Nurturing Computing Excellence (CENCE)
+* [link:#] Our Heritage
+* [link:https://comgallery.nus.edu.sg/] NUS Computing Gallery
+* [link:https://www.comp.nus.edu.sg/research/] Research
+* [link:#] Research
+* [link:https://www.comp.nus.edu.sg/research/] Overview
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+* [link:https://www.comp.nus.edu.sg/research/partnership/] Research Partnership
+* [link:#] Research Highlights
+* [link:https://www.comp.nus.edu.sg/features/] Knowledge@Computing
+* [link:https://www.comp.nus.edu.sg/wp-content/uploads/2025/11/NUS_Computing-Research-Bulletin_2025.pdf] Research Bulletin 2025
+* [link:#] Research Prize
+* [link:https://www.comp.nus.edu.sg/research/nus-computing-ascent-prize/] NUS Computing Ascent Prize Awards
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Entrepreneurship
+* [link:#] Innovation and Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Overview
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/leadership/] Leadership
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/innovation/] Innovation
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/funding/imc/] Funding Opportunities
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/alumni-companies/lists/] Alumni Companies
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/highlights/] News
+* [link:#] Awards & Competitions
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/iepsoc/] Venture Initiation Programme@NUSComputing
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/ia/] NUS Computing Innovation Prize
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/awards/abp-competition/] Asian Business Plan Competition
+* [link:#] The Furnace
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/furnace/application/overview/] Overview
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/furnace/start/] Start-ups
+* [link:https://www.comp.nus.edu.sg/industry/] Industry
+* [link:#] Industry Relations
+* [link:https://www.comp.nus.edu.sg/industry/] Overview
+* [link:https://www.comp.nus.edu.sg/industry/iconnect/] IndustryConnect (iConnect)
+* [link:https://www.comp.nus.edu.sg/industry/careerfair/] Career Fair
+* [link:https://www.comp.nus.edu.sg/industry/careerservices/] Career Services
+* [link:#] Internships
+* [link:https://www.comp.nus.edu.sg/industry/intern/] Overview
+* [link:https://www.comp.nus.edu.sg/industry/intern/employers/] For Employers
+* [link:https://www.comp.nus.edu.sg/industry/intern/student/] For Students
+* [link:https://www.comp.nus.edu.sg/giving/] Giving
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/] Nurturing Computing Talent
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/medals-and-prizes/] Medals and Prizes
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/supporting-student-development/] Supporting Student Development
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/bursaries-and-financial-aid/] Bursaries and Financial Aid
+* [link:https://www.comp.nus.edu.sg/giving/nurturing-computing-talent/scholarships/] Scholarships (Merit-based)
+* [link:https://www.comp.nus.edu.sg/giving/professorships/] Professorships
+* [link:https://www.comp.nus.edu.sg/giving/spearheading-research/] Spearheading Research
+Search
+[link:https://www.comp.nus.edu.sg/]
+Search
+Menu
+[link:https://www.comp.nus.edu.sg/] Home » [link:https://www.comp.nus.edu.sg/programmes/] Programmes » [link:https://www.comp.nus.edu.sg/programmes/ug/] Undergraduate » [link:https://www.comp.nus.edu.sg/programmes/ug/project/] Project Courses » [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/] BComp Dissertation (FYP) » Report Writing
+BComp Dissertation (FYP) - Report Writing
+Report Submission Schedule
+Timeline for BComp Dissertation (Final Year Project) Report Submission
+Activity |
+Semester |
+1. Continuous Assessment: CA Report
+a) Deadline to submit Project Update Form
+b) Deadline for submission of CA report to Supervisor and Main Evaluator.
+c) Presentation to Supervisor and Main Evaluator. |
+a) Friday, Week 2
+b) Wednesday, Week 12
+c) Reading Week |
+2. Final Assessment (FYP Presentation)
+a) Deadline for submission of Final Report:
+Students to submit soft-copy of report to Supervisor and Main Evaluator directly.
+If the Supervisor and Main Evaluator request for hard-copy, you are required to furnish it. |
+Wednesday, Week 12 of next semester |
+3. Presentation |
+Reading Week |
+4a) Submission of Feedback of Final Year Project Guidance and Evaluation
+4b) Submission of e-copy of Final Report |
+First Monday after Exam |
+Please click [link:https://www.comp.nus.edu.sg/wp-content/uploads/2026/05/to-uploadFYP-Term2610-start-TIMELINE_FOR_FYP_PRESENTATION_AND_REPORT_SUB.rtf_-1.pdf] here for the actual schedule.
+Continual Assessment
+Continual Assessment (CA) – At the end of Semester 1 (on Week 12), each FYP student has to submit an interim project report (Please see [link:/programmes/ug/project/fyp/contact] CA Report Guidelines) which is to be evaluated by the Supervisor and one examiner (called the Main Evaluator). The Main Evaluator will also be the evaluator for the same project in the final presentation.
+The Supervisor and the Main Evaluator will have the opportunity to comment on student’s competence and attitude towards the project and also on student’s progress so far.
+Students are required to make the arrangement to meet up with both the Supervisor and the Main Evaluator so that he/she can report on his/her progress after submitting the interim report, during the Reading Week.
+CA accounts for 30% of the final grade of the project. CA given by Supervisor will be 15% and the Main Evaluator would assess the progress for 15%.
+The CA Report will be used as a basis for your Supervisor and Main Evaluator to decide whether or not you have made sufficient progress to continue with CP4101/BT4101 (please see the CA evaluation form at the FYP website for the criteria which your Supervisor would evaluate your progress).
+If your Supervisor and Main Evaluator agree that you can continue the project, you will be automatically registered for CP4101/BT4101 next semester; and you will receive an ‘IP’ grade for CP4101/BT4101 this semester. However, if your Supervisor and Main Evaluator decide that you have not made sufficient progress and recommend that you discontinue the project, you would receive an ‘W’ grade for CP4101.
+Final Report format
+The physical layout and formatting of the report is also important, and yet is very often neglected. A tidy, well laid out and consistently formatted document makes for easier reading and is suggestive of a careful and professional attitude towards its preparation.
+Remember that quantity does not automatically guarantee quality. Conciseness, clarity and elegance are invaluable qualities in report writing, just as they are in programming, and will be rewarded appropriately.
+Please refer to [link:/programmes/ug/project/fyp/contact] Final Report Guidelines for the report format.
+Some Guidelines
+The BComp Dissertation is an extremely important aspect of the course. It serves to show what you have achieved and should demonstrate that:
+* Approach you have taken compared to existing research/methodology/investigation.
+* Theoretical and/or practical techniques and problem-solving skills applied in the project.
+* You may objectively criticise your own work and make constructive suggestions for improvements or further work based on your experiences so far.
+Evaluators will only have a short time to listen to your presentation during the seminar (and in some cases see a demonstration). For this reason they will rely heavily on the report to judge the project and the final outcome can be influenced significantly by the quality of your project report. Don’t make the mistake of leaving the write-up to the last minute. Ideally, starting from CA report, you should produce the bulk of the report as you go along and use the last week or two to bring it together into a coherent document.
+What else to include in the report?
+In case you wrote a paper describing your FYP results for possible conference publication (up to 10 pages), you can include the paper in the FYP Report Appendix. In such case, the page limit for your FYP report is 55 pages plus 10 pages for the paper. Note that it is not obligatory for you to include a paper into your FYP Report.
+Report Submission
+The final report (soft copy) is due on Wednesday, Week 12, 5.00 pm.
+Students are to submit soft copy of the report ON or BEFORE the due date directly to their respective Supervisor and Main Evaluator.
+If the Supervisor and Main Evaluator request for a hard-copy version of the report, students are required to furnish it.
+Students should have uploaded their report in PDF format (only report and not appendix, source code, or any other material)
+* All submissions of reports will be recorded by your Supervisor. It is important to note that THE DEPARTMENT MAY REJECT ANY REPORT THAT DOES NOT CONFORM WITH THE FORMAT AS SPECIFIED IN THE FINAL YEAR PROJECT REPORT FORMAT.
+* If minor changes are needed based on feedback from your Main Evaluator or Supervisor after the final presentation, you may make those adjustments or include an addendum before submitting the revised version to the digital library.
+* A revised soft copy of the Final Report in PDF format is to be submitted electronically by one week after the final examination.
+The detailed instructions for electronic submission of FYP Reports through the web site: [link:https://dl.comp.nus.edu.sg] https://dl.comp.nus.edu.sg is available [link:https://mysoc.nus.edu.sg/~projadm/student/php/DLSubmission.php] here. Failure to do so may affect your CP4101 grade.
+Confidentiality of the report
+Students who have worked on a project of confidential nature or with the intention to apply for patents for the work should inform the Office of Undergraduate Studies, through their project supervisor, for non-submission of the soft copy of the report to the SoC Digital Library.
+It is mandatory for students to put a covering note saying that the contents are copy protected and should not be photocopied or scanned and display the word “Confidential” prominently on the cover note and back page of the report.
+The Main Evaluator, after reviewing the reports, should return the hard copies of the report to the Project Supervisor(s) after evaluation, undertake a declaration to maintain the confidentiality of the contents of such work and comply with all necessary steps needed by Supervisor to ensure confidentiality.
+Project Update Form
+If the title, key words or nature of projects is changed, then students/supervisors must complete a [link:/programmes/ug/project/fyp/contact] PROJECT UPDATE FORM, and email the completed form to [link:mailto:sha.a@nus.edu.sg] Ms Sharifah. Alternatively, supervisors can also make the changes through the [link:https://mysoc.nus.edu.sg/~projadm/] Project Administration System. The deadline for any updates is by Week 3 of the semester in which the project started, ie. first semester of the project.
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/] ← Back to Project Courses
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/] Overview
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/before/] Before Starting
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/select/] Project Selection
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/report/] Report Writing
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/dissertation/] Dissertation
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/lab/] Resources and Labs
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/presentation/] Presentation
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/after/] After FYP?
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/contact/] Forms and Contacts
+* [link:https://www.comp.nus.edu.sg/programmes/ug/project/fyp/faq/] FAQ
+[link:https://www.comp.nus.edu.sg/]
+[link:https://www.facebook.com/NusSchoolOfComputing]
+Facebook
+[link:https://www.instagram.com/nuscomputing/]
+Instagram
+[link:https://t.me/nuscomputing]
+Telegram
+[link:https://www.linkedin.com/company/nuscomputing/]
+Linkedin
+[link:https://twitter.com/i/flow/login?redirect_after_login=%2Fnuscomputing]
+[link:https://www.youtube.com/c/NUSComputingtube]
+Youtube
+[link:https://www.comp.nus.edu.sg/giving/]
+Support NUS Computing
+*
+Computing 1
+13 Computing Drive
+Singapore 117417
+*
+[link:tel:6565162727]
++65 6516 2727
+*
+[link:https://www.comp.nus.edu.sg/contactus/]
+Contact Us
+*
+[link:https://www.comp.nus.edu.sg/about/getting-here/]
+Locate Us
+*
+[link:https://www.comp.nus.edu.sg/about/venues/]
+Find Our Venues
+Additional Links
+[link:https://mysoc.nus.edu.sg/wp-login.php?redirect_to=%2F] NUS COMPUTING
+* [link:https://www.comp.nus.edu.sg/about/] About Us
+* [link:https://www.comp.nus.edu.sg/programmes/] Programmes
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg] Events
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Innovation & Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/industry/] Recruiters
+* [link:https://www.comp.nus.edu.sg/about/] About Us
+* [link:https://www.comp.nus.edu.sg/programmes/] Programmes
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg] Events
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Innovation & Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/industry/] Recruiters
+Programmes
+* [link:https://www.comp.nus.edu.sg/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/#mcomp] Master’s
+* [link:https://www.comp.nus.edu.sg/programmes/#graduate] Doctoral
+* [link:https://www.comp.nus.edu.sg/programmes/#gc] Graduate Certificates
+* [link:/programmes/#exec] Executive Education
+* [link:https://www.comp.nus.edu.sg/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/#mcomp] Master’s
+* [link:https://www.comp.nus.edu.sg/programmes/#graduate] Doctoral
+* [link:https://www.comp.nus.edu.sg/programmes/#gc] Graduate Certificates
+* [link:/programmes/#exec] Executive Education
+ADMISSIONS
+* [link:https://www.nus.edu.sg/oam/] Undergraduate
+* [link:https://nusgs.nus.edu.sg/admissions/] Graduate
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+* [link:https://www.nus.edu.sg/oam/] Undergraduate
+* [link:https://nusgs.nus.edu.sg/admissions/] Graduate
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+RESEARCH
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+DEPARTMENTS
+* [link:https://www.comp.nus.edu.sg/cs/] Department of Computer Science
+* [link:https://www.comp.nus.edu.sg/disa/] Department of Information Systems and Analytics
+* [link:https://www.comp.nus.edu.sg/cs/] Department of Computer Science
+* [link:https://www.comp.nus.edu.sg/disa/] Department of Information Systems and Analytics
+RESOURCES
+* [link:https://www.comp.nus.edu.sg/about/faculty/] School Directory
+* [link:https://myportal.nus.edu.sg/] Student Portal
+* [link:https://dochub.comp.nus.edu.sg/] Facilities & Services
+* [link:https://exchange.nus.edu.sg/] NUS WebMail
+* [link:https://canvas.nus.edu.sg/] NUS Canvas
+* [link:https://mysoc.nus.edu.sg/academic/jobs/] Student Jobs
+* [link:https://www.comp.nus.edu.sg/about/faculty/] School Directory
+* [link:https://myportal.nus.edu.sg/] Student Portal
+* [link:https://dochub.comp.nus.edu.sg/] Facilities & Services
+* [link:https://exchange.nus.edu.sg/] NUS WebMail
+* [link:https://canvas.nus.edu.sg/] NUS Canvas
+* [link:https://mysoc.nus.edu.sg/academic/jobs/] Student Jobs
+[link:https://mysoc.nus.edu.sg/wp-login.php?redirect_to=%2F] NUS COMPUTING
+* [link:https://www.comp.nus.edu.sg/about/] About Us
+* [link:https://www.comp.nus.edu.sg/programmes/] Programmes
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg] Events
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Innovation & Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/industry/] Recruiters
+* [link:https://www.comp.nus.edu.sg/about/] About Us
+* [link:https://www.comp.nus.edu.sg/programmes/] Programmes
+* [link:https://www.comp.nus.edu.sg/news/] News
+* [link:https://events.comp.nus.edu.sg] Events
+* [link:https://www.comp.nus.edu.sg/entrepreneurship/] Innovation & Entrepreneurship
+* [link:https://www.comp.nus.edu.sg/industry/] Recruiters
+Programmes
+* [link:https://www.comp.nus.edu.sg/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/#mcomp] Master’s
+* [link:https://www.comp.nus.edu.sg/programmes/#graduate] Doctoral
+* [link:https://www.comp.nus.edu.sg/programmes/#gc] Graduate Certificates
+* [link:/programmes/#exec] Executive Education
+* [link:https://www.comp.nus.edu.sg/programmes/#ug] Undergraduate
+* [link:https://www.comp.nus.edu.sg/programmes/#mcomp] Master’s
+* [link:https://www.comp.nus.edu.sg/programmes/#graduate] Doctoral
+* [link:https://www.comp.nus.edu.sg/programmes/#gc] Graduate Certificates
+* [link:/programmes/#exec] Executive Education
+ADMISSIONS
+* [link:https://www.nus.edu.sg/oam/] Undergraduate
+* [link:https://nusgs.nus.edu.sg/admissions/] Graduate
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+* [link:https://www.nus.edu.sg/oam/] Undergraduate
+* [link:https://nusgs.nus.edu.sg/admissions/] Graduate
+* [link:https://www.comp.nus.edu.sg/financial-support/] Financial Support
+RESEARCH
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+* [link:https://www.comp.nus.edu.sg/research/research-initiatives/] Research Initiatives
+* [link:https://www.comp.nus.edu.sg/research/ra/] Research Areas
+DEPARTMENTS
+* [link:https://www.comp.nus.edu.sg/cs/] Department of Computer Science
+* [link:https://www.comp.nus.edu.sg/disa/] Department of Information Systems and Analytics
+* [link:https://www.comp.nus.edu.sg/cs/] Department of Computer Science
+* [link:https://www.comp.nus.edu.sg/disa/] Department of Information Systems and Analytics
+RESOURCES
+* [link:https://www.comp.nus.edu.sg/about/faculty/] School Directory
+* [link:https://myportal.nus.edu.sg/] Student Portal
+* [link:https://dochub.comp.nus.edu.sg/] Facilities & Services
+* [link:https://exchange.nus.edu.sg/] NUS WebMail
+* [link:https://canvas.nus.edu.sg/] NUS Canvas
+* [link:https://mysoc.nus.edu.sg/academic/jobs/] Student Jobs
+* [link:https://www.comp.nus.edu.sg/about/faculty/] School Directory
+* [link:https://myportal.nus.edu.sg/] Student Portal
+* [link:https://dochub.comp.nus.edu.sg/] Facilities & Services
+* [link:https://exchange.nus.edu.sg/] NUS WebMail
+* [link:https://canvas.nus.edu.sg/] NUS Canvas
+* [link:https://mysoc.nus.edu.sg/academic/jobs/] Student Jobs
+© National University of Singapore. All Rights Reserved. • [link:https://www.nus.edu.sg/pvo/legal-information-notices] Legal • [link:https://nus.edu.sg/identity] Branding guidelines
+[link:#main-container]

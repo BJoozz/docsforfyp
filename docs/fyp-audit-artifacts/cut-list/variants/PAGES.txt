@@ -1,0 +1,6 @@
+v1_backmatter pages=15
+v2_backmatter_floats pages=15
+v3_plus_prose pages=14
+v4_plus_dropF9 pages=14
+v5_prose_only_keepH pages=15
+v6_crops pages=15
