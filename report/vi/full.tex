@@ -33,7 +33,7 @@ Giữ nguyên phạm vi, số liệu, mức độ khẳng định và cách phâ
 \addcontentsline{toc}{section}{Tóm lược báo cáo}
 VisuAlgo+ là dự án hợp tác nhằm xây dựng lại VisuAlgo với nền tảng kỹ thuật được đổi mới và giao diện được thiết kế lại, đồng thời giữ nguyên mục tiêu giáo dục. Công việc của tôi tập trung vào lớp trực quan hóa và tương tác: các bộ trực quan hóa đồ thị, cây và sắp xếp; hành vi chỉnh sửa và phát lại của chúng; cùng việc tích hợp vào một giao diện chung. Công việc bắt đầu từ các nguyên mẫu độc lập, sau đó phát triển thành một ứng dụng thống nhất sử dụng bố cục bảng dùng chung.
 
-Báo cáo giải thích việc tách trạng thái đầu vào, bố cục và phát lại; mô hình nhóm bảng V10; các phần mở rộng thuật toán và cách kiểm chứng; cùng các lời giải thích ngắn đặt ngay trên hình vẽ. Ứng dụng hiện tại có 11 thuật toán đồ thị (tính riêng hai biến thể DFS), bảy không gian làm việc cho cây và tám thuật toán sắp xếp. Kết quả kiểm tra được ghi nhận ngày 1/11/2026 gồm 3.273 ca kiểm thử đơn vị và 151 ca kiểm thử trên trình duyệt đều đạt. Những kết quả này cho thấy tiến độ về chức năng. Một đợt thử nghiệm người dùng mang tính định hướng (formative) ở tuần 10 đã dẫn tới vài cải tiến UI/UX, trong đó có floating text trên vùng vẽ và các điều chỉnh cho phần chú giải (legend) và bảng Status. Cả kiểm thử lẫn đợt thử nghiệm đều chưa chứng minh mức cải thiện học tập hay tính dễ sử dụng so với hệ thống khác. Giai đoạn tiếp theo sẽ tăng cường kiểm thử tương tác, đánh giá các nhiệm vụ học tập tiêu biểu và nghiên cứu một phạm vi tích hợp nhỏ với engine WebAssembly riêng biệt.
+Báo cáo giải thích việc tách trạng thái đầu vào, bố cục và phát lại; bố cục nhóm bảng dùng chung (V10); các phần mở rộng thuật toán và cách kiểm chứng; cùng floating text, tức các lời giải thích ngắn đặt ngay trên hình vẽ. Ứng dụng hiện tại có 11 thuật toán đồ thị (tính riêng hai biến thể DFS), bảy không gian làm việc cho cây và tám thuật toán sắp xếp. Kết quả kiểm tra được ghi nhận ngày 1/11/2026 gồm 3.273 ca kiểm thử đơn vị và 151 ca kiểm thử trên trình duyệt đều đạt. Những kết quả này cho thấy tiến độ về chức năng. Một đợt thử nghiệm người dùng mang tính định hướng (formative) ở tuần 10 đã dẫn tới vài cải tiến UI/UX, trong đó có floating text và các điều chỉnh cho phần chú giải (legend) và bảng Status. Cả kiểm thử lẫn đợt thử nghiệm đều chưa chứng minh mức cải thiện học tập hay tính dễ sử dụng so với hệ thống khác. Giai đoạn tiếp theo sẽ tăng cường kiểm thử tương tác, đánh giá các nhiệm vụ học tập tiêu biểu và nghiên cứu một phạm vi tích hợp nhỏ với engine WebAssembly riêng biệt.
 
 \vspace{5mm}
 \textbf{Cách đọc thuật ngữ.} Trong bản dịch, \emph{visualizer} được gọi là bộ trực quan hóa; \emph{canvas} là vùng vẽ; \emph{playback} là phát lại quá trình chạy; \emph{panel} là bảng giao diện; \emph{shell} là khung giao diện chung; \emph{legend} là phần chú giải. Từ \emph{engine} chỉ thành phần thực thi thuật toán. Các nhãn Action, e-Lecture, Pseudocode, Status, Next và Apply giữ nguyên như trên giao diện.
@@ -53,9 +53,9 @@ Mục tiêu là tạo ra một phiên bản kế tiếp hiện đại, giữ đ�
 \subsection{Động lực cá nhân và vai trò}
 Động lực tham gia VisuAlgo+ của tôi đến từ nền tảng lập trình thi đấu và kinh nghiệm giảng dạy. Việc tham gia nhiều cuộc thi lập trình và đạt kết quả cao đã mang lại cho tôi nhiều trải nghiệm với thuật toán và cấu trúc dữ liệu. Giảng dạy cho những học sinh đam mê lập trình thi đấu giúp tôi giải thích các khái niệm này từ nhiều góc nhìn và nhận ra những điểm người học cần được làm rõ.
 
-Tôi mong muốn vận dụng cả hai trải nghiệm đó vào giao diện và trải nghiệm người dùng của VisuAlgo+, giúp người học theo dõi được vì sao thuật toán đưa ra một quyết định, trạng thái thay đổi ra sao và những thay đổi đó dẫn đến kết quả như thế nào. Góc nhìn này định hướng việc tôi lựa chọn các trạng thái trung gian cần hiển thị, kết nối hình vẽ với mã giả và bổ sung lời giải thích ngắn tại những bước cần làm rõ.
+Tôi mong muốn vận dụng cả hai trải nghiệm đó vào giao diện và trải nghiệm người dùng (UI/UX) của VisuAlgo+, giúp người học theo dõi được vì sao thuật toán đưa ra một quyết định, trạng thái thay đổi ra sao và những thay đổi đó dẫn đến kết quả như thế nào. Góc nhìn này định hướng việc tôi lựa chọn các trạng thái trung gian cần hiển thị, kết nối hình vẽ với mã giả và bổ sung lời giải thích ngắn tại những bước cần làm rõ.
 
-Trách nhiệm ban đầu của tôi là lớp trực quan hóa và tương tác cho thuật toán đồ thị, cấu trúc dữ liệu dạng cây và thuật toán sắp xếp. Công việc bao gồm phát triển các bộ trực quan hóa, hỗ trợ chỉnh sửa đầu vào và phát lại từng bước, rồi tích hợp chúng vào một giao diện nhất quán. Khi phối hợp với Kerk về thiết kế chung và tích hợp, tôi hướng tới việc chuyển kiến thức thuật toán cùng kinh nghiệm giảng dạy của mình thành những cải tiến thực tế, sau đó có thể đánh giá với người học.
+Trách nhiệm ban đầu của tôi là lớp trực quan hóa và tương tác cho thuật toán đồ thị, cấu trúc dữ liệu dạng cây và thuật toán sắp xếp. Công việc bao gồm phát triển các bộ trực quan hóa, hỗ trợ chỉnh sửa đầu vào và phát lại từng bước, rồi tích hợp chúng vào một giao diện nhất quán. Khi phối hợp với Kerk Tai Heng, cũng là sinh viên FYP, về thiết kế chung và tích hợp, tôi hướng tới việc chuyển kiến thức thuật toán cùng kinh nghiệm giảng dạy của mình thành những cải tiến thực tế, sau đó có thể đánh giá với người học.
 
 \subsection{Mục tiêu và phạm vi hiện tại}
 Dự án có năm mục tiêu làm việc:
@@ -67,7 +67,7 @@ Dự án có năm mục tiêu làm việc:
 \item Kiểm chứng chức năng đã xây dựng lại, đồng thời xác định những phần còn cần đánh giá kỹ thuật và đánh giá với người dùng.
 \end{enumerate}
 
-Kerk Tai Heng là sinh viên FYP cùng giảng viên hướng dẫn với tôi. Kerk phụ trách nền tảng engine WebAssembly (WASM), hệ thống thiết kế website và hạ tầng dùng chung. Mục~\ref{sec:approach} trình bày rõ hơn về đóng góp và sự phối hợp của chúng tôi.
+Kerk, người có cùng giảng viên hướng dẫn với tôi, phụ trách nền tảng engine WebAssembly, hệ thống thiết kế website và hạ tầng dùng chung. Mục~\ref{sec:approach} trình bày rõ hơn về đóng góp và sự phối hợp của chúng tôi.
 
 Ứng dụng hiện tại hướng tới máy tính để bàn và máy tính xách tay. Các thuật toán được cài đặt bằng TypeScript và chạy trong trình duyệt. Engine WebAssembly riêng biệt chưa được nối với các bộ trực quan hóa này. Thiết kế cho điện thoại, mức tương đương chức năng hoàn toàn với VisuAlgo và bằng chứng đo lường về cải thiện học tập nằm ngoài phần công việc đã hoàn thành được trình bày ở đây.
 
@@ -76,7 +76,7 @@ Kerk Tai Heng là sinh viên FYP cùng giảng viên hướng dẫn với tôi. 
 \subsection{Trực quan hóa thuật toán trong giáo dục}
 Halim và cộng sự~\cite{halim2012} giới thiệu môi trường thống nhất, tương tác trên web để học thuật toán, về sau trở thành VisuAlgo. Khả năng sử dụng dữ liệu do người học tự nhập và tương tác nhất quán giữa các chủ đề đặc biệt phù hợp với dự án này. Khi xây dựng lại, cần bảo toàn các đặc điểm đó ngay cả khi công nghệ hiển thị và bố cục trang thay đổi. Việc sử dụng lại những ví dụ và thao tác thuật toán quen thuộc cũng tạo ra cơ sở tham chiếu hữu ích khi kiểm tra chức năng được xây dựng lại.
 
-Tuy nhiên, một hoạt ảnh chạy được chưa đủ để chứng minh lợi ích học tập. Nghiên cứu tổng hợp 24 nghiên cứu của Hundhausen, Douglas và Stasko~\cite{hundhausen2002} cho thấy cách người học sử dụng trực quan hóa thuật toán quan trọng hơn việc chỉ xét các đặc điểm đồ họa. Điều này dẫn đến việc phân biệt hai câu hỏi trong VisuAlgo+: phần mềm có hoạt động đúng hay không, và sinh viên có thể dùng nó để hiểu, giải thích thuật toán hay không. Các kiểm thử hiện tại chủ yếu trả lời câu hỏi thứ nhất; thử nghiệm tuần 10 (Mục~\ref{sec:trial}) và một đợt đánh giá tiếp nối có cấu trúc hướng tới câu hỏi thứ hai.
+Tuy nhiên, một hoạt ảnh chạy được chưa đủ để chứng minh lợi ích học tập. Nghiên cứu tổng hợp 24 nghiên cứu của Hundhausen, Douglas và Stasko~\cite{hundhausen2002} cho thấy cách người học sử dụng trực quan hóa thuật toán quan trọng hơn việc chỉ xét các đặc điểm đồ họa. Điều này dẫn đến việc phân biệt hai câu hỏi trong VisuAlgo+: phần mềm có hoạt động đúng hay không, và sinh viên có thể dùng nó để hiểu, giải thích thuật toán hay không. Các kiểm thử hiện tại chủ yếu trả lời câu hỏi thứ nhất; thử nghiệm tuần 10 (Mục~\ref{sec:trial}) cung cấp đầu vào định hướng cho câu hỏi thứ hai, và một đợt đánh giá tiếp nối có cấu trúc đã được lên kế hoạch.
 
 OpenDSA kết hợp trực quan hóa với nội dung giải thích, bài tập tương tác và đánh giá mức độ thành thạo~\cite{opendsa}. Đây là một ví dụ về cách trực quan hóa có thể trở thành một phần trong hoạt động học tập rộng hơn. VisuAlgo+ hiện tập trung vào khám phá: chỉnh sửa đầu vào, đi qua từng bước thực thi, theo dõi mã giả và quan sát trạng thái. Hệ thống chưa cung cấp một chuỗi hoạt động học tập có đánh giá tương đương. Vì vậy, đóng góp hiện tại nên được xem là nền tảng trực quan hóa, chưa phải một hệ thống giảng dạy hoàn chỉnh.
 
@@ -93,9 +93,9 @@ Ba câu hỏi thiết kế định hướng công việc. Thứ nhất, làm sao
 \nextsection
 \section{Quá trình phát triển và phân công}\label{sec:approach}
 \subsection{Từ các nguyên mẫu độc lập đến một ứng dụng}
-Giai đoạn đầu, bắt đầu từ trước học kỳ, khám phá hành vi tương tác trong các kho mã độc lập. Nguyên mẫu đồ thị đầu tiên (Graph Visualizer V1) có commit đầu tiên được ghi nhận vào ngày 28/7/2026; nguyên mẫu đồ thị thứ hai (Graph Visualizer V2) tiếp nối trong tháng 8 với việc tách trạng thái dữ liệu, bố cục và phát lại rõ ràng hơn. Các nguyên mẫu sắp xếp và cây khám phá những cách biểu diễn và mô hình thao tác khác. Công việc này tạo ra nền tảng chức năng trước khi tích hợp với website chung.
+Giai đoạn đầu, bắt đầu từ trước học kỳ, khám phá hành vi tương tác trong các kho mã độc lập. Nguyên mẫu đồ thị đầu tiên có commit đầu tiên được ghi nhận vào ngày 28/7/2026; nguyên mẫu đồ thị thứ hai tiếp nối trong tháng 8 với việc tách trạng thái dữ liệu, bố cục và phát lại rõ ràng hơn. Các nguyên mẫu sắp xếp và cây khám phá những cách biểu diễn và mô hình thao tác khác. Công việc này tạo ra nền tảng chức năng trước khi tích hợp với website chung.
 
-Trong tháng 9 và tháng 10, tôi điều chỉnh các bộ trực quan hóa theo hệ thống thiết kế của Kerk. Wireframe trang trực quan hóa của Kerk phác thảo chín bố cục ứng viên, đánh số V1--V9; các số hiệu bố cục này không liên quan đến các nguyên mẫu đồ thị nêu trên. Sau một khảo sát người dùng do Kerk tổ chức, Kerk và tôi chọn hai bố cục trong số đó là V2 (các thanh bên tách biệt, split rails) và V7 (các bảng dạng dock), và tôi xây dựng các bộ trực quan hóa đồ thị, cây và sắp xếp trên cả hai bố cục với chức năng tương đương (20--27/9). Trong tuần 9, Kerk và tôi thảo luận một đề xuất kết hợp V2 và V7 thành bố cục thứ mười, V10, giữ lại các điểm mạnh được lựa chọn của mỗi phương án. Tôi triển khai V10, và Kerk đóng góp các tinh chỉnh để hoàn thiện phiên bản sau đó được dùng trong thử nghiệm. Khảo sát đóng vai trò đầu vào định hướng; tôi không lưu giữ dữ liệu câu trả lời của khảo sát, nên báo cáo không dùng nó làm bằng chứng về sở thích của người dùng.
+Trong tháng 9 và tháng 10, tôi điều chỉnh các bộ trực quan hóa theo hệ thống thiết kế của Kerk. Wireframe trang trực quan hóa của Kerk phác thảo chín bố cục ứng viên, đánh số V1--V9. Sau một khảo sát người dùng do Kerk tổ chức, Kerk và tôi chọn hai bố cục trong số đó là V2 (các thanh bên tách biệt, split rails) và V7 (các bảng dạng dock), và tôi xây dựng các bộ trực quan hóa đồ thị, cây và sắp xếp trên cả hai bố cục với chức năng tương đương (20--27/9). Trong tuần 9, Kerk và tôi thảo luận một đề xuất kết hợp V2 và V7 thành bố cục thứ mười, V10, giữ lại các điểm mạnh được lựa chọn của mỗi phương án. Tôi triển khai V10, và Kerk đóng góp các tinh chỉnh để hoàn thiện phiên bản sau đó được dùng trong thử nghiệm tuần 10. Khảo sát chỉ đóng vai trò đầu vào định hướng; báo cáo này không phân tích các câu trả lời của khảo sát.
 
 Ngày 18/10, Kerk hợp nhất các bản sao website và bộ trực quan hóa thành một ứng dụng, đồng thời chuyển mã chung vào một lớp dùng chung. Sau đó, Kerk và tôi tổ chức một đợt thử nghiệm người dùng mang tính định hướng riêng ở tuần 10 (Mục~\ref{sec:trial}). Công việc tiếp theo mở rộng thuật toán, bổ sung floating text và sửa các lỗi phát hiện khi rà soát. Bảng~\ref{tab:timeline} tóm tắt các giai đoạn này.
 
@@ -104,7 +104,7 @@ Ngày 18/10, Kerk hợp nhất các bản sao website và bộ trực quan hóa 
 \begin{tabularx}{\linewidth}{@{}p{30mm}Y@{}}\toprule
 Thời gian & Kết quả chính\\\midrule
 Tháng 7--8 & Nguyên mẫu đồ thị đầu tiên (commit đầu tiên được ghi nhận ngày 28/7, trước học kỳ); nguyên mẫu đồ thị thứ hai với trạng thái dữ liệu, bố cục và phát lại được tách riêng; nguyên mẫu sắp xếp độc lập.\\
-Tháng 9 & Các không gian làm việc cho cây; điều chỉnh theo hệ thống thiết kế của Kerk; xây dựng bố cục V2 và V7 (20--27/9); thử nghiệm riêng về ranh giới tích hợp engine.\\
+Tháng 9 & Các không gian làm việc cho cây; điều chỉnh theo hệ thống thiết kế của Kerk; xây dựng bố cục V2 và V7 (20--27/9); thử nghiệm chưa được hợp nhất trên engine của Kerk.\\
 29/9--17/10 & DFS đệ quy, Bellman--Ford và Prim; lazy segment tree và xóa trong AVL; cải tiến phát lại; thảo luận V10 (tuần 9) và triển khai.\\
 18--31/10 & Hợp nhất một ứng dụng (Kerk); thao tác LCA và heap; thử nghiệm người dùng tuần 10; sắp xếp tô-pô, kiểm tra hai phía, đỉnh khớp và cạnh cầu; floating text; sửa lỗi sau rà soát.\\
 1--4/11 & Ghi nhận kiểm chứng (1/11) và chuẩn bị báo cáo.\\\bottomrule
@@ -113,7 +113,7 @@ Tháng 9 & Các không gian làm việc cho cây; điều chỉnh theo hệ th�
 \FloatBarrier
 
 \subsection{Đóng góp cá nhân và sự phối hợp}
-Các đóng góp chính của tôi là nền tảng bộ trực quan hóa độc lập, việc tích hợp chúng, mô hình bố cục cốt lõi của V10, các phần mở rộng thuật toán và thao tác, cùng lớp floating text dùng chung, kèm theo phần lớn kiểm thử tự động và hồ sơ quyết định thiết kế cho các phần này. Trong 48 lựa chọn thiết kế được đánh số của đề xuất V10, 26 lựa chọn đầu tiên là quyết định của tôi. Các lựa chọn 27--48 (18--22/10) và quyết định ngày 18/10 chỉ giữ lại V10 do Kerk và tôi cùng đưa ra, và do Kerk triển khai. Kerk cũng phụ trách hệ thống thiết kế ban đầu, nền tảng engine, hạ tầng và việc hợp nhất ứng dụng. Các trách nhiệm này giao nhau ở ranh giới tích hợp và không được suy ra chỉ từ số lượng commit~\cite{evidence}.
+Các đóng góp chính của tôi là nền tảng bộ trực quan hóa độc lập, việc tích hợp chúng, mô hình bố cục cốt lõi của V10, các phần mở rộng thuật toán và thao tác, cùng lớp floating text dùng chung, kèm theo phần lớn kiểm thử tự động và hồ sơ quyết định thiết kế cho các phần này. Trong 48 lựa chọn thiết kế được đánh số của đề xuất V10, 26 lựa chọn đầu tiên là quyết định của tôi. Các lựa chọn 27--48 (18--22/10) và quyết định ngày 18/10 chỉ giữ lại V10 do Kerk và tôi cùng đưa ra, và do Kerk triển khai. Kerk cũng phụ trách hệ thống thiết kế ban đầu, nền tảng engine, hạ tầng và việc hợp nhất ứng dụng. Các trách nhiệm này giao nhau ở ranh giới tích hợp~\cite{evidence}.
 
 Tôi sử dụng Claude và Codex để hỗ trợ triển khai, gỡ lỗi, sinh kiểm thử và rà soát theo yêu cầu và lựa chọn thiết kế của mình. Quá trình chấp nhận thay đổi của tôi bao gồm đọc các thay đổi, chạy ứng dụng và sử dụng kết quả kiểm thử hoặc tích hợp liên tục (CI). Trong các phiên rà soát cuối tháng 10, Codex xác định các vấn đề, Claude tái hiện chúng và tôi lựa chọn các sửa chữa cần thực hiện. AI cũng hỗ trợ tổ chức bằng chứng và soạn báo cáo này. Sự hỗ trợ đó là một phần của quy trình phát triển; mã được sinh ra và kiểm thử đạt vẫn cần được xem xét có phê phán, và tự chúng không đủ để khẳng định tính đúng đắn.
 
@@ -131,7 +131,7 @@ Bản hiện tại là một ứng dụng trang đơn dùng React và TypeScript
 \node[box,right=7mm of g] (t) {Mô-đun cây\\Thao tác và lần chạy\\React Flow + d3-hierarchy};
 \node[box,right=7mm of t] (s) {Mô-đun sắp xếp\\Bộ sinh và đồng hồ\\Canvas 2D + d3-interpolate};
 \draw[arr] (host.south)--(g.north);\draw[arr] (host.south)--(t.north);\draw[arr] (host.south)--(s.north);
-\node[wide,below=13mm of t] (shared) {Lớp dùng chung: nhóm bảng V10, tiện ích điều khiển phát lại,\\hiển thị floating text cho đồ thị và cây};
+\node[wide,below=13mm of t] (shared) {Lớp dùng chung: nhóm bảng V10, tiện ích phát lại,\\hiển thị floating text cho đồ thị và cây};
 \draw[arr] (g.south)--(shared.north -| g.south);\draw[arr] (t.south)--(shared.north);\draw[arr] (s.south)--(shared.north -| s.south);
 \node[wide,below=12mm of shared,fill=white,dashed] (wasm) {Bản demo engine riêng: WebAssembly với hạ tầng worker và gọi thủ tục từ xa (remote procedure call, RPC)\\Ranh giới tích hợp trong tương lai; chưa kết nối khi chạy với các mô-đun trên};
 \end{tikzpicture}
@@ -142,13 +142,13 @@ Cách tổ chức này không giao logic thuật toán cho khung giao diện chu
 \FloatBarrier
 
 \subsection{Phân tách trạng thái và phát lại có thể tái lập}\label{sec:state}
-Nền tảng đồ thị tách bốn nhóm trách nhiệm (Bảng~\ref{tab:state}). Một vùng vẽ được duy trì xuyên suốt, dùng lại cho cả chỉnh sửa và thực thi. Khi bắt đầu một lần chạy, hệ thống tạo chuỗi các bước có kiểu dữ liệu xác định từ dữ liệu hiện tại; khi đi qua chuỗi đó, hệ thống suy ra phần trình bày cần hiển thị. Điều này giảm nguy cơ duy trì riêng một đồ thị để chỉnh sửa và một đồ thị để chạy hoạt ảnh, rồi hai bản dần không còn khớp nhau.
+Nền tảng đồ thị tách bốn nhóm trách nhiệm (Bảng~\ref{tab:state}). Một vùng vẽ được duy trì xuyên suốt, dùng lại cho cả chỉnh sửa và thực thi. Khi bắt đầu một lần chạy, hệ thống tạo chuỗi các bước có kiểu dữ liệu xác định (hiển thị dưới dạng khung hình) từ dữ liệu hiện tại; khi đi qua chuỗi đó, hệ thống suy ra phần trình bày cần hiển thị. Điều này giảm nguy cơ duy trì riêng một đồ thị để chỉnh sửa và một đồ thị để chạy hoạt ảnh, rồi hai bản dần không còn khớp nhau.
 
 \begin{table}[htbp]\small\centering
 \caption{Phân tách trạng thái trong bộ trực quan hóa đồ thị.}\label{tab:state}
 \begin{tabularx}{\linewidth}{@{}p{28mm}Y Y@{}}\toprule
 Thành phần & Trách nhiệm & Hệ quả minh họa\\\midrule
-Dữ liệu đồ thị & Đỉnh, cạnh, trọng số, định danh ổn định và phiên bản cấu trúc đồ thị. & Thay đổi dữ liệu có ý nghĩa thuật toán làm mất hiệu lực lần chạy trước.\\
+Dữ liệu đồ thị & Đỉnh, cạnh, trọng số, định danh ổn định và phiên bản cấu trúc đồ thị. & Thay đổi dữ liệu có ý nghĩa thuật toán làm thay đổi phiên bản cấu trúc đồ thị, nên lần chạy trước bị hủy bỏ.\\
 Bố cục đồ thị & Vị trí và các đỉnh được ghim. & Kéo một đỉnh thay đổi hình vẽ nhưng không thay đổi đầu vào thuật toán.\\
 Phiên chạy & Chuỗi bước, chỉ số hiện tại, định danh lần chạy và trạng thái phát lại. & Sự kiện hẹn giờ cũ không thể đẩy một lần chạy mới sang bước tiếp theo.\\
 Trình bày & Tô sáng, nhãn thông tin và kiểu hiển thị đỉnh/cạnh được suy ra. & Lùi lại khôi phục phần trình bày của bước được chọn.\\\bottomrule
@@ -169,7 +169,7 @@ Cách này không yêu cầu mọi thuật toán sắp xếp phải sinh xong to
 
 \page
 \subsection{V10: bố cục nhóm bảng dùng chung}\label{sec:v10}
-Khung V10 tổ chức thông tin hỗ trợ xung quanh một vùng vẽ trung tâm cố định. Vùng vẽ không thể trở thành một tab. Các vùng trái, phải và dưới chứa nhóm tab; người dùng có thể đưa một bảng vào nhóm, tách nó sang nhóm khác hoặc đặt nó vào một vùng trống. Bố cục mặc định đặt Action và e-Lecture ở bên trái, Pseudocode và Status ở bên phải (Hình~\ref{fig:v10}).
+Khung V10 tổ chức thông tin hỗ trợ xung quanh một vùng vẽ trung tâm cố định. Vùng vẽ không thể trở thành một tab. Các vùng trái, phải và dưới chứa nhóm tab; người dùng có thể đưa một bảng vào nhóm, tách nó ra thành một nhóm mới hoặc đặt nó vào một vùng trống. Bố cục mặc định đặt Action và e-Lecture ở bên trái, Pseudocode và Status ở bên phải (Hình~\ref{fig:v10}).
 
 \begin{figure}[htbp]\centering
 \begin{tikzpicture}[font=\footnotesize,>=Latex]
@@ -196,11 +196,11 @@ Quyết định kỹ thuật chính là biểu diễn thay đổi bố cục tro
 
 Một bộ tính bố cục dùng chung xử lý kích thước, tính hợp lệ của đích thả và hình xem trước khi kéo. Thao tác di chuyển dự kiến trước hết được biểu diễn trong mô hình, rồi chuyển thành hình học bố cục; do đó bản xem trước và kết quả sau khi áp dụng tuân theo cùng các ràng buộc. Các nhóm đang mở rộng giữ tối thiểu 240 pixel chiều rộng và 120 pixel chiều cao. Mỗi mô-đun tự đặt ngưỡng tối thiểu cho vùng vẽ (360\,$\times$\,320 pixel với đồ thị; 320\,$\times$\,200 hoặc 320\,$\times$\,240 pixel với các không gian làm việc cây), và bộ tính bố cục giữ ngưỡng này khi vùng hiển thị đủ chỗ.
 
-Bố cục lưu lại có phiên bản; trạng thái không hợp lệ sẽ được sửa hoặc thay bằng mặc định. Kiểm thử tự động và kiểm tra thủ công được dùng để kiểm chứng hành vi bố cục: kiểm thử mô hình chạy 4.000 thao tác ngẫu nhiên có seed cố định trên nhiều kích thước vùng hiển thị, kèm nhiều lần chuyển trạng thái sang dạng lưu trữ rồi đọc lại; kiểm thử trình duyệt di chuyển tab qua menu tab và kéo các thanh chia (splitter); còn các checklist thủ công bao quát thao tác kéo-tách bằng con trỏ, phản hồi khi thả và đổi kích thước.
+Bố cục lưu lại có phiên bản; trạng thái không hợp lệ sẽ được sửa hoặc thay bằng mặc định. Kiểm thử tự động và kiểm tra thủ công được dùng để kiểm chứng hành vi bố cục: kiểm thử mô hình chạy 4.000 thao tác ngẫu nhiên có seed cố định trên nhiều kích thước vùng hiển thị, kèm nhiều lần chuyển trạng thái sang dạng lưu trữ rồi đọc lại; kiểm thử trình duyệt di chuyển tab qua menu tab và kéo một thanh chia cột (splitter); còn các checklist thủ công của đồ thị và cây bao quát thao tác kéo tab, tách nhóm và đổi kích thước bằng thanh chia.
 \FloatBarrier
 
 \subsection{Khung giao diện chung trong sử dụng}
-\shot{F2-dfsbfs-bfs-frame8.png}{1.0}{BFS ở khung hình 8 trên 22 trong bố cục V10 mặc định. Hình vẽ, mã giả, trạng thái và bộ điều khiển phát lại ở chân trang cùng phản ánh một bước đang được chọn.}{fig:bfs}
+\shot{F2-dfsbfs-bfs-frame8.png}{1.0}{BFS ở khung hình 8 trên 22 trong bố cục V10 mặc định. Hình vẽ, mã giả, bảng Status và bộ điều khiển phát lại ở chân trang cùng phản ánh một bước đang được chọn.}{fig:bfs}
 \shot{F3-tab-drag-preview.png}{1.0}{Kéo tab Action vào nhóm Pseudocode sẽ hiển thị vùng thả dự kiến. Ảnh chụp ghi lại bản xem trước, chưa phải thao tác thả đã hoàn thành.}{fig:drag}
 
 Hình~\ref{fig:bfs} và~\ref{fig:drag} cho thấy vì sao bố cục là một phần của tương tác với thuật toán. Người học có thể cần nhiều chỗ hơn cho mã giả khi theo dõi một lần chạy, rồi cần nhiều chỗ hơn để chỉnh sửa đầu vào. Khung giao diện chung cho phép điều chỉnh mà không thay đổi trạng thái thuật toán bên dưới. Thiết kế này được dùng cho cả ba nhóm bộ trực quan hóa.
@@ -223,7 +223,7 @@ Các trường hợp ngẫu nhiên được ghi nhận gồm 700 đa đồ thị
 \subsection{Thao tác trên cây và so sánh sắp xếp}
 Bộ trực quan hóa cây có bảy không gian làm việc: LCA (lowest common ancestor, tổ tiên chung gần nhất), BST (binary search tree, cây tìm kiếm nhị phân), cây AVL, binary heap, trie, segment tree và lazy segment tree. Công việc bao gồm truy vấn và duyệt BST/AVL, xóa trong AVL, các thao tác heap và hành vi cộng đoạn/truy vấn tổng đoạn với lazy propagation. Heap liên kết cách biểu diễn mảng và cây; các thay đổi trung gian vẫn là bản xem trước cho đến khi được áp dụng (Hình~\ref{fig:heap}). Có những không gian làm việc này không đồng nghĩa với đã có đầy đủ mọi thao tác tương ứng của VisuAlgo.
 
-\shot{F6-heap-insert-climb-note.png}{1.0}{Chèn 1 vào heap, khung hình 3 trên 9: phần tử mới ở chỉ số 10 được so sánh với phần tử cha 7 ở chỉ số 5. Ghi chú ``$1<7$ $\cdot$ swap up'' nêu quyết định trước khi đổi chỗ, và dải mảng đánh dấu cùng hai phần tử đó.}{fig:heap}
+\shot{F6-heap-insert-climb-note.png}{1.0}{Chèn 1 vào heap, khung hình 3 trên 9: phần tử mới ở chỉ số 10 được so sánh với phần tử cha 7 ở chỉ số 5. Ghi chú floating text ``$1<7$ $\cdot$ swap up'' (Mục~\ref{sec:notes}) nêu quyết định trước khi đổi chỗ, và dải mảng đánh dấu cùng hai phần tử đó.}{fig:heap}
 \FloatBarrier
 Phần sắp xếp có tám thuật toán trong chế độ Study một ô và Compare hai hoặc bốn ô. Các ô dùng chung dữ liệu đầu vào và đồng hồ, cho phép quan sát các chuỗi thao tác khác nhau trên cùng dữ liệu (Hình~\ref{fig:sorting}). Hệ thống ngăn chọn trùng thuật toán và quicksort ngẫu nhiên sử dụng seed có thể tái lập.
 
@@ -231,7 +231,7 @@ Phần sắp xếp có tám thuật toán trong chế độ Study một ô và C
 \FloatBarrier
 
 \subsection{Floating text: lời giải thích ngay trên vùng vẽ}\label{sec:notes}
-Một bước có thể có ý nghĩa ngay cả khi hình vẽ hầu như không thay đổi. Ví dụ, Dijkstra có thể từ chối một lần cập nhật khoảng cách (relaxation) vì khoảng cách ứng viên không ngắn hơn khoảng cách hiện có. Nếu lý do chỉ xuất hiện trong bảng Status riêng, người học phải liên tục rời mắt khỏi cạnh liên quan. Sau đợt thử nghiệm tuần 10, tôi bổ sung floating text: các ghi chú ngắn cho từng bước, đặt trên vùng vẽ ngay tại đỉnh liên quan (với Dijkstra là đỉnh mà cạnh đang xét đi tới). Đây là một trong vài cải tiến UI/UX sau thử nghiệm, bên cạnh các điều chỉnh cho phần chú giải (legend) và bảng Status, nhằm giảm số lần người dùng phải nhìn sang Status khi theo dõi một lần chạy và giữ sự chú ý của họ trên vùng vẽ. Status vẫn giữ nội dung chi tiết để đọc lại; giảm chuyển hướng chú ý là mục tiêu thiết kế, chưa phải kết quả đã đo lường.
+Một bước có thể có ý nghĩa ngay cả khi hình vẽ hầu như không thay đổi. Ví dụ, Dijkstra có thể từ chối một lần cập nhật khoảng cách (relaxation) vì khoảng cách ứng viên không ngắn hơn khoảng cách hiện có. Nếu lý do chỉ xuất hiện trong bảng Status riêng, người học phải liên tục rời mắt khỏi cạnh liên quan. Sau đợt thử nghiệm tuần 10, tôi bổ sung floating text: các ghi chú ngắn cho từng bước, đặt trên vùng vẽ ngay tại đỉnh liên quan (với Dijkstra là đỉnh mà cạnh đang xét đi tới). Đây là một trong vài cải tiến sau thử nghiệm (Mục~\ref{sec:trial}), nhằm giảm số lần người dùng phải nhìn sang Status khi theo dõi một lần chạy và giữ sự chú ý của họ trên vùng vẽ. Status vẫn giữ nội dung chi tiết để đọc lại; giảm chuyển hướng chú ý là mục tiêu thiết kế, chưa phải kết quả đã đo lường.
 
 \shot{F4-sssp-dijkstra-frame24-note.png}{1.0}{Dijkstra xét cập nhật từ B đến E: ghi chú giải thích $4+3<8$, nên khoảng cách của E đổi từ 8 thành 7.}{fig:notes}
 \FloatBarrier
@@ -241,11 +241,11 @@ Ghi chú được hiển thị bên ngoài phép biến đổi thu phóng (zoom 
 
 Thời gian hiển thị thích ứng với phát lại. Ghi chú chỉ xuất hiện khi một bước được đến bằng cách tiến thêm một bước (Next hoặc tự động phát). Sau Next, ghi chú tồn tại 1.600 mili giây; khi tự động phát, thời lượng được rút xuống còn 90\% khoảng thời gian mỗi bước, và ghi chú bị bỏ qua khi thời lượng còn lại dưới 200 mili giây, nhờ vậy phát lại nhanh không làm tích tụ văn bản không thể đọc.
 
-Vì chỉ xem trực quan hóa hiếm khi cải thiện việc học~\cite{hundhausen2002}, các ghi chú sẽ được đánh giá qua các nhiệm vụ chủ động (Bảng~\ref{tab:tasks}). Lớp ghi chú hiện được ẩn khỏi các API hỗ trợ tiếp cận, và ứng dụng chưa được đánh giá khả năng tiếp cận một cách có hệ thống. Công việc sau này cần kiểm tra liệu phần văn bản tương đương được giữ lại có đủ hay không, và người dùng có thể hiểu các thao tác bị từ chối, chuyển đổi nhanh và trường hợp dày đặc mà không chỉ dựa vào màu sắc hoặc chuyển động hay không.
+Vì chỉ xem trực quan hóa hiếm khi cải thiện việc học~\cite{hundhausen2002}, các ghi chú sẽ được đánh giá qua các nhiệm vụ chủ động (Bảng~\ref{tab:tasks}). Lớp ghi chú hiện được ẩn khỏi các API hỗ trợ tiếp cận, và ứng dụng chưa được đánh giá khả năng tiếp cận một cách có hệ thống. Công việc sau này cần kiểm tra liệu phần văn bản tương đương trong Status có đủ hay không, và người dùng có thể hiểu các thao tác bị từ chối, chuyển đổi nhanh và trường hợp dày đặc mà không chỉ dựa vào màu sắc hoặc chuyển động hay không.
 
 \nextsection
 \section{Kết quả hiện tại và kiểm chứng}\label{sec:results}
-Bản hiện tại cung cấp một website với các mô-đun đồ thị, cây và sắp xếp chạy được (Hình~\ref{fig:home}). Trong 30 thẻ danh mục, 12 thẻ mở được mô-đun và 18 thẻ được đánh dấu sắp có (coming soon). Trong 26 thẻ được chép lại từ danh sách mô-đun của visualgo.net, tám thẻ mở được: bốn thẻ có đủ mọi thuật toán mà mô-đun gốc liệt kê (Sorting, BST/AVL, Binary Heap và Minimum Spanning Tree) và bốn thẻ có một phần (Segment Tree, Graph Traversal, Single-Source Shortest Paths và Max Flow). Bốn thẻ mở được còn lại là Trie và LCA, vốn là các trang riêng trên visualgo.net, cùng Graph Editor và Tree Editor của chính dự án này. Các nhãn này đếm thuật toán, không đếm thao tác, và không phải kết quả kiểm chứng giáo dục.
+Bản hiện tại cung cấp một website với các mô-đun đồ thị, cây và sắp xếp chạy được (Hình~\ref{fig:home}). Trong 30 thẻ danh mục, 12 thẻ mở được mô-đun và 18 thẻ được đánh dấu sắp có (coming soon). Trong 26 thẻ được chép lại từ danh sách mô-đun của visualgo.net, tám thẻ mở được: bốn thẻ có đủ mọi thuật toán mà mô-đun gốc liệt kê (Sorting, BST/AVL, Binary Heap và Minimum Spanning Tree) và bốn thẻ có một phần (Segment Tree, Graph Traversal, Single-Source Shortest Paths và Max Flow). Bốn thẻ mở được còn lại là Trie và LCA, vốn là các trang riêng trên visualgo.net, cùng Graph Editor và Tree Editor của chính dự án này. Các nhãn này đếm thuật toán, không đếm thao tác.
 
 \shot{F1-home-catalogue.png}{.95}{Phần đầu trang chủ của ứng dụng tích hợp. Dòng ghi công cho biết website được chuyển thể từ visualgo.net; danh mục mô-đun, gồm cả các thẻ sắp có (coming soon), tiếp tục ở phía dưới.}{fig:home}
 \FloatBarrier
@@ -258,35 +258,35 @@ Kiểm thử đơn vị cây & 1.881 đạt & Thao tác, trạng thái và trìn
 Kiểm thử đơn vị sắp xếp & 571 đạt & Luồng thao tác và phát lại.\\
 Kiểm thử lớp chung / website & 143 / 24 đạt & Thành phần dùng chung và logic website.\\
 \textbf{Tổng kiểm thử đơn vị} & \textbf{3.273 đạt} & Tổng bộ kiểm thử được ghi nhận.\\
-Ca kiểm thử trình duyệt & 151 đạt & 14 tệp đặc tả kiểm thử trên Chromium.\\
+Ca kiểm thử trình duyệt & 151 đạt & 14 tệp kiểm thử, chạy trên Chromium.\\
 Kiểm tra kiểu / build & Đạt & Kiểm tra lúc biên dịch và bản dựng production.\\
 Lint & 0 lỗi & Còn hai cảnh báo.\\\bottomrule
 \end{tabularx}
 \end{table}
 \FloatBarrier
-Môi trường được ghi nhận là Windows 11, Node 24.17.0, npm 11.13 và Playwright 1.64.1 với Chromium. Quá trình build phát cảnh báo về gói mã lớn (khoảng 705 kB trước gzip và 206 kB sau gzip). Từ ngày 4/9 đến 30/10, CI của kho mã đã chạy 266 lượt workflow, trong đó 105 lượt thuộc các workflow của bộ trực quan hóa, số còn lại thuộc CI engine của Kerk và việc triển khai website; tám lượt thất bại, và mỗi lượt đều được tiếp nối bởi một lượt chạy thành công của cùng workflow.
+Môi trường được ghi nhận là Windows 11, Node 24.17.0, npm 11.13 và Playwright 1.64.1 với Chromium. Quá trình build phát cảnh báo về gói mã lớn (khoảng 705 kB trước gzip và 206 kB sau gzip). Từ ngày 4/9 đến 30/10, CI của kho mã đã ghi nhận 266 lượt chạy workflow, trong đó 105 lượt thuộc các workflow của bộ trực quan hóa, số còn lại thuộc CI engine của Kerk và việc triển khai website; tám lượt thất bại, và mỗi lượt đều được tiếp nối bởi một lượt chạy thành công của cùng workflow.
 
 Kiểm thử đạt giúp tăng độ tin cậy rằng các trường hợp đã kiểm tra không bị lỗi hồi quy (Bảng~\ref{tab:tests}); chúng không đo tính dễ sử dụng, khả năng tiếp cận, khả năng hoạt động trên các trình duyệt khác hay kết quả học tập. Kiểm thử tự động và kiểm tra thủ công được dùng để kiểm chứng hành vi giao diện (Mục~\ref{sec:v10}). Thử nghiệm tuần 10 cung cấp phản hồi định hướng về tính dễ sử dụng (Mục~\ref{sec:trial}).
 
 \nextsection
 \section{Đánh giá người dùng, giới hạn và bước tiếp theo}
 \subsection{Thử nghiệm người dùng ở tuần 10}\label{sec:trial}
-Trong tuần 10, Kerk và tôi mời một số người dùng, đều là sinh viên NUS, tự sử dụng VisuAlgo+ V10 trong 15--20 phút. Người tham gia có mức độ quen thuộc với VisuAlgo.net khác nhau, từ đã sử dụng nhiều lần đến ít sử dụng; kinh nghiệm thuật toán cũng trải rộng từ người có kinh nghiệm lập trình thi đấu đến người mới bắt đầu. Chúng tôi quay video từng phiên, cho người tham gia làm một bài test ngắn sau khi sử dụng và thu thập phản hồi. Kerk đã xin phép người tham gia từ trước về việc quay và sử dụng video, và tất cả đều đồng ý; video chỉ ghi màn hình và thao tác tay, không ghi khuôn mặt.
+Trong tuần 10, Kerk và tôi mời một số người dùng, đều là sinh viên NUS, tự sử dụng VisuAlgo+ với bố cục V10 trong 15--20 phút. Người tham gia có mức độ quen thuộc với VisuAlgo khác nhau, từ đã sử dụng nhiều lần đến ít sử dụng; kinh nghiệm thuật toán cũng trải rộng từ người có kinh nghiệm lập trình thi đấu đến người mới bắt đầu. Chúng tôi quay video từng phiên, cho người tham gia làm một bài test ngắn sau khi sử dụng và thu thập phản hồi. Kerk đã xin phép người tham gia từ trước về việc quay và sử dụng video, và tất cả đều đồng ý; video chỉ ghi màn hình và thao tác tay, không ghi khuôn mặt.
 
-Các phiên thử nghiệm mang lại phản hồi tích cực cùng những điểm cần cải thiện. Xem lại video giúp chúng tôi nhận ra những tương tác hỗ trợ người dùng làm quen với giao diện mới và những chỗ cần điều chỉnh thêm. Từ đó có vài cải tiến UI/UX: floating text, giúp đưa lời giải thích đến gần hình vẽ (Mục~\ref{sec:notes}), cùng các điều chỉnh cho phần chú giải (legend) và bảng Status. Đợt thử nghiệm này tách biệt với khảo sát bố cục trước đó của Kerk.
+Các phiên thử nghiệm mang lại phản hồi tích cực cùng những điểm cần cải thiện. Xem lại video giúp chúng tôi nhận ra những tương tác hỗ trợ người dùng làm quen với giao diện mới và những chỗ cần điều chỉnh thêm. Từ đó có vài cải tiến UI/UX: floating text, giúp đưa lời giải thích đến gần hình vẽ (Mục~\ref{sec:notes}), cùng các điều chỉnh cho phần chú giải (legend) và bảng Status.
 
-\subsection{Giới hạn bằng chứng và triển khai}
+\subsection{Giới hạn đánh giá và triển khai}
 Số người tham gia, đề test, điểm số và các quan sát chi tiết từ đợt thử nghiệm chưa được tổng hợp, nên báo cáo này không trích dẫn. Đợt thử nghiệm là đầu vào định hướng thiết kế; chỉ một bài test sau sử dụng chưa chứng minh mức tiến bộ học tập hay tính dễ sử dụng so với hệ thống khác, và tác động của floating text chưa được đo lường. Benchmark hiệu năng và tỷ lệ bao phủ mã cũng chưa có.
 
-Một số giới hạn triển khai có ý nghĩa thực tế. Đồ thị và cây tạo trước toàn bộ chuỗi bước. Sắp xếp không bao giờ cắt bớt lịch sử và thực hiện lại thao tác khi nhảy vị trí. Floating text chỉ có ở một số thuật toán và có thể chồng lấn trong hình vẽ dày. Kiểm chứng trình duyệt tập trung vào Chromium trên máy tính; hành vi trên điện thoại, tương thích nhiều trình duyệt và khả năng tiếp cận vẫn chưa hoàn thiện. Các checklist thủ công của người phát triển (20, 10 và 26 mục) đã được chạy, nhưng các lần chạy không được ghi lại; chúng tách biệt với thử nghiệm tuần 10.
+Một số giới hạn triển khai có ý nghĩa thực tế. Đồ thị và cây tạo trước toàn bộ chuỗi bước. Sắp xếp giữ toàn bộ lịch sử và thực hiện lại lịch sử đó khi nhảy lùi. Floating text chỉ có ở một số thuật toán và có thể chồng lấn trong hình vẽ dày. Kiểm chứng trình duyệt tập trung vào Chromium trên máy tính; hành vi trên điện thoại, tương thích nhiều trình duyệt và khả năng tiếp cận vẫn chưa hoàn thiện. Các checklist thủ công của người phát triển (20, 10 và 26 mục, lần lượt cho đồ thị, sắp xếp và cây) đã được chạy, nhưng các lần chạy không được ghi lại.
 
 Engine riêng cũng là một ranh giới phạm vi. Thử nghiệm chưa được hợp nhất của tôi trên engine của Kerk khám phá định danh cạnh ổn định và một client trình duyệt tái sử dụng được để quản lý vòng đời worker/RPC. Nó giúp xác định yêu cầu tích hợp, nhưng không nằm trên đường thực thi của bộ trực quan hóa đã triển khai.
 
 \subsection{Đề xuất đánh giá tiếp nối}
-Trước hết, cần tổng hợp video, câu trả lời bài test và phản hồi tuần 10 thành các quan sát đã ẩn danh, liên kết với những thay đổi thiết kế (Bảng~\ref{tab:tasks}). Sau đó thực hiện đánh giá tiếp nối có cấu trúc hơn, dự kiến gồm 6--10 sinh viên đã biết cấu trúc dữ liệu nhập môn. Kế hoạch người tham gia, quy trình xin đồng ý (consent) và mọi yêu cầu xét duyệt đạo đức nghiên cứu của NUS sẽ được xác nhận với giảng viên hướng dẫn trước khi tuyển người. Một nghiên cứu nhỏ có thể tìm ra vấn đề tương tác, nhưng không đủ để khẳng định hiệu quả học tập nói chung.
+Trước hết, tôi sẽ tổng hợp video, câu trả lời bài test và phản hồi tuần 10 thành các quan sát đã ẩn danh, liên kết với những thay đổi thiết kế, sau đó thực hiện đánh giá tiếp nối có cấu trúc hơn (Bảng~\ref{tab:tasks}), dự kiến gồm 6--10 sinh viên đã biết cấu trúc dữ liệu nhập môn. Kế hoạch người tham gia, quy trình xin đồng ý (consent) và mọi yêu cầu xét duyệt đạo đức nghiên cứu của NUS sẽ được xác nhận với giảng viên hướng dẫn trước khi tuyển người. Một nghiên cứu nhỏ có thể tìm ra vấn đề tương tác, nhưng không đủ để khẳng định hiệu quả học tập nói chung.
 
 \begin{table}[htbp]\small\centering
-\caption{Nhiệm vụ đề xuất cho đợt tiếp nối; không phải đề test đã dùng ở tuần 10.}\label{tab:tasks}
+\caption{Nhiệm vụ đề xuất cho đợt đánh giá tiếp nối có cấu trúc.}\label{tab:tasks}
 \begin{tabularx}{\linewidth}{@{}p{40mm}Y@{}}\toprule
 Nhiệm vụ & Bằng chứng cần thu thập\\\midrule
 Giải thích cập nhật Dijkstra & Giải thích đúng một lần cập nhật được chấp nhận và một lần bị từ chối; cách dùng ghi chú, mã giả và Status.\\
@@ -296,14 +296,14 @@ So sánh hai lần sắp xếp & Giải thích khác biệt thao tác mà không
 \end{tabularx}
 \end{table}
 \FloatBarrier
-Ghi nhận mức hoàn thành nhiệm vụ, thời gian, lỗi, yêu cầu trợ giúp và nhận xét ngắn của người tham gia. Nếu có thể so sánh với VisuAlgo gốc, dùng nhiệm vụ và đầu vào tương ứng, đồng thời cân bằng thứ tự trải nghiệm giữa các người tham gia.
+Mỗi phiên sẽ ghi nhận mức hoàn thành nhiệm vụ, thời gian, lỗi, yêu cầu trợ giúp và nhận xét ngắn của người tham gia; mọi phép so sánh với VisuAlgo gốc sẽ dùng nhiệm vụ và đầu vào tương ứng, với thứ tự trải nghiệm được cân bằng giữa các người tham gia.
 
 \subsection{Đề xuất đo lường kỹ thuật}
-Dùng một máy cố định và bản build production, với các đầu vào đã lưu có kích thước tăng dần. Đo thời gian chuẩn bị lần chạy, thời gian đến bước đầu tiên hiển thị, độ trễ nhảy bước, mức đều đặn của khung hình khi phát lại và lượng bộ nhớ sử dụng. Lặp mỗi điều kiện ít nhất năm lần, báo cáo trung vị cùng mức phân tán và môi trường thực hiện. Những phép đo này sẽ định hướng việc có cần checkpoint, giới hạn lịch sử hay thay đổi ranh giới thực thi hay không.
+Các phép đo sẽ dùng một máy cố định và bản build production với các đầu vào đã lưu có kích thước tăng dần, bao gồm thời gian chuẩn bị lần chạy, thời gian đến bước đầu tiên hiển thị, độ trễ nhảy bước, mức đều đặn của khung hình khi phát lại và lượng bộ nhớ sử dụng. Mỗi điều kiện sẽ được lặp lại ít nhất năm lần, và trung vị sẽ được báo cáo cùng mức phân tán và môi trường thực hiện. Những phép đo này sẽ định hướng việc có cần checkpoint, giới hạn lịch sử hay thay đổi ranh giới thực thi hay không.
 
 \nextsection
 \section{Kế hoạch cho phần còn lại của dự án}
-Kế hoạch dưới đây (Bảng~\ref{tab:plan}) được đề xuất để trao đổi với giảng viên hướng dẫn và Kerk. Các mốc cố định của SoC là buổi thuyết trình CA trong Reading Week (14--20/11/2026), hạn nộp báo cáo cuối lúc 17:00 thứ Tư, ngày 7/4/2027, và buổi thuyết trình cuối ngày 19--23/4/2027 (dự kiến); các khoảng thời gian khác là đề xuất.
+Kế hoạch dưới đây (Bảng~\ref{tab:plan}) được đề xuất để trao đổi với giảng viên hướng dẫn và Kerk. Các mốc của SoC là buổi thuyết trình CA trong Reading Week (14--20/11/2026), hạn nộp báo cáo cuối lúc 17:00 thứ Tư, ngày 7/4/2027, và buổi thuyết trình cuối ngày 19--23/4/2027 (dự kiến); các khoảng thời gian khác là đề xuất.
 
 \begin{table}[htbp]\small\centering
 \caption{Các mốc và bằng chứng hoàn thành được đề xuất.}\label{tab:plan}
@@ -318,7 +318,7 @@ Tháng 4 & Nộp báo cáo cuối trước ngày 7/4; thuyết trình và demo c
 \end{table}
 \FloatBarrier
 \subsection{Chiến lược tích hợp và rủi ro}
-Tích hợp engine nên bắt đầu bằng một luồng hoàn chỉnh trong phạm vi nhỏ: đầu vào đồ thị, engine thực thi, chuyển đổi sang các bước có kiểu xác định, hiển thị và phát lại tiến/lùi. Mốc đầu tiên là sự thống nhất hành vi, gồm cả định danh cạnh và hủy thao tác, thay vì thay thế mọi thuật toán TypeScript. Nếu đặc tả engine hoặc tiến độ chưa sẵn sàng, bản triển khai hiện có vẫn là mốc cơ sở hoạt động được, và báo cáo có thể trình bày riêng nghiên cứu tích hợp.
+Tích hợp engine nên bắt đầu bằng một luồng hoàn chỉnh trong phạm vi nhỏ: đầu vào đồ thị, engine thực thi, chuyển đổi sang các bước có kiểu xác định, hiển thị và phát lại tiến/lùi. Mốc đầu tiên là sự thống nhất hành vi, gồm cả định danh cạnh và hủy thao tác, thay vì thay thế mọi thuật toán TypeScript. Nếu đặc tả engine hoặc tiến độ chưa sẵn sàng, bản triển khai hiện có vẫn là mốc cơ sở hoạt động được, và báo cáo cuối có thể trình bày riêng nghiên cứu tích hợp.
 
 Rủi ro kỹ thuật chính là chi phí của chuỗi bước dài, ngữ nghĩa không nhất quán giữa các mô-đun và lỗi tương tác mà kiểm thử mô hình không phát hiện được. Cần đo lường trước khi thiết kế lại phần phát lại trên quy mô lớn. Chỉ nên tạo lớp trừu tượng dùng chung khi hành vi thực sự giống nhau; chuỗi tạo trước của đồ thị/cây và bộ sinh của sắp xếp đã cho thấy điều khiển giống nhau không bắt buộc phần thực thi bên trong giống nhau.
 
@@ -334,7 +334,7 @@ Rủi ro dự án chính là phạm vi ngày càng mở rộng. Thêm mọi ch�
 \bibliography{../references}
 \endgroup
 
-\noindent{\footnotesize Hồ sơ dự án~\cite{architecture,validation,evidence} là hồ sơ làm việc của tác giả, không phải công trình nghiên cứu; có thể cung cấp khi có yêu cầu. Ảnh chụp thể hiện commit ứng dụng \code{662e7b3}; sơ đồ được vẽ cho báo cáo này. VisuAlgo vẫn là nguồn của tài liệu giáo dục và các ví dụ gốc.\par}
+\noindent{\footnotesize Hồ sơ dự án~\cite{architecture,validation,evidence} là hồ sơ làm việc của tác giả, không phải công trình nghiên cứu. Ảnh chụp thể hiện commit ứng dụng \code{662e7b3}; sơ đồ được vẽ cho báo cáo này. VisuAlgo vẫn là nguồn của tài liệu giáo dục và các ví dụ gốc.\par}
 
 \noindent{\footnotesize\textbf{Ghi chú bản dịch.} Tên công trình và thông tin thư mục được giữ nguyên để đối chiếu. Bản dịch đồng bộ với bản tiếng Anh trong cùng phiên bản.\par}
 \end{document}
