@@ -4,34 +4,37 @@
 \linespread{1.0}
 \setlength{\parskip}{4pt}
 \titlespacing*{\section}{0pt}{9pt}{6pt}
-\hypersetup{pdftitle={VisuAlgo+ — Tóm tắt báo cáo CA bằng tiếng Việt}}
-\fancyhead[R]{\small\color{muted}Tóm tắt báo cáo CA}
+\hypersetup{pdftitle={Exploring New Information Visualization Techniques for VisuAlgo+ (Tóm tắt báo cáo CA CP4101 bằng tiếng Việt)}}
+\fancyhead[R]{\small\color{muted}Tóm tắt báo cáo CA CP4101 \textbar\ H160390}
 \begin{document}
-{\LARGE\bfseries\color{navy}VisuAlgo+ — Tóm tắt tiếng Việt\par}
-\vspace{3mm}
+{\LARGE\bfseries\color{navy}Exploring New Information Visualization\\Techniques for VisuAlgo+\par}
+\vspace{1mm}
+{\large Rebuilding Interactive Algorithm Visualizations --- Tóm tắt tiếng Việt\par}
+\vspace{1mm}
 \textbf{Truong Van Quoc Bao · CP4101 · AY2026/27, Học kỳ 1}\\
-Giảng viên hướng dẫn: A/P Steven Halim\\
+Mã dự án (Project ID): H160390 · Giảng viên hướng dẫn: A/P Steven Halim\\
+Giám khảo chính (Main Evaluator): SIM Mong Cheng, Terence\\
 Bản đọc nhanh ngày 4/11/2026, đồng bộ với bản tiếng Anh cập nhật cùng ngày.
 
 \section*{1. Dự án muốn làm gì?}
-VisuAlgo+ hướng tới xây dựng lại VisuAlgo bằng nền tảng kỹ thuật hiện đại và giao diện được thiết kế lại, đồng thời giữ mục tiêu giúp người học hiểu thuật toán qua tương tác. Định hướng từ thầy bao gồm đổi mới cả UI/UX và engine thực thi. Sản phẩm hiện tại là một nguyên mẫu chạy được; chưa thay thế hoàn toàn VisuAlgo gốc.
+VisuAlgo+ hướng tới xây dựng lại VisuAlgo bằng nền tảng kỹ thuật hiện đại và giao diện được thiết kế lại, đồng thời giữ mục tiêu giúp người học hiểu thuật toán qua tương tác. Một số công cụ của bản cũ đã có phần lỗi thời và không còn phù hợp với các cập nhật dự kiến, nên mục tiêu của thầy cho bản này là dùng những công cụ tốt nhất hiện có cho cả giao diện và engine thực thi (D3 vẫn được giữ cho một số tác vụ). Sản phẩm hiện tại là một nguyên mẫu chạy được; chưa thay thế hoàn toàn VisuAlgo gốc.
 
 Năm mục tiêu chính là chọn công nghệ phù hợp, giữ các chức năng giáo dục hữu ích, tạo giao diện nhất quán giữa các chủ đề, xây dựng kiến trúc dễ mở rộng/tích hợp engine, và kiểm chứng chức năng để xác định việc cần đánh giá tiếp.
 
 \section*{2. Vì sao tôi tham gia và tôi phụ trách gì?}
 Thế mạnh của tôi là kinh nghiệm lập trình thi đấu với thành tích cao, đi cùng kinh nghiệm giảng dạy cho học sinh đam mê CP. Tôi muốn dùng hiểu biết và trải nghiệm về thuật toán để cải thiện cách VisuAlgo+ thể hiện \textbf{vì sao một quyết định được đưa ra, trạng thái nào thay đổi và người học nên chú ý điều gì ở mỗi bước}.
 
-\begin{tabularx}{\linewidth}{@{}p{27mm}Y@{}}\toprule
-Người phụ trách & Phạm vi chính\\\midrule
-Bao & Bộ trực quan hóa đồ thị, cây, sắp xếp; chỉnh sửa đầu vào và phát lại; tích hợp giao diện; mô hình V10 cốt lõi; mở rộng thao tác và ghi chú từng bước.\\
-Kerk & Nền tảng engine/WASM, hệ thống thiết kế website, hạ tầng chung và hợp nhất ứng dụng.\\
-Phối hợp & Các quyết định giao diện và tích hợp. Sau khảo sát và triển khai V2/V7, Bao, Kerk và thầy thống nhất V10, giữ các điểm mạnh được lựa chọn từ cả hai.\\\bottomrule
+\begin{tabularx}{\linewidth}{@{}p{24mm}Y@{}}\toprule
+Phụ trách & Phạm vi chính\\\midrule
+Bao & Bộ trực quan hóa đồ thị, cây, sắp xếp; chỉnh sửa đầu vào, phát lại; tích hợp giao diện; mô hình V10 cốt lõi; mở rộng thuật toán, thao tác; lớp floating text dùng chung; phần lớn kiểm thử tự động và hồ sơ quyết định thiết kế.\\
+Kerk & Nền tảng engine WebAssembly (WASM), hệ thống thiết kế website, hạ tầng chung và hợp nhất ứng dụng.\\
+Phối hợp & Quyết định giao diện và tích hợp, như chọn V2/V7 và đề xuất V10.\\\bottomrule
 \end{tabularx}
 
 \section*{3. Quá trình phát triển chính}
-Từ cuối tháng 7 đến tháng 9, tôi xây dựng các nguyên mẫu đồ thị, sắp xếp và cây độc lập để thử nghiệm hành vi. Trong tháng 9--10, chúng được đưa vào thiết kế website của Kerk và các phương án V2/V7, sau đó phát triển thành V10. Ngày 18/10, Kerk hợp nhất các bản sao thành một ứng dụng. Cuối tháng 10 tập trung mở rộng thuật toán, thêm ghi chú trên vùng vẽ và sửa lỗi qua rà soát.
+Bắt đầu từ trước học kỳ (commit đầu tiên ghi nhận ngày 28/7/2026), tôi xây dựng các nguyên mẫu đồ thị, sắp xếp và cây độc lập để thử nghiệm hành vi. Tháng 9--10, tôi đưa chúng vào hệ thống thiết kế của Kerk. Sau khảo sát người dùng do Kerk tổ chức, Kerk và tôi chọn V2 (split rails) và V7 (docks) trong chín bố cục V1--V9 của wireframe; tôi xây dựng đồ thị, cây, sắp xếp trên cả hai bố cục với chức năng tương đương (20--27/9). Tuần~9, Kerk và tôi thảo luận đề xuất kết hợp V2 và V7 thành V10; tôi triển khai V10, Kerk góp tinh chỉnh để hoàn thiện bản dùng trong thử nghiệm. Ngày 18/10, Kerk hợp nhất các bản sao thành một ứng dụng. Kerk và tôi tổ chức thử nghiệm người dùng ở tuần 10; sau đó tập trung mở rộng thuật toán, thêm floating text và sửa lỗi qua rà soát.
 
-Khảo sát của Kerk là \textbf{đầu vào định hướng thiết kế}. Việc chọn V10 là quyết định sau đó của nhóm và thầy, chưa phải bằng chứng người dùng thích V10 hơn hoặc học tốt hơn với V10.
+Khảo sát chỉ là \textbf{đầu vào định hướng thiết kế}; tôi không lưu giữ dữ liệu trả lời của khảo sát, nên báo cáo không dùng nó làm bằng chứng về sở thích của người dùng.
 
 \clearpage
 \section*{4. Năm đóng góp kỹ thuật đáng chú ý}
@@ -39,22 +42,22 @@ Khảo sát của Kerk là \textbf{đầu vào định hướng thiết kế}. V
 Đồ thị tách dữ liệu thuật toán, vị trí, phiên chạy và phần trình bày. Kéo đỉnh chỉ đổi vị trí; sửa trọng số làm mất hiệu lực lần chạy cũ. Cùng một bước điều khiển hình vẽ, mã giả và Status. Đồ thị/cây tạo trước chuỗi bước; sắp xếp dùng generator, bộ đệm và lịch sử.
 
 \textbf{(2) Tích hợp thành một giao diện chung.}
-Website quản lý định tuyến, thanh trên cùng và chủ đề giao diện; từng mô-đun quản lý dữ liệu và lần chạy. Đồ thị/cây dùng React Flow cùng tiện ích bố trí D3; sắp xếp dùng Canvas 2D. Người học dùng khung và điều khiển nhất quán nhưng mỗi mô-đun vẫn có cách thực thi phù hợp.
+Website quản lý định tuyến, thanh trên cùng và chủ đề giao diện; từng mô-đun quản lý dữ liệu, lần chạy và tự vẽ hình của mình. Đồ thị dùng React Flow với d3-force, cây dùng React Flow với d3-hierarchy, sắp xếp dùng Canvas 2D với d3-interpolate. Người học dùng khung và điều khiển nhất quán nhưng mỗi mô-đun vẫn có cách thực thi phù hợp.
 
 \textbf{(3) Mô hình nhóm bảng V10.}
-Vùng vẽ cố định ở giữa; bảng hỗ trợ có thể ghép, tách và chuyển giữa trái, phải, dưới. Các quy tắc được đặt trong mô hình thuần: bảng bắt buộc không được mất hoặc trùng, nhóm rỗng được loại bỏ. Xem trước và kết quả thả dùng cùng bộ tính bố cục. Mô hình đã có kiểm thử với 4.000 thao tác ngẫu nhiên có seed; tương tác kéo/thả trên trình duyệt còn cần bổ sung kiểm thử.
+Vùng vẽ cố định ở giữa; bảng hỗ trợ có thể ghép, tách và chuyển giữa trái, phải, dưới. Các quy tắc được đặt trong mô hình thuần: bảng bắt buộc không được mất hoặc trùng, nhóm rỗng được loại bỏ. Xem trước và kết quả thả dùng cùng bộ tính bố cục. Hành vi bố cục được kiểm chứng bằng kiểm thử tự động cùng kiểm tra thủ công: kiểm thử mô hình chạy 4.000 thao tác ngẫu nhiên có seed trên nhiều kích thước màn hình; kiểm thử trình duyệt di chuyển tab qua menu tab và kéo thanh chia; checklist thủ công bao quát kéo-tách bằng con trỏ, phản hồi khi thả và đổi kích thước.
 
 \textbf{(4) Mở rộng thuật toán và thao tác, có đối chiếu kết quả.}
-Ứng dụng có 11 định danh thuật toán đồ thị, bảy không gian làm việc cho cây và tám thuật toán sắp xếp. Đồ thị bổ sung DFS đệ quy, Bellman--Ford, Prim, sắp xếp tô-pô, kiểm tra hai phía và đỉnh khớp/cạnh cầu. Kiểm thử sử dụng cách tính tham chiếu khác thuật toán đang kiểm tra: ví dụ xóa cạnh rồi đếm thành phần liên thông để kiểm tra cầu, hoặc vét cạn rừng nhỏ để kiểm tra Prim.
+Ứng dụng có 11 thuật toán đồ thị (tính riêng hai biến thể DFS đệ quy và dùng stack), bảy không gian làm việc cho cây và tám thuật toán sắp xếp. Đồ thị bổ sung DFS đệ quy, Bellman--Ford, Prim, sắp xếp tô-pô, kiểm tra hai phía và đỉnh khớp/cạnh cầu. Kiểm thử sử dụng cách tính tham chiếu khác thuật toán đang kiểm tra: ví dụ xóa cạnh rồi đếm thành phần liên thông để kiểm tra cầu, hoặc vét cạn rừng nhỏ để kiểm tra Prim.
 
 \textbf{(5) Floating text: lời giải thích ngay trên vùng vẽ.}
-Đây là cập nhật quan trọng sau thử nghiệm tuần 10: lời giải thích ngắn như $4+3<8$ xuất hiện ngay gần đối tượng, nhằm giúp người dùng ít phải nhìn sang Status và tập trung theo dõi các bước trên vùng vẽ, phù hợp định hướng của thầy Halim. Đây là mục tiêu thiết kế, chưa phải tác động đã đo lường. Ghi chú dùng chung cách đặt vị trí và thời gian hiển thị, giữ cỡ chữ khi zoom và ẩn ở tốc độ quá nhanh. Hiện có ở Dijkstra, LCA, BST, AVL và Heap; chưa bao phủ mọi thuật toán.
+Sau thử nghiệm tuần 10, tôi bổ sung floating text: ghi chú ngắn như $4+3<8$ đặt trên vùng vẽ, ngay tại đỉnh liên quan (với Dijkstra là đỉnh mà cạnh đang xét đi tới). Đây là một trong vài cải tiến UI/UX sau thử nghiệm, cùng với điều chỉnh phần chú giải (legend) và bảng Status, nhằm giúp người dùng ít phải nhìn sang Status khi theo dõi lần chạy và giữ sự chú ý trên vùng vẽ. Đây là mục tiêu thiết kế, chưa phải tác động đã đo lường. Ghi chú dùng chung cách đặt vị trí và thời gian hiển thị, giữ cỡ chữ khi zoom; ghi chú chỉ hiện khi tiến một bước (Next hoặc autoplay) và bị bỏ qua khi autoplay quá nhanh. Hiện có ở Dijkstra, LCA, BST, AVL và Heap; chưa bao phủ mọi thuật toán.
 
 \section*{5. Những phân biệt cần nhớ khi đọc báo cáo}
 \begin{itemize}
 \item \textbf{Bố cục chung không đồng nghĩa với engine chung:} ứng dụng hiện chạy thuật toán TypeScript; engine WASM vẫn riêng biệt.
 \item \textbf{So sánh sắp xếp không phải benchmark tốc độ:} chỉ số thao tác chung giúp quan sát, nhưng thao tác của các thuật toán không có cùng chi phí.
-\item \textbf{Tự động hóa kiểm thử không thay thế đánh giá người học:} kết quả đúng chưa nói lên giao diện dễ dùng hoặc giúp học tốt hơn.
+\item \textbf{Kiểm thử không thay thế đánh giá người học:} chức năng UI/UX được kiểm chứng bằng kiểm thử tự động cùng kiểm tra thủ công, nhưng kết quả đạt không đo mức dễ dùng, khả năng tiếp cận hay việc học.
 \end{itemize}
 
 \clearpage
@@ -67,27 +70,28 @@ Kiểm thử đơn vị & \textbf{3.273 ca đạt}\\
 Kiểm thử trình duyệt & \textbf{151 ca đạt}, trên Chromium\\
 Kiểm tra kiểu và build & Đạt\\
 Lint & 0 lỗi, còn 2 cảnh báo\\
-Danh mục & 12/30 thẻ mở được mô-đun; 18 thẻ chưa xây dựng\\\bottomrule
+Danh mục & 12/30 thẻ mở được mô-đun; 18 thẻ ghi coming soon\\\bottomrule
 \end{tabularx}
 
-Đây là số liệu của các lần chạy đã được lưu trong bộ bằng chứng, không phải kết quả chạy mới để tạo bản dịch. Số lượng kiểm thử và nhãn thẻ danh mục không chứng minh đầy đủ mọi thao tác của VisuAlgo đã được tái tạo.
+Trong 26 thẻ chép từ danh sách mô-đun của visualgo.net, tám thẻ mở được: bốn thẻ có đủ mọi thuật toán của mô-đun gốc (Sorting, BST/AVL, Binary Heap, Minimum \mbox{Spanning} Tree) và bốn thẻ có một phần (Segment Tree, Graph Traversal, Single-Source \mbox{Shortest} Paths, Max Flow). Bốn thẻ mở được còn lại là Trie, LCA (các trang riêng trên \mbox{visualgo.net}) và Graph Editor, Tree Editor của dự án. Các nhãn này đếm thuật toán, không đếm thao tác, và không phải kết quả kiểm chứng giáo dục.
 
-Trong tuần 10, Kerk và tôi cho một số người dùng tự sử dụng V10 trong 15--20 phút, quay video thao tác, thực hiện bài test ngắn sau sử dụng và thu thập phản hồi. Người tham gia gồm người dùng VisuAlgo.net thường xuyên và ít sử dụng, người có kinh nghiệm CP và người mới học thuật toán. Phản hồi cùng video cho thấy cả điểm tích cực lẫn điểm cần cải thiện để làm quen với UI/UX; đây là đầu vào cho cải tiến floating text sau đó. Đợt này khác với khảo sát V2/V7 trước đó.
+Trong tuần 10, Kerk và tôi mời một số người dùng, đều là sinh viên NUS, tự sử dụng V10 trong 15--20 phút. Người tham gia gồm người dùng VisuAlgo.net thường xuyên và ít sử dụng, người có kinh nghiệm CP và người mới học thuật toán. Chúng tôi quay video từng phiên, cho làm bài test ngắn sau khi dùng và thu thập phản hồi. Kerk đã xin phép trước về việc quay và sử dụng video, và tất cả đều đồng ý; video chỉ ghi màn hình và thao tác tay, không ghi khuôn mặt. Phản hồi có cả điểm tích cực lẫn điểm cần cải thiện; xem lại video giúp nhận ra tương tác hỗ trợ làm quen với giao diện mới và chỗ cần tinh chỉnh. Từ đó có vài cải tiến UI/UX: floating text và điều chỉnh phần chú giải (legend), bảng Status. Đợt này tách biệt với khảo sát bố cục trước đó của Kerk.
 
 \section*{7. Giới hạn hiện tại}
-Đã có thử nghiệm định hướng với V10, nhưng báo cáo chưa có số người tham gia, đề test, điểm số và phân tích phản hồi chi tiết. Chưa thể kết luận mức cải thiện học tập, lợi thế so với bản cũ hay tác động đo được của floating text. Chưa có benchmark hiệu năng hoặc tỷ lệ bao phủ mã. Chuỗi bước đồ thị/cây có thể tốn thời gian và bộ nhớ; lịch sử sắp xếp chưa giới hạn. Ghi chú có thể chồng lấn và mới hỗ trợ một số thuật toán. Kiểm thử kéo/tách bảng, khả năng tiếp cận, nhiều trình duyệt và điện thoại còn thiếu. Thử nghiệm engine của tôi chưa được hợp nhất vào ứng dụng.
+Số người tham gia, đề test, điểm số và quan sát chi tiết của thử nghiệm tuần 10 chưa được tổng hợp, nên báo cáo chưa trích dẫn. Một bài test sau sử dụng chưa đủ để kết luận mức cải thiện học tập hay lợi thế về tính dễ dùng so với bản cũ; tác động của floating text chưa được đo. Chưa có benchmark hiệu năng hoặc tỷ lệ bao phủ mã. Chuỗi bước đồ thị/cây được tạo trước nên có thể tốn thời gian và bộ nhớ; sắp xếp không bao giờ cắt bớt lịch sử và phải phát lại thao tác khi tua. Floating text có thể chồng lấn và mới hỗ trợ một số thuật toán. Kiểm chứng trình duyệt tập trung vào Chromium trên máy tính; điện thoại, nhiều trình duyệt và khả năng tiếp cận chưa hoàn thiện. Các checklist thủ công (20, 10 và 26 mục) đã được chạy nhưng các lần chạy không được ghi lại. Thử nghiệm của tôi trên engine của Kerk chưa được hợp nhất vào ứng dụng.
 
 Claude và Codex hỗ trợ triển khai, kiểm thử và rà soát theo yêu cầu, lựa chọn thiết kế của tôi. Báo cáo nêu quy trình đọc thay đổi, chạy ứng dụng và dùng kết quả kiểm thử/CI để xem xét đầu ra; không coi mã sinh bởi AI hoặc test đạt là bảo đảm đúng đắn.
 
 \section*{8. Tiếp theo nên làm gì?}
 \begin{enumerate}
-\item \textbf{11--12/2026:} tổng hợp phát hiện tuần 10, ổn định bản hiện tại, kiểm thử tương tác bảng và chuẩn bị nhiệm vụ tiếp nối.
+\item \textbf{11--12/2026:} thuyết trình CA; tổng hợp phát hiện tuần 10, ổn định bản hiện tại, xác định nhiệm vụ tiếp nối và cập nhật thường xuyên các kiểm tra UI tự động và thủ công.
 \item \textbf{1/2027:} thử tích hợp một thuật toán với engine cùng Kerk, kiểm tra toàn bộ luồng đầu vào--thực thi--hiển thị--phát lại.
-\item \textbf{Tháng 2:} dự kiến đánh giá tiếp nối với 6--10 sinh viên và đo thời gian chuẩn bị, nhảy bước, độ đều khung hình, bộ nhớ.
-\item \textbf{Tháng 3--4:} sửa các vấn đề có ảnh hưởng lớn, đánh giá lại, hoàn thiện báo cáo và demo.
+\item \textbf{Tháng 2:} dự kiến đánh giá tiếp nối với 6--10 sinh viên và đo thời gian chuẩn bị, nhảy bước, độ đều khung hình, bộ nhớ. Kế hoạch người tham gia, quy trình xin đồng ý (consent) và mọi yêu cầu xét duyệt đạo đức của NUS sẽ được xác nhận với thầy trước khi tuyển người.
+\item \textbf{Tháng 3:} sửa các vấn đề có ảnh hưởng lớn, cải thiện phần giải thích và khả năng tiếp cận ở một số mô-đun, tổng hợp kết quả và soạn báo cáo cuối.
+\item \textbf{Tháng 4:} nộp báo cáo cuối trước 7/4; thuyết trình cuối và demo (19--23/4, dự kiến); nộp bản điện tử (e-copy) trước 10/5.
 \end{enumerate}
-Các mốc và phương án đánh giá trên là \textbf{đề xuất để trao đổi với thầy và Kerk}, chưa phải cam kết đã thống nhất. Trọng tâm nên là hoàn thiện, kiểm chứng và đánh giá tập chức năng hiện có trước khi mở rộng toàn bộ danh mục.
+Các mốc cố định của SoC là thuyết trình CA trong Reading Week (14--20/11/2026), hạn nộp báo cáo cuối lúc 17:00 thứ Tư, ngày 7/4/2027, và thuyết trình cuối ngày 19--23/4/2027 (dự kiến); các mốc khác là \textbf{đề xuất để trao đổi với thầy và Kerk}. Trọng tâm nên là hoàn thiện, kiểm chứng và đánh giá tập chức năng hiện có trước khi mở rộng toàn bộ danh mục.
 
 \vfill
-{\small\color{muted}Nguồn: báo cáo tiếng Anh trong \code{report/main.tex} cập nhật ngày 4/11/2026; bộ bằng chứng \code{67ce56c} và thông tin bổ sung về tuần 10. Bản dịch đầy đủ: \code{full.tex}.}
+{\small\color{muted}Nguồn: báo cáo tiếng Anh trong \code{report/main.tex} cập nhật ngày 4/11/2026. Hồ sơ dự án là hồ sơ làm việc của tác giả, không phải công trình nghiên cứu; có thể cung cấp khi có yêu cầu. Bản dịch đầy đủ: \code{full.tex}.}
 \end{document}

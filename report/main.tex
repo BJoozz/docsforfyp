@@ -4,6 +4,7 @@
 \usepackage{lmodern,microtype}
 \usepackage{cite}
 \usepackage{needspace}
+\usepackage[section]{placeins}
 \usepackage[margin=22mm,headheight=14pt]{geometry}
 \usepackage{graphicx,booktabs,tabularx,array,amsmath,enumitem,float}
 \usepackage{xcolor,tikz,caption,fancyhdr,titlesec}
@@ -31,7 +32,7 @@
 \renewcommand{\headrulewidth}{.3pt}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\shot}[4]{\begin{figure}[tbp]\centering\includegraphics[width=#2\linewidth]{figures/#1}\caption{#3}\label{#4}\end{figure}}
-\newcommand{\page}{\par\needspace{5\baselineskip}\vspace{6pt}}
+\newcommand{\page}{\par\Needspace{5\baselineskip}\vspace{6pt}}
 \renewcommand{\topfraction}{.85}\renewcommand{\bottomfraction}{.6}\renewcommand{\textfraction}{.12}\renewcommand{\floatpagefraction}{.75}\setcounter{topnumber}{3}\setcounter{totalnumber}{4}
 \begin{document}
 \begin{titlepage}
@@ -49,7 +50,7 @@
 {Project ID: H160390\\Supervisor: A/P Steven Halim\\Main Evaluator: SIM Mong Cheng, Terence\\Academic Year 2026/27, Semester 1\\4 November 2026\par}
 \vspace{9mm}
 \begin{minipage}{.94\textwidth}
-\textbf{Abstract.} VisuAlgo+ is a collaborative project to rebuild VisuAlgo with a renewed technical foundation and a redesigned interface while preserving its educational purpose. My work focuses on the visualization and interaction layer: graph, tree and sorting visualizers, their editing and playback behaviour, and their integration into a common interface. The work began with standalone prototypes and progressed to a single application using a shared panel layout. This report explains the separation of input, layout and playback state; the V10 panel-group model; algorithm extensions and their validation; and short explanations placed on the drawing. The current application contains 11 graph algorithms (counting the two DFS variants separately), seven tree workspaces and eight sorting algorithms. Its recorded validation on 1 November 2026 reports 3,273 passing unit tests and 151 passing browser cases. These results support functional progress. A formative user trial in Week 10 informed several UI/UX refinements, including floating text on the canvas and adjustments to the legend and Status panel. Neither the tests nor the trial establishes improved learning outcomes or comparative usability. The next phase will strengthen interaction testing, evaluate representative learning tasks and investigate a limited integration with the separate WebAssembly engine.
+\textbf{Abstract.} VisuAlgo+ is a collaborative project to rebuild VisuAlgo with a renewed technical foundation and a redesigned interface while preserving its educational purpose. My work focuses on the visualization and interaction layer: graph, tree and sorting visualizers, their editing and playback behaviour, and their integration into a common interface. The work began with standalone prototypes and progressed to a single application using a shared panel layout. This report explains the separation of input, layout and playback state; a shared panel-group layout (V10); algorithm extensions and their validation; and floating text, short explanations placed on the drawing. The current application contains 11 graph algorithms (counting the two DFS variants separately), seven tree workspaces and eight sorting algorithms. Its recorded validation on 1 November 2026 reports 3,273 passing unit tests and 151 passing browser cases. These results support functional progress. A formative user trial in Week 10 informed several UI/UX refinements, including floating text and adjustments to the legend and Status panel. Neither the tests nor the trial establishes improved learning outcomes or comparative usability. The next phase will strengthen interaction testing, evaluate representative learning tasks and investigate a limited integration with the separate WebAssembly engine.
 \end{minipage}
 \end{titlepage}
 \setcounter{page}{2}
@@ -68,9 +69,9 @@ The aim is a modern successor that preserves VisuAlgo's educational purpose and 
 \subsection{Personal motivation and role}
 My motivation for joining VisuAlgo+ comes from my background in competitive programming and teaching. Participating in many programming competitions and achieving strong results has given me substantial experience with algorithms and data structures. Teaching students passionate about competitive programming has helped me explain these concepts from different perspectives and recognize where learners need clarification.
 
-I hope to apply both experiences to VisuAlgo+'s user interface and user experience, helping learners follow why an algorithm makes a decision, how its state changes, and how those changes produce the result. This perspective guides which intermediate states I show, how I connect drawings with pseudocode, and where short explanations could clarify a step.
+I hope to apply both experiences to VisuAlgo+'s user interface and user experience (UI/UX), helping learners follow why an algorithm makes a decision, how its state changes, and how those changes produce the result. This perspective guides which intermediate states I show, how I connect drawings with pseudocode, and where short explanations could clarify a step.
 
-My initial responsibility is the visualization and interaction layer for graph algorithms, tree-based data structures and sorting algorithms. This includes developing the visualizers, supporting input editing and step-by-step playback, and integrating them into a consistent interface. Working with Kerk on the shared design and integration, I aim to turn my algorithmic knowledge and teaching experience into practical improvements that can later be evaluated with learners.
+My initial responsibility is the visualization and interaction layer for graph algorithms, tree-based data structures and sorting algorithms. This includes developing the visualizers, supporting input editing and step-by-step playback, and integrating them into a consistent interface. Working with Kerk Tai Heng, a fellow FYP student, on the shared design and integration, I aim to turn my algorithmic knowledge and teaching experience into practical improvements that can later be evaluated with learners.
 
 \subsection{Objectives and current scope}
 The project has five working objectives:
@@ -82,7 +83,7 @@ The project has five working objectives:
 \item Validate the rebuilt functionality and identify what still requires technical and user evaluation.
 \end{enumerate}
 
-Kerk Tai Heng, a fellow FYP student under the same supervisor, works on the WebAssembly (WASM) engine foundation, website design system and shared infrastructure. Section~\ref{sec:approach} details our contributions and collaboration.
+Kerk, who has the same supervisor, works on the WebAssembly engine foundation, website design system and shared infrastructure. Section~\ref{sec:approach} details our contributions and collaboration.
 
 The current application targets desktop and laptop use. It runs TypeScript algorithm implementations in the browser. The separate WebAssembly engine has not been connected to these visualizers. Mobile design, complete feature parity with VisuAlgo and measured learning improvement are outside the completed work reported here.
 
@@ -92,7 +93,7 @@ The current application targets desktop and laptop use. It runs TypeScript algor
 \subsection{Algorithm visualization and educational use}
 Halim et al.~\cite{halim2012} present the unified, interactive web-based environment for learning algorithms that later became VisuAlgo. Support for user-defined inputs and consistent interaction across topics is particularly relevant to this project. A reconstruction should preserve these properties even when the rendering technology and page layout change. Reusing familiar examples and algorithm operations also provides a useful reference when checking the rebuilt functionality.
 
-However, a working animation is not sufficient evidence of learning benefit. Hundhausen, Douglas and Stasko's meta-study of 24 studies~\cite{hundhausen2002} found that how learners used algorithm visualizations mattered more than their graphical characteristics alone. This motivates a distinction between two questions in VisuAlgo+: whether the software behaves correctly, and whether students can use it to understand and explain an algorithm. The present tests primarily address the first question; the Week 10 trial (Section~\ref{sec:trial}) and a structured follow-up address the second.
+However, a working animation is not sufficient evidence of learning benefit. Hundhausen, Douglas and Stasko's meta-study of 24 studies~\cite{hundhausen2002} found that how learners used algorithm visualizations mattered more than their graphical characteristics alone. This motivates a distinction between two questions in VisuAlgo+: whether the software behaves correctly, and whether students can use it to understand and explain an algorithm. The present tests primarily address the first question; the Week 10 trial (Section~\ref{sec:trial}) gave formative input on the second, and a structured follow-up is planned.
 
 OpenDSA combines visualizations with explanatory material, interactive exercises and proficiency assessment~\cite{opendsa}. It illustrates how visualization can form one part of a wider learning activity. VisuAlgo+ currently concentrates on exploration: editing inputs, stepping through execution, following pseudocode and inspecting state. It does not yet provide an equivalent assessed learning sequence. Therefore, the current contribution should be judged as a visualization foundation rather than a complete instructional system.
 
@@ -109,18 +110,18 @@ Three design questions guide the work. First, how can editing and playback share
 \page
 \section{Development Approach and Responsibilities}\label{sec:approach}
 \subsection{From standalone prototypes to one application}
-The first stage, starting before the semester, explored interaction behaviour in standalone repositories. The first graph prototype (Graph Visualizer V1) has its first recorded commit on 28 July 2026; a second graph prototype (Graph Visualizer V2) followed in August with a clearer separation of document, layout and playback state. Sorting and tree prototypes explored different representations and operation models. This work provided a functional base before integration with the shared website.
+The first stage, starting before the semester, explored interaction behaviour in standalone repositories. The first graph prototype has its first recorded commit on 28 July 2026; a second graph prototype followed in August with a clearer separation of document, layout and playback state. Sorting and tree prototypes explored different representations and operation models. This work provided a functional base before integration with the shared website.
 
-During September and October, I adapted these visualizers to Kerk's design system. Kerk's wireframe of the visualization page drew nine candidate layouts, numbered V1--V9; these layout numbers are unrelated to the graph prototypes above. After a user survey organized by Kerk, Kerk and I chose two of them, V2 (split rails) and V7 (docks), and I built the graph, tree and sorting visualizers in both layouts with comparable functionality (20--27 September). In Week 9, Kerk and I discussed a proposal to combine V2 and V7 into a tenth layout, V10, retaining selected strengths of each. I implemented V10, and Kerk contributed refinements to complete the version later used in the trial. The survey served as formative input; I hold no record of its responses, so it is not used here as evidence of user preference.
+During September and October, I adapted these visualizers to Kerk's design system. Kerk's wireframe of the visualization page drew nine candidate layouts, numbered V1--V9. After a user survey organized by Kerk, Kerk and I chose two of them, V2 (split rails) and V7 (docks), and I built the graph, tree and sorting visualizers in both layouts with comparable functionality (20--27 September). In Week 9, Kerk and I discussed a proposal to combine V2 and V7 into a tenth layout, V10, retaining selected strengths of each. I implemented V10, and Kerk contributed refinements to complete the version later used in the Week 10 trial. The survey served as formative input only; its responses are not analysed in this report.
 
 On 18 October, Kerk consolidated the separate site and visualizer copies into one application and moved common code into a shared layer. Kerk and I then ran a separate formative user trial in Week 10 (Section~\ref{sec:trial}). Subsequent work extended algorithms, added floating text and resolved defects found in review. Table~\ref{tab:timeline} summarizes these stages.
 
 \begin{table}[tbp]\small\centering
 \caption{Main development stages.}\label{tab:timeline}
-\begin{tabularx}{\linewidth}{@{}p{24mm}X@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{24mm}X@{}}\toprule
 Period & Main outcome\\\midrule
 July--August & First graph prototype (first recorded commit 28 July, before the semester); second graph prototype with separated document, layout and playback state; standalone sorting prototype.\\
-September & Tree workspaces; adaptation to Kerk's design system; V2 and V7 layouts built (20--27 Sept.); separate engine-boundary experiment.\\
+September & Tree workspaces; adaptation to Kerk's design system; V2 and V7 layouts built (20--27 Sept.); unmerged experiment on Kerk's engine.\\
 29 Sept.--17 Oct. & Recursive DFS, Bellman--Ford and Prim; lazy segment tree and AVL deletion; playback refinements; V10 discussed (Week 9) and implemented.\\
 18--31 Oct. & One-app consolidation (Kerk); LCA and heap operations; Week 10 user trial; topological sort, bipartite check, cut vertices and bridges; floating text; review fixes.\\
 1--4 Nov. & Recorded validation (1 November) and report preparation.\\\bottomrule
@@ -128,7 +129,7 @@ September & Tree workspaces; adaptation to Kerk's design system; V2 and V7 layou
 \end{table}
 
 \subsection{Individual contribution and collaboration}
-My principal contributions are the standalone visualizer foundations, their integration, the core V10 layout model, algorithm and operation extensions, and the shared floating-text layer, together with most of their automated tests and design-decision records. Of the 48 numbered design choices in the V10 proposal, the first 26 were my decisions. Choices 27--48 (18--22 October) and the 18 October decision to keep only V10 were made by Kerk and me together and implemented by Kerk. Kerk also owns the original design system, engine foundation, infrastructure and application consolidation. These responsibilities overlap at integration boundaries and are not inferred from commit counts alone~\cite{evidence}.
+My principal contributions are the standalone visualizer foundations, their integration, the core V10 layout model, algorithm and operation extensions, and the shared floating-text layer, together with most of their automated tests and design-decision records. Of the 48 numbered design choices in the V10 proposal, the first 26 were my decisions. Choices 27--48 (18--22 October) and the 18 October decision to keep only V10 were made by Kerk and me together and implemented by Kerk. Kerk also owns the original design system, engine foundation, infrastructure and application consolidation. These responsibilities overlap at integration boundaries~\cite{evidence}.
 
 I used Claude and Codex for implementation, debugging, test generation and review under my requirements and design choices. My acceptance workflow included reading changes, running the application and using tests or continuous integration (CI) results. In late-October review sessions, Codex identified findings, Claude reproduced findings, and I selected the fixes to pursue. AI also assisted in organizing evidence and drafting this report. Such assistance is part of the development process; generated code and passing tests still require critical review, and do not establish correctness by themselves.
 
@@ -146,7 +147,7 @@ The current build is one React and TypeScript single-page application assembled 
 \node[box,right=6mm of g] (t) {Tree module\\Operations and run\\React Flow + d3-hierarchy};
 \node[box,right=6mm of t] (s) {Sorting module\\Generators and clock\\Canvas 2D + d3-interpolate};
 \draw[arr] (host.south) -- (g.north);\draw[arr] (host.south) -- (t.north);\draw[arr] (host.south) -- (s.north);
-\node[wide,below=13mm of t] (shared) {Shared layer: V10 panel groups, transport utilities,\\floating-text presentation for graph and tree};
+\node[wide,below=13mm of t] (shared) {Shared layer: V10 panel groups, playback utilities,\\floating-text presentation for graph and tree};
 \draw[arr] (g.south) -- (shared.north -| g.south);
 \draw[arr] (t.south) -- (shared.north);
 \draw[arr] (s.south) -- (shared.north -| s.south);
@@ -159,13 +160,13 @@ This organization avoids making the shared shell responsible for algorithm logic
 
 \page
 \subsection{State ownership and reproducible playback}\label{sec:state}
-The graph foundation separates four concerns (Table~\ref{tab:state}). A persistent canvas is reused for editing and execution. Starting a run derives a sequence of typed steps from the current document; stepping through that sequence derives the visible presentation. This reduces the risk of keeping a separate editing graph and animation graph that gradually disagree.
+The graph foundation separates four concerns (Table~\ref{tab:state}). A persistent canvas is reused for editing and execution. Starting a run derives a sequence of typed steps (shown as frames) from the current document; stepping through that sequence derives the visible presentation. This reduces the risk of keeping a separate editing graph and animation graph that gradually disagree.
 
 \begin{table}[tbp]\small\centering
 \caption{State separation in the graph visualizer.}\label{tab:state}
 \begin{tabularx}{\linewidth}{@{}p{31mm}X X@{}}\toprule
 State owner & Responsibility & Example consequence\\\midrule
-Graph document & Vertices, edges, weights, stable identities and topology revision. & A semantic edit invalidates the previous run.\\
+Graph document & Vertices, edges, weights, stable identities and topology revision. & A semantic edit changes the topology revision, so the previous run is discarded.\\
 Graph layout & Positions and pinned vertices. & Dragging a vertex changes the drawing without changing the algorithm input.\\
 Run session & Step sequence, current index, run identity and playback status. & An outdated timer event cannot advance a newer run.\\
 Presentation & Highlights, badges and derived edge/node styles. & Rewinding restores the presentation of the selected step.\\\bottomrule
@@ -185,7 +186,7 @@ This approach avoids requiring every sort to finish generating before interactio
 
 \page
 \subsection{V10: a shared panel-group layout}\label{sec:v10}
-The V10 shell organizes supporting information around a fixed central canvas. The canvas cannot become a tab. Left, right and bottom regions contain groups of tabs; a user can move a panel into a group, split it into another group or place it in an empty region. The default arrangement puts Action and e-Lecture on the left, with Pseudocode and Status on the right (Figure~\ref{fig:v10}).
+The V10 shell organizes supporting information around a fixed central canvas. The canvas cannot become a tab. Left, right and bottom regions contain groups of tabs; a user can move a panel into a group, split it off into a new group or place it in an empty region. The default arrangement puts Action and e-Lecture on the left, with Pseudocode and Status on the right (Figure~\ref{fig:v10}).
 
 \begin{figure}[tbp]\centering
 \begin{tikzpicture}[font=\small,>=Latex]
@@ -212,11 +213,11 @@ The main engineering decision was to express layout changes in a pure model rath
 
 A common layout resolver is used for sizing, target validity and drag previews. A proposed move is first represented in the model and then resolved into geometry, so the preview and committed result use the same constraints. Expanded groups keep at least 240 pixels of width and 120 pixels of height. Each module sets its own drawing floor (360 by 320 pixels for the graph; 320 by 200 or 320 by 240 pixels for tree workspaces), which the resolver keeps when the viewport can accommodate it.
 
-Saved layouts are versioned and repaired or replaced with defaults when invalid. Automated tests and manual checks were used to verify the layout behaviour: model tests run 4,000 seeded random operations across several viewport sizes with repeated serialization round trips; browser tests move tabs through the tab menu and drag splitters; and manual checklists cover pointer drag-and-split, drop feedback and resizing.
+Saved layouts are versioned and repaired or replaced with defaults when invalid. Automated tests and manual checks were used to verify the layout behaviour: model tests run 4,000 seeded random operations across several viewport sizes with repeated serialization round trips; browser tests move tabs through the tab menu and drag a column splitter; and the graph and tree manual checklists cover tab drag, split and splitter resizing.
 
 \page
 \subsection{The shared shell in use}
-\shot{F2-dfsbfs-bfs-frame8.png}{.78}{BFS at frame 8 of 22 in the default V10 arrangement. The drawing, pseudocode, status and footer transport refer to the same selected step.}{fig:bfs}
+\shot{F2-dfsbfs-bfs-frame8.png}{.78}{BFS at frame 8 of 22 in the default V10 arrangement. The drawing, pseudocode, Status panel and footer playback controls refer to the same selected step.}{fig:bfs}
 \shot{F3-tab-drag-preview.png}{.78}{Dragging the Action tab onto the Pseudocode group shows the proposed drop area. This screenshot records the preview, not a completed drop.}{fig:drag}
 
 Figures~\ref{fig:bfs} and~\ref{fig:drag} show why layout is part of algorithm interaction. A learner may need more space for pseudocode while tracing a run, then more space for input editing. A common shell permits this adjustment without changing the underlying algorithm state. The same design is used across the three visualizer families.
@@ -239,7 +240,7 @@ The recorded randomized cases include 700 random multigraphs for cut vertices an
 \subsection{Tree operations and sorting comparison}
 The tree visualizer provides seven workspaces: lowest common ancestor (LCA), binary search tree (BST), AVL tree, binary heap, trie, segment tree and lazy segment tree. Work includes BST/AVL queries and traversals, AVL deletion, heap operations, and lazy range-add/range-sum behaviour. The heap links array and tree representations; intermediate changes remain previews until applied (Figure~\ref{fig:heap}). These workspaces do not imply complete operation parity with VisuAlgo.
 
-\shot{F6-heap-insert-climb-note.png}{.72}{Heap insertion of 1, frame 3 of 9: the new item at index 10 is compared with its parent 7 at index 5. The note ``$1<7$ $\cdot$ swap up'' states the decision before the swap, and the array strip marks the same two items.}{fig:heap}
+\shot{F6-heap-insert-climb-note.png}{.72}{Heap insertion of 1, frame 3 of 9: the new item at index 10 is compared with its parent 7 at index 5. The floating-text note ``$1<7$ $\cdot$ swap up'' (Section~\ref{sec:notes}) states the decision before the swap, and the array strip marks the same two items.}{fig:heap}
 
 Sorting provides eight algorithms in a one-pane Study mode and two- or four-pane Compare mode. Panes share the input dataset and clock, making it possible to inspect different operation sequences on the same data (Figure~\ref{fig:sorting}). Duplicate algorithm selection is prevented and randomized quicksort uses a reproducible seed.
 
@@ -249,7 +250,7 @@ Sorting provides eight algorithms in a one-pane Study mode and two- or four-pane
 
 \page
 \subsection{Floating text: explanations on the canvas}\label{sec:notes}
-A step can be meaningful even when the drawing hardly changes. For example, Dijkstra may reject a relaxation because the candidate distance is not shorter than the existing one. If the reason appears only in a separate Status panel, the learner must repeatedly look away from the relevant edge. After the Week 10 trial, I introduced floating text: short step notes placed on the canvas over the relevant node (for Dijkstra, the vertex that the relaxed edge reaches). It was one of several post-trial UI/UX refinements, alongside adjustments to the legend and Status panel, and is intended to reduce how often users look at Status while following a run, keeping their attention on the canvas. Status remains available for persistent detail; reduced attention switching is a design aim, not a measured result.
+A step can be meaningful even when the drawing hardly changes. For example, Dijkstra may reject a relaxation because the candidate distance is not shorter than the existing one. If the reason appears only in a separate Status panel, the learner must repeatedly look away from the relevant edge. After the Week 10 trial, I introduced floating text: short step notes placed on the canvas over the relevant node (for Dijkstra, the vertex that the relaxed edge reaches). It was one of several post-trial refinements (Section~\ref{sec:trial}) and is intended to reduce how often users look at Status while following a run, keeping their attention on the canvas. Status remains available for persistent detail; reduced attention switching is a design aim, not a measured result.
 
 \shot{F4-sssp-dijkstra-frame24-note.png}{.94}{Dijkstra relaxation from B to E: the note explains that $4+3<8$, so E's distance changes from 8 to 7.}{fig:notes}
 
@@ -259,11 +260,11 @@ Notes are rendered outside the zoom transform of the graph or tree canvas, so th
 
 Timing adapts to playback. A note appears only when a step is reached by moving one step forward (Next or autoplay). After Next it lasts 1,600 milliseconds; during autoplay it is shortened to 90\% of the step interval and omitted when less than 200 milliseconds would remain, so fast playback does not accumulate unreadable text.
 
-Because viewing alone has rarely improved learning~\cite{hundhausen2002}, the notes will be evaluated through active tasks (Table~\ref{tab:tasks}). The note layer is currently hidden from accessibility APIs, and the application has not undergone a systematic accessibility evaluation. Future work should check whether the persistent equivalent text is sufficient and whether users can understand rejected actions, rapid transitions and dense cases without relying on colour or motion alone.
+Because viewing alone has rarely improved learning~\cite{hundhausen2002}, the notes will be evaluated through active tasks (Table~\ref{tab:tasks}). The note layer is currently hidden from accessibility APIs, and the application has not undergone a systematic accessibility evaluation. Future work should check whether the equivalent text in Status is sufficient and whether users can understand rejected actions, rapid transitions and dense cases without relying on colour or motion alone.
 
 \par\vspace{6pt}
 \section{Current Results and Validation}\label{sec:results}
-The current build provides one site with runnable graph, tree and sorting modules (Figure~\ref{fig:home}). Of its 30 catalogue cards, 12 open a module and 18 are marked coming soon. Of the 26 cards transcribed from visualgo.net's module list, eight open: four offer every algorithm the original module lists (Sorting, BST/AVL, Binary Heap and Minimum Spanning Tree) and four offer some of them (Segment Tree, Graph Traversal, Single-Source Shortest Paths and Max Flow). The other four open cards are Trie and LCA, which visualgo.net has as separate pages, and this project's own Graph and Tree Editors. These labels count algorithms, not operations, and are not educational validation.
+The current build provides one site with runnable graph, tree and sorting modules (Figure~\ref{fig:home}). Of its 30 catalogue cards, 12 open a module and 18 are marked coming soon. Of the 26 cards transcribed from visualgo.net's module list, eight open: four offer every algorithm the original module lists (Sorting, BST/AVL, Binary Heap and Minimum Spanning Tree) and four offer some of them (Segment Tree, Graph Traversal, Single-Source Shortest Paths and Max Flow). The other four open cards are Trie and LCA, which visualgo.net has as separate pages, and this project's own Graph and Tree Editors. These labels count algorithms, not operations.
 
 \shot{F1-home-catalogue.png}{.66}{Top of the home page of the integrated application. Its credit line states that the site is adapted from visualgo.net; the module catalogue, including the coming-soon cards, continues below.}{fig:home}
 
@@ -276,36 +277,36 @@ Tree unit tests & 1,881 passed & Operations, state and presentation.\\
 Sorting unit tests & 571 passed & Operation streams and playback.\\
 Shared / site unit tests & 143 / 24 passed & Common components and site logic.\\
 \textbf{Total unit tests} & \textbf{3,273 passed} & Recorded suite total.\\
-Browser cases & 151 passed & 14 specifications in Chromium.\\
+Browser cases & 151 passed & 14 test files, run in Chromium.\\
 Type check / build & Passed & Compile-time and production build checks.\\
 Lint & 0 errors & Two warnings remained.\\\bottomrule
 \end{tabularx}
 \end{table}
 
-The recorded environment was Windows 11, Node 24.17.0, npm 11.13 and Playwright 1.64.1 with Chromium. The build emitted a large-chunk warning (about 705 kB before gzip and 206 kB after). From 4 September to 30 October, the repository's CI ran 266 workflow runs, 105 of them in the visualizer workflows and the rest in Kerk's engine CI and the site deployment; eight failed, each followed by a passing run of the same workflow.
+The recorded environment was Windows 11, Node 24.17.0, npm 11.13 and Playwright 1.64.1 with Chromium. The build emitted a large-chunk warning (about 705 kB before gzip and 206 kB after). From 4 September to 30 October, the repository's CI recorded 266 workflow runs, 105 of them in the visualizer workflows and the rest in Kerk's engine CI and the site deployment; eight failed, each followed by a passing run of the same workflow.
 
 Passing tests support regression confidence within the tested cases (Table~\ref{tab:tests}); they do not measure usability, accessibility, browser portability or learning. Automated tests and manual checks were used to verify interface behaviour (Section~\ref{sec:v10}). The Week 10 trial provided formative feedback on usability (Section~\ref{sec:trial}).
 
 \page
 \section{User Evaluation, Limitations and Next Steps}
 \subsection{Week 10 formative user trial}\label{sec:trial}
-In Week 10, Kerk and I invited several users, all NUS students, to use VisuAlgo+ V10 independently for 15--20 minutes. Participants varied in prior use of VisuAlgo.net, from frequent to infrequent users, and in algorithm experience, from experienced competitive programmers to beginners. We recorded each session on video, administered a short test afterwards and collected feedback. Kerk asked participants in advance for permission to record and use the videos, and all agreed; the recordings show only the screen and hand interactions, not faces.
+In Week 10, Kerk and I invited several users, all NUS students, to use VisuAlgo+ with the V10 layout independently for 15--20 minutes. Participants varied in prior use of VisuAlgo, from frequent to infrequent users, and in algorithm experience, from experienced competitive programmers to beginners. We recorded each session on video, administered a short test afterwards and collected feedback. Kerk asked participants in advance for permission to record and use the videos, and all agreed; the recordings show only the screen and hand interactions, not faces.
 
-The sessions yielded positive feedback as well as areas needing improvement. Reviewing the recordings helped us identify interactions that supported familiarization with the new interface and places needing refinement. This led to several UI/UX refinements: floating text, which keeps explanations close to the visualization (Section~\ref{sec:notes}), and adjustments to the legend and Status panel. The trial was separate from Kerk's earlier layout survey.
+The sessions yielded positive feedback as well as areas needing improvement. Reviewing the recordings helped us identify interactions that supported familiarization with the new interface and places needing refinement. This led to several UI/UX refinements: floating text, which keeps explanations close to the visualization (Section~\ref{sec:notes}), and adjustments to the legend and Status panel.
 
-\subsection{Evidence boundaries and implementation limits}
+\subsection{Evaluation and implementation limits}
 Participant numbers, test questions, scores and detailed observations from the trial have not yet been compiled, so this report does not quote them. The trial provides formative design input; a post-use test alone does not establish learning gains or comparative usability, and the effect of floating text has not been measured. Performance benchmarks and a test-coverage percentage are also unavailable.
 
-Several implementation limits are material. Graph and tree runs build eager timelines. Sorting never trims its history and replays operations when seeking. Floating text covers only selected algorithms and may overlap in dense drawings. Browser validation is concentrated on desktop Chromium; mobile behaviour, cross-browser compatibility and accessibility remain incomplete. Manual developer checklists (20, 10 and 26 items) were run, but their runs were not recorded; they are separate from the Week 10 trial.
+Several implementation limits are material. Graph and tree step sequences are built eagerly. Sorting keeps all history and replays it to seek backwards. Floating text covers only selected algorithms and may overlap in dense drawings. Browser validation is concentrated on desktop Chromium; mobile behaviour, cross-browser compatibility and accessibility remain incomplete. The manual developer checklists (20, 10 and 26 items for graph, sorting and tree) were run, but their runs were not recorded.
 
 The separate engine is also a scope boundary. My unmerged experiment on Kerk's engine explored stable edge identity and a reusable browser client for worker/RPC lifecycle management. It helped identify integration requirements, but it is not part of the deployed visualizer path.
 
 \subsection{Proposed follow-up evaluation}
-First organize the Week 10 footage, test responses and feedback into anonymized observations linked to design changes (Table~\ref{tab:tasks}). Then conduct a more structured follow-up, provisionally involving 6--10 students familiar with introductory data structures. The participant plan, consent procedure and any NUS ethics review requirement will be confirmed with the supervisor before recruitment. A small study can identify interaction problems; it cannot establish general learning effectiveness.
+I will first organize the Week 10 footage, test responses and feedback into anonymized observations linked to design changes, then conduct a more structured follow-up (Table~\ref{tab:tasks}), provisionally involving 6--10 students familiar with introductory data structures. The participant plan, consent procedure and any NUS ethics review requirement will be confirmed with the supervisor before recruitment. A small study can identify interaction problems; it cannot establish general learning effectiveness.
 
 \begin{table}[tbp]\small\centering
-\caption{Proposed follow-up tasks; these are not a reconstruction of the Week 10 test.}\label{tab:tasks}
-\begin{tabularx}{\linewidth}{@{}p{41mm}X@{}}\toprule
+\caption{Proposed tasks for the structured follow-up evaluation.}\label{tab:tasks}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{41mm}X@{}}\toprule
 Task & Evidence to collect\\\midrule
 Explain a Dijkstra relaxation & Correct explanation of an accepted and rejected update; use of notes, pseudocode and Status.\\
 Trace heap insertion & Correct prediction of the next swap and understanding of preview versus Apply.\\
@@ -314,18 +315,18 @@ Compare two sorting runs & Ability to explain an operation difference without tr
 \end{tabularx}
 \end{table}
 
-Record task completion, time, errors, requests for help and short participant comments. If a comparison with original VisuAlgo is feasible, use matched tasks and inputs and counterbalance the order.
+Each session will record task completion, time, errors, requests for help and short participant comments; any comparison with the original VisuAlgo will use matched tasks and inputs in counterbalanced order.
 
 \subsection{Proposed technical measurements}
-Use a fixed machine and production build with saved inputs of increasing size. Measure run preparation, time to first visible step, seek latency, playback frame pacing and memory use. Repeat each condition at least five times and report the median together with the spread and environment. These measurements should guide whether checkpointing, bounded history or a different execution boundary is necessary.
+Measurements will use a fixed machine and production build with saved inputs of increasing size, covering run preparation, time to first visible step, seek latency, playback frame pacing and memory use. Each condition will be repeated at least five times, and the median reported with the spread and environment. These measurements should guide whether checkpointing, bounded history or a different execution boundary is necessary.
 
 \par\vspace{6pt}
 \section{Plan for the Remaining Project}
-The following plan (Table~\ref{tab:plan}) is proposed for discussion with the supervisor and Kerk. The fixed SoC dates are the CA presentation in Reading Week (14--20 November 2026), the final report by 5 pm on Wednesday 7 April 2027, and the final presentation on 19--23 April 2027 (tentative); the other windows are proposals.
+The following plan (Table~\ref{tab:plan}) is proposed for discussion with the supervisor and Kerk. The SoC dates are the CA presentation in Reading Week (14--20 November 2026), the final report by 5 pm on Wednesday 7 April 2027, and the final presentation on 19--23 April 2027 (tentative); the other windows are proposals.
 
 \begin{table}[tbp]\small\centering
 \caption{Proposed milestones and completion evidence.}\label{tab:plan}
-\begin{tabularx}{\linewidth}{@{}p{20mm}p{48mm}X@{}}\toprule
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{20mm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}\toprule
 Window & Main work & Completion evidence\\\midrule
 Nov--Dec 2026 & CA presentation; consolidate Week 10 findings; stabilize the build; define follow-up tasks; keep automated and manual UI checks current. & Reproducible baseline, updated UI tests and checklists, and reviewed evaluation protocol.\\
 January 2027 & Investigate one engine integration slice with Kerk, starting with a simple graph algorithm. & Written input/step contract; matching results and playback semantics against the TypeScript reference.\\
@@ -336,9 +337,9 @@ April & Submit the final report by 7 April; final presentation and demonstration
 \end{table}
 
 \subsection{Integration strategy and risks}
-Engine integration should begin with one vertical slice: graph input, engine execution, typed step conversion, rendering and backward/forward playback. The first milestone is behavioural agreement, including edge identities and cancellation, rather than replacing every TypeScript algorithm. If the engine contract or schedule is not ready, the existing implementation remains a functional baseline and the report can document the integration study separately.
+Engine integration should begin with one vertical slice: graph input, engine execution, typed step conversion, rendering and backward/forward playback. The first milestone is behavioural agreement, including edge identities and cancellation, rather than replacing every TypeScript algorithm. If the engine contract or schedule is not ready, the existing implementation remains a functional baseline and the final report can document the integration study separately.
 
-The main technical risks are the cost of long timelines, inconsistent semantics between modules, and interaction failures that model tests do not expose. Measurements should precede a major playback redesign. Shared abstractions should be introduced only where behaviour is truly common; graph/tree eager sequences and sorting generators already demonstrate that identical controls need not imply identical execution internals.
+The main technical risks are the cost of long step sequences, inconsistent semantics between modules, and interaction failures that model tests do not expose. Measurements should precede a major playback redesign. Shared abstractions should be introduced only where behaviour is truly common; graph/tree eager sequences and sorting generators already demonstrate that identical controls need not imply identical execution internals.
 
 The main project risk is scope growth. Adding every unfinished catalogue topic would reduce time for evaluation and refinement. I propose prioritizing the current graph, tree and sorting workflows, selected explanation gaps and a small engine experiment. Further features should be chosen with the supervisor according to educational value, missing coverage and available time.
 
@@ -352,5 +353,5 @@ By the final assessment, the intended outcome is a documented and tested visuali
 \bibliographystyle{plain}
 \bibliography{references}
 \endgroup
-\noindent{\footnotesize Project records~\cite{evidence,architecture,validation} are the author's working records, not research publications; they are available on request. Screenshots show application commit \code{662e7b3}; diagrams were drawn for this report. VisuAlgo remains the source of the original educational material and examples.\par}
+\noindent{\footnotesize Project records~\cite{evidence,architecture,validation} are the author's working records, not research publications. Screenshots show application commit \code{662e7b3}; diagrams were drawn for this report. VisuAlgo remains the source of the original educational material and examples.\par}
 \end{document}
