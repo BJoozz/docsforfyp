@@ -159,6 +159,8 @@ Ví dụ, di chuyển đỉnh B không nên làm thay đổi phép tính đườ
 
 Các thuật toán đồ thị và cây tạo đầy đủ chuỗi bước ngay khi bắt đầu. Phiên chạy sau đó chuyển giữa các trạng thái chưa chạy, tạm dừng, đang phát và đã kết thúc. Mỗi bước được chọn cung cấp thông tin nhất quán cho hình vẽ, dòng mã giả được tô sáng và văn bản trạng thái. Cách tạo trước toàn bộ này giúp việc lùi bước và nhảy đến một bước đơn giản hơn, nhưng làm tăng thời gian khởi tạo và mức sử dụng bộ nhớ đối với lần chạy dài. Các chi phí này chưa được đo bằng benchmark.
 
+Khung hình khi tạm dừng không đứng yên. Khi lần chạy đang tạm dừng, bước hiện tại vẫn giữ phần nhấn mạnh chuyển động: một vệt sáng chạy dọc cạnh của bước và đỉnh của bước phát sáng theo vòng lặp 1,6 giây; khung hình cuối của đồ thị sau khi chạy xong cũng tiếp tục chuyển động. Tính năng này áp dụng cho bộ trực quan hóa đồ thị và cây; tùy chọn ``Animate paused steps'' cho phép tắt nó và mặc định theo thiết lập giảm chuyển động (reduced motion) của hệ thống cho đến khi người dùng tự chọn. Ý tưởng này do Kerk gợi ý và tôi thực hiện.
+
 Các thao tác trên cây phân biệt thêm giữa bản xem trước và dữ liệu đã được áp dụng chính thức. Người học có thể khám phá thao tác chèn hoặc xóa qua các trạng thái trung gian trước khi áp dụng kết quả cuối. Nhờ đó, họ có thể quan sát thao tác mà không coi từng khung hình là một thay đổi vĩnh viễn.
 \FloatBarrier
 

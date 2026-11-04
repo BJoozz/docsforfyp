@@ -177,6 +177,8 @@ For example, moving vertex B should not change a shortest-path computation. Chan
 
 Graph and tree algorithms build their complete step sequence when a run starts. The session then moves between idle, paused, playing and finished states. Each selected step supplies consistent information for the drawing, pseudocode highlight and status text. This eager approach makes backward stepping and seeking straightforward, but increases startup time and memory use for long runs. These costs have not yet been benchmarked.
 
+Paused frames are not static. While a run is paused, the current step keeps its emphasis moving: a streak runs along the step's edge and its node glows in a 1.6-second loop, and the graph's finished last frame keeps moving too. This applies to the graph and tree visualizers; an ``Animate paused steps'' setting turns it off and follows the system's reduced-motion preference until the user chooses. Kerk suggested the idea, and I implemented it.
+
 Tree operations add a distinction between a preview and a committed document. An insertion or deletion can be explored through intermediate states before its final result is applied. This lets the learner inspect an operation without treating every animation frame as a permanent edit.
 
 \subsection{Sorting uses a different execution model}
