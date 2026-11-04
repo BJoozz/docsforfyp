@@ -8,14 +8,14 @@ Recorded from Bao's clarifications on 4 November 2026 (morning account, then ans
 - **What:** sessions were recorded on video, followed by a short post-use test and feedback.
 - **Consent:** Kerk asked participants in advance about recording and using the videos, and all agreed. The recordings show only the screen and hand interactions, not faces.
 
-Bao reports both positive feedback and areas for improvement. Reviewing the videos helped identify interactions supporting familiarization and places requiring refinement. The trial was a separate activity from Kerk's earlier layout survey and from the Kerk–Bao decision to adopt V10.
+Bao reports both positive feedback and areas for improvement. Reviewing the videos helped identify interactions supporting familiarization and places requiring refinement. The trial was a separate activity from Kerk's earlier layout survey and from the decision to adopt V10, made by Kerk and Bao with A/P Halim's agreement.
 
 ## Design response
 The trial led to several UI/UX refinements:
 - **Floating text:** short step notes placed on the canvas over the relevant node, intended to reduce how often users look at Status while following a run. Persistent Status text remains available. The intended reduction in attention switching has not been measured.
 - Adjustments to the **legend** and the **Status** panel.
 
-The report does not attribute the V10 decision or the floating-text motivation to the supervisor (owner's answer Q4, 4 November).
+The report does not attribute the floating-text motivation to the supervisor (owner's answer Q4). The V10 design choices are described as made by Kerk and Bao together under A/P Halim's supervision, feedback and agreement (owner's later instruction, about 13:50 SGT on 4 November).
 
 ## Available supporting material and limits
 A screenshot of a shared folder titled "VisuAlgo+ Prototype Testing Footage" lists video entries including "experienced-tester-1.mp4", "experienced-tester-2.mp4" and a truncated inexperienced-tester filename. No participant count is inferred from it. The videos were not reviewed for the report.

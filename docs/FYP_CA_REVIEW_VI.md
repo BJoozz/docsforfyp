@@ -289,3 +289,4 @@ Chuẩn bị: cửa sổ guest mới ~1440×900, có mạng (font Inter), hoặc
 - Vai trò của Kerk: tìm hiểu công cụ cho UI/UX, cùng Bao quyết định các lựa chọn trực quan hóa, thực hiện khảo sát với nhiều nhóm người dùng mục tiêu → thêm vào §3.2.
 - Giao diện editor (`editor.css`, 122/122 dòng của Kerk theo doc 03) do Kerk chuyển thể từ visualgo.net gốc → thêm vào §3.2; phần đóng góp của Bao ghi "Graph and Tree Editor cards".
 - Kế hoạch từ Week 8 (thầy đã xem và đồng ý): chuẩn bị hợp nhất các visualizer với hạ tầng chung thành một web app hoàn chỉnh trong Sem 2 → §3.2, §7, Table 5, abstract.
+- (~13:50) Lựa chọn thiết kế V10: Kerk và Bao cùng quyết định, dưới sự giám sát, góp ý và đồng ý của A/P Halim; tham khảo visualgo.net gốc, các nguyên mẫu đầu và hai bản V2/V7. Thay cho câu trả lời Q4 trước đó về phần V10 (phần floating text vẫn không nhắc thầy). Bỏ số hiệu lựa chọn 1–26/27–48 khỏi báo cáo.
