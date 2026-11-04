@@ -29,7 +29,7 @@
 \renewcommand{\headrulewidth}{.3pt}
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\shot}[4]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{figures/#1}\caption{#3}\label{#4}\end{figure}}
-\newcommand{\page}{\clearpage}
+\newcommand{\page}{\par\penalty0 \ifdim\pagetotal>.72\textheight\clearpage\else\vspace{8pt}\fi}
 \begin{document}
 \begin{titlepage}
 \centering

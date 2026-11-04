@@ -1,6 +1,6 @@
 # VisuAlgo+ CA Report — complete LaTeX draft
 
-**Source update — 4 November 2026:** The LaTeX sources now include the Week 10 V10 user trial and the post-trial rationale for floating text. **The three checked-in PDFs predate this update and have not been rebuilt.** Compile the sources below before reviewing or submitting the revised report. Page count and layout require a fresh build.
+**Source update — 4 November 2026:** The LaTeX sources now include the Week 10 V10 user trial and the post-trial rationale for floating text. The three checked-in PDFs were rebuilt from these sources on 4 November 2026 (MiKTeX 25.12: pdfLaTeX for this report, XeLaTeX for the Vietnamese versions). The `\page` command now breaks the page only when the current page is already about three-quarters full; the hard `\clearpage` it used to expand had left three nearly empty pages after the text grew.
 
 Prepared for Truong Van Quoc Bao on 3 November 2026.
 
@@ -16,7 +16,7 @@ Upload the contents of this folder to Overleaf and choose `main.tex` as the main
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The source uses standard TeX Live packages. The seven screenshots are included in `figures/`; the two diagrams are drawn with TikZ. References are in `references.bib`.
+The source uses standard TeX Live packages. The seven screenshots are included in `figures/`; the two diagrams are drawn with TikZ. References are in `references.bib`. On this machine the sources build with MiKTeX 25.12, installed for the current user with winget (`MiKTeX.MiKTeX`) and set to install missing packages automatically; the DejaVu fonts used by the Vietnamese versions come from its `dejavu` package.
 
 ## Vietnamese reading versions
 

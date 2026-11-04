@@ -40,7 +40,7 @@ Báo cáo giải thích việc tách trạng thái đầu vào, bố cục và p
 \setcounter{tocdepth}{1}
 \tableofcontents
 
-\clearpage
+\page
 \section{Giới thiệu và mục tiêu}
 \subsection{Bối cảnh dự án}
 VisuAlgo cung cấp các hình thức trực quan hóa tương tác cho cấu trúc dữ liệu và thuật toán. Thiết kế ban đầu đưa nhiều chủ đề vào một môi trường nhất quán và cho phép sinh viên tự khám phá với dữ liệu đầu vào của mình~\cite{halim2012}. Những điểm mạnh này là cơ sở xuất phát của VisuAlgo+.
@@ -175,7 +175,7 @@ Sắp xếp sinh thao tác thông qua các bộ sinh (generator). Một đồng 
 
 Cách này không yêu cầu mọi thuật toán sắp xếp phải sinh xong toàn bộ thao tác trước khi người dùng bắt đầu tương tác. Tuy nhiên, lịch sử được giữ lại vẫn không có giới hạn, và việc nhảy đến một vị trí xa có thể phải thực hiện lại nhiều thao tác. Đây là các giới hạn cần được đo trong giai đoạn tiếp theo. Chỉ số thao tác chung giúp quan sát đồng bộ, nhưng thao tác của các thuật toán khác nhau không phải những đơn vị chi phí tính toán tương đương. Vì vậy, không được hiểu chế độ so sánh như một benchmark thời gian chạy thực tế.
 
-\clearpage
+\page
 \subsection{V10: bố cục nhóm bảng dùng chung}\label{sec:v10}
 Khung V10 tổ chức thông tin hỗ trợ xung quanh một vùng vẽ trung tâm cố định. Vùng vẽ không thể trở thành một tab. Các vùng trái, phải và dưới chứa nhóm tab; người dùng có thể đưa một bảng vào nhóm, tách nó sang nhóm khác hoặc đặt nó vào một vùng trống. Bố cục mặc định đặt Action và e-Lecture ở bên trái, Pseudocode và Status ở bên phải~\cite{architecture}.
 
@@ -216,7 +216,7 @@ Sự linh hoạt cũng tạo thêm các tình huống có thể lỗi: bảng b�
 \shot{F3-tab-drag-preview.png}{1.0}{Kéo tab Action vào nhóm Pseudocode sẽ hiển thị vùng thả dự kiến. Ảnh chụp ghi lại bản xem trước, chưa phải thao tác thả đã hoàn thành.}{fig:drag}
 \FloatBarrier
 
-\clearpage
+\page
 \subsection{Mở rộng đồ thị và kiểm chứng thuật toán}
 Mô-đun đồ thị hiện có 11 định danh thuật toán. Bên cạnh BFS, DFS dùng ngăn xếp, Dijkstra, Kruskal và Edmonds--Karp, ứng dụng hỗ trợ DFS đệ quy, Bellman--Ford, Prim, sắp xếp tô-pô, kiểm tra đồ thị hai phía và tìm đỉnh khớp/cạnh cầu. Sắp xếp tô-pô có phương pháp DFS và Kahn; kiểm tra hai phía có phương pháp DFS và BFS. Giao diện duyệt cũng hỗ trợ chọn đỉnh kết thúc (End node) khi phù hợp~\cite{evidence}.
 
@@ -337,14 +337,14 @@ Rủi ro dự án chính là phạm vi ngày càng mở rộng. Thêm mọi ch�
 \subsection{Kết quả kỳ vọng}
 Đến đợt đánh giá cuối, kết quả hướng tới là một nền tảng trực quan hóa được kiểm thử và tài liệu hóa, có giao diện nhất quán, bao phủ các thuật toán đại diện, có bằng chứng từ nhiệm vụ người dùng và đo lường kỹ thuật, cùng mô tả rõ ràng về tiến độ tích hợp engine. Công việc học kỳ đầu tạo ra nền tảng triển khai. Giai đoạn tiếp theo cần giải thích hệ thống hoạt động tốt ở đâu, thất bại ở đâu và cải tiến nào được bằng chứng hỗ trợ.
 
-\clearpage
+\page
 \addcontentsline{toc}{section}{Tài liệu tham khảo}
 \begingroup\small\raggedright
 \bibliographystyle{plain}
 \bibliography{../references}
 \endgroup
 
-\clearpage
+\page
 \section*{Phạm vi báo cáo và bằng chứng}
 Báo cáo bao gồm công việc chuẩn bị từ ngày 28/7/2026 và công việc học kỳ đầu đến commit ứng dụng \code{662e7b3}, sử dụng bộ bằng chứng tại \code{67ce56c}~\cite{evidence}. Ảnh chụp thể hiện ứng dụng đó; sơ đồ được dựng lại để giải thích. Kết quả kiểm chứng là các lần chạy đã được ghi nhận, không phải kiểm thử mới trong lúc chuẩn bị báo cáo. Phần động lực cá nhân và sự tham gia của giảng viên hướng dẫn trong lựa chọn V10 bao gồm thông tin tôi làm rõ thêm ngày 3/11.
 

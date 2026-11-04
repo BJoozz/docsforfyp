@@ -1,12 +1,12 @@
 # Bản tiếng Việt của báo cáo CA VisuAlgo+
 
-**Cập nhật nguồn ngày 4/11/2026:** `full.tex` và `summary.tex` đã đồng bộ với bản Anh về thử nghiệm V10 tuần 10 và floating text. **Hai PDF hiện có vẫn là bản cũ, chưa biên dịch lại sau thay đổi này.** Cần biên dịch lại để đọc nội dung mới và kiểm tra bố cục/số trang.
+**Cập nhật nguồn ngày 4/11/2026:** `full.tex` và `summary.tex` đã đồng bộ với bản Anh về thử nghiệm V10 tuần 10 và floating text. Hai PDF đã được biên dịch lại từ nguồn này ngày 4/11/2026 bằng MiKTeX 25.12 (XeLaTeX). Lệnh `\page` trong `style.tex` chỉ ngắt trang khi trang hiện tại đã đầy khoảng ba phần tư, thay cho `\clearpage` cứng từng để lại trang gần trống.
 
 Chuẩn bị ngày 4/11/2026 để Bao đọc và rà soát.
 
 ## Hai tài liệu
 
-- `VisuAlgo_CA_Report_VI.pdf`: PDF cũ được dịch từ báo cáo tiếng Anh tại `675fc73`; nguồn `full.tex` hiện đã cập nhật theo bản Anh trong cùng phiên bản.
+- `VisuAlgo_CA_Report_VI.pdf`: bản dịch đầy đủ, biên dịch từ `full.tex` đã đồng bộ với bản Anh trong cùng phiên bản.
 - `VisuAlgo_CA_Summary_VI.pdf`: bản tóm tắt tiếng Việt để đọc nhanh; nguồn `summary.tex`.
 
 Bản dịch giữ đầy đủ các phần nội dung, bảng, số liệu, hình và mức độ khẳng định của bản gốc. Có thêm mục lục và chú giải thuật ngữ để đọc thuận tiện. Tên công trình trong bibliography và chữ trên ảnh giao diện được giữ nguyên; chú thích và nhãn sơ đồ đã dịch. Phần kế hoạch tương lai vẫn là đề xuất, không phải công việc đã hoàn thành.
