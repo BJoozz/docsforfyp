@@ -13,7 +13,7 @@ $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'
 $env:CA_BASE_URL = 'http://127.0.0.1:5205'
 $env:CA_DECK_OUTPUT = 'C:\path\outside\any\synced\folder\deck'
 $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'
-node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 04_dijkstra_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
+node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
 ```
 
 The script writes `clips/`, `posters/`, `checks/` and `raw/<clip>/` under `CA_DECK_OUTPUT`. Each `raw/<clip>/` folder holds the screencast JPEGs and the `list.ffconcat` used for the encode. Clips run one after another. The script only drives the UI: it edits no source, injects no state, hides nothing with CSS and adds no overlay.
@@ -170,6 +170,42 @@ Poster at 5.10 s.
 
 Poster at 2.95 s, frame 12/21 with the note.
 
+This clip is now the earlier slide-18 take; 04b replaces it on the slide.
+
+### 04b_dijkstra_big_note_pause_hover (14.0 s, slide 18)
+
+**Setup:**
+1. Open `/graph-editor/dijkstra` and untick Live force layout first, so the preset keeps its own positions.
+2. Select preset → **Big** (visualgo.net's TESSELLATION). The script checks for 9 vertices (0–8) and 16 directed arcs:
+
+   ```text
+   0 1 8, 0 2 12, 1 2 13, 1 3 25, 4 1 9, 2 3 14, 2 6 21, 3 4 20,
+   3 5 8, 3 6 12, 3 7 12, 3 8 16, 4 5 19, 5 7 11, 6 8 11, 7 8 9
+   ```
+
+3. Close the preset list and collapse Draw graph.
+4. Start node is 0 (the default). End node stays "All vertices", because the UI allows it. The script checks both.
+5. Click Fit view. The viewport is `translate(-4.47778px, -4.43333px) scale(0.777778)`.
+6. Next until frame 17/53, where the script checks for "Inspect edge 2 → 3, weight 14.", then wait 1.8 s. The pointer stays on Next.
+
+**Recorded:**
+- 0–3.0 hold at 17/53. The paused animations move from about 2.10 s to 5.02 s of their own time while the frame stays 17.
+- 3.03 Next → 18/53, "Relax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26." The note "12 + 14 < 33 · update" sits to the right of 3, next to its 33→26 badge.
+- 6.05 Last → 53/53, "Dijkstra complete. Settled 9 nodes." The Path box reads "Choose an End node in the Action panel, or hover a vertex, to see its path from the start."
+- 7.63 the pointer moves straight to 8: "PATH TO 8 / 0 → 2 → 3 → 8 · distance 42".
+- 10.62 the pointer moves straight to 4: "PATH TO 4 / 0 → 2 → 3 → 4 · distance 46".
+- End at 14.0.
+
+The run has 53 frames. Frames 15–18 are: select 2, settle 2, inspect 2 → 3, relax 2 → 3.
+
+The final table matches a hand trace:
+
+| Vertex | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Distance | 0 | 8 | 12 | 26 | 46 | 34 | 33 | 38 | 42 |
+
+Poster at 3.45 s: frame 18/53 with the note fully shown.
+
 ### 05_bst_preview_apply (8.6 s)
 
 **Setup:**
@@ -217,3 +253,8 @@ Poster at 3.01 s.
   - Over Status's own group the app offers only two zones, the upper half (split before) and the lower half (split after); there is no middle zone. On the way down the preview first frames the upper half (from 1.74 s) and switches to the lower half at 3.19 s.
   - The bottom drop re-fits the drawing, as the app does whenever the drawing's size changes, so the nodes move up 138 px.
   - The left group falls back to E-Lecture, not Action, when Status leaves it.
+- **04b:** the frames, Status sentences, final distances and both hovered paths all match the hand trace. A few details for the narration:
+  - The note reads "12 + 14 < 33 · update" and sits to the right of 3, not above it.
+  - The Keep steps say, for example, "Keep the distance to 2: 8 + 13 = 21 is longer than 12."
+  - The two arcs out of 4, inspected last, say "Keep 1 unchanged because it is already settled." (frame 50) and "Keep 5 unchanged because it is already settled." (frame 52).
+  - End node stays "All vertices", so no path shows until a vertex is hovered.

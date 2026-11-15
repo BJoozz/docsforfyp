@@ -1,0 +1,223 @@
+{
+  "id": "04b_dijkstra_big_note_pause_hover",
+  "route": "/graph-editor/dijkstra",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dijkstra: Live force layout off; Select preset → Big (visualgo.net TESSELLATION: vertices 0–8, 16 directed weighted arcs, preset positions); preset list closed; Draw graph collapsed; Start node 0, End node left at \"All vertices\"; Fit view; Next to frame 17 (Inspect edge 2 → 3); mouse left on the Next button."
+  ],
+  "observations": [
+    {
+      "t": 0.055,
+      "name": "start",
+      "footerFrame": "FRAME 17 / 53",
+      "status": "Inspect edge\nSETTLED\n3 / 9\n\nInspect edge 2 → 3, weight 14.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\n3\n33\nRELAXATION\n\n2 → 3\n\n12 + 14 = 26\n\nPREVIOUS DISTANCE\n33\nPREVIOUS PREDECESSOR\n1\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tCurrent\n3\t33\t1\tFrontier\n4\t∞\t—\tUnreachable\n5\t∞\t—\tUnreachable\n6\t∞\t—\tUnreachable\n7\t∞\t—\tUnreachable\n8\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);",
+      "pausedAnimations": [
+        {
+          "name": "_edge-paused-streak_2obm3_1",
+          "time": 2100
+        },
+        {
+          "name": "_node-paused-glow_2obm3_1",
+          "time": 2100
+        }
+      ]
+    },
+    {
+      "t": 2.934,
+      "name": "end of hold",
+      "footerFrame": "FRAME 17 / 53",
+      "status": "Inspect edge\nSETTLED\n3 / 9\n\nInspect edge 2 → 3, weight 14.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\n3\n33\nRELAXATION\n\n2 → 3\n\n12 + 14 = 26\n\nPREVIOUS DISTANCE\n33\nPREVIOUS PREDECESSOR\n1\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tCurrent\n3\t33\t1\tFrontier\n4\t∞\t—\tUnreachable\n5\t∞\t—\tUnreachable\n6\t∞\t—\tUnreachable\n7\t∞\t—\tUnreachable\n8\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);",
+      "pausedAnimations": [
+        {
+          "name": "_edge-paused-streak_2obm3_1",
+          "time": 5017
+        },
+        {
+          "name": "_node-paused-glow_2obm3_1",
+          "time": 5017
+        }
+      ]
+    },
+    {
+      "t": 3.164,
+      "name": "frame 18",
+      "footerFrame": "FRAME 18 / 53",
+      "status": "Relax edge\nSETTLED\n3 / 9\n\nRelax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\n3\n26\nRELAXATION\n\n2 → 3\n\n12 + 14 = 26\n\nPREVIOUS DISTANCE\n33\nRESULT\nUpdate to 26\nPREVIOUS PREDECESSOR\n1\nNEXT PREDECESSOR\n2\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tCurrent\n3\t26\t2\tFrontier\n4\t∞\t—\tUnreachable\n5\t∞\t—\tUnreachable\n6\t∞\t—\tUnreachable\n7\t∞\t—\tUnreachable\n8\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "12 + 14 < 33 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "12 + 14 < 33 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "7"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    },
+    {
+      "t": 6.172,
+      "name": "Last",
+      "footerFrame": "FRAME 53 / 53",
+      "status": "Complete\nSETTLED\n9 / 9\n\nDijkstra complete. Settled 9 nodes.\n\nPATH\n\nChoose an End node in the Action panel, or hover a vertex, to see its path from the start.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tSettled\n3\t26\t2\tSettled\n4\t46\t3\tSettled\n5\t34\t3\tSettled\n6\t33\t2\tSettled\n7\t38\t3\tSettled\n8\t42\t3\tSettled",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    },
+    {
+      "t": 7.808,
+      "name": "hover 8",
+      "footerFrame": "FRAME 53 / 53",
+      "status": "Complete\nSETTLED\n9 / 9\n\nDijkstra complete. Settled 9 nodes.\n\nPATH TO 8\n\n0 → 2 → 3 → 8 · distance 42\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tSettled\n3\t26\t2\tSettled\n4\t46\t3\tSettled\n5\t34\t3\tSettled\n6\t33\t2\tSettled\n7\t38\t3\tSettled\n8\t42\t3\tSettled",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    },
+    {
+      "t": 10.823,
+      "name": "hover 4",
+      "footerFrame": "FRAME 53 / 53",
+      "status": "Complete\nSETTLED\n9 / 9\n\nDijkstra complete. Settled 9 nodes.\n\nPATH TO 4\n\n0 → 2 → 3 → 4 · distance 46\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tSettled\n3\t26\t2\tSettled\n4\t46\t3\tSettled\n5\t34\t3\tSettled\n6\t33\t2\tSettled\n7\t38\t3\tSettled\n8\t42\t3\tSettled",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    },
+    {
+      "t": 14.007,
+      "name": "end",
+      "footerFrame": "FRAME 53 / 53",
+      "status": "Complete\nSETTLED\n9 / 9\n\nDijkstra complete. Settled 9 nodes.\n\nPATH TO 4\n\n0 → 2 → 3 → 4 · distance 46\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tSettled\n3\t26\t2\tSettled\n4\t46\t3\tSettled\n5\t34\t3\tSettled\n6\t33\t2\tSettled\n7\t38\t3\tSettled\n8\t42\t3\tSettled",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 3.027,
+      "tDone": 3.13,
+      "scheduled": 3,
+      "action": "Next"
+    },
+    {
+      "t": 6.048,
+      "tDone": 6.161,
+      "scheduled": 6,
+      "action": "Last"
+    },
+    {
+      "t": 7.627,
+      "tDone": 7.643,
+      "scheduled": 7.6,
+      "action": "hover 8"
+    },
+    {
+      "t": 10.617,
+      "tDone": 10.642,
+      "scheduled": 10.6,
+      "action": "hover 4"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794776392.541,
+    "tEndEpoch": 1794776406.54,
+    "screencastFrames": 599,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0491,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/04b_dijkstra_big_note_pause_hover.png",
+    "t": 3.452,
+    "state": {
+      "footerFrame": "FRAME 18 / 53",
+      "status": "Relax edge\nSETTLED\n3 / 9\n\nRelax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\n3\n26\nRELAXATION\n\n2 → 3\n\n12 + 14 = 26\n\nPREVIOUS DISTANCE\n33\nRESULT\nUpdate to 26\nPREVIOUS PREDECESSOR\n1\nNEXT PREDECESSOR\n2\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\n0\t0\t—\tSettled\n1\t8\t0\tSettled\n2\t12\t0\tCurrent\n3\t26\t2\tFrontier\n4\t∞\t—\tUnreachable\n5\t∞\t—\tUnreachable\n6\t∞\t—\tUnreachable\n7\t∞\t—\tUnreachable\n8\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "12 + 14 < 33 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "12 + 14 < 33 · update",
+          "opacity": "1",
+          "nearestNodeBelow": "3"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+    }
+  },
+  "encode": {
+    "outputFrames": 420,
+    "durationSeconds": 14,
+    "sourceFramesUsed": 367,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "420",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "04b_dijkstra_big_note_pause_hover.mp4"
+    ]
+  },
+  "maxActionLateness": 0.048,
+  "pageErrors": []
+}

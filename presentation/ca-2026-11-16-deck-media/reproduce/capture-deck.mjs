@@ -112,6 +112,8 @@ async function ready(page, route) {
   await page.waitForTimeout(500);
 }
 const footerButton = (page, name) => page.locator('.footer-bar').getByRole('button', { name, exact: true });
+/** The Status panel's sentence: its first line ending in a full stop. */
+const sentence = (text) => (text ?? '').split('\n').map((x) => x.trim()).filter(Boolean).find((x) => /[.]$/.test(x)) ?? null;
 const frameText = (page) => page.locator('.footer-bar__frame').innerText();
 const graphNode = (page, label) => page.locator('.react-flow__node').filter({ has: page.getByText(label, { exact: true }) });
 const treeNode = (page, id) => page.locator(`.react-flow__node[data-id="${id}"]`);
@@ -141,7 +143,8 @@ function domState(page) {
     const isTree = location.pathname.startsWith('/tree-editor');
     const nodes = [...document.querySelectorAll('.react-flow__node')].map((e) => {
       const r = e.getBoundingClientRect();
-      const label = isTree ? e.dataset.id : [...e.querySelectorAll('*')].filter((x) => x.children.length === 0).map((x) => x.textContent.trim()).find((s) => /^[A-Za-z]+$/.test(s)) ?? null;
+      // A graph node's own label element (letters or digits), never its distance badge.
+      const label = isTree ? e.dataset.id : e.querySelector('[class*="nodeLabel"]')?.textContent.trim() ?? null;
       return { label, x: r.x + r.width / 2, y: r.y + r.height / 2 };
     });
     const noteItems = [...document.querySelectorAll('.step-notes *')].filter((e) => e.children.length === 0 && e.textContent.trim()).map((e) => {
@@ -352,7 +355,7 @@ function canvasInfo(page, flowAtStart) {
     const r = flow.getBoundingClientRect();
     const nodes = {};
     for (const node of document.querySelectorAll('.react-flow__node')) {
-      const label = [...node.querySelectorAll('*')].filter((x) => x.children.length === 0).map((x) => x.textContent.trim()).find((s) => /^[A-Za-z]+$/.test(s));
+      const label = node.querySelector('[class*="nodeLabel"]')?.textContent.trim();
       const b = node.getBoundingClientRect();
       nodes[label] = [Math.round(b.x + b.width / 2), Math.round(b.y + b.height / 2)];
     }
@@ -600,6 +603,50 @@ const CLIPS = {
       await ctx.at(6.1); await ctx.observe('hover T');
       await ctx.at(7.9); await ctx.hover('hover A', graphNode(page, 'A'));
       await ctx.at(8.1); await ctx.observe('hover A');
+    },
+  },
+  '04b_dijkstra_big_note_pause_hover': {
+    route: '/graph-editor/dijkstra',
+    end: 14.0,
+    async setup(ctx) {
+      const { page } = ctx;
+      await ready(page, '/graph-editor/dijkstra');
+      // Live force layout off first, so the preset keeps its own positions.
+      await page.getByRole('checkbox', { name: 'Live force layout', exact: true }).uncheck();
+      await page.locator('.action-panel__picker').click();
+      await page.getByRole('group', { name: 'Graph samples' }).getByRole('button', { name: 'Big', exact: true }).click();
+      await page.waitForTimeout(800);
+      if ((await page.locator('.action-panel__picker').getAttribute('aria-expanded')) === 'true') await page.locator('.action-panel__picker').click();
+      const draw = page.getByRole('button', { name: 'Draw graph', exact: true });
+      if ((await draw.getAttribute('aria-expanded')) === 'true') await draw.click(); // collapse, as in the other graph clips
+      const start = await page.getByRole('combobox', { name: 'Dijkstra start node', exact: true }).inputValue();
+      const endSelect = page.getByRole('combobox', { name: 'Dijkstra end node', exact: true });
+      const endLabel = await endSelect.evaluate((e) => e.options[e.selectedIndex]?.text);
+      if (start !== '0' || endLabel !== 'All vertices') throw new Error(`start ${start}, end ${endLabel}`);
+      if ((await page.locator('.react-flow__node').count()) !== 9 || (await page.locator('.react-flow__edge').count()) !== 16) throw new Error('expected 9 nodes, 16 arcs');
+      await page.getByRole('button', { name: 'Fit view', exact: true }).click();
+      await page.waitForTimeout(900);
+      await graphToFrame(ctx, 17);
+      const inspect = sentence(await page.locator('[data-panel-body="status"]').innerText());
+      if (inspect !== 'Inspect edge 2 → 3, weight 14.') throw new Error('frame 17 is ' + inspect);
+      await page.waitForTimeout(1800);
+      ctx.note('Graph Editor /graph-editor/dijkstra: Live force layout off; Select preset → Big (visualgo.net TESSELLATION: vertices 0–8, 16 directed weighted arcs, preset positions); preset list closed; Draw graph collapsed; Start node 0, End node left at "All vertices"; Fit view; Next to frame 17 (Inspect edge 2 → 3); mouse left on the Next button.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const node = (id) => page.locator(`.react-flow__node[data-id="${id}"]`);
+      const paused = () => page.evaluate(() => document.getAnimations().map((a) => ({ name: a.animationName, time: Math.round(a.currentTime) })).filter((a) => a.name?.includes('paused')));
+      await ctx.observe('start', { pausedAnimations: await paused() });
+      await ctx.at(2.9); await ctx.observe('end of hold', { pausedAnimations: await paused() });
+      await ctx.at(3.0); await ctx.click('Next', footerButton(page, 'Next'));
+      await ctx.at(3.15); await ctx.observe('frame 18');
+      await ctx.at(3.45); await ctx.poster();
+      await ctx.at(6.0); await ctx.click('Last', footerButton(page, 'Last'));
+      await ctx.at(6.15); await ctx.observe('Last');
+      await ctx.at(7.6); await ctx.hover('hover 8', node('8'));
+      await ctx.at(7.8); await ctx.observe('hover 8');
+      await ctx.at(10.6); await ctx.hover('hover 4', node('4'));
+      await ctx.at(10.8); await ctx.observe('hover 4');
     },
   },
   '05_bst_preview_apply': {

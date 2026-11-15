@@ -1968,7 +1968,7 @@
           ]
         }
       },
-      "intendedSlide": "Deck slide 18",
+      "intendedSlide": "Earlier slide-18 clip (replaced by 04b)",
       "caption": "Paused motion, step note, hover after the end",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",
@@ -2117,6 +2117,182 @@
         "7.9–10.2 s: Hover A: S → B → A · distance 2."
       ],
       "checks": "reproduce/checks/04_dijkstra_note_pause_hover.json"
+    },
+    {
+      "id": "04b_dijkstra_big_note_pause_hover",
+      "file": "clips/04b_dijkstra_big_note_pause_hover.mp4",
+      "bytes": 676946,
+      "sha256": "a89a1459b1214ebda3c1b3b2fe29397449f3774932397e049e2a5b028f5d5fa9",
+      "durationSeconds": 14,
+      "frames": 420,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/04b_dijkstra_big_note_pause_hover.png",
+        "bytes": 173801,
+        "sha256": "a03fcf00ac1628c5a81d31d560de5bbc1a9bd193e7f75d3af07fc706feaef756",
+        "takenAtSeconds": 3.452,
+        "shows": {
+          "footerFrame": "FRAME 18 / 53",
+          "status": "Relax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26.",
+          "notes": [
+            "12 + 14 < 33 · update (above 3)"
+          ]
+        }
+      },
+      "intendedSlide": "Deck slide 18",
+      "caption": "Nine vertices: paused step, note, hovered paths",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "preset": "Big (visualgo.net TESSELLATION): vertices 0-8 at the preset positions, 16 directed weighted arcs",
+        "arcs": "0 1 8, 0 2 12, 1 2 13, 1 3 25, 4 1 9, 2 3 14, 2 6 21, 3 4 20, 3 5 8, 3 6 12, 3 7 12, 3 8 16, 4 5 19, 5 7 11, 6 8 11, 7 8 9",
+        "start": "0",
+        "end": "All vertices (left unset)",
+        "liveForceLayout": "off",
+        "pausedAt": "frame 17 of 53 (Inspect edge 2 → 3)"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; Select preset → Big (visualgo.net TESSELLATION: vertices 0–8, 16 directed weighted arcs, preset positions); preset list closed; Draw graph collapsed; Start node 0, End node left at \"All vertices\"; Fit view; Next to frame 17 (Inspect edge 2 → 3); mouse left on the Next button."
+      ],
+      "actions": [
+        {
+          "atSeconds": 3.027,
+          "doneSeconds": 3.13,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 6.048,
+          "doneSeconds": 6.161,
+          "action": "Last"
+        },
+        {
+          "atSeconds": 7.627,
+          "doneSeconds": 7.643,
+          "action": "hover 8"
+        },
+        {
+          "atSeconds": 10.617,
+          "doneSeconds": 10.642,
+          "action": "hover 4"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.055,
+          "moment": "start",
+          "footerFrame": "FRAME 17 / 53",
+          "status": "Inspect edge 2 → 3, weight 14.",
+          "statusRegion": "right",
+          "pausedAnimations": [
+            {
+              "name": "_edge-paused-streak_2obm3_1",
+              "time": 2100
+            },
+            {
+              "name": "_node-paused-glow_2obm3_1",
+              "time": 2100
+            }
+          ],
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 2.934,
+          "moment": "end of hold",
+          "footerFrame": "FRAME 17 / 53",
+          "status": "Inspect edge 2 → 3, weight 14.",
+          "statusRegion": "right",
+          "pausedAnimations": [
+            {
+              "name": "_edge-paused-streak_2obm3_1",
+              "time": 5017
+            },
+            {
+              "name": "_node-paused-glow_2obm3_1",
+              "time": 5017
+            }
+          ],
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 3.164,
+          "moment": "frame 18",
+          "footerFrame": "FRAME 18 / 53",
+          "status": "Relax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26.",
+          "notes": [
+            {
+              "text": "12 + 14 < 33 · update",
+              "opacity": 0,
+              "above": "7"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 6.172,
+          "moment": "Last",
+          "footerFrame": "FRAME 53 / 53",
+          "status": "Dijkstra complete. Settled 9 nodes.",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 7.808,
+          "moment": "hover 8",
+          "footerFrame": "FRAME 53 / 53",
+          "status": "Dijkstra complete. Settled 9 nodes.",
+          "statusPath": "PATH TO 8: 0 → 2 → 3 → 8 · distance 42",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 10.823,
+          "moment": "hover 4",
+          "footerFrame": "FRAME 53 / 53",
+          "status": "Dijkstra complete. Settled 9 nodes.",
+          "statusPath": "PATH TO 4: 0 → 2 → 3 → 4 · distance 46",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        },
+        {
+          "atSeconds": 14.007,
+          "moment": "end",
+          "footerFrame": "FRAME 53 / 53",
+          "status": "Dijkstra complete. Settled 9 nodes.",
+          "statusPath": "PATH TO 4: 0 → 2 → 3 → 4 · distance 46",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(-4.47778px, -4.43333px) scale(0.777778);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames at 0.0, 1.5, 3.3, 6.67, 8.5 and 13.97 s (last); poster.",
+      "narration": [
+        "0.0–3.0 s: Dijkstra on the nine-vertex Big preset is paused at frame 17 of 53: inspect edge 2 → 3, weight 14. The edge streak and the node glow keep moving while the counter stays at 17.",
+        "3.0–6.0 s: Next, frame 18: \"12 + 14 < 33 · update\" appears beside 3, its badge reads 33→26, and Status says the distance to 3 becomes 26.",
+        "6.0–7.6 s: Last, frame 53 of 53: Dijkstra is complete with 9 nodes settled, and the shortest-path tree is drawn in green.",
+        "7.6–10.6 s: Hover 8: 0 → 2 → 3 → 8 · distance 42.",
+        "10.6–14.0 s: Hover 4: 0 → 2 → 3 → 4 · distance 46."
+      ],
+      "checks": "reproduce/checks/04b_dijkstra_big_note_pause_hover.json"
     },
     {
       "id": "05_bst_preview_apply",

@@ -11,7 +11,8 @@ All clips: H.264 High, 1440 × 900, constant 30 fps, no audio, real speed (no sp
 | `clips/02_v10_move_panel.mp4` | 7.3 s | Earlier slide-14 clip (replaced by 02b) | Dijkstra paused at frame 12/21. The Status tab is dragged onto the left group (drop preview shown) and released. The frame stays 12/21 and the drawing does not move. Settings → Reset panel layout puts Status back; still 12/21. |
 | `clips/02b_v10_split_left_bottom.mp4` | 16.3 s | Slide 14 | Dijkstra paused at frame 12/21. The right column starts as one group with Pseudocode and Status as tabs (set up before recording). Three slow drags of the Status tab, each with a live drop preview:<br>1. Down into the lower half of its own group: the column splits into Pseudocode above and Status below, in equal halves.<br>2. Into the left group, beside Action and E-Lecture.<br>3. To the bottom row, under the drawing and as wide as it.<br>After every drop the frame is still 12/21 and the React Flow canvas is the same element (no remount). The drawing moves only after the bottom drop, when it re-fits the shorter canvas. Ends with Status under the drawing. |
 | `clips/03_graph_drag_then_edit.mp4` | 8.0 s | Slide 15 | Paused at frame 12/21. Vertex B is dragged and the frame stays 12/21. In Draw graph → Edges, "B A 1" becomes "B A 5": the edge label reads 5, the footer says NO RUN and Status says NO ACTIVE RUN. |
-| `clips/04_dijkstra_note_pause_hover.mp4` | 10.2 s | Slide 18 | Frame 11/21 (Inspect edge B → A) held 2.5 s while the edge streak and B's glow keep moving. Next → 12/21: "1 + 1 < 4 · update" above A. Last → 21/21. Hover T: "S → B → A → T · distance 4". Hover A: "S → B → A · distance 2". |
+| `clips/04_dijkstra_note_pause_hover.mp4` | 10.2 s | Earlier slide-18 clip (replaced by 04b) | Frame 11/21 (Inspect edge B → A) held 2.5 s while the edge streak and B's glow keep moving. Next → 12/21: "1 + 1 < 4 · update" above A. Last → 21/21. Hover T: "S → B → A → T · distance 4". Hover A: "S → B → A · distance 2". |
+| `clips/04b_dijkstra_big_note_pause_hover.mp4` | 14.0 s | Slide 18 | Dijkstra on the preset Big (visualgo.net's TESSELLATION: vertices 0–8, 16 directed weighted arcs, preset positions). Start 0, End node left at All vertices.<br>Frame 17/53, "Inspect edge 2 → 3, weight 14.", is held 3 s while the paused streak and glow keep moving.<br>Next → 18/53: "12 + 14 < 33 · update" beside 3, badge 33→26, "Relax 2 → 3: 12 + 14 = 26 is shorter than 33, so update 3's distance to 26."<br>Last → 53/53, "Dijkstra complete. Settled 9 nodes."<br>Hover 8: "0 → 2 → 3 → 8 · distance 42". Hover 4: "0 → 2 → 3 → 4 · distance 46". |
 | `clips/05_bst_preview_apply.mp4` | 8.6 s | Backup slide 24 | The Insert 5 preview at frame 8/8, with node 5 marked INSERTED and Apply insertion shown. Back to frames 7 and 6, then forward to 8. Apply insertion → NO RUN. Edit tree opens, and its text now ends with `6 5`. |
 | `clips/06_dfs_recursive_recap.mp4` | 8.5 s | Backup slide 27 (live-demo fallback) | Recursive DFS on the same graph. Last → 21/21, visited S, A, T, B. The final frame replays the DFS tree (S → A → T, then S → B) with a glow and a streak about every 3 s. |
 
@@ -26,6 +27,7 @@ All clips: H.264 High, 1440 × 900, constant 30 fps, no audio, real speed (no sp
   - The bottom drop shortens the canvas from 798 to 521 px, so the drawing re-fits: it moves up 138 px at the same zoom.
   - When Status leaves the left group, that group shows E-Lecture, the tab next in line, not Action. The last frame therefore has the Dijkstra e-Lecture on the left.
   - Splitting a group with its own tab offers only two zones, the upper half and the lower half.
+- 04b: the Fit view zoom is 0.78. Vertex numbers read well at 1440 × 900, but the edge weights and distance badges are about 10 px tall, so they get hard to read if the video is shown much smaller than full screen. The step note sits to the right of 3, not above it. Because End node is All vertices, the final frame's Path box asks for a hover until the pointer reaches 8.
 - 05: stepping back to frame 6 removes node 5 and the drawing re-centres, then it moves back up at frame 8. This is the app's own behaviour.
 - Playback inside PowerPoint: on 16 November, PowerPoint decoded a frame from inside each clip embedded in the deck (at 3 s; for 02b at 6 s; `deck-build/decode_test.ps1`). A full slideshow click-through on the presenting computer is still a preflight step.
 
@@ -35,7 +37,7 @@ All clips: H.264 High, 1440 × 900, constant 30 fps, no audio, real speed (no sp
 
 | Folder | Contents |
 | --- | --- |
-| `clips/`, `posters/` | The eight clips above and their poster stills. |
+| `clips/`, `posters/` | The nine clips above and their poster stills. |
 | `reproduce/` | The capture script, its recipe and the raw DOM checks. |
 | `early-prototypes/` | Stills of the standalone Graph, Tree and Sorting prototypes. The builds were rebuilt at their last documented commits and captured on 16 November 2026. That folder has its own README and manifest. |
 | `deck-crops/` | Crops of Codex's stills (`../ca-2026-11-16/`), used on slides 1, 2 and 13. `deck-build/build_deck.py` generates them. |
