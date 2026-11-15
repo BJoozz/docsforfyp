@@ -1,0 +1,784 @@
+{
+  "id": "03b_graph_drag_edit_parallel",
+  "route": "/graph-editor/dijkstra",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+    "Next to frame 12; mouse parked on empty canvas."
+  ],
+  "observations": [
+    {
+      "t": 0.012,
+      "name": "start",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "(Draw graph collapsed)",
+      "edgeCount": 5,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 341,463 Q 331.5,321.5 324.27755825331985,213.92363082576412",
+          "labels": [
+            "1"
+          ]
+        }
+      ],
+      "labelCount": 5,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            617,
+            530
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            692,
+            393
+          ],
+          "edge": "edge-4",
+          "distance": 15
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            860,
+            500
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false
+    },
+    {
+      "t": 1.644,
+      "name": "after drag",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "(Draw graph collapsed)",
+      "edgeCount": 5,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 348,305.5 328.89736248970286,213.2930381714502",
+          "labels": [
+            "1"
+          ]
+        }
+      ],
+      "labelCount": 5,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            703,
+            382
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false,
+      "bCentre": {
+        "x": 723.0448608398438,
+        "y": 548.5
+      },
+      "bBefore": {
+        "x": 690.0448608398438,
+        "y": 580.5
+      }
+    },
+    {
+      "t": 3.709,
+      "name": "Draw graph open",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "S A 4\nS B 1\nB A 1\nA T 2\nB T 6",
+      "edgeCount": 5,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 348,305.5 328.89736248970286,213.2930381714502",
+          "labels": [
+            "1"
+          ]
+        }
+      ],
+      "labelCount": 5,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            703,
+            382
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false
+    },
+    {
+      "t": 5.205,
+      "name": "after weight edit",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6",
+      "edgeCount": 5,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 348,305.5 328.89736248970286,213.2930381714502",
+          "labels": [
+            "5"
+          ]
+        }
+      ],
+      "labelCount": 5,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "5",
+          "at": [
+            703,
+            382
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false
+    },
+    {
+      "t": 9.708,
+      "name": "after the parallel edge",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A",
+      "edgeCount": 6,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 330.3742739092323,309.15154484748973 324.19996328129884,213.92875125260193",
+          "labels": [
+            "5"
+          ]
+        },
+        {
+          "id": "edge-7",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 365.6257260907677,301.84845515251027 333.4606945700547,212.0101933760469",
+          "labels": []
+        }
+      ],
+      "labelCount": 5,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "5",
+          "at": [
+            666,
+            389
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        }
+      ],
+      "notices": [
+        "1 edge has no weight, so it counts as 1. Set one under Draw graph → Edges, as in “B A 4”."
+      ],
+      "mentionsParallel": false,
+      "handles": {
+        "from": {
+          "x": 752.0448608398438,
+          "y": 548.5
+        },
+        "to": {
+          "x": 642.0448608398438,
+          "y": 297.5
+        }
+      }
+    },
+    {
+      "t": 11.715,
+      "name": "after typing 2",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A 2",
+      "edgeCount": 6,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 330.3742739092323,309.15154484748973 324.19996328129884,213.92875125260193",
+          "labels": [
+            "5"
+          ]
+        },
+        {
+          "id": "edge-7",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 365.6257260907677,301.84845515251027 333.4606945700547,212.0101933760469",
+          "labels": [
+            "2"
+          ]
+        }
+      ],
+      "labelCount": 6,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "5",
+          "at": [
+            666,
+            389
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            712,
+            379
+          ],
+          "edge": "edge-7",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false,
+      "click": {
+        "x": 258,
+        "y": 826.89375
+      },
+      "caretBeforeTyping": {
+        "selectionStart": 33,
+        "selectionEnd": 33,
+        "length": 33
+      }
+    },
+    {
+      "t": 12.409,
+      "name": "final state",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A 2",
+      "edgeCount": 6,
+      "edgesBA": [
+        {
+          "id": "edge-4",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 330.3742739092323,309.15154484748973 324.19996328129884,213.92875125260193",
+          "labels": [
+            "5"
+          ]
+        },
+        {
+          "id": "edge-7",
+          "from": "B",
+          "to": "A",
+          "path": "M 374,431 Q 365.6257260907677,301.84845515251027 333.4606945700547,212.0101933760469",
+          "labels": [
+            "2"
+          ]
+        }
+      ],
+      "labelCount": 6,
+      "labels": [
+        {
+          "text": "4",
+          "at": [
+            591,
+            347
+          ],
+          "edge": "edge-2",
+          "distance": 14
+        },
+        {
+          "text": "1",
+          "at": [
+            637,
+            509
+          ],
+          "edge": "edge-3",
+          "distance": 14
+        },
+        {
+          "text": "5",
+          "at": [
+            666,
+            389
+          ],
+          "edge": "edge-4",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            869,
+            406
+          ],
+          "edge": "edge-5",
+          "distance": 14
+        },
+        {
+          "text": "6",
+          "at": [
+            870,
+            489
+          ],
+          "edge": "edge-6",
+          "distance": 14
+        },
+        {
+          "text": "2",
+          "at": [
+            712,
+            379
+          ],
+          "edge": "edge-7",
+          "distance": 14
+        }
+      ],
+      "notices": [],
+      "mentionsParallel": false
+    },
+    {
+      "t": 16.203,
+      "name": "end",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 1,
+      "tDone": 1.628,
+      "scheduled": 1,
+      "action": "drag B up-right by (35, -35)"
+    },
+    {
+      "t": 3.506,
+      "tDone": 3.534,
+      "scheduled": 3.5,
+      "action": "open Draw graph"
+    },
+    {
+      "t": 4.402,
+      "tDone": 4.422,
+      "scheduled": 4.4,
+      "action": "click at the end of line \"B A 1\""
+    },
+    {
+      "t": 4.551,
+      "tDone": 4.559,
+      "scheduled": 4.55,
+      "action": "Shift+ArrowLeft selects \"1\""
+    },
+    {
+      "t": 5.002,
+      "tDone": 5.021,
+      "scheduled": 5,
+      "action": "type 5"
+    },
+    {
+      "t": 7.203,
+      "tDone": 7.207,
+      "scheduled": 7.2,
+      "action": "pointer onto B's source handle"
+    },
+    {
+      "t": 7.602,
+      "tDone": 9.035,
+      "scheduled": 7.6,
+      "action": "drag a new edge from B to A"
+    },
+    {
+      "t": 9.201,
+      "tDone": 9.231,
+      "scheduled": 9.2,
+      "action": "release on A's target handle"
+    },
+    {
+      "t": 9.501,
+      "tDone": 9.503,
+      "scheduled": 9.5,
+      "action": "pointer to empty canvas"
+    },
+    {
+      "t": 10.809,
+      "tDone": 10.813,
+      "scheduled": 10.8,
+      "action": "click at the end of the new line \"B A\""
+    },
+    {
+      "t": 11.215,
+      "tDone": 11.585,
+      "scheduled": 11.2,
+      "action": "type \" 2\""
+    },
+    {
+      "t": 12.207,
+      "tDone": 12.21,
+      "scheduled": 12.2,
+      "action": "pointer to empty canvas"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794778756.428,
+    "tEndEpoch": 1794778772.628,
+    "screencastFrames": 394,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0002,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/03b_graph_drag_edit_parallel.png",
+    "t": 13.202,
+    "state": {
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 486,
+    "durationSeconds": 16.2,
+    "sourceFramesUsed": 210,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "486",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "03b_graph_drag_edit_parallel.mp4"
+    ]
+  },
+  "maxActionLateness": 0.015,
+  "pageErrors": []
+}

@@ -530,17 +530,25 @@ media_slide(s, still=PACK / '01_main_slides/06_v10_layout.png', mp4=mp4, poster=
 # 15 graph state ownership
 s = S[15]
 clear_body(s)
-text(s, 0.62, 1.42, 3.2, 0.3, 'Who owns which state', size=13, color=MUTED, bold=True, name='diagram-label')
+PAR_DETAIL = 'its own identity and weight: 5 and 2'
+G_CLIP = '03b_graph_drag_edit_parallel' if clip('03b_graph_drag_edit_parallel')[0] else '03_graph_drag_then_edit'
+PAR = G_CLIP.startswith('03b')
+text(s, 0.62, 1.4 if PAR else 1.42, 3.2, 0.3, 'Who owns which state', size=13, color=MUTED, bold=True, name='diagram-label')
 owners = [('Document', 'nodes, edges, weights'), ('Layout', 'positions'), ('Session', 'run and selected step'),
-          ('Presentation', 'highlights derived from the step')]
+          ('Presentation', 'derived highlights' if PAR else 'highlights derived from the step')]
+oy, opitch, oh = (1.72, 0.56, 0.5) if PAR else (1.78, 0.72, 0.62)
 for k, (o, d) in enumerate(owners):
-    card(s, 0.62, 1.78 + k * 0.72, 3.15, 0.62, [[(o, {'bold': True, 'color': NAVY}), ('  ' + d, {'size': 12.5, 'color': INK})]],
+    card(s, 0.62, oy + k * opitch, 3.15, oh, [[(o, {'bold': True, 'color': NAVY}), ('  ' + d, {'size': 12.5, 'color': INK})]],
          fill=WHITE, line=BORDER, size=14.5, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, name=f'owner-{k}')
-card(s, 0.62, 4.82, 3.15, 0.86, [[('Move a vertex: preserve the run', {'bold': True})], [('changes Layout only', {'size': 12.5})]],
-     fill=GREEN_TINT, size=14.5, color=GREEN, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, name='point-0')
-card(s, 0.62, 5.8, 3.15, 0.86, [[('Change an edge weight: invalidate the run', {'bold': True})], [('changes the Document', {'size': 12.5})]],
-     fill=AMBER_TINT, size=14.5, color=AMBER, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, name='point-1')
-mp4, poster = clip('03_graph_drag_then_edit')
+outcomes = [('Move a vertex: preserve the run', 'changes Layout only', GREEN_TINT, GREEN),
+            ('Change an edge weight: invalidate the run', 'changes the Document', AMBER_TINT, AMBER)]
+if PAR:
+    outcomes.append(('Add a parallel edge: a separate edge', PAR_DETAIL, TINT, TEAL))
+cy, cpitch = (4.06, 0.92) if PAR else (4.82, 0.98)
+for k, (h1, h2, fill, ink) in enumerate(outcomes):
+    card(s, 0.62, cy + k * cpitch, 3.15, 0.86, [[(h1, {'bold': True})], [(h2, {'size': 12.5})]],
+         fill=fill, size=14 if PAR else 14.5, color=ink, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, name=f'point-{k}')
+mp4, poster = clip(G_CLIP)
 if mp4 is None:
     mp4, poster = PACK / '02_short_clips/01_graph_paused_step.mp4', PACK / '01_main_slides/02_dijkstra_decision.png'
 media_slide(s, mp4=mp4, poster=poster, cap=NEW_CAP)
@@ -777,6 +785,9 @@ def narration(slug):
 
 
 V10B_LINES = narration('02b_v10_split_left_bottom')
+PAR_POSTER = 'the graph with both B → A edges, labelled 5 and 2.'
+PAR_EXTRA = ('\nLive force layout was off, so only the dragged vertex moved. An edge drawn on the canvas starts without a weight '
+             '(the app counts it as 1 and says so) until one is typed in the Edges text, which applies as you type.')
 V10B_POSTER = 'Status docked under the drawing at frame 12 of 21.'
 
 
@@ -814,7 +825,21 @@ SOURCE
 {GH}03_architecture_and_decisions.md
 Media: {MEDIA}clips/{V10_CLIP}.mp4 (app 346e84b, recorded 16 Nov 2026; manifest.json in that folder)""")
 
-set_notes(S[15], f"""Bao | Algorithm Visualizers | 65 seconds including the clip
+if PAR:
+    set_notes(S[15], f"""Bao | Algorithm Visualizers | 65 seconds including the clip
+
+Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. So I keep the graph document, layout, playback session and presentation separate, as listed on the slide. [Press → to play the clip.] Dragging B preserves the current step: the counter stays at 12. Changing the weight of B to A from 1 to 5 edits the document, so the old run is invalidated and the footer says No run. Then I draw a second edge from B to A on the canvas; it appears in the text too, where I give it weight 2. The two parallel edges are separate edges, each with its own identity and weight, for the editor, the drawing and the algorithms. The aim is consistent interaction backed by clear state ownership.
+
+{clip_block(narration('03b_graph_drag_edit_parallel'), PAR_POSTER, PAR_EXTRA)}
+
+EARLIER CLIP (not on the slide)
+{MEDIA}clips/03_graph_drag_then_edit.mp4 (8.0 s) stops after the weight edit.
+
+SOURCE
+{GH}docs/CA_PRESENTATION_GRAPH_CASE.md
+Media: {MEDIA}clips/03b_graph_drag_edit_parallel.mp4 (app 346e84b, recorded 16 Nov 2026). Codex's earlier clip presentation/ca-2026-11-16/02_short_clips/01_graph_paused_step.mp4 shows a similar paused drag.""")
+else:
+  set_notes(S[15], f"""Bao | Algorithm Visualizers | 65 seconds including the clip
 
 Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. I separate the graph document, layout, playback session and presentation. The document contains nodes, edges and weights. Layout contains positions. A session records the run and selected step. Presentation derives the visible highlights and badges from that step. [Press → to play the clip.] Dragging B preserves the current step: the counter stays at 12. Changing the weight of B to A from 1 to 5 edits the document, so the old run is invalidated and the footer says No run. We cannot keep showing a result for the wrong input. Stable edge identity also lets us distinguish parallel edges. The aim is consistent interaction backed by clear state ownership.
 

@@ -230,7 +230,7 @@ The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../prese
 
 Slides 14–18 embed five real-app clips of app `346e84b`:
 - the V10 panel split, move and dock;
-- a vertex drag versus a weight edit;
+- a vertex drag, a weight edit and a parallel edge added;
 - LCA(6, 10), keep then lift;
 - Codex’s sorting clip;
 - Dijkstra on a nine-vertex graph: paused motion, its note and the final hover.

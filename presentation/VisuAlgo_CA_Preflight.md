@@ -6,7 +6,7 @@
 
 - **Editable PowerPoint, 27 slides:** [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx), with 22 timed slides, 1 Questions slide and 4 backup slides. Backup 27 is new: a recursive DFS recap that serves as a fallback for the live demo.
 - **Seven embedded real-app clips** with posters as static fallbacks:
-  - five in the main talk, on slides 14–18 (about 59 s in total);
+  - five in the main talk, on slides 14–18 (about 67 s in total);
   - two on the backup slides 24 and 27.
   - Press → or click to play a clip. On 16 November, PowerPoint decoded a frame from inside each clip.
   - [Media map](CA_PRESENTATION_MEDIA_USAGE.md) · [what changed from the draft](CA_DECK_CHANGELOG.md).
@@ -58,7 +58,7 @@
 | Slide | What plays | Point to |
 |---|---|---|
 | 14 | The Status tab splits the right group, joins the left group, then docks under the drawing | Frame stays 12/21 throughout; the drawing only re-fits when the bottom row opens |
-| 15 | B dragged at 12/21; then B → A changed from 1 to 5 in Draw graph → Edges | Counter unchanged after the drag; NO RUN after the edit |
+| 15 | B dragged at 12/21; B → A changed from 1 to 5 in Draw graph → Edges; a second B → A edge drawn on the canvas, then given weight 2 | Counter unchanged after the drag; NO RUN after the edit; two separate B → A edges labelled 5 and 2 |
 | 16 | LCA(6, 10) on root 8, edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14 | k = 1 note "same ancestor · keep u, v"; k = 0 "differ · lift both"; answer 8. No depth-balancing move (equal depths) |
 | 17 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
 | 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |

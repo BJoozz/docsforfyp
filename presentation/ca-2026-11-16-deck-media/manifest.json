@@ -1791,7 +1791,7 @@
           "notes": []
         }
       },
-      "intendedSlide": "Deck slide 15",
+      "intendedSlide": "Earlier slide-15 clip (replaced by 03b)",
       "caption": "Dragging keeps the run; an edit ends it",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",
@@ -1941,6 +1941,232 @@
         "4.5–8.0 s: Typing 5 commits the edit. The edge label reads 5, the footer says NO RUN and Status says NO ACTIVE RUN."
       ],
       "checks": "reproduce/checks/03_graph_drag_then_edit.json"
+    },
+    {
+      "id": "03b_graph_drag_edit_parallel",
+      "file": "clips/03b_graph_drag_edit_parallel.mp4",
+      "bytes": 405107,
+      "sha256": "6c3b7469c28f5c2e500888082550d3b2cc175269f5aba3ff6098d43b3fe8498c",
+      "durationSeconds": 16.2,
+      "frames": 486,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/03b_graph_drag_edit_parallel.png",
+        "bytes": 142363,
+        "sha256": "57f1acf8b5771053caedbd3a067d0339321eeaf5a99a10dcb44de9ecd8082562",
+        "takenAtSeconds": 13.202,
+        "shows": {
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Deck slide 15",
+      "caption": "Drag, re-weight, add a parallel edge",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6",
+        "start": "S",
+        "end": "T",
+        "pausedAt": "frame 12 of 21 (Relax B → A)",
+        "drag": "B by (+35, -35) px",
+        "edit": "Draw graph → Edges: \"B A 1\" → \"B A 5\"",
+        "parallelEdge": "on the canvas: drag from B’s source handle (right side) to A’s target handle (left side); the app gives the new edge no weight",
+        "weightForTheNewEdge": "Edges text: click at the end of the new last line \"B A\" and type \" 2\" (the line becomes \"B A 2\")"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Next to frame 12; mouse parked on empty canvas."
+      ],
+      "actions": [
+        {
+          "atSeconds": 1,
+          "doneSeconds": 1.628,
+          "action": "drag B up-right by (35, -35)"
+        },
+        {
+          "atSeconds": 3.506,
+          "doneSeconds": 3.534,
+          "action": "open Draw graph"
+        },
+        {
+          "atSeconds": 4.402,
+          "doneSeconds": 4.422,
+          "action": "click at the end of line \"B A 1\""
+        },
+        {
+          "atSeconds": 4.551,
+          "doneSeconds": 4.559,
+          "action": "Shift+ArrowLeft selects \"1\""
+        },
+        {
+          "atSeconds": 5.002,
+          "doneSeconds": 5.021,
+          "action": "type 5"
+        },
+        {
+          "atSeconds": 7.203,
+          "doneSeconds": 7.207,
+          "action": "pointer onto B's source handle"
+        },
+        {
+          "atSeconds": 7.602,
+          "doneSeconds": 9.035,
+          "action": "drag a new edge from B to A"
+        },
+        {
+          "atSeconds": 9.201,
+          "doneSeconds": 9.231,
+          "action": "release on A's target handle"
+        },
+        {
+          "atSeconds": 9.501,
+          "doneSeconds": 9.503,
+          "action": "pointer to empty canvas"
+        },
+        {
+          "atSeconds": 10.809,
+          "doneSeconds": 10.813,
+          "action": "click at the end of the new line \"B A\""
+        },
+        {
+          "atSeconds": 11.215,
+          "doneSeconds": 11.585,
+          "action": "type \" 2\""
+        },
+        {
+          "atSeconds": 12.207,
+          "doneSeconds": 12.21,
+          "action": "pointer to empty canvas"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.012,
+          "moment": "start",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgesText": "(Draw graph collapsed)",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 1.644,
+          "moment": "after drag",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgesText": "(Draw graph collapsed)",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 3.709,
+          "moment": "Draw graph open",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgesText": "S A 4\nS B 1\nB A 1\nA T 2\nB T 6",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 5.205,
+          "moment": "after weight edit",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 9.708,
+          "moment": "after the parallel edge",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 11.715,
+          "moment": "after typing 2",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A 2",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 12.409,
+          "moment": "final state",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6\nB A 2",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 16.203,
+          "moment": "end",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames at 0.0, 9.5, 11.0, 11.5 and 16.17 s (last) of this take; a contact sheet of the connect drag from an earlier take with the same steps 1-3; poster.",
+      "narration": [
+        "0.0–1.0 s: Dijkstra is paused at frame 12 of 21, relaxing B → A, whose weight is 1.",
+        "1.0–3.5 s: Vertex B is dragged a short way, and the frame stays at 12 of 21.",
+        "3.5–5.0 s: Draw graph opens, and the 1 of \"B A 1\" is selected in the Edges text.",
+        "5.0–7.2 s: Typing 5 ends the run. The label reads 5, the footer says NO RUN and Status says NO ACTIVE RUN.",
+        "7.2–9.2 s: A new edge is dragged on the canvas from B’s handle to A’s handle.",
+        "9.2–10.8 s: B → A now has two edges, curved apart: the original labelled 5 and the new one with no weight. The Edges text gains \"B A\", and the app notes that the unweighted edge counts as 1.",
+        "10.8–12.2 s: Typing \" 2\" at the end of that new line gives the second edge weight 2. Its label 2 appears and the notice goes away.",
+        "12.2–16.2 s: Both B → A edges now carry their own weights, 5 and 2, with 6 edges and 6 labels. The run is still gone (NO RUN)."
+      ],
+      "checks": "reproduce/checks/03b_graph_drag_edit_parallel.json"
     },
     {
       "id": "04_dijkstra_note_pause_hover",

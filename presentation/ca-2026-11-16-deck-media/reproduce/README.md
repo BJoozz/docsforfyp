@@ -13,7 +13,7 @@ $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'
 $env:CA_BASE_URL = 'http://127.0.0.1:5205'
 $env:CA_DECK_OUTPUT = 'C:\path\outside\any\synced\folder\deck'
 $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'
-node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
+node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 03b_graph_drag_edit_parallel 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
 ```
 
 The script writes `clips/`, `posters/`, `checks/` and `raw/<clip>/` under `CA_DECK_OUTPUT`. Each `raw/<clip>/` folder holds the screencast JPEGs and the `list.ffconcat` used for the encode. Clips run one after another. The script only drives the UI: it edits no source, injects no state, hides nothing with CSS and adds no overlay.
@@ -38,7 +38,7 @@ ffmpeg -y -f concat -safe 0 -i list.ffconcat -vf "fps=30,scale=in_range=pc:out_r
    - the first, last and key frames were extracted and looked at (`framesInspected` in `../manifest.json`);
    - no page errors occurred in any clip.
 
-## Common graph setup (02, 02b, 03, 04, 06)
+## Common graph setup (02, 02b, 03, 03b, 04, 06)
 
 1. Open `/graph-editor/dijkstra` (for 06, `/graph-editor/dfs-recursive`) and untick Live force layout.
 2. Enter nodes `S A B T`, one per line, and these edges, then tick Directed graph:
@@ -156,6 +156,48 @@ Poster at 15.42 s: the final state.
 
 Poster at 5.10 s.
 
+This clip is now the earlier slide-15 take; 03b replaces it on the slide.
+
+### 03b_graph_drag_edit_parallel (16.2 s, slide 15)
+
+**Setup:** as in 02, at frame 12/21.
+
+**Recorded:**
+- 1.00–1.63 B is dragged by (+35, −35) px. The frame stays 12/21.
+- 3.51 Draw graph is opened.
+- 4.40 click at the end of `B A 1`; 4.55 Shift+ArrowLeft; 5.00 type `5`:
+  - the footer reads `NO RUN` and Status reads `NO ACTIVE RUN`;
+  - the B → A label reads 5;
+  - the Edges text is `S A 4 / S B 1 / B A 5 / A T 2 / B T 6`.
+- 7.20 the pointer moves onto B's source handle (its right side). The handles show on hover.
+- 7.60–9.04 a press and a 15-step drag to A's target handle (its left side), with React Flow's connection line following the pointer.
+- 9.20 release. 9.50 the pointer moves to empty canvas.
+- 10.81 click at the end of the new last line `B A`. The line's position is measured from the textarea, which the notice had moved down. The script checks the caret is at the end of the text (33 of 33) before typing.
+- 11.22–11.59 type ` 2` (150 ms between keys).
+- 12.21 the pointer moves to empty canvas.
+- End at 16.2.
+
+**Checked at 9.71, after the new edge:**
+- 6 edges. Two are B → A: `edge-4`, with path control point (330.4, 309.2), and the new `edge-7`, with control point (365.6, 301.8). They bow to opposite sides, about 20 px apart at the middle.
+- Still 5 weight labels. Each label is matched to the edge curve nearest it; each sits 14–15 px from its curve.
+  - `edge-4` has 5, which moved with the curve from (703, 382) to (666, 389).
+  - `edge-7` has none, because the app gives a canvas-drawn edge no weight.
+- The Edges text ends with `B A`.
+- The Action panel adds "1 edge has no weight, so it counts as 1. Set one under Draw graph → Edges, as in “B A 4”."
+- Footer `NO RUN`; Status `NO ACTIVE RUN`.
+
+**Checked at 11.72 and 12.41, after typing:**
+- The Edges text is `S A 4 / S B 1 / B A 5 / A T 2 / B T 6 / B A 2`.
+- 6 edges and 6 labels. `edge-4` has 5, and `edge-7` has the new label 2, at (712, 379).
+- The notice is gone.
+- Footer `NO RUN`; Status `NO ACTIVE RUN`.
+
+**Throughout:**
+- No text on the page says "parallel".
+- The viewport stays `translate(42.0449px, 77.5px) scale(1)`, so there is no re-fit.
+
+Poster at 13.20 s: the final state, with both B → A edges labelled (5 and 2).
+
 ### 04_dijkstra_note_pause_hover (10.2 s)
 
 **Setup:** the common graph setup, then Next until frame 11/21, then wait 1.8 s. The pointer stays on Next.
@@ -253,6 +295,11 @@ Poster at 3.01 s.
   - Over Status's own group the app offers only two zones, the upper half (split before) and the lower half (split after); there is no middle zone. On the way down the preview first frames the upper half (from 1.74 s) and switches to the lower half at 3.19 s.
   - The bottom drop re-fits the drawing, as the app does whenever the drawing's size changes, so the nodes move up 138 px.
   - The left group falls back to E-Lecture, not Action, when Status leaves it.
+- **03b: the parallel edge is drawn on the canvas, the preferred way, then given weight 2.**
+  - Why the canvas: it took one real drag (B's source handle to A's target handle), it worked first time, and React Flow draws the connection line while dragging.
+  - The app gives a canvas-drawn edge no weight. So the clip briefly shows that edge unlabelled, with the "counts as 1" notice.
+  - The owner asked for a fourth step: click at the end of the new `B A` line and type ` 2`. The click landed at the end of the text as intended, and the textarea did not scroll.
+  - The new edge then shows label 2 and the notice disappears. That also moves Draw graph back up by about 77 px.
 - **04b:** the frames, Status sentences, final distances and both hovered paths all match the hand trace. A few details for the narration:
   - The note reads "12 + 14 < 33 · update" and sits to the right of 3, not above it.
   - The Keep steps say, for example, "Keep the distance to 2: 8 + 13 = 21 is longer than 12."

@@ -580,6 +580,117 @@ const CLIPS = {
       await ctx.at(5.1); await ctx.poster();
     },
   },
+  '03b_graph_drag_edit_parallel': {
+    route: '/graph-editor/dijkstra',
+    end: 16.2,
+    async setup(ctx) {
+      await setupGraph(ctx);
+      await graphToFrame(ctx, 12);
+      await ctx.page.mouse.move(1050, 720);
+      await ctx.page.waitForTimeout(2300);
+      ctx.note('Next to frame 12; mouse parked on empty canvas.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const edges = page.locator('#graph-edges-text');
+      // Edges with their endpoints' labels and drawn paths, the weight labels, and the run notices.
+      const graphInfo = async () => ({
+        edgesText: (await edges.count()) ? await edges.inputValue() : '(Draw graph collapsed)',
+        ...(await page.evaluate(() => {
+          const names = new Map([...document.querySelectorAll('.react-flow__node')].map((n) => [n.dataset.id, n.querySelector('[class*="nodeLabel"]')?.textContent.trim()]));
+          const list = [...document.querySelectorAll('.react-flow__edge')].map((e) => {
+            const m = (e.getAttribute('aria-label') ?? '').match(/^Edge from (.+) to (.+)$/);
+            return { id: e.dataset.id, from: m ? names.get(m[1]) : null, to: m ? names.get(m[2]) : null, path: e.querySelector('path')?.getAttribute('d') };
+          });
+          const labels = [...document.querySelectorAll('.react-flow__edgelabel-renderer [class*="edgeLabel"]')].map((l) => {
+            const r = l.getBoundingClientRect();
+            return { text: l.textContent.trim(), at: [Math.round(r.x + r.width / 2), Math.round(r.y + r.height / 2)] };
+          });
+          // Labels carry no edge id: give each label to the edge whose drawn curve passes nearest it (screen pixels).
+          const flow = document.querySelector('.react-flow').getBoundingClientRect();
+          const t = (document.querySelector('.react-flow__viewport')?.style.transform ?? '').match(/translate\(([-\d.]+)px, ([-\d.]+)px\) scale\(([-\d.]+)\)/);
+          const [tx, ty, s] = t ? [Number(t[1]), Number(t[2]), Number(t[3])] : [0, 0, 1];
+          const curve = (d) => {
+            const n = (d ?? '').match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
+            const [x0, y0, cx, cy, x1, y1] = n.length >= 6 ? n : [n[0], n[1], (n[0] + n[2]) / 2, (n[1] + n[3]) / 2, n[2], n[3]];
+            return Array.from({ length: 41 }, (_, i) => {
+              const u = i / 40;
+              const x = (1 - u) ** 2 * x0 + 2 * u * (1 - u) * cx + u ** 2 * x1;
+              const y = (1 - u) ** 2 * y0 + 2 * u * (1 - u) * cy + u ** 2 * y1;
+              return [flow.x + tx + s * x, flow.y + ty + s * y];
+            });
+          };
+          const curves = list.map((e) => ({ id: e.id, points: curve(e.path) }));
+          for (const label of labels) {
+            const near = curves.map((c) => ({ id: c.id, d: Math.min(...c.points.map(([x, y]) => Math.hypot(x - label.at[0], y - label.at[1]))) })).sort((a, b) => a.d - b.d)[0];
+            label.edge = near?.id ?? null;
+            label.distance = near ? Math.round(near.d) : null;
+          }
+          for (const e of list) e.labels = labels.filter((l) => l.edge === e.id).map((l) => l.text);
+          return {
+            edgeCount: list.length,
+            edgesBA: list.filter((e) => e.from === 'B' && e.to === 'A'),
+            labelCount: labels.length,
+            labels,
+            notices: [...new Set([...document.querySelectorAll('.action-panel__notice, .viz-alert, [role="alert"]')].map((e) => e.innerText.trim()).filter(Boolean))],
+            mentionsParallel: /parallel/i.test(document.body.innerText),
+          };
+        })),
+      });
+      await ctx.observe('start', await graphInfo());
+      // 1. Drag B a short way: the run stays at frame 12.
+      const b = await center(graphNode(page, 'B'));
+      await ctx.at(1.0);
+      await ctx.act('drag B up-right by (35, -35)', () => dragPath(page, b, { x: b.x + 35, y: b.y - 35 }, 300));
+      await ctx.observe('after drag', { ...(await graphInfo()), bCentre: await center(graphNode(page, 'B')), bBefore: b });
+      // 2. Draw graph → Edges: "B A 1" becomes "B A 5", which ends the run.
+      await ctx.at(3.5); await ctx.click('open Draw graph', page.getByRole('button', { name: 'Draw graph', exact: true }));
+      await ctx.at(3.7); await ctx.observe('Draw graph open', await graphInfo());
+      const geo = await edges.evaluate((e) => {
+        const cs = getComputedStyle(e);
+        const r = e.getBoundingClientRect();
+        return { x: r.x, y: r.y, w: r.width, top: parseFloat(cs.borderTopWidth) + parseFloat(cs.paddingTop), lh: parseFloat(cs.lineHeight) };
+      });
+      const line3 = { x: geo.x + geo.w - 30, y: geo.y + geo.top + geo.lh * 2.5 };
+      await ctx.at(4.4);
+      await ctx.act('click at the end of line "B A 1"', async () => { await page.mouse.move(line3.x, line3.y); await page.mouse.down(); await page.mouse.up(); });
+      await ctx.at(4.55); await ctx.act('Shift+ArrowLeft selects "1"', () => page.keyboard.press('Shift+ArrowLeft'));
+      await ctx.at(5.0); await ctx.act('type 5', () => page.keyboard.type('5'));
+      await ctx.at(5.2); await ctx.observe('after weight edit', await graphInfo());
+      // 3. A parallel edge on the canvas: drag from B's source handle (right) to A's target handle (left).
+      const src = await center(graphNode(page, 'B').locator('.react-flow__handle.source'));
+      await ctx.at(7.2); await ctx.act('pointer onto B\'s source handle', () => page.mouse.move(src.x, src.y));
+      const dst = await center(graphNode(page, 'A').locator('.react-flow__handle.target'));
+      await ctx.at(7.6);
+      await ctx.act('drag a new edge from B to A', async () => {
+        await page.mouse.down();
+        for (let i = 1; i <= 15; i++) {
+          await page.mouse.move(src.x + (dst.x - src.x) * i / 15, src.y + (dst.y - src.y) * i / 15);
+          await sleep(80);
+        }
+      });
+      await ctx.at(9.2); await ctx.act('release on A\'s target handle', () => page.mouse.up());
+      await ctx.at(9.5); await ctx.act('pointer to empty canvas', () => page.mouse.move(1050, 720));
+      await ctx.at(9.7); await ctx.observe('after the parallel edge', { ...(await graphInfo()), handles: { from: src, to: dst } });
+      // 4. Give the new edge weight 2: click at the end of the new last line "B A" and type " 2".
+      const geo6 = await edges.evaluate((e) => {
+        const cs = getComputedStyle(e);
+        const r = e.getBoundingClientRect();
+        return { x: r.x, y: r.y, w: r.width, top: parseFloat(cs.borderTopWidth) + parseFloat(cs.paddingTop), lh: parseFloat(cs.lineHeight), scrollTop: e.scrollTop };
+      });
+      const line6 = { x: geo6.x + geo6.w - 30, y: geo6.y + geo6.top + geo6.lh * 5.5 - geo6.scrollTop };
+      await ctx.at(10.8);
+      await ctx.act('click at the end of the new line "B A"', async () => { await page.mouse.move(line6.x, line6.y); await page.mouse.down(); await page.mouse.up(); });
+      const caret = await edges.evaluate((e) => ({ selectionStart: e.selectionStart, selectionEnd: e.selectionEnd, length: e.value.length }));
+      if (caret.selectionStart !== caret.length || caret.selectionEnd !== caret.length) throw new Error('caret not at the end of "B A": ' + JSON.stringify(caret));
+      await ctx.at(11.2); await ctx.act('type " 2"', () => page.keyboard.type(' 2', { delay: 150 }));
+      await ctx.at(11.7); await ctx.observe('after typing 2', { ...(await graphInfo()), click: line6, caretBeforeTyping: caret });
+      // 5. Pointer off to empty canvas; hold on the result.
+      await ctx.at(12.2); await ctx.act('pointer to empty canvas', () => page.mouse.move(1050, 720));
+      await ctx.at(12.4); await ctx.observe('final state', await graphInfo());
+      await ctx.at(13.2); await ctx.poster();
+    },
+  },
   '04_dijkstra_note_pause_hover': {
     route: '/graph-editor/dijkstra',
     end: 10.2,

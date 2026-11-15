@@ -317,19 +317,29 @@ Live alternative only if time allows.
 
 - Move a vertex: preserve the run (changes Layout only)
 - Change an edge weight: invalidate the run (changes the Document)
-- Who owns which state: Document (nodes, edges, weights) · Layout (positions) · Session (run and selected step) · Presentation (highlights derived from the step)
+- Add a parallel edge: a separate edge (its own identity and weight: 5 and 2)
+- Who owns which state: Document (nodes, edges, weights) · Layout (positions) · Session (run and selected step) · Presentation (derived highlights)
 
-**Visual:** State-ownership diagram beside clip `03_graph_drag_then_edit.mp4` (8.0 s): B dragged at frame 12/21, then B → A changed from 1 to 5 in Draw graph → Edges, giving NO RUN.
+**Visual:** State-ownership diagram and three outcome cards beside clip `03b_graph_drag_edit_parallel.mp4` (16.2 s): B dragged at frame 12/21; B → A changed from 1 to 5 in Draw graph → Edges, giving NO RUN; a second B → A edge drawn on the canvas and given weight 2. The first take, `03_graph_drag_then_edit.mp4`, is kept as an alternative.
 
 **English script**
 
-Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. I separate the graph document, layout, playback session and presentation. The document contains nodes, edges and weights. Layout contains positions. A session records the run and selected step. Presentation derives the visible highlights and badges from that step. [Press → to play the clip.] Dragging B preserves the current step: the counter stays at 12. Changing the weight of B to A from 1 to 5 edits the document, so the old run is invalidated and the footer says No run. We cannot keep showing a result for the wrong input. Stable edge identity also lets us distinguish parallel edges. The aim is consistent interaction backed by clear state ownership.
+Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. So I keep the graph document, layout, playback session and presentation separate, as listed on the slide. [Press → to play the clip.] Dragging B preserves the current step: the counter stays at 12. Changing the weight of B to A from 1 to 5 edits the document, so the old run is invalidated and the footer says No run. Then I draw a second edge from B to A on the canvas; it appears in the text too, where I give it weight 2. The two parallel edges are separate edges, each with its own identity and weight, for the editor, the drawing and the algorithms. The aim is consistent interaction backed by clear state ownership.
 
-**Delivery cue:** Clip, 8.0 s: 0–0.8 s paused at 12/21 relaxing B → A; 0.8–1.8 s B dragged, still 12/21; 3.0–4.5 s Draw graph → Edges, "B A 1" selected; 4.5–8.0 s typing 5: label 5, NO RUN, NO ACTIVE RUN. Live layout was off. The app has no on-canvas weight edit.
+**Delivery cue:** Clip, 16.2 s.
+- 0–1.0 s: paused at 12/21, relaxing B → A.
+- 1.0–3.5 s: B dragged; still 12/21.
+- 3.5–7.2 s: Draw graph → Edges, "B A 1" becomes "B A 5": label 5, NO RUN, NO ACTIVE RUN.
+- 7.2–9.2 s: a new edge is dragged on the canvas from B's handle to A's handle.
+- 9.2–10.8 s: two B → A edges, curved apart; the new one has no weight yet, the Edges text gains "B A", and the app notes that it counts as 1.
+- 10.8–12.2 s: typing " 2" on that line gives the second edge its label 2; the notice goes away.
+- 12.2–16.2 s: both edges carry their own weights, 5 and 2; still NO RUN.
+
+Live layout was off. The app has no on-canvas weight edit.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_GRAPH_CASE.md
 
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/03b_graph_drag_edit_parallel.mp4
 
 ### 16. LCA: explaining a decision to stay
 
@@ -602,7 +612,7 @@ Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, reco
 | Clip or live action | Slide | Length | Fallback |
 |---|---:|---:|---|
 | V10: split, join and dock Status while paused | 14 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
-| Vertex drag versus weight edit | 15 | 8.0 s clip | Poster: after the edit, NO RUN |
+| Vertex drag, weight edit and a parallel edge | 15 | 16.2 s clip | Poster: both B → A edges, labelled 5 and 2 |
 | LCA(6, 10): keep, then lift | 16 | 10.3 s clip | Poster: frame 4/7, "differ · lift both" |
 | Sorting shared input and clock | 17 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
 | Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 18 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
