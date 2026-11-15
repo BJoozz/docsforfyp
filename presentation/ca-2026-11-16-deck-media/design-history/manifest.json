@@ -1,0 +1,188 @@
+{
+  "title": "Design history: wireframes, V2/V7 working builds and the design-system UI kit",
+  "captureDate": "2026-11-16",
+  "repo": "kerktaiheng/visualgo-plus-design (private)",
+  "note": "Real artifacts only, from one fresh clone with each historical commit checked out or extracted. Only the real UI was driven (clicks, selects, typing). No source edits, injected state, CSS changes or annotations. The wireframes are static HTML opened through file://. The V2/V7 builds ran on their own Vite dev servers after npm ci. The UI kit was served by a plain static file server.",
+  "environment": {
+    "browser": "Chromium 156.0.8078.4 (headless, bundled with Playwright 1.64.1)",
+    "node": "24.17.0",
+    "colorScheme": "light",
+    "locale": "en-US",
+    "pointer": "moved to the page edge before each screenshot so no hover state shows"
+  },
+  "commits": {
+    "69aa8e4": { "sha": "69aa8e4db32faa4e09beabeae7c04d4dff1b9bc4", "date": "2026-09-04T13:36:51+08:00", "author": "Kerk Tai Heng", "subject": "wireframs" },
+    "ae63a62": {
+      "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb",
+      "date": "2026-10-18T20:33:39+08:00",
+      "author": "Kerk Tai Heng",
+      "subject": "Apply the owner's V10 choices 27 to 32 to the three groups copies",
+      "context": "The last commit before the V2/V7 folders were deleted. That commit did not change the six V2/V7 folders. Every commit to them up to this point is by BJoozz (Bao). They were created in 0073875 (graph, 2026-09-20), 7b16bf3 (tree, 2026-09-22) and ee4bb72 (sorting, 2026-09-25). They were last changed in 867b4281ee4701ac51c033671125fc86d1133bad (graph, 2026-10-17T23:06:50+07:00, BJoozz) and c81a679b0889c9b3381eff76fc9e454a7474a2a9 (tree and sorting, 2026-10-17T22:37:56+07:00, BJoozz)."
+    },
+    "634b5be": { "sha": "634b5bee9c7253c19e5f2d90fbf5e4b3478e2615", "date": "2026-09-03T11:46:03+08:00", "author": "Kerk Tai Heng", "subject": "init" }
+  },
+  "wireframeTitles": {
+    "source": "design/wireframes/wireframe 2 viz desktop.html at 69aa8e4; page title 'VisuAlgo Visualisation Page Draft 2 Wireframes, Desktop'; h1 'VISUALGO VISUALISATION PAGE. DRAFT 2 WIREFRAMES. LOW FIDELITY. 1440PX DESKTOP. AVL TREE.'",
+    "frameHeadings": ["V1. LEFT STACK", "V2. SPLIT RAILS", "V3. CONTROLS AND READING", "V4. RAILS AND DRAWERS", "V5. DOCKED CODE", "V6. BOTTOM DOCK", "V7. DOCKS, DRAGGABLE", "V8. DOCKS, MID-DRAG", "V9. DOCKS, AFTER THE DROP"],
+    "atAGlanceCaptions": ["V1. Left stack", "V2. Split rails", "V3. Controls and reading", "V4. Rails and drawers", "V5. Docked code", "V6. Bottom dock", "V7. Docks, draggable", "V8. Docks, mid-drag", "V9. Docks, after the drop"],
+    "alsoInFileAtThisCommit": ["V1a. All expanded", "V1b. Vertically collapsed", "V1c. Horizontally collapsed (heading: V1c. HORIZONTALLY COLLAPSED, DRAWERED)"],
+    "laterChanges": "The file was later changed in 55f3387 (2026-10-17, BJoozz), which added V10/V11. Those frames are not in these captures."
+  },
+  "images": [
+    {
+      "file": "A1_wireframes_at_a_glance.png",
+      "commit": "69aa8e4", "sha": "69aa8e4db32faa4e09beabeae7c04d4dff1b9bc4", "commitDate": "2026-09-04T13:36:51+08:00", "author": "Kerk Tai Heng",
+      "path": "design/wireframes/wireframe 2 viz desktop.html (file://)",
+      "input": "The file as committed at 69aa8e4",
+      "actions": ["Open the file", "Element screenshot of the 'AT A GLANCE' contact sheet (.sheet)"],
+      "viewport": "1600x1000 CSS px (wide enough that the 1440 px frames are not clipped), deviceScaleFactor 2",
+      "imageSize": "1704x1534 (852x767 CSS px)",
+      "captureDate": "2026-11-16",
+      "shows": "The whole 'At a glance' sheet as committed: 12 thumbnails in 4 rows of 3. Rows 1 to 3 are V1 to V9 and row 4 is the V1 states V1a to V1c, each with its caption. The page script draws each thumbnail as a scaled copy of the full frame further down.",
+      "caption": "Kerk's wireframes, 4 Sep 2026: V1–V9 and V1 states",
+      "crop": {
+        "file": "A1_wireframes_at_a_glance_v1-v9_crop.png",
+        "rect": { "x": 0, "y": 0, "width": 1616, "height": 1142 },
+        "shows": "Same pixels, rows 1 to 3 only: the nine thumbnails V1 to V9 with captions",
+        "caption": "Kerk's wireframes, 4 Sep 2026: nine frames V1–V9"
+      }
+    },
+    {
+      "file": "A2_wireframe_v2_split_rails.png",
+      "commit": "69aa8e4", "sha": "69aa8e4db32faa4e09beabeae7c04d4dff1b9bc4", "commitDate": "2026-09-04T13:36:51+08:00", "author": "Kerk Tai Heng",
+      "path": "design/wireframes/wireframe 2 viz desktop.html (file://), frame #V2",
+      "input": "The file as committed at 69aa8e4",
+      "actions": ["Open the file", "Element screenshot of the frame div#V2 under the heading 'V2. SPLIT RAILS'"],
+      "viewport": "1600x1000 CSS px, deviceScaleFactor 2",
+      "imageSize": "2880x1802 (the 1440x900 frame)",
+      "captureDate": "2026-11-16",
+      "shows": "The full low-fidelity V2 'Split rails' frame for an AVL Tree insert: Action and e-Lecture on the left rail, Pseudocode and Status on the right rail, the drawing in the middle and the shared footer bar (FRAME 04 / 12, transport, Speed).",
+      "caption": "Kerk's wireframe V2, Split rails (4 Sep 2026)"
+    },
+    {
+      "file": "A3_wireframe_v7_docks.png",
+      "commit": "69aa8e4", "sha": "69aa8e4db32faa4e09beabeae7c04d4dff1b9bc4", "commitDate": "2026-09-04T13:36:51+08:00", "author": "Kerk Tai Heng",
+      "path": "design/wireframes/wireframe 2 viz desktop.html (file://), frame #V7",
+      "input": "The file as committed at 69aa8e4",
+      "actions": ["Open the file", "Element screenshot of the frame div#V7 under the heading 'V7. DOCKS, DRAGGABLE'"],
+      "viewport": "1600x1000 CSS px, deviceScaleFactor 2",
+      "imageSize": "2880x1802 (the 1440x900 frame)",
+      "captureDate": "2026-11-16",
+      "shows": "The full V7 'Docks, draggable' frame: tabbed docks with Action and E-Lecture on the left, Pseudocode on the right and Status in a bottom dock under the drawing, with the shared footer bar.",
+      "caption": "Kerk's wireframe V7, Docks, draggable (4 Sep 2026)"
+    },
+    {
+      "file": "A4_wireframe_v8_docks_mid_drag.png",
+      "commit": "69aa8e4", "sha": "69aa8e4db32faa4e09beabeae7c04d4dff1b9bc4", "commitDate": "2026-09-04T13:36:51+08:00", "author": "Kerk Tai Heng",
+      "path": "design/wireframes/wireframe 2 viz desktop.html (file://), frame #V8",
+      "input": "The file as committed at 69aa8e4",
+      "actions": ["Open the file", "Element screenshot of the frame div#V8 under the heading 'V8. DOCKS, MID-DRAG'"],
+      "viewport": "1600x1000 CSS px, deviceScaleFactor 2",
+      "imageSize": "2880x1802 (the 1440x900 frame)",
+      "captureDate": "2026-11-16",
+      "shows": "The full V8 'Docks, mid-drag' frame. The Pseudocode tab is held over the shaded DOCK BOTTOM zone, and DOCK LEFT and DOCK RIGHT are outlined over the drawing. The right dock reads 'PSEUDOCODE, LIFTED. Empty while the tab is held. The dock closes if the tab lands elsewhere.' This is a static wireframe of a drag, not a live one.",
+      "caption": "Kerk's wireframe V8, Docks, mid-drag (4 Sep 2026)"
+    },
+    {
+      "file": "B1_graph_v2_split_rails.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in 867b428, 2026-10-17",
+      "path": "prototypes/graph-visualizer-split-rails, route /",
+      "server": "vite 8.2.2 dev server after npm ci (design system aliased from design/design-system in the same checkout; no submodule needed)",
+      "input": "The build's default graph at load, shown as 'GRAPH Custom': A to F, directed, weighted (A B 4, A C 2, B D 5, B E 3, C D 1, C E 6, D F 2, E F 4). Breadth-First Search, start node A, end node All vertices",
+      "actions": ["Open /", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 11 times (to frame 12 of 22)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "The V2 split-rails layout working: Action and e-Lecture on the left rail, Pseudocode and Status on the right rail, and the footer transport paused at FRAME 12 / 22. The BFS step reads 'Discover E through B → E and enqueue it.', with pseudocode line 6, queue C D E and visited 2 / 6.",
+      "caption": "Bao's working build of layout V2 (split rails), Graph"
+    },
+    {
+      "file": "B2_graph_v7_docks.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in 867b428, 2026-10-17",
+      "path": "prototypes/graph-visualizer-docks, route /",
+      "server": "vite 8.2.2 dev server after npm ci",
+      "input": "Same as B1 (default graph A to F, BFS from A)",
+      "actions": ["Open /", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 11 times (to frame 12 of 22)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "The V7 docks layout in its default arrangement: Action and e-Lecture tabs on the left, Pseudocode on the right and Status in a bottom dock under the canvas. Paused at the same step as B1 (FRAME 12 / 22, queue C D E). In this build the canvas legend partly overlaps node D at this canvas size.",
+      "caption": "Bao's working build of layout V7 (docks), Graph"
+    },
+    {
+      "file": "B3_tree_v2_split_rails.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in c81a679, 2026-10-17",
+      "path": "prototypes/tree-visualizer-split-rails, route /",
+      "server": "vite 8.3.0 dev server after npm ci",
+      "input": "The default LCA · Binary Lifting workspace with its default tree, shown as 'TREE Custom': root 8 with edges 8-12, 8-4, 12-14, 12-10, 4-6 and 4-2. Node u = 6, node v = 2",
+      "actions": ["Open /", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 8 times (to frame 9 of 17)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "The tree in the V2 split-rails layout, paused at FRAME 9 / 17 in preprocessing. The step reads 'k = 2, x = 6: read mid = up[6][1] = 8, 2 levels up.', with columns ready 2 / 3 and pseudocode line 2. The step strip under the tree reads 'k = 2, x = 6: mid = up[6][1] = 8'. The Ancestor table sheet is closed, its default.",
+      "caption": "Bao's working build of layout V2 (split rails), Tree"
+    },
+    {
+      "file": "B4_tree_v7_docks.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in c81a679, 2026-10-17",
+      "path": "prototypes/tree-visualizer-docks, route /",
+      "server": "vite 8.3.0 dev server after npm ci",
+      "input": "Same as B3",
+      "actions": ["Open /", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 8 times (to frame 9 of 17)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "The tree in the V7 docks layout in its default arrangement: Status and Ancestor table are tabs in the bottom dock, with Status shown. Paused at the same step as B3 (FRAME 9 / 17).",
+      "caption": "Bao's working build of layout V7 (docks), Tree"
+    },
+    {
+      "file": "B5_sorting_v2_split_rails.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in c81a679, 2026-10-17",
+      "path": "prototypes/sorting-visualizer-split-rails, route /",
+      "server": "vite 8.3.0 dev server after npm ci",
+      "input": "Merge Sort (default), 1 pane (default), Random (default), seed sorting-room-01 (default), Size 24",
+      "actions": ["Open /", "Type 24 into Size and click Generate", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 50 times (to operation 50 of 100)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "Sorting in the V2 split-rails layout, paused at OP 50 / 100: Merge Sort on 24 values with pseudocode line 7 'copy the smaller front'. Status reads Paused, with 50 / 100 operations, 42 comparisons, 0 swaps and 50 writes, and the colour legend sits below it.",
+      "caption": "Bao's working build of layout V2 (split rails), Sorting"
+    },
+    {
+      "file": "B6_sorting_v7_docks.png",
+      "commit": "ae63a62", "sha": "ae63a62a4684f3bc15bbe508bab767a2a5a5efcb", "commitDate": "2026-10-18T20:33:39+08:00", "author": "Kerk Tai Heng",
+      "folderAuthor": "BJoozz (all commits to the folder); last changed in c81a679, 2026-10-17",
+      "path": "prototypes/sorting-visualizer-docks, route /",
+      "server": "vite 8.3.0 dev server after npm ci",
+      "input": "Same as B5",
+      "actions": ["Open /", "Type 24 into Size and click Generate", "Click Play once to start the run (Next is disabled until a run exists), then Pause at once", "Click First", "Click Next 50 times (to operation 50 of 100)"],
+      "viewport": "1440x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "Sorting in the V7 docks layout in its default arrangement: Action and e-Lecture tabs on the left, Pseudocode on the right and Status in the bottom dock. Paused at the same operation as B5 (OP 50 / 100).",
+      "caption": "Bao's working build of layout V7 (docks), Sorting"
+    },
+    {
+      "file": "C1_ui_kit_home.png",
+      "commit": "634b5be", "sha": "634b5bee9c7253c19e5f2d90fbf5e4b3478e2615", "commitDate": "2026-09-03T11:46:03+08:00", "author": "Kerk Tai Heng",
+      "path": "design/design-system/ui_kits/visualgo-web/index.html, served from design/design-system by a static file server (route /ui_kits/visualgo-web/index.html)",
+      "input": "The kit as committed at 634b5be. React 18.3.1, ReactDOM and Babel standalone 7.29.0 load from the unpkg CDN, as the file specifies. All requests succeeded and the page logged no errors.",
+      "actions": ["Open the page and wait for network idle and for the React root to render"],
+      "viewport": "1280x900, deviceScaleFactor 1",
+      "imageSize": "1280x900 (viewport; the home page itself is 3567 px tall)",
+      "captureDate": "2026-11-16",
+      "shows": "The kit's click-through recreation of the visualgo.net home screen in the Light theme: header, search, sponsor block, tip card and the first row of module cards (Sorting, Bitmask, Linked List). The kit's own fixed Theme switcher sits at the bottom right.",
+      "caption": "Kerk's design-system UI kit, 3 Sep 2026: home"
+    },
+    {
+      "file": "C2_ui_kit_visualisation.png",
+      "commit": "634b5be", "sha": "634b5bee9c7253c19e5f2d90fbf5e4b3478e2615", "commitDate": "2026-09-03T11:46:03+08:00", "author": "Kerk Tai Heng",
+      "path": "same page as C1; the screen changes in the app (no URL change)",
+      "input": "Same as C1",
+      "actions": ["Continue from C1", "Click the 'Binary Search Tree, AVL Tree' module card"],
+      "viewport": "1280x900, deviceScaleFactor 1",
+      "captureDate": "2026-11-16",
+      "shows": "The kit's visualisation screen (/bst), a BST recreation that opens from any module card. It shows Search(32) 'Comparing 32 with 41' on a 9-node BST, the left action menu (Search(v) highlighted by the kit's own demo), the status and pseudocode panels on the right and the footer transport. The kit's Theme switcher overlaps the right end of the footer.",
+      "caption": "Kerk's design-system UI kit, 3 Sep 2026: visualisation"
+    }
+  ]
+}
