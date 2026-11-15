@@ -24,13 +24,13 @@ There are seven embedded MP4s, all real recordings of app `346e84b`.
 |---|---|---:|---|
 | 14 | `02b_v10_split_left_bottom.mp4` | 16.3 s | The Status tab splits the right group in two, joins the left group, then docks under the drawing; frame 12/21 throughout |
 | 15 | `03b_graph_drag_edit_parallel.mp4` | 16.2 s | B dragged at frame 12/21 (the run is kept); B → A changed from 1 to 5 (NO RUN); a second B → A edge drawn on the canvas, then given weight 2 in the Edges text, so the two parallel edges read 5 and 2 |
-| 16 | `01b_lca_keep_then_jump.mp4` | 10.3 s | LCA(6, 10): keep at k = 1 with its note, lift at k = 0, answer 8 |
-| 17 | `02_sorting_shared_clock.mp4` (Codex pack) | 10.4 s | Bubble and Selection on the same 12 values; both pause at operation 48; Last |
+| 16 | `02_sorting_shared_clock.mp4` (Codex pack) | 10.4 s | Bubble and Selection on the same 12 values; both pause at operation 48; Last |
+| 17 | `01c_lca_reroot_8_20.mp4` | 25.7 s | LCA(8, 20) on Balanced · 10 nodes re-rooted at 16: u lifts from 8 to 4, both cursors stay at k = 3, 2, 1 (ancestor 16), both lift at k = 0, answer 16 |
 | 18 | `04b_dijkstra_big_note_pause_hover.mp4` | 14.0 s | Dijkstra on the nine-vertex Big preset (visualgo.net's TESSELLATION): paused motion at 17/53 on edge 2 → 3, the note `12 + 14 < 33 · update` at 18/53, then hover 8 (distance 42) and 4 (distance 46) at 53/53 |
 | 24 (backup) | `05_bst_preview_apply.mp4` | 8.6 s | BST Insert(5): preview, step back, Apply; the tree text gains `6 5` |
 | 27 (backup, new) | `06_dfs_recursive_recap.mp4` | 8.5 s | Recursive DFS on the same graph and its final recap |
 
-The main talk uses five clips (slides 14–18), about 67 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
+The main talk uses five clips (slides 14–18), about 83 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
 
 ## Algorithm-coverage context (added 16 November)
 
@@ -42,7 +42,7 @@ What was checked before the slides changed:
 - **Heavy-Light Decomposition and Centroid Decomposition:** not in the app and not in any record. The deck names them only as possible later extensions.
 - **The original VisuAlgo:** the deck makes no claim about whether it has Trie or LCA pages. A comment in the app's `modules.ts` says it has both, while Bao's copy of its source (`BJoozz/visualgo`) has no view named for either.
 
-Slides changed for this: 2, 4, 5, 13, 16 (notes only), 22 and 26 (notes only). No slide was added and the LCA clip on slide 16 is unchanged.
+Slides changed for this: 2, 4, 5, 13, the LCA slide (notes only; slide 16 then, slide 17 now), 22 and 26 (notes only). No slide was added and the LCA clip was not changed by it.
 
 ## Design history on slides 6–8 (added 16 November)
 
@@ -65,6 +65,19 @@ A review pass then changed the first version of these slides (three reviewers re
 
 The images are real artifacts rendered from their own commits; see [`design-history/`](ca-2026-11-16-deck-media/design-history/README.md). The text was checked against the records by a separate fact-checking pass before it went on the slides.
 
+## Order and LCA test case (added 16 November)
+
+Bao asked for two changes:
+- **Order:** Sorting now comes before LCA, because it stands apart from the two explanation slides (LCA, then Dijkstra). Sorting is slide 16 and LCA is slide 17. Where an earlier section of this file says "slide 16" for LCA, it means today's slide 17.
+- **LCA test case:** the preset Balanced · 10 nodes, re-rooted at 16, with the query LCA(8, 20), and more weight on what floating text is for.
+
+What the new run shows, read from the page while recording:
+- The run has 12 frames. The depths are 4 and 2, so u first lifts from 8 to 4 (the depth loop checks k = 3 and k = 2 before it lifts at k = 1).
+- Both cursors then stay at k = 3, 2 and 1, where both ancestors are 16, and lift at k = 0, where the ancestors are 10 and 18. LCA(8, 20) = 16, as worked out by hand beforehand.
+- Nine of the twelve frames carry a floating note and no node moves in any of them. The slide says so, and shows three of the notes as crops beside the clip.
+
+The slide still says that the benefit of floating text is a design intention and has not been measured.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |
@@ -84,8 +97,8 @@ The images are real artifacts rendered from their own commits; see [`design-hist
 | 13 | Four lines | 2×2 cards with details and thumbnails; card 02 leads with LCA (Binary Lifting) and Trie and shows the current Trie page | first sentences rewritten (coverage) |
 | 14 | Three lines | Points and the V10 clip (split, join, dock; it replaced a shorter first take, `02_v10_move_panel.mp4`, which is kept) | rewritten around the clip |
 | 15 | Historical BFS still (F2) | State-ownership diagram, three outcome cards (the third: "Add a parallel edge: a separate edge") and the drag, re-weight and parallel-edge clip (it replaced a first take without the parallel edge, `03_graph_drag_then_edit.mp4`, which is kept) | rewritten around the clip |
-| 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative; one linking sentence on later tree topics added and one sentence cut (coverage) |
-| 17 | Historical four-pane still (F7) | Points and the Codex sorting clip | clip section added |
+| 16 | Historical four-pane still (F7); it was slide 17 in the draft | Points and the Codex sorting clip, moved before LCA | clip section added |
+| 17 | Historical LCA(6, 2) still (F5); it was slide 16 in the draft | A card on what floating text is for, three notes cropped from the run, and the LCA(8, 20) clip on a tree re-rooted at 16; moved after Sorting | rewritten for the new query; LCA(6, 10) and LCA(6, 2) kept as alternatives |
 | 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip on the nine-vertex Big preset (it replaced a first take on the four-vertex graph, `04_dijkstra_note_pause_hover.mp4`, which is kept) | rewritten around the clip; one sentence credits Kerk for suggesting paused motion |
 | 19 | Historical home page (F1) | Current Editors section above a three-step flow and a limits line | screenshot source updated |
 | 20 | Three lines | Demo timeline with time ranges and a fallback card | fallback sentence added |

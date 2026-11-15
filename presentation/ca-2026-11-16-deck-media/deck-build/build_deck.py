@@ -450,19 +450,31 @@ if mp4 is None:
     mp4, poster = PACK / '02_short_clips/01_graph_paused_step.mp4', PACK / '01_main_slides/02_dijkstra_decision.png'
 media_slide(s, mp4=mp4, poster=poster, cap=NEW_CAP)
 
-# 16 LCA
+# 16 LCA (shown as slide 17 after the swap at the end of this script)
 s = S[16]
 clear_body(s)
-mp4, poster = clip(LCA_VARIANT)
-if LCA_VARIANT.startswith('01b'):
-    points(s, [('Query: LCA(6, 10) = 8', 'same depth, so no depth lift'),
-               ('k = 1: both ancestors are 8', 'keep u and v: nothing moves, the note says why'),
-               ('k = 0: ancestors 4 and 12 differ', 'lift both one level; their parent 8 is the answer')])
-else:
-    points(s, [('Query: LCA(6, 2) = 4', ''), ('Both candidate ancestors are 8', 'nothing moves; the note says why'),
-               ('Keep u and v at this step', 'tree, table, Status and pseudocode agree')])
-media_slide(s, still=FIG / 'F5-lca-query-6-2-frame2-note.png', mp4=mp4, poster=poster,
-            cap=NEW_CAP if mp4 else 'Application capture: 1 November 2026 (app 662e7b3)')
+LCA_CLIP = '01c_lca_reroot_8_20'
+mp4, poster = clip(LCA_CLIP)
+if mp4 is None:
+    raise SystemExit('LCA clip 01c_lca_reroot_8_20 is missing')
+# what floating text is for, in one card
+card(s, 0.62, 1.36, 3.15, 1.02,
+     [[('Floating text puts the reason beside the node', {'bold': True, 'color': NAVY, 'size': 14.5})],
+      [('9 of this query’s 12 steps carry a note; no node ever moves', {'size': 12, 'color': INK})]],
+     fill=TINT, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, space_after=3, name='point-0')
+text(s, 0.62, 2.48, 3.15, 0.5,
+     [[('Query: LCA(8, 20) = 16', {'bold': True, 'color': NAVY, 'size': 14})],
+      [('Balanced · 10 nodes, re-rooted at 16', {'size': 12, 'color': MUTED})]], space_after=1, name='point-1')
+STILLS = NEW / 'stills'
+notes3 = [('lca_8_20_depth_lift.png', (430, 578, 870, 711), 'Depth gap 2: lift u from 8 to 4'),
+          ('lca_8_20_keep.png', (395, 66, 835, 199), 'Same ancestor 16: keep u and v'),
+          ('lca_8_20_lift_both.png', (384, 212, 824, 345), 'Ancestors 10 and 18 differ: lift both')]
+for k, (fname, box_px, label) in enumerate(notes3):
+    y = 3.1 + k * 1.24
+    cimg = crop(STILLS / fname, box_px, 'lca_note_' + fname)
+    picture(s, cimg, 0.62, y, 3.15, 3.15 * (box_px[3] - box_px[1]) / (box_px[2] - box_px[0]), name=f'note-{k}')
+    text(s, 0.62, y + 0.97, 3.15, 0.24, label, size=11.5, color=INK, bold=True, name=f'note-label-{k}')
+media_slide(s, mp4=mp4, poster=poster, cap=NEW_CAP)
 
 # 17 sorting
 s = S[17]
@@ -753,21 +765,19 @@ Media: {MEDIA}clips/03_graph_drag_then_edit.mp4 (app 346e84b, recorded 16 Nov 20
 
 set_notes(S[16], f"""Bao | Algorithm Visualizers | 100 seconds including the clip
 
-Binary Lifting is one of the topics I added. It is a useful example because a query has several stages and connects a tree with an ancestor table; the same rooted tree and ancestor queries are groundwork for more advanced tree topics later. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. We still need to evaluate whether this reduces attention switching.
+Binary Lifting is one of the topics I added. A query has several stages and reads an ancestor table. Here I re-rooted a ten-node tree at 16 and asked for the LCA of 8 and 20. [Press → to play the clip.] First the deeper node must catch up: the gap is 2, so at k = 1, 8 lifts two levels to 4. Then the two cursors look for the highest ancestors that differ. At k = 3, 2 and 1 both candidates are 16, so they stay. At k = 0 the candidates are 10 and 18, so both lift, and their shared parent, 16, is the answer. In this run no node ever moves, and five of the twelve steps only decide to stay. Without a note, those steps look the same. With floating text, the reason sits beside the node, so the learner can read it without leaving the tree. Status keeps the full sentence, and the pseudocode and the table reads agree with it. During the Week 10 trial, I observed that less experienced users depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response. We still need to evaluate whether it reduces attention switching. The same rooted tree and ancestor queries are also groundwork for more advanced tree topics later.
 
-{clip_block(['0.0-0.9 s: frame 2 of 7 (k = 2: both ancestors are 8, so u = 6 and v = 10 stay).',
-             '0.9-2.8 s: frame 3: k = 1, both ancestors are 8 again; the note "same ancestor · keep u, v" appears above 8.',
-             '2.8-4.9 s: frame 4: k = 0, the ancestors 4 and 12 differ; the note says "differ · lift both".',
-             '4.9-6.7 s: frame 5: both lift one level, so u = 4 and v = 12; "↑ 1 level" appears over each.',
-             '6.7-8.0 s: frame 6: both cursors now have the same parent, 8.',
-             '8.0-10.3 s: frame 7: LCA(6, 10) = 8.'], 'frame 4 with the "differ · lift both" note.')}
+{clip_block(narration('01c_lca_reroot_8_20'), 'frame 9 of 12 with the "differ · lift both" note.',
+            chr(10) + 'Set up before recording, through the real controls: preset Balanced · 10 nodes, Root set to 16 under Edit tree, u = 8, v = 20. '
+            'The left column of the slide shows three of the notes, cropped from stills of frames 4, 8 and 9 of the same run. '
+            'The clip is 25.7 s long; keep talking over it.')}
 
-ALTERNATIVE CLIP (not on the slide)
-{MEDIA}clips/01_lca_equal_ancestors.mp4 shows LCA(6, 2) = 4 on the same tree: every step keeps u and v (k = 2 and k = 1 at 8, k = 0 at 4), then hovering 6 shows its 2^k ancestors. The ancestor table tab sits behind Status in the default layout; the strip under the drawing shows the table reads.
+EARLIER CLIPS (not on the slide)
+{MEDIA}clips/01b_lca_keep_then_jump.mp4 shows LCA(6, 10) = 8 on the default tree (keep at k = 1, lift at k = 0). {MEDIA}clips/01_lca_equal_ancestors.mp4 shows LCA(6, 2) = 4, where every step keeps u and v, then a hover on 6 shows its 2^k ancestors.
 
 SOURCE
 {GH}report/week10_user_trial_addendum.md
-Media: {MEDIA}clips/01b_lca_keep_then_jump.mp4 (app 346e84b, recorded 16 Nov 2026)
+Media: {MEDIA}clips/01c_lca_reroot_8_20.mp4 (app 346e84b, recorded 16 Nov 2026); stills in {MEDIA}stills/
 Historical still of LCA(6, 2): {GH}figures/F5-lca-query-6-2-frame2-note.png (app 662e7b3)""")
 
 set_notes(S[17], f"""Bao | Algorithm Visualizers | 75 seconds including the clip
@@ -856,6 +866,21 @@ for n in (14, 15, 16, 17, 18, 20, 24, 26, 27):
 early26 = ('Slide 5 uses the standalone prototype builds, rebuilt at their last documented commits and captured on '
            '16 November 2026 (presentation/ca-2026-11-16-deck-media/early-prototypes/). ') if EARLY_READY else ''
 set_notes(S[26], notes_get(S[26]).replace('{EARLY26}', early26))
+
+# ======================= order: Sorting before LCA =======================
+# Bao's choice of 16 November: Sorting stands apart, so it comes before the two
+# explanation slides (LCA, then Dijkstra). In this script S[16] is still the LCA
+# slide and S[17] the Sorting slide, as in the draft; only the final order changes.
+SWAP_16_17 = True
+if SWAP_16_17:
+    ids = prs.slides._sldIdLst
+    els = list(ids)
+    sort_el = els[16]
+    ids.remove(sort_el)
+    ids.insert(15, sort_el)
+    for sl, num in ((S[17], '16'), (S[16], '17')):
+        shape_by_name(sl, 'page').text_frame.paragraphs[0].runs[0].text = num
+    LOG.append('order: Sorting is slide 16, LCA is slide 17')
 
 prs.save(str(OUT))
 print('\n'.join(LOG))

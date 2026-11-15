@@ -6,14 +6,14 @@
 
 - **Editable PowerPoint, 27 slides:** [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx), with 22 timed slides, 1 Questions slide and 4 backup slides. Backup 27 is new: a recursive DFS recap that serves as a fallback for the live demo.
 - **Seven embedded real-app clips** with posters as static fallbacks:
-  - five in the main talk, on slides 14–18 (about 67 s in total);
+  - five in the main talk, on slides 14–18 (about 83 s in total);
   - two on the backup slides 24 and 27.
   - Press → or click to play a clip. On 16 November, PowerPoint decoded a frame from inside each clip.
   - [Media map](CA_PRESENTATION_MEDIA_USAGE.md) · [what changed from the draft](CA_DECK_CHANGELOG.md).
 - **Speaker notes on all 27 slides.** The notes on the clip slides give the exact frame numbers, second by second.
 - **Master script:** the [master script](VisuAlgo_CA_Master_Script.md) matches the slide sequence.
 - **PDF preview** in [`ca-2026-11-16-deck-media/deck-preview/`](ca-2026-11-16-deck-media/deck-preview/). The deck validates, and every slide was rendered and inspected.
-- **Tree example:** LCA (Binary Lifting) is the main Tree example. Slide 16 shows LCA(6, 10); LCA(6, 2) is kept as an alternative clip.
+- **Tree example:** LCA (Binary Lifting) is the main Tree example. Slide 17 shows LCA(8, 20) on a ten-node tree re-rooted at 16; LCA(6, 10) and LCA(6, 2) are kept as alternative clips.
 - **Timing:** 33 minutes of presentation and demo, plus 12 minutes for discussion and buffer. These durations are **budgeted, not measured in rehearsal**.
 
 ## Run of show
@@ -24,7 +24,7 @@
 | 04:00–07:00 | 5–6 | Bao | Early Graph/Tree/Sorting prototypes and division of work |
 | 07:00–10:00 | 7–8 | Kerk | V2/V7, user feedback, V10 |
 | 10:00–18:00 | 9–12 | Kerk | Website, WASM engine, integration boundary |
-| 18:00–26:00 | 13–19 | Bao | Shell, graph state, LCA, sorting, interactions (clips on 14–18) |
+| 18:00–26:00 | 13–19 | Bao | Shell, graph state, sorting, LCA, interactions (clips on 14–18) |
 | 26:00–31:00 | 20–21 | Both | Live workflow demo and formative evaluation |
 | 31:00–33:00 | 22 | Both | Semester 2 priorities |
 | 33:00–45:00 | 23 and 24–27 as needed | Both | Q&A / buffer |
@@ -60,8 +60,8 @@
 |---|---|---|
 | 14 | The Status tab splits the right group, joins the left group, then docks under the drawing | Frame stays 12/21 throughout; the drawing only re-fits when the bottom row opens |
 | 15 | B dragged at 12/21; B → A changed from 1 to 5 in Draw graph → Edges; a second B → A edge drawn on the canvas, then given weight 2 | Counter unchanged after the drag; NO RUN after the edit; two separate B → A edges labelled 5 and 2 |
-| 16 | LCA(6, 10) on root 8, edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14 | k = 1 note "same ancestor · keep u, v"; k = 0 "differ · lift both"; answer 8. No depth-balancing move (equal depths) |
-| 17 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
+| 16 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
+| 17 | LCA(8, 20) on Balanced · 10 nodes re-rooted at 16 (25.7 s) | u lifts from 8 to 4; both cursors stay at k = 3, 2, 1 (ancestor 16); both lift at k = 0 (10 and 18); answer 16. Say that no node moves and the notes carry the reasons; the benefit is not measured |
 | 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |
 | 20 | **Live**: Graph Editor (Dijkstra + recursive DFS), then Tree Editor LCA | Narrate only the current action |
 

@@ -231,8 +231,8 @@ The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../prese
 Slides 14–18 embed five real-app clips of app `346e84b`:
 - the V10 panel split, move and dock;
 - a vertex drag, a weight edit and a parallel edge added;
-- LCA(6, 10), keep then lift;
-- Codex’s sorting clip;
+- Codex’s sorting clip (slide 16 since the reorder of 16 November);
+- LCA(8, 20) on a tree re-rooted at 16: lift, keep, lift both (slide 17);
 - Dijkstra on a nine-vertex graph: paused motion, its note and the final hover.
 
 Backups 24 and 27 add the BST preview/Apply clip and a recursive DFS recap for the live demo. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.

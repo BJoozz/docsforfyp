@@ -5,7 +5,7 @@ This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlg
 All app images and clips are real captures; none is generated or composited. The only additions are coloured outlines drawn on the slide over an image: around V2 and V7 in the wireframe grid on slide 7, and around the regions of the app on slide 8. The sources are:
 
 - the [Codex pack](ca-2026-11-16/README.md): app `346e84b`, captured 15–16 November;
-- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and one Trie still in `stills/`;
+- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and four stills in `stills/` (one of the Trie page, three of the LCA run);
 - the [design-history stills](ca-2026-11-16-deck-media/design-history/README.md): Kerk's UI kit (`634b5be`, 3 September) and wireframes (`69aa8e4`, 4 September), and Bao's working V2 and V7 builds (`ae63a62`), each rendered from its own commit on 16 November;
 - the [historical figures](../figures/README.md): app `662e7b3`, 1 November.
 
@@ -20,8 +20,8 @@ All app images and clips are real captures; none is generated or composited. The
 | 13 | Crops of Codex `03`, `06`, `02`, and of the Trie still | Thumbnails | — |
 | 14 | [`02b_v10_split_left_bottom.mp4`](ca-2026-11-16-deck-media/clips/02b_v10_split_left_bottom.mp4), 16.3 s | While the run stays at frame 12/21, the Status tab is dragged down its group to split the right column in two, then into the left group, then to the bottom row under the drawing. The drawing re-fits when the canvas gets shorter. Set-up before recording, also by a real drag: Status beside Pseudocode as a tab | Status under the drawing at 12/21 |
 | 15 | [`03b_graph_drag_edit_parallel.mp4`](ca-2026-11-16-deck-media/clips/03b_graph_drag_edit_parallel.mp4), 16.2 s | Dragging B keeps frame 12/21. Changing B → A from 1 to 5 in the Edges text ends the run (NO RUN). A second B → A edge is then drawn on the canvas from B's handle to A's; it appears as a new `B A` line with no weight (the app counts it as 1 and says so) until ` 2` is typed. The two parallel edges end up curved apart and labelled 5 and 2 | the graph with both B → A edges, labelled 5 and 2 |
-| 16 | [`01b_lca_keep_then_jump.mp4`](ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4), 10.3 s | LCA(6, 10): at k = 1 both ancestors are 8, so u and v are kept (note "same ancestor · keep u, v"); at k = 0, 4 and 12 differ, so both are lifted ("differ · lift both"); answer 8 | frame 4/7 with "differ · lift both" |
-| 17 | Codex [`02_sorting_shared_clock.mp4`](ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4), 10.4 s | Bubble and Selection on the same 12 values pause together at operation 48 and resume; Last seeks to the end | both panes at operation 48 |
+| 16 | Codex [`02_sorting_shared_clock.mp4`](ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4), 10.4 s | Bubble and Selection on the same 12 values pause together at operation 48 and resume; Last seeks to the end | both panes at operation 48 |
+| 17 | [`01c_lca_reroot_8_20.mp4`](ca-2026-11-16-deck-media/clips/01c_lca_reroot_8_20.mp4), 25.7 s; crops of `stills/lca_8_20_depth_lift.png`, `lca_8_20_keep.png`, `lca_8_20_lift_both.png` | LCA(8, 20) on the Balanced · 10 nodes preset re-rooted at 16. u lifts from 8 to 4 ("gap 2 ≥ 2 · lift u"); at k = 3, 2 and 1 both ancestors are 16 ("same ancestor · keep u, v"); at k = 0 the ancestors 10 and 18 differ ("differ · lift both"); answer 16. Nine of the twelve frames carry a note and no node moves | frame 9/12 with "differ · lift both" |
 | 18 | [`04b_dijkstra_big_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04b_dijkstra_big_note_pause_hover.mp4), 14.0 s | Dijkstra from 0 on the nine-vertex Big preset (visualgo.net's TESSELLATION). Frame 17/53 stays fixed while edge 2 → 3 is emphasised; Next gives frame 18 with `12 + 14 < 33 · update` beside 3 (badge 33→26); Last, then hover 8 (0 → 2 → 3 → 8, distance 42) and 4 (0 → 2 → 3 → 4, distance 46) | frame 18/53 with the note |
 | 19 | Codex `01_editor_entry_points.png` | The Editors section of the home page | — |
 | 24 (backup) | [`05_bst_preview_apply.mp4`](ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4), 8.6 s | BST Insert(5) preview, two steps back and forward, then Apply; the tree text gains `6 5` | the preview with Apply insertion |
@@ -29,6 +29,7 @@ All app images and clips are real captures; none is generated or composited. The
 | 27 (backup) | [`06_dfs_recursive_recap.mp4`](ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4), 8.5 s | Recursive DFS on the same graph; the final frame replays the DFS tree (S → A → T, then S → B) | the final frame |
 
 Kept outside the deck for Q&A or rehearsal:
+- [`01b_lca_keep_then_jump.mp4`](ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4): the earlier LCA clip, LCA(6, 10) = 8 on the default tree.
 - [`03_graph_drag_then_edit.mp4`](ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4): the first take for slide 15; it stops after the weight edit.
 - [`04_dijkstra_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4): the first take for slide 18, on the four-vertex S, A, B, T graph.
 - [`02_v10_move_panel.mp4`](ca-2026-11-16-deck-media/clips/02_v10_move_panel.mp4): the first take for slide 14. Status moves to the left group, then Settings → Reset panel layout.
@@ -46,7 +47,7 @@ Kept outside the deck for Q&A or rehearsal:
 ## Presentation decisions
 
 - Clips replace the live actions on slides 14–18, so there is no window switching; the live demo stays on slide 20. Each clip is used once, and the clips stay within the existing slide times.
-- Slide 16 uses LCA(6, 10) because it shows both a keep, where nothing moves and the note explains why, and a lift. Its alternative is LCA(6, 2), the report's F5 example; swap it in by setting `LCA_VARIANT` in `deck-build/build_deck.py`.
+- Slide 17 uses LCA(8, 20) on the Balanced · 10 nodes preset re-rooted at 16, Bao's choice of 16 November. One query shows a depth lift, three keeps and a lift, and nine of its twelve frames carry a note while no node moves. The earlier clips, LCA(6, 10) and LCA(6, 2) on the default tree, are kept. Sorting (slide 16) now comes before LCA, also Bao's choice.
 - Keep the claims accurate:
   - The visualizers run TypeScript today; the engine is a separate foundation.
   - Operation counts are not CPU time, and the clip lengths are not timings.

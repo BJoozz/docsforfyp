@@ -8,6 +8,8 @@ The PowerPoint contains 22 timed slides, one Q&A slide and four backup slides (s
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
+Order and test case, 16 November, at Bao's request: Sorting (slide 16) now comes before LCA (slide 17), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset re-rooted at 16 with the query LCA(8, 20), and stresses what floating text is for.
+
 Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports. There is no written record of this, and he did not name specific topics. LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions; they are not implemented and are not Semester 2 commitments.
 
 ## Run of show
@@ -350,31 +352,9 @@ Live layout was off. The app has no on-canvas weight edit.
 
 **Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/03b_graph_drag_edit_parallel.mp4
 
-### 16. LCA: explaining a decision to stay
+### 16. Sorting comparison
 
-**Bao · Algorithm Visualizers · 20:55–22:35**
-
-**On slide**
-
-- Query: LCA(6, 10) = 8 (same depth, so no depth lift)
-- k = 1: both ancestors are 8 (keep u and v: nothing moves, the note says why)
-- k = 0: ancestors 4 and 12 differ (lift both one level; their parent 8 is the answer)
-
-**Visual:** Clip `01b_lca_keep_then_jump.mp4` (10.3 s): notes "same ancestor · keep u, v" and "differ · lift both". Alternative clip `01_lca_equal_ancestors.mp4` shows LCA(6, 2) = 4.
-
-**English script**
-
-Binary Lifting is one of the topics I added. It is a useful example because a query has several stages and connects a tree with an ancestor table; the same rooted tree and ancestor queries are groundwork for more advanced tree topics later. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. We still need to evaluate whether this reduces attention switching.
-
-**Delivery cue:** Clip, 10.3 s: frame 2/7 (k = 2, both 8); 0.9 s frame 3, k = 1, note "same ancestor · keep u, v" above 8; 2.8 s frame 4, k = 0, 4 and 12 differ, "differ · lift both"; 4.9 s frame 5, u = 4, v = 12, "↑ 1 level"; 6.7 s same parent 8; 8.0 s LCA(6, 10) = 8. Tree: root 8; edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14. Do not describe a depth-balancing move.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
-
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4 (alternative: 01_lca_equal_ancestors.mp4, LCA(6, 2) = 4)
-
-### 17. Sorting comparison
-
-**Bao · Algorithm Visualizers · 22:35–23:50**
+**Bao · Algorithm Visualizers · 20:55–22:10**
 
 **On slide**
 
@@ -394,6 +374,38 @@ Sorting comparison gives every pane the same input while keeping its execution s
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
 **Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4
+
+### 17. LCA: explaining a decision to stay
+
+**Bao · Algorithm Visualizers · 22:10–23:50**
+
+**On slide**
+
+- Floating text puts the reason beside the node: 9 of this query's 12 steps carry a note; no node ever moves
+- Query: LCA(8, 20) = 16 (Balanced · 10 nodes, re-rooted at 16)
+- Depth gap 2: lift u from 8 to 4
+- Same ancestor 16: keep u and v
+- Ancestors 10 and 18 differ: lift both
+
+**Visual:** Clip `01c_lca_reroot_8_20.mp4` (25.7 s, app 346e84b). The left column shows three of the run's notes, cropped from stills of frames 4, 8 and 9: "gap 2 ≥ 2 · lift u", "same ancestor · keep u, v" and "differ · lift both". Earlier clips, kept as alternatives: `01b_lca_keep_then_jump.mp4` (LCA(6, 10) = 8) and `01_lca_equal_ancestors.mp4` (LCA(6, 2) = 4), both on the default tree.
+
+**English script**
+
+Binary Lifting is one of the topics I added. A query has several stages and reads an ancestor table. Here I re-rooted a ten-node tree at 16 and asked for the LCA of 8 and 20. [Press → to play the clip.] First the deeper node must catch up: the gap is 2, so at k = 1, 8 lifts two levels to 4. Then the two cursors look for the highest ancestors that differ. At k = 3, 2 and 1 both candidates are 16, so they stay. At k = 0 the candidates are 10 and 18, so both lift, and their shared parent, 16, is the answer. In this run no node ever moves, and five of the twelve steps only decide to stay. Without a note, those steps look the same. With floating text, the reason sits beside the node, so the learner can read it without leaving the tree. Status keeps the full sentence, and the pseudocode and the table reads agree with it. During the Week 10 trial, I observed that less experienced users depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response. We still need to evaluate whether it reduces attention switching. The same rooted tree and ancestor queries are also groundwork for more advanced tree topics later.
+
+**Delivery cue:** Clip, 25.7 s; keep talking over it. Set up before recording: preset Balanced · 10 nodes, Root set to 16 under Edit tree, u = 8, v = 20.
+- Frame 1/12: depths 4 and 2.
+- Frames 2–3 (1.1 s, 3.4 s): k = 3 and k = 2, the gap 2 is smaller than 8 and 4, so u stays ("gap 2 < 8 · keep u", "gap 2 < 4 · keep u").
+- Frame 4 (5.7 s): k = 1, "gap 2 ≥ 2 · lift u". Frame 5 (8.1 s): u moves from 8 to 4, "↑ 2 levels".
+- Frames 6–8 (10.4 s, 12.7 s, 14.9 s): k = 3, 2, 1, both ancestors are 16, "same ancestor · keep u, v".
+- Frame 9 (17.2 s): k = 0, ancestors 10 and 18 differ, "differ · lift both". Frame 10 (19.5 s): u = 10, v = 18.
+- Frame 11 (21.8 s): same parent, 16. Frame 12 (23.1 s): LCA(8, 20) = 16.
+
+Say that floating text is a design response to a formative observation; its effect is not measured.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/01c_lca_reroot_8_20.mp4 (stills in https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/stills/)
 
 ### 18. Pause and inspect the result
 
@@ -622,8 +634,8 @@ Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, reco
 |---|---:|---:|---|
 | V10: split, join and dock Status while paused | 14 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
 | Vertex drag, weight edit and a parallel edge | 15 | 16.2 s clip | Poster: both B → A edges, labelled 5 and 2 |
-| LCA(6, 10): keep, then lift | 16 | 10.3 s clip | Poster: frame 4/7, "differ · lift both" |
-| Sorting shared input and clock | 17 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
+| Sorting shared input and clock | 16 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
+| LCA(8, 20) on a tree re-rooted at 16 | 17 | 25.7 s clip | Poster: frame 9/12, "differ · lift both" |
 | Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 18 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
 | Joint editor workflow | 20 | 3 min live | Clips on slides 15–18; backup 27 for the DFS recap |
 
@@ -642,15 +654,18 @@ B D 2
 
 ### Prepared LCA input
 
-Root 8. The slide-16 clip queries 6 and 10: at k = 1 both ancestors are 8 (keep), at k = 0 they are 4 and 12 (lift both), so LCA(6, 10) = 8. The alternative query 6 and 2 keeps u and v at every step; LCA(6, 2) = 4. Both pairs have equal depth, so neither shows a depth-balancing phase.
+Choose the preset Balanced · 10 nodes, then set Root to 16 under Edit tree. The slide-17 clip queries 8 and 20: 8 first lifts two levels to 4; at k = 3, 2 and 1 both ancestors are 16, so the cursors stay; at k = 0 the ancestors are 10 and 18, so both lift; LCA(8, 20) = 16. The earlier clips use the default tree (root 8): LCA(6, 10) = 8 and LCA(6, 2) = 4.
 
 ```text
-8 4
-8 12
+10 4
 4 2
 4 6
-12 10
+6 8
+10 16
+16 12
 12 14
+16 18
+18 20
 ```
 
 ### Rehearsal checks
@@ -663,7 +678,7 @@ Root 8. The slide-16 clip queries 6 and 10: at k = 1 both ancestors are 8 (keep)
 - Click through slides 14–18, 24 and 27 once in slideshow mode; each clip should play on →.
 - Kerk confirms slides 7–12 and the first integration algorithm.
 - Keep March 2027 as a target, not a guaranteed release date.
-- If running late, shorten slide 20 to Graph only; the LCA clip was already shown on slide 16.
+- If running late, shorten slide 20 to Graph only; the LCA clip was already shown on slide 17.
 
 ## Source notes
 
