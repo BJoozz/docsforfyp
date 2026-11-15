@@ -284,20 +284,27 @@ My contribution covers the visualizer foundations, algorithm execution and opera
 **On slide**
 
 - The canvas stays mounted: moving Status does not reload the drawing or the run
-- One model governs sizes and valid drops: the drop preview uses the same geometry as the result
+- One model governs sizes and valid drops: split, join or dock: the preview uses the same geometry as the result
 - Saved layouts recover safely: versioned and checked, repaired or reset
 
-**Visual:** Clip `02_v10_move_panel.mp4` (7.3 s, app 346e84b): Status dragged into the left group at frame 12/21, then Settings → Reset panel layout; the frame and the drawing never change.
+**Visual:** Clip `02b_v10_split_left_bottom.mp4` (16.3 s, app 346e84b), paused at frame 12/21 throughout. The Status tab, set up beside Pseudocode, is dragged down to split the right column in two, then into the left group, then to the bottom row under the drawing. The first take, `02_v10_move_panel.mp4`, is kept as an alternative.
 
 **English script**
 
-The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. [Press → to play the clip: Status moves into the left group while the run stays at frame 12, then Reset panel layout puts it back.] The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
+The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. [Press → to play the clip: the Status tab splits the right group in two, joins the left group, then docks under the drawing, while the run stays at frame 12.] The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
 
-**Delivery cue:** Clip, 7.3 s: 0–1.0 s paused at 12/21; 1.0–2.6 s Status dragged onto the left group (drop preview); 2.6–4.5 s Status beside Action and E-Lecture, still 12/21; 4.5–5.7 s Settings → Reset panel layout; ends at 12/21. Live alternative only if time allows.
+**Delivery cue:** Clip, 16.3 s, frame 12/21 throughout.
+- 1.5–4.4 s: Status is dragged down its own group (the preview moves from the upper to the lower half).
+- 4.4 s: the right column splits into two equal groups.
+- 6.3–9.2 s: Status is dragged to the left group.
+- 11.1–14.0 s: Status is dragged to the bottom row.
+- 14.0 s: Status docks under the drawing; the drawing re-fits and the left group shows E-Lecture.
+
+Live alternative only if time allows.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
 
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/02_v10_move_panel.mp4
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/02b_v10_split_left_bottom.mp4
 
 ### 15. Input, layout and playback
 
@@ -584,7 +591,7 @@ Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, reco
 
 | Clip or live action | Slide | Length | Fallback |
 |---|---:|---:|---|
-| V10: move Status while paused, then reset | 14 | 7.3 s clip | Poster: Status in the left group at 12/21 |
+| V10: split, join and dock Status while paused | 14 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
 | Vertex drag versus weight edit | 15 | 8.0 s clip | Poster: after the edit, NO RUN |
 | LCA(6, 10): keep, then lift | 16 | 10.3 s clip | Poster: frame 4/7, "differ · lift both" |
 | Sorting shared input and clock | 17 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |

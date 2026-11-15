@@ -496,10 +496,12 @@ NEW_CAP = 'Real app recording · VisuAlgo+ main 346e84b · 16 Nov 2026 · press 
 # 14 V10 shell
 s = S[14]
 clear_body(s)
+V10_CLIP = '02b_v10_split_left_bottom' if clip('02b_v10_split_left_bottom')[0] else '02_v10_move_panel'
 points(s, [('The canvas stays mounted', 'moving Status does not reload the drawing or the run'),
-           ('One model governs sizes and valid drops', 'the drop preview uses the same geometry as the result'),
+           ('One model governs sizes and valid drops', 'split, join or dock: the preview uses the same geometry as the result'
+            if V10_CLIP.startswith('02b') else 'the drop preview uses the same geometry as the result'),
            ('Saved layouts recover safely', 'versioned and checked, repaired or reset')])
-mp4, poster = clip('02_v10_move_panel')
+mp4, poster = clip(V10_CLIP)
 media_slide(s, still=PACK / '01_main_slides/06_v10_layout.png', mp4=mp4, poster=poster,
             cap=NEW_CAP if mp4 else 'Application capture: 16 Nov 2026, app 346e84b · Status moved below the canvas; frame 21 kept')
 
@@ -729,28 +731,54 @@ if mp4 is not None:
 
 # ======================= speaker notes for the media slides =======================
 MEDIA = f'{GH}presentation/ca-2026-11-16-deck-media/'
+import json as _json
+_man = _json.loads((NEW / 'manifest.json').read_text(encoding='utf-8'))
+
+
+def narration(slug):
+    for a in _man.get('assets', []):
+        if a.get('file', '').endswith(slug + '.mp4'):
+            return list(a.get('narration_en') or a.get('narration') or [])
+    return []
+
+
+V10B_LINES = narration('02b_v10_split_left_bottom')
+V10B_POSTER = 'Status docked under the drawing at frame 12 of 21.'
 
 
 def clip_block(lines, poster_text, extra=''):
     return 'CLIP (press → or click the video; it plays once)\n' + '\n'.join(lines) + f'\nPoster if the video cannot play: {poster_text}' + extra
 
 
+if V10_CLIP.startswith('02b'):
+    v10_action = ('[Press → to play the clip: the Status tab splits the right group in two, joins the left group, '
+                  'then docks under the drawing, while the run stays at frame 12.]')
+    v10_block = clip_block(V10B_LINES, V10B_POSTER,
+                           '\nSet up before recording, also by a real drag: Status was put beside Pseudocode as a tab. '
+                           'The default layout has them as two groups.')
+    v10_alt = (f'\n\nEARLIER CLIP (not on the slide)\n{MEDIA}clips/02_v10_move_panel.mp4 (7.3 s) moves Status to the left group '
+               'and then uses Settings > Reset panel layout.')
+else:
+    v10_action = ('[Press → to play the clip: Status moves into the left group while the run stays at frame 12, '
+                  'then Reset panel layout puts it back.]')
+    v10_block = clip_block(['0.0-1.0 s: Dijkstra paused at frame 12 of 21; Status is in the lower right.',
+                            '1.0-2.6 s: the Status tab is dragged onto the left group; the drop preview outlines that group.',
+                            '2.6-4.5 s: Status is now a tab beside Action and E-Lecture; still frame 12, and the drawing has not moved.',
+                            '4.5-5.7 s: Settings, then Reset panel layout, puts Status back in the lower right.',
+                            '5.7-7.3 s: the run is still at frame 12.'], 'Status in the left group at frame 12.')
+    v10_alt = ''
 set_notes(S[14], f"""Bao | Algorithm Visualizers | 70 seconds including the clip
 
-The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. [Press → to play the clip: Status moves into the left group while the run stays at frame 12, then Reset panel layout puts it back.] The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
+The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. {v10_action} The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
 
-{clip_block(['0.0-1.0 s: Dijkstra paused at frame 12 of 21; Status is in the lower right.',
-             '1.0-2.6 s: the Status tab is dragged onto the left group; the drop preview outlines that group.',
-             '2.6-4.5 s: Status is now a tab beside Action and E-Lecture; still frame 12, and the drawing has not moved.',
-             '4.5-5.7 s: Settings, then Reset panel layout, puts Status back in the lower right.',
-             '5.7-7.3 s: the run is still at frame 12.'], 'Status in the left group at frame 12.')}
+{v10_block}{v10_alt}
 
 LIVE ALTERNATIVE
 Only if time allows: move one tab while paused, show the unchanged canvas and frame, then Settings > Reset panel layout.
 
 SOURCE
 {GH}03_architecture_and_decisions.md
-Media: {MEDIA}clips/02_v10_move_panel.mp4 (app 346e84b, recorded 16 Nov 2026; manifest.json in that folder)""")
+Media: {MEDIA}clips/{V10_CLIP}.mp4 (app 346e84b, recorded 16 Nov 2026; manifest.json in that folder)""")
 
 set_notes(S[15], f"""Bao | Algorithm Visualizers | 65 seconds including the clip
 

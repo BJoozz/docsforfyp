@@ -22,7 +22,7 @@ There are seven embedded MP4s, all real recordings of app `346e84b`.
 
 | Slide | Clip | Length | Shows |
 |---|---|---:|---|
-| 14 | `02_v10_move_panel.mp4` | 7.3 s | Status dragged into the left group, then Settings → Reset panel layout; frame 12/21 throughout |
+| 14 | `02b_v10_split_left_bottom.mp4` | 16.3 s | The Status tab splits the right group in two, joins the left group, then docks under the drawing; frame 12/21 throughout |
 | 15 | `03_graph_drag_then_edit.mp4` | 8.0 s | B dragged at frame 12/21 (the run is kept), then B → A changed from 1 to 5 (NO RUN) |
 | 16 | `01b_lca_keep_then_jump.mp4` | 10.3 s | LCA(6, 10): keep at k = 1 with its note, lift at k = 0, answer 8 |
 | 17 | `02_sorting_shared_clock.mp4` (Codex pack) | 10.4 s | Bubble and Selection on the same 12 values; both pause at operation 48; Last |
@@ -30,7 +30,7 @@ There are seven embedded MP4s, all real recordings of app `346e84b`.
 | 24 (backup) | `05_bst_preview_apply.mp4` | 8.6 s | BST Insert(5): preview, step back, Apply; the tree text gains `6 5` |
 | 27 (backup, new) | `06_dfs_recursive_recap.mp4` | 8.5 s | Recursive DFS on the same graph and its final recap |
 
-The main talk uses five clips (slides 14–18), about 46 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
+The main talk uses five clips (slides 14–18), about 55 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
 
 ## Slide by slide
 
@@ -49,7 +49,7 @@ The main talk uses five clips (slides 14–18), about 46 seconds in total. They 
 | 11 | Three lines | Two history models (≠) over the three things integration must preserve | unchanged |
 | 12 | Three lines | Site frame with three visualizer slots, the infrastructure card, an attribution line | unchanged |
 | 13 | Four lines | 2×2 cards with details and thumbnails | unchanged |
-| 14 | Three lines | Points and the V10 clip | rewritten around the clip |
+| 14 | Three lines | Points and the V10 clip (split, join, dock; it replaced a shorter first take, `02_v10_move_panel.mp4`, which is kept) | rewritten around the clip |
 | 15 | Historical BFS still (F2) | State-ownership diagram and the drag/edit clip | rewritten around the clip |
 | 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative |
 | 17 | Historical four-pane still (F7) | Points and the Codex sorting clip | clip section added |

@@ -229,7 +229,7 @@ This verifies the selected captures, not the entire proposed demo or a timed Zoo
 The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../presentation/VisuAlgo_CA_Presentation.pptx). It has 27 slides (22 timed, 1 Q&A and 4 backup) and was built from the GPT draft, which is kept unchanged in `presentation/drafts/`.
 
 Slides 14–18 embed five real-app clips of app `346e84b`:
-- the V10 panel move;
+- the V10 panel split, move and dock;
 - a vertex drag versus a weight edit;
 - LCA(6, 10), keep then lift;
 - Codex’s sorting clip;
