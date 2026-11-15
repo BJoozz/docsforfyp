@@ -1,0 +1,1233 @@
+{
+  "id": "02b_v10_split_left_bottom",
+  "route": "/graph-editor/dijkstra",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+    "Next to frame 12; then, off camera, the Status tab dragged into the Pseudocode group's tab strip after Pseudocode (drop target group:g2:1); Status is the front tab: right column = one group g2 with tabs Pseudocode | Status. Mouse parked on empty canvas."
+  ],
+  "observations": [
+    {
+      "t": 0.028,
+      "name": "start",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "layout": {
+        "statusRegion": "right",
+        "statusGroup": "g2",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action*",
+                  "electure"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode",
+                  "status*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          798
+        ],
+        "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            473
+          ],
+          "A": [
+            671,
+            298
+          ],
+          "B": [
+            690,
+            581
+          ],
+          "T": [
+            956,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "t": 3.97,
+      "name": "drag 1 over its target",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "hotTarget": "split:g2:after",
+      "preview": {
+        "kind": "box",
+        "refused": "false",
+        "label": "STATUS",
+        "box": [
+          1120,
+          443,
+          320,
+          395
+        ]
+      }
+    },
+    {
+      "t": 4.619,
+      "name": "just after drop 1",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "layout": {
+        "statusRegion": "right",
+        "statusGroup": "g4",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action*",
+                  "electure"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 2,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  396
+                ]
+              },
+              {
+                "id": "g4",
+                "tabs": [
+                  "status*"
+                ],
+                "box": [
+                  1120,
+                  443,
+                  320,
+                  395
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          798
+        ],
+        "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            473
+          ],
+          "A": [
+            671,
+            298
+          ],
+          "B": [
+            690,
+            581
+          ],
+          "T": [
+            956,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "t": 6.029,
+      "name": "settled after drop 1",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "layout": {
+        "statusRegion": "right",
+        "statusGroup": "g4",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action*",
+                  "electure"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 2,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  396
+                ]
+              },
+              {
+                "id": "g4",
+                "tabs": [
+                  "status*"
+                ],
+                "box": [
+                  1120,
+                  443,
+                  320,
+                  395
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          798
+        ],
+        "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            473
+          ],
+          "A": [
+            671,
+            298
+          ],
+          "B": [
+            690,
+            581
+          ],
+          "T": [
+            956,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "t": 8.735,
+      "name": "drag 2 over its target",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "hotTarget": "group:g1",
+      "preview": {
+        "kind": "box",
+        "refused": "false",
+        "label": "STATUS",
+        "box": [
+          0,
+          71,
+          300,
+          767
+        ]
+      }
+    },
+    {
+      "t": 9.422,
+      "name": "just after drop 2",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "layout": {
+        "statusRegion": "left",
+        "statusGroup": "g1",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action",
+                  "electure",
+                  "status*"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          798
+        ],
+        "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            473
+          ],
+          "A": [
+            671,
+            298
+          ],
+          "B": [
+            690,
+            581
+          ],
+          "T": [
+            956,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "t": 10.824,
+      "name": "settled after drop 2",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "layout": {
+        "statusRegion": "left",
+        "statusGroup": "g1",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action",
+                  "electure",
+                  "status*"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          798
+        ],
+        "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            473
+          ],
+          "A": [
+            671,
+            298
+          ],
+          "B": [
+            690,
+            581
+          ],
+          "T": [
+            956,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "t": 13.534,
+      "name": "drag 3 over its target",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "hotTarget": "region:bottom",
+      "preview": {
+        "kind": "box",
+        "refused": "false",
+        "label": "STATUS",
+        "box": [
+          307,
+          568,
+          806,
+          270
+        ]
+      }
+    },
+    {
+      "t": 14.23,
+      "name": "just after drop 3",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "bottom",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(47.2357px, 16.4703px) scale(0.985619);",
+      "layout": {
+        "statusRegion": "bottom",
+        "statusGroup": "g5",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action",
+                  "electure*"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "bottom": {
+            "box": [
+              307,
+              568,
+              806,
+              270
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g5",
+                "tabs": [
+                  "status*"
+                ],
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          521
+        ],
+        "viewport": "transform: translate(47.2357px, 16.4703px) scale(0.985619);",
+        "nodes": {
+          "S": [
+            467,
+            407
+          ],
+          "A": [
+            672,
+            234
+          ],
+          "B": [
+            690,
+            513
+          ],
+          "T": [
+            953,
+            412
+          ]
+        }
+      }
+    },
+    {
+      "t": 15.419,
+      "name": "settled after drop 3",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "bottom",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, -61px) scale(1);",
+      "layout": {
+        "statusRegion": "bottom",
+        "statusGroup": "g5",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action",
+                  "electure*"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "bottom": {
+            "box": [
+              307,
+              568,
+              806,
+              270
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g5",
+                "tabs": [
+                  "status*"
+                ],
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          521
+        ],
+        "viewport": "transform: translate(42.0449px, -61px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            335
+          ],
+          "A": [
+            671,
+            159
+          ],
+          "B": [
+            690,
+            442
+          ],
+          "T": [
+            956,
+            339
+          ]
+        }
+      }
+    },
+    {
+      "t": 16.219,
+      "name": "final",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "bottom",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, -61px) scale(1);",
+      "layout": {
+        "statusRegion": "bottom",
+        "statusGroup": "g5",
+        "statusFront": true,
+        "regions": {
+          "left": {
+            "box": [
+              0,
+              40,
+              300,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g1",
+                "tabs": [
+                  "action",
+                  "electure*"
+                ],
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ]
+              }
+            ]
+          },
+          "bottom": {
+            "box": [
+              307,
+              568,
+              806,
+              270
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g5",
+                "tabs": [
+                  "status*"
+                ],
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ]
+              }
+            ]
+          },
+          "right": {
+            "box": [
+              1120,
+              40,
+              320,
+              798
+            ],
+            "groupCount": 1,
+            "groups": [
+              {
+                "id": "g2",
+                "tabs": [
+                  "pseudocode*"
+                ],
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "canvas": {
+        "sameFlowElement": true,
+        "flowStillConnected": true,
+        "canvasBox": [
+          307,
+          40,
+          806,
+          521
+        ],
+        "viewport": "transform: translate(42.0449px, -61px) scale(1);",
+        "nodes": {
+          "S": [
+            464,
+            335
+          ],
+          "A": [
+            671,
+            159
+          ],
+          "B": [
+            690,
+            442
+          ],
+          "T": [
+            956,
+            339
+          ]
+        }
+      },
+      "drags": [
+        {
+          "from": {
+            "x": 1268,
+            "y": 55
+          },
+          "to": {
+            "x": 1280,
+            "y": 646
+          },
+          "hotTargets": [
+            {
+              "t": 1.674,
+              "target": "group:g2:2"
+            },
+            {
+              "t": 1.744,
+              "target": "split:g2:before"
+            },
+            {
+              "t": 3.191,
+              "target": "split:g2:after"
+            }
+          ]
+        },
+        {
+          "from": {
+            "x": 1156,
+            "y": 458
+          },
+          "to": {
+            "x": 150,
+            "y": 454
+          },
+          "hotTargets": [
+            {
+              "t": 6.502,
+              "target": "group:g4:1"
+            },
+            {
+              "t": 6.58,
+              "target": null
+            },
+            {
+              "t": 8.435,
+              "target": "group:g1"
+            }
+          ]
+        },
+        {
+          "from": {
+            "x": 202,
+            "y": 55
+          },
+          "to": {
+            "x": 710,
+            "y": 778
+          },
+          "hotTargets": [
+            {
+              "t": 11.242,
+              "target": "group:g1:3"
+            },
+            {
+              "t": 11.325,
+              "target": "split:g1:before"
+            },
+            {
+              "t": 11.741,
+              "target": null
+            },
+            {
+              "t": 13.268,
+              "target": "region:bottom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": 16.309,
+      "name": "end",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "bottom",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, -61px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 1.536,
+      "tDone": 3.893,
+      "scheduled": 1.5,
+      "action": "drag 1: Status down into the lower part of its own group"
+    },
+    {
+      "t": 4.404,
+      "tDone": 4.458,
+      "scheduled": 4.4,
+      "action": "release 1"
+    },
+    {
+      "t": 6.327,
+      "tDone": 8.721,
+      "scheduled": 6.3,
+      "action": "drag 2: Status into the left group"
+    },
+    {
+      "t": 9.198,
+      "tDone": 9.249,
+      "scheduled": 9.2,
+      "action": "release 2"
+    },
+    {
+      "t": 11.127,
+      "tDone": 13.517,
+      "scheduled": 11.1,
+      "action": "drag 3: Status to the bottom region"
+    },
+    {
+      "t": 14.008,
+      "tDone": 14.095,
+      "scheduled": 14,
+      "action": "release 3"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794775400.447,
+    "tEndEpoch": 1794775416.751,
+    "screencastFrames": 927,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0342,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/02b_v10_split_left_bottom.png",
+    "t": 15.422,
+    "state": {
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "bottom",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, -61px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 489,
+    "durationSeconds": 16.3,
+    "sourceFramesUsed": 485,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "489",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "02b_v10_split_left_bottom.mp4"
+    ]
+  },
+  "maxActionLateness": 0.036,
+  "pageErrors": []
+}

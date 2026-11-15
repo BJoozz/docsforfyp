@@ -180,6 +180,7 @@ async function runClip(id, spec) {
   const t = () => (rec ? round(now() - rec.t0) : null);
   const ctx = {
     page,
+    clock: () => t(),
     note: (text) => log.setup.push(text),
     async observe(name, extra = {}) {
       const d = await domState(page);
@@ -317,6 +318,89 @@ async function setupLca(ctx, u, v, startFrame) {
   ctx.note(`Tree Editor /tree-editor/lca-binary-lifting, default tree (${DEFAULT_TREE.replace(/\n/g, ', ')}), root 8, default layout; Query; u = ${u}, v = ${v}; Next started the run; paused at ${frame}.`);
 }
 
+// ---------- V10 layout helpers (read-only DOM reads, real pointer drags) ----------
+// Regions, their groups and tabs (* = the group's front tab), and where Status is.
+function layoutInfo(page) {
+  return page.evaluate(() => {
+    const box = (e) => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height].map(Math.round); };
+    const regions = {};
+    for (const region of document.querySelectorAll('[data-region]')) {
+      const groups = [...region.querySelectorAll('section.group[data-group]')];
+      regions[region.dataset.region] = {
+        box: box(region),
+        groupCount: groups.length,
+        groups: groups.map((g) => ({
+          id: g.dataset.group,
+          tabs: [...g.querySelectorAll('[data-panel-tab]')].map((tab) => tab.dataset.panelTab + (tab.getAttribute('aria-selected') === 'true' ? '*' : '')),
+          box: box(g),
+        })),
+      };
+    }
+    const status = document.querySelector('[data-panel-tab="status"]');
+    return {
+      statusRegion: status?.closest('[data-region]')?.dataset.region ?? null,
+      statusGroup: status?.closest('[data-group]')?.dataset.group ?? null,
+      statusFront: status?.getAttribute('aria-selected') === 'true',
+      regions,
+    };
+  });
+}
+// The drawing: same React Flow element as at the clip start (no remount), its box, viewport and node centres.
+function canvasInfo(page, flowAtStart) {
+  return page.evaluate((start) => {
+    const flow = document.querySelector('.react-flow');
+    const r = flow.getBoundingClientRect();
+    const nodes = {};
+    for (const node of document.querySelectorAll('.react-flow__node')) {
+      const label = [...node.querySelectorAll('*')].filter((x) => x.children.length === 0).map((x) => x.textContent.trim()).find((s) => /^[A-Za-z]+$/.test(s));
+      const b = node.getBoundingClientRect();
+      nodes[label] = [Math.round(b.x + b.width / 2), Math.round(b.y + b.height / 2)];
+    }
+    return {
+      sameFlowElement: start === flow,
+      flowStillConnected: start.isConnected,
+      canvasBox: [r.x, r.y, r.width, r.height].map(Math.round),
+      viewport: document.querySelector('.react-flow__viewport')?.getAttribute('style'),
+      nodes,
+    };
+  }, flowAtStart);
+}
+// Press a tab, then move at constant speed for `ms` to the centre of the drop target `key`
+// (measured once the drag is live), logging every change of the hot target on the way.
+async function slowTabDrag(ctx, name, tabId, key, ms) {
+  const { page } = ctx;
+  const from = await center(page.locator(`[data-panel-tab="${tabId}"]`));
+  const hot = [];
+  let to = null;
+  await ctx.act(name, async () => {
+    await page.mouse.move(from.x, from.y);
+    await page.mouse.down();
+    await page.mouse.move(from.x, from.y + 8); // past the 6px threshold: the targets are drawn
+    const targets = await page.locator('[data-drop-target]').evaluateAll((es) => es.map((e) => ({ key: e.dataset.dropTarget, box: e.getBoundingClientRect().toJSON() })));
+    const target = targets.find((t) => t.key === key);
+    if (!target) throw new Error(`no drop target ${key}; have ${targets.map((t) => t.key).join(', ')}`);
+    to = { x: Math.round(target.box.x + target.box.width / 2), y: Math.round(target.box.y + target.box.height / 2) };
+    const start = now();
+    for (let f = 0; f < 1;) {
+      f = Math.min(1, (now() - start) / (ms / 1000));
+      await page.mouse.move(from.x + (to.x - from.x) * f, from.y + 8 + (to.y - from.y - 8) * f);
+      const h = await page.evaluate(() => document.querySelector('[data-drop-target][data-hot="true"]')?.dataset.dropTarget ?? null);
+      if (hot.length === 0 || hot.at(-1).target !== h) hot.push({ t: ctx.clock(), target: h });
+      if (f < 1) await sleep(25);
+    }
+  });
+  return { from: { x: Math.round(from.x), y: Math.round(from.y) }, to, hotTargets: hot };
+}
+const previewInfo = (page) => page.evaluate(() => {
+  const p = document.querySelector('.groups__preview');
+  if (!p) return { preview: null, hotTarget: document.querySelector('[data-drop-target][data-hot="true"]')?.dataset.dropTarget ?? null };
+  const r = p.getBoundingClientRect();
+  return {
+    hotTarget: document.querySelector('[data-drop-target][data-hot="true"]')?.dataset.dropTarget ?? null,
+    preview: { kind: p.dataset.kind, refused: p.dataset.refused, label: p.innerText.trim(), box: [r.x, r.y, r.width, r.height].map(Math.round) },
+  };
+});
+
 const CLIPS = {
   '01_lca_equal_ancestors': {
     route: '/tree-editor/lca-binary-lifting',
@@ -390,6 +474,71 @@ const CLIPS = {
       await ctx.at(5.35); await ctx.observe('after Reset panel layout');
       await ctx.at(5.7); await ctx.act('Escape closes the menu', () => page.keyboard.press('Escape'));
       await ctx.at(5.9); await ctx.observe('menu closed', { menuOpen: await page.locator('.va-settings__menu').isVisible() });
+    },
+  },
+  '02b_v10_split_left_bottom': {
+    route: '/graph-editor/dijkstra',
+    end: 16.3,
+    async setup(ctx) {
+      const { page } = ctx;
+      await setupGraph(ctx);
+      await graphToFrame(ctx, 12);
+      // Off camera: Status into the Pseudocode group as its second tab (that group's strip slot 1), with real drags.
+      const pseudo = await page.locator('[data-panel-tab="pseudocode"]').evaluate((e) => e.closest('[data-group]').dataset.group);
+      const tab = await center(page.locator('[data-panel-tab="status"]'));
+      await page.mouse.move(tab.x, tab.y);
+      await page.mouse.down();
+      await page.mouse.move(tab.x, tab.y - 10, { steps: 2 });
+      const slots = await page.locator('[data-drop-target]').evaluateAll((es) => es.map((e) => ({ key: e.dataset.dropTarget, box: e.getBoundingClientRect().toJSON() })));
+      const slot = slots.find((s) => s.key === `group:${pseudo}:1`);
+      if (!slot) throw new Error('no strip slot after Pseudocode');
+      await page.mouse.move(slot.box.x + 40, slot.box.y + slot.box.height / 2, { steps: 15 });
+      await page.waitForTimeout(300);
+      await page.mouse.up();
+      await page.waitForTimeout(800);
+      let layout = await layoutInfo(page);
+      if (!layout.statusFront) {
+        await page.locator('[data-panel-tab="status"]').click();
+        await page.waitForTimeout(500);
+        layout = await layoutInfo(page);
+      }
+      const right = layout.regions.right;
+      if (right.groupCount !== 1 || right.groups[0].tabs.join('|') !== 'pseudocode|status*') throw new Error('setup layout: ' + JSON.stringify(right));
+      await page.mouse.move(1050, 720); // empty canvas, nothing hovered
+      await page.waitForTimeout(2300);
+      ctx.note(`Next to frame 12; then, off camera, the Status tab dragged into the Pseudocode group's tab strip after Pseudocode (drop target group:${pseudo}:1); Status is the front tab: right column = one group ${right.groups[0].id} with tabs Pseudocode | Status. Mouse parked on empty canvas.`);
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const flow = await page.evaluateHandle(() => document.querySelector('.react-flow'));
+      const snap = async (name, extra = {}) => ctx.observe(name, { layout: await layoutInfo(page), canvas: await canvasInfo(page, flow), ...extra });
+      const drags = [];
+      await snap('start');
+      // 1. Down from the tab strip into the lower part of its own group: the group splits.
+      const own = (await layoutInfo(page)).statusGroup;
+      await ctx.at(1.5);
+      drags.push(await slowTabDrag(ctx, 'drag 1: Status down into the lower part of its own group', 'status', `split:${own}:after`, 2200));
+      await ctx.at(3.95); await ctx.observe('drag 1 over its target', await previewInfo(page));
+      await ctx.at(4.4); await ctx.act('release 1', () => page.mouse.up());
+      await ctx.at(4.6); await snap('just after drop 1');
+      await ctx.at(6.0); await snap('settled after drop 1');
+      // 2. Into the left group, beside Action and E-Lecture.
+      const left = (await layoutInfo(page)).regions.left.groups[0].id;
+      await ctx.at(6.3);
+      drags.push(await slowTabDrag(ctx, 'drag 2: Status into the left group', 'status', `group:${left}`, 2200));
+      await ctx.at(8.7); await ctx.observe('drag 2 over its target', await previewInfo(page));
+      await ctx.at(9.2); await ctx.act('release 2', () => page.mouse.up());
+      await ctx.at(9.4); await snap('just after drop 2');
+      await ctx.at(10.8); await snap('settled after drop 2');
+      // 3. To the bottom region, centred under the drawing.
+      await ctx.at(11.1);
+      drags.push(await slowTabDrag(ctx, 'drag 3: Status to the bottom region', 'status', 'region:bottom', 2200));
+      await ctx.at(13.5); await ctx.observe('drag 3 over its target', await previewInfo(page));
+      await ctx.at(14.0); await ctx.act('release 3', () => page.mouse.up());
+      await ctx.at(14.2); await snap('just after drop 3');
+      await ctx.at(15.4); await snap('settled after drop 3');
+      await ctx.poster();
+      await ctx.at(16.2); await snap('final', { drags });
     },
   },
   '03_graph_drag_then_edit': {

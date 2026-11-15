@@ -426,7 +426,7 @@
           "notes": []
         }
       },
-      "intendedSlide": "Deck slide 14",
+      "intendedSlide": "Earlier slide-14 clip (replaced by 02b)",
       "caption": "Move a panel; the run stays put",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",
@@ -607,6 +607,1165 @@
         "5.7–7.3 s: The menu is closed and the run is still at frame 12 of 21."
       ],
       "checks": "reproduce/checks/02_v10_move_panel.json"
+    },
+    {
+      "id": "02b_v10_split_left_bottom",
+      "file": "clips/02b_v10_split_left_bottom.mp4",
+      "bytes": 815545,
+      "sha256": "219f449ff637ad2e4d297702baa760fd79d7bcb592be8b8eef559506d0a438d1",
+      "durationSeconds": 16.3,
+      "frames": 489,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/02b_v10_split_left_bottom.png",
+        "bytes": 166307,
+        "sha256": "786ce3da02a151f20619fa1c8af6c7b4ad22039200fd52eae27bc2fb5099cfc1",
+        "takenAtSeconds": 15.422,
+        "shows": {
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Deck slide 14",
+      "caption": "Split, move, dock below: frame stays 12",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6",
+        "start": "S",
+        "end": "T",
+        "pausedAt": "frame 12 of 21 (Relax B → A)",
+        "layoutBeforeRecording": "off camera, the Status tab dragged into the Pseudocode group strip after Pseudocode (drop target group:g2:1); the right column is one group g2 with tabs Pseudocode | Status, Status in front",
+        "drops": [
+          "split:g2:after (lower part of its own group)",
+          "group:g1 (left group body)",
+          "region:bottom (under the drawing)"
+        ]
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Next to frame 12; then, off camera, the Status tab dragged into the Pseudocode group's tab strip after Pseudocode (drop target group:g2:1); Status is the front tab: right column = one group g2 with tabs Pseudocode | Status. Mouse parked on empty canvas."
+      ],
+      "actions": [
+        {
+          "atSeconds": 1.536,
+          "doneSeconds": 3.893,
+          "action": "drag 1: Status down into the lower part of its own group"
+        },
+        {
+          "atSeconds": 4.404,
+          "doneSeconds": 4.458,
+          "action": "release 1"
+        },
+        {
+          "atSeconds": 6.327,
+          "doneSeconds": 8.721,
+          "action": "drag 2: Status into the left group"
+        },
+        {
+          "atSeconds": 9.198,
+          "doneSeconds": 9.249,
+          "action": "release 2"
+        },
+        {
+          "atSeconds": 11.127,
+          "doneSeconds": 13.517,
+          "action": "drag 3: Status to the bottom region"
+        },
+        {
+          "atSeconds": 14.008,
+          "doneSeconds": 14.095,
+          "action": "release 3"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.028,
+          "moment": "start",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "layout": {
+            "statusRegion": "right",
+            "statusGroup": "g2",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action*",
+                      "electure"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode",
+                      "status*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              798
+            ],
+            "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                473
+              ],
+              "A": [
+                671,
+                298
+              ],
+              "B": [
+                690,
+                581
+              ],
+              "T": [
+                956,
+                478
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 3.97,
+          "moment": "drag 1 over its target",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "hotTarget": "split:g2:after",
+          "preview": {
+            "kind": "box",
+            "refused": "false",
+            "label": "STATUS",
+            "box": [
+              1120,
+              443,
+              320,
+              395
+            ]
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 4.619,
+          "moment": "just after drop 1",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "layout": {
+            "statusRegion": "right",
+            "statusGroup": "g4",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action*",
+                      "electure"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 2,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      396
+                    ]
+                  },
+                  {
+                    "id": "g4",
+                    "tabs": [
+                      "status*"
+                    ],
+                    "box": [
+                      1120,
+                      443,
+                      320,
+                      395
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              798
+            ],
+            "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                473
+              ],
+              "A": [
+                671,
+                298
+              ],
+              "B": [
+                690,
+                581
+              ],
+              "T": [
+                956,
+                478
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 6.029,
+          "moment": "settled after drop 1",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "layout": {
+            "statusRegion": "right",
+            "statusGroup": "g4",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action*",
+                      "electure"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 2,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      396
+                    ]
+                  },
+                  {
+                    "id": "g4",
+                    "tabs": [
+                      "status*"
+                    ],
+                    "box": [
+                      1120,
+                      443,
+                      320,
+                      395
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              798
+            ],
+            "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                473
+              ],
+              "A": [
+                671,
+                298
+              ],
+              "B": [
+                690,
+                581
+              ],
+              "T": [
+                956,
+                478
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 8.735,
+          "moment": "drag 2 over its target",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "hotTarget": "group:g1",
+          "preview": {
+            "kind": "box",
+            "refused": "false",
+            "label": "STATUS",
+            "box": [
+              0,
+              71,
+              300,
+              767
+            ]
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 9.422,
+          "moment": "just after drop 2",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "left",
+          "layout": {
+            "statusRegion": "left",
+            "statusGroup": "g1",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action",
+                      "electure",
+                      "status*"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              798
+            ],
+            "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                473
+              ],
+              "A": [
+                671,
+                298
+              ],
+              "B": [
+                690,
+                581
+              ],
+              "T": [
+                956,
+                478
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 10.824,
+          "moment": "settled after drop 2",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "left",
+          "layout": {
+            "statusRegion": "left",
+            "statusGroup": "g1",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action",
+                      "electure",
+                      "status*"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              798
+            ],
+            "viewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                473
+              ],
+              "A": [
+                671,
+                298
+              ],
+              "B": [
+                690,
+                581
+              ],
+              "T": [
+                956,
+                478
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 13.534,
+          "moment": "drag 3 over its target",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "left",
+          "hotTarget": "region:bottom",
+          "preview": {
+            "kind": "box",
+            "refused": "false",
+            "label": "STATUS",
+            "box": [
+              307,
+              568,
+              806,
+              270
+            ]
+          },
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 14.23,
+          "moment": "just after drop 3",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "bottom",
+          "layout": {
+            "statusRegion": "bottom",
+            "statusGroup": "g5",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action",
+                      "electure*"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "bottom": {
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g5",
+                    "tabs": [
+                      "status*"
+                    ],
+                    "box": [
+                      307,
+                      568,
+                      806,
+                      270
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              521
+            ],
+            "viewport": "transform: translate(47.2357px, 16.4703px) scale(0.985619);",
+            "nodes": {
+              "S": [
+                467,
+                407
+              ],
+              "A": [
+                672,
+                234
+              ],
+              "B": [
+                690,
+                513
+              ],
+              "T": [
+                953,
+                412
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(47.2357px, 16.4703px) scale(0.985619);"
+        },
+        {
+          "atSeconds": 15.419,
+          "moment": "settled after drop 3",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "bottom",
+          "layout": {
+            "statusRegion": "bottom",
+            "statusGroup": "g5",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action",
+                      "electure*"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "bottom": {
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g5",
+                    "tabs": [
+                      "status*"
+                    ],
+                    "box": [
+                      307,
+                      568,
+                      806,
+                      270
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              521
+            ],
+            "viewport": "transform: translate(42.0449px, -61px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                335
+              ],
+              "A": [
+                671,
+                159
+              ],
+              "B": [
+                690,
+                442
+              ],
+              "T": [
+                956,
+                339
+              ]
+            }
+          },
+          "canvasViewport": "transform: translate(42.0449px, -61px) scale(1);"
+        },
+        {
+          "atSeconds": 16.219,
+          "moment": "final",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "bottom",
+          "layout": {
+            "statusRegion": "bottom",
+            "statusGroup": "g5",
+            "statusFront": true,
+            "regions": {
+              "left": {
+                "box": [
+                  0,
+                  40,
+                  300,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g1",
+                    "tabs": [
+                      "action",
+                      "electure*"
+                    ],
+                    "box": [
+                      0,
+                      40,
+                      300,
+                      798
+                    ]
+                  }
+                ]
+              },
+              "bottom": {
+                "box": [
+                  307,
+                  568,
+                  806,
+                  270
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g5",
+                    "tabs": [
+                      "status*"
+                    ],
+                    "box": [
+                      307,
+                      568,
+                      806,
+                      270
+                    ]
+                  }
+                ]
+              },
+              "right": {
+                "box": [
+                  1120,
+                  40,
+                  320,
+                  798
+                ],
+                "groupCount": 1,
+                "groups": [
+                  {
+                    "id": "g2",
+                    "tabs": [
+                      "pseudocode*"
+                    ],
+                    "box": [
+                      1120,
+                      40,
+                      320,
+                      798
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "canvas": {
+            "sameFlowElement": true,
+            "flowStillConnected": true,
+            "canvasBox": [
+              307,
+              40,
+              806,
+              521
+            ],
+            "viewport": "transform: translate(42.0449px, -61px) scale(1);",
+            "nodes": {
+              "S": [
+                464,
+                335
+              ],
+              "A": [
+                671,
+                159
+              ],
+              "B": [
+                690,
+                442
+              ],
+              "T": [
+                956,
+                339
+              ]
+            }
+          },
+          "drags": [
+            {
+              "from": {
+                "x": 1268,
+                "y": 55
+              },
+              "to": {
+                "x": 1280,
+                "y": 646
+              },
+              "hotTargets": [
+                {
+                  "t": 1.674,
+                  "target": "group:g2:2"
+                },
+                {
+                  "t": 1.744,
+                  "target": "split:g2:before"
+                },
+                {
+                  "t": 3.191,
+                  "target": "split:g2:after"
+                }
+              ]
+            },
+            {
+              "from": {
+                "x": 1156,
+                "y": 458
+              },
+              "to": {
+                "x": 150,
+                "y": 454
+              },
+              "hotTargets": [
+                {
+                  "t": 6.502,
+                  "target": "group:g4:1"
+                },
+                {
+                  "t": 6.58,
+                  "target": null
+                },
+                {
+                  "t": 8.435,
+                  "target": "group:g1"
+                }
+              ]
+            },
+            {
+              "from": {
+                "x": 202,
+                "y": 55
+              },
+              "to": {
+                "x": 710,
+                "y": 778
+              },
+              "hotTargets": [
+                {
+                  "t": 11.242,
+                  "target": "group:g1:3"
+                },
+                {
+                  "t": 11.325,
+                  "target": "split:g1:before"
+                },
+                {
+                  "t": 11.741,
+                  "target": null
+                },
+                {
+                  "t": 13.268,
+                  "target": "region:bottom"
+                }
+              ]
+            }
+          ],
+          "canvasViewport": "transform: translate(42.0449px, -61px) scale(1);"
+        },
+        {
+          "atSeconds": 16.309,
+          "moment": "end",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "bottom",
+          "canvasViewport": "transform: translate(42.0449px, -61px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames at 0.0, 2.0, 3.6, 5.0, 8.6, 10.0, 11.5, 13.8, 14.27 and 16.27 s (last); poster.",
+      "narration": [
+        "0.0–1.5 s: Dijkstra is paused at frame 12 of 21. The right column is one group with Pseudocode and Status as tabs, and Status is in front.",
+        "1.5–4.4 s: Status is dragged down its own group. The preview first frames the upper half, then, from 3.2 s, the lower half.",
+        "4.4–6.3 s: On release the right column splits into two equal groups, Pseudocode above and Status below. The frame is still 12 of 21 and the drawing has not moved.",
+        "6.3–9.2 s: Status is dragged across the drawing to the left. From 8.4 s the preview outlines the left group.",
+        "9.2–11.1 s: Status is now a tab beside Action and E-Lecture, and Pseudocode fills the right column again. Still frame 12 of 21, drawing unchanged.",
+        "11.1–14.0 s: Status is dragged from the left group to the bottom. The preview briefly frames the top of the left group, then, from 13.3 s, the bottom row under the drawing.",
+        "14.0–16.3 s: On release the bottom row opens with Status under the drawing, as wide as the drawing. The drawing re-fits into the shorter canvas and the run is still at frame 12 of 21. The left group now shows E-Lecture, the tab next in line."
+      ],
+      "checks": "reproduce/checks/02b_v10_split_left_bottom.json"
     },
     {
       "id": "03_graph_drag_then_edit",

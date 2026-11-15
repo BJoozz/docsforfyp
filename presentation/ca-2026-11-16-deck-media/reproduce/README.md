@@ -13,7 +13,7 @@ $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'
 $env:CA_BASE_URL = 'http://127.0.0.1:5205'
 $env:CA_DECK_OUTPUT = 'C:\path\outside\any\synced\folder\deck'
 $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'
-node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 03_graph_drag_then_edit 04_dijkstra_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
+node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 04_dijkstra_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
 ```
 
 The script writes `clips/`, `posters/`, `checks/` and `raw/<clip>/` under `CA_DECK_OUTPUT`. Each `raw/<clip>/` folder holds the screencast JPEGs and the `list.ffconcat` used for the encode. Clips run one after another. The script only drives the UI: it edits no source, injects no state, hides nothing with CSS and adds no overlay.
@@ -38,7 +38,7 @@ ffmpeg -y -f concat -safe 0 -i list.ffconcat -vf "fps=30,scale=in_range=pc:out_r
    - the first, last and key frames were extracted and looked at (`framesInspected` in `../manifest.json`);
    - no page errors occurred in any clip.
 
-## Common graph setup (02, 03, 04, 06)
+## Common graph setup (02, 02b, 03, 04, 06)
 
 1. Open `/graph-editor/dijkstra` (for 06, `/graph-editor/dfs-recursive`) and untick Live force layout.
 2. Enter nodes `S A B T`, one per line, and these edges, then tick Directed graph:
@@ -106,6 +106,38 @@ Poster at 3.30 s, frame 4/7.
 - End at 7.3.
 
 The frame reads 12/21 and the viewport is `translate(42.0449px, 77.5px) scale(1)` at every check. Poster at 3.11 s, after the drop.
+
+This clip is now the earlier slide-14 take; 02b replaces it on the slide.
+
+### 02b_v10_split_left_bottom (16.3 s, slide 14)
+
+**Setup:**
+1. The common graph setup, then Next until frame 12/21.
+2. Off camera, a real drag moves the Status tab into the Pseudocode group's tab strip, after Pseudocode (drop target `group:g2:1`). The script clicks the Status tab only if it is not already in front.
+3. The script checks that the right column is now one group, `g2`, with tabs Pseudocode | Status*.
+4. The pointer is parked on empty canvas and a 2.3 s wait lets the frame-12 note fade.
+
+**Recorded.** Each drag moves at constant speed for 2.2 s towards the centre of the drop target, measured once the drag is live. Every change of the hot target is logged.
+
+1. Drag 1, 1.54–3.89: from the strip (1268, 55) down to (1280, 646).
+   - Hot target: `group:g2:2` (own strip), then `split:g2:before` from 1.74 (preview over the upper half), then `split:g2:after` from 3.19 (preview over the lower half, box 1120,443 320×395).
+   - Release at 4.40. The right column is two groups: `g2` Pseudocode at 1120,40 320×396 and `g4` Status at 1120,443 320×395. That is equal halves with a 7 px splitter.
+2. Drag 2, 6.33–8.72: from the lower right strip (1156, 458) to (150, 454).
+   - Hot target: own strip, then nothing over the drawing, then `group:g1` from 8.44 (preview box 0,71 300×767).
+   - Release at 9.20. The left group `g1` has Action | E-Lecture | Status*, and the right column is `g2` Pseudocode alone, full height.
+3. Drag 3, 11.13–13.52: from the left strip (202, 55) to (710, 778).
+   - Hot target: own strip, then `split:g1:before` from 11.33, then nothing from 11.74, then `region:bottom` from 13.27 (preview box 307,568 806×270).
+   - Release at 14.01. The bottom row opens as group `g5` with Status, box 307,568 806×270. That is exactly the drawing column's width, under the drawing.
+   - The left group's front tab becomes E-Lecture, the tab next in line, per the layout model's `withoutTab`.
+4. End at 16.3.
+
+**Verified after every drop:**
+- The footer reads `FRAME 12 / 21`.
+- The `.react-flow` element is the same node as at the clip start, so the canvas never remounted.
+- After drops 1 and 2 the canvas box (307,40 806×798), the viewport (`translate(42.0449px, 77.5px) scale(1)`) and the node centres are unchanged.
+- After drop 3 the canvas box is 307,40 806×521. The viewport animates through `scale(0.9856)` at +0.2 s and settles at `translate(42.0449px, -61px) scale(1)`. That is the app's fit after a size change: every node moves up 138 px at the same zoom.
+
+Poster at 15.42 s: the final state.
 
 ### 03_graph_drag_then_edit (8.0 s)
 
@@ -181,3 +213,7 @@ Poster at 3.01 s.
 - **LCA, k = 2:** this tree has two steps where both ancestors are 8 (k = 2 and k = 1). For (6, 2) the k = 0 step also keeps u and v, with both ancestors 4. 01 starts just before k = 2. 01b starts at k = 2 already shown, so its first new note is the one for k = 1.
 - **No on-canvas weight editing:** the app has none, so 03 uses Draw graph → Edges. That text commits on every valid change.
 - **Panel move in 02:** the Status tab goes into the left group, not the bottom region, so the drawing size and viewport stay the same. Reset panel layout also asks for a fit; it changes nothing here because setup already pressed Fit view.
+- **02b:** the three drops follow the requested order, and all of them were allowed.
+  - Over Status's own group the app offers only two zones, the upper half (split before) and the lower half (split after); there is no middle zone. On the way down the preview first frames the upper half (from 1.74 s) and switches to the lower half at 3.19 s.
+  - The bottom drop re-fits the drawing, as the app does whenever the drawing's size changes, so the nodes move up 138 px.
+  - The left group falls back to E-Lecture, not Action, when Status leaves it.
