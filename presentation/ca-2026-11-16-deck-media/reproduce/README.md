@@ -13,7 +13,7 @@ $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'
 $env:CA_BASE_URL = 'http://127.0.0.1:5205'
 $env:CA_DECK_OUTPUT = 'C:\path\outside\any\synced\folder\deck'
 $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'
-node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 01c_lca_reroot_8_20 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 03b_graph_drag_edit_parallel 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
+node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 01c_lca_reroot_8_20 01d_lca_reroot_on_camera_8_20 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 03b_graph_drag_edit_parallel 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
 ```
 
 The script writes `clips/`, `posters/`, `checks/` and `raw/<clip>/` under `CA_DECK_OUTPUT`. Each `raw/<clip>/` folder holds the screencast JPEGs and the `list.ffconcat` used for the encode. Clips run one after another. The script only drives the UI: it edits no source, injects no state, hides nothing with CSS and adds no overlay.
@@ -134,6 +134,52 @@ The clip ends at 25.73.
 Nodes are about 64 px across.
 
 **Poster:** 18.00 s, frame 9/12 with "differ · lift both" shown.
+
+This clip is now the earlier LCA take; 01d replaces it on the slide. Its three stills stay in use.
+
+### 01d_lca_reroot_on_camera_8_20 (27.9 s, slide 17)
+
+**Setup:**
+1. Open `/tree-editor/lca-binary-lifting` and check that Query is selected.
+2. Select preset → "Balanced · 10 nodes", which has root 10. Close the preset list.
+3. Edit tree stays open (its default), so Structure → Root is in view.
+4. Set u = 8 and v = 20, then click Fit view.
+5. No run. The pointer is parked on empty canvas.
+
+**Recorded:**
+- 0–1.5 the tree with root 10.
+- 1.51 click at the end of the Edges text; 1.76 Tab. Focus moves to the Root control, and its focus ring shows.
+- 2.41 type `16`, 150 ms per key, into the closed select.
+  - Its type-ahead goes straight from 10 to 16, because the options run 10, 4, 2, 6, 8, 16, 12, 14, 18, 20.
+  - The 10 fps contact sheet of the video shows the change:
+
+    | Time (s) | What is visible |
+    | --- | --- |
+    | about 2.5 | the ROOT badge, Root = 16, "Custom tree" and Depth 4 |
+    | 2.5–2.9 | nodes move to the new layout |
+    | 2.9–3.25 | the view re-fits by itself; no Fit press is needed |
+    | 3.3 | settled: the same node positions as 01c, with 16 at (733, 168) and 8 at (650, 664) |
+
+- 5.03 Next starts the run at 1/12.
+- 6.22, 8.23, 10.25, 12.23, 14.29, 16.29, 18.26, 20.27, 22.30, 24.24, 25.44: Next reaches 2/12 through 12/12. The frames, Status sentences, notes and pseudocode lines are those of the 01c table. Holds are 2.0 s on each noted step, 1.2 s on frames 1 and 11, and 2.5 s on the answer.
+- End at 27.93.
+
+**The DOM before and after the re-root:**
+
+| | Before | After |
+| --- | --- | --- |
+| Root control | 10 | 16, focused |
+| Preset picker | Balanced · 10 nodes | Custom tree |
+| u, v | 8, 20 | 8, 20 (kept) |
+| Tiles | Nodes 10, Edges 9, Depth 3 | Nodes 10, Edges 9, Depth 4 |
+| Node count | 10 | 10 |
+| Edges text | (as before) | unchanged |
+| Footer | NO RUN | NO RUN |
+| Viewport | `translate(140.2px, 102.109px) scale(1)` | `translate(163.2px, 40.1094px) scale(1)` |
+
+No node moved during the run.
+
+**Poster:** 20.93 s, frame 9/12, "differ · lift both".
 
 ### 02_v10_move_panel (7.3 s)
 
@@ -337,6 +383,13 @@ Poster at 3.01 s.
   - The compare loop keeps at k = 3, k = 2 and k = 1, each "same ancestor · keep u, v" over 16, before k = 0 differs.
   - The note wording is the app's, as in the table above.
   - With the requested holds, the clip runs 25.7 s, over the 14–20 s target. Holding each noted step 1.7 s, still longer than a note's 1.6 s life, would bring it to about 20 s.
+- **01d:**
+  - u and v were chosen before the re-root, and the app kept them, so none had to be picked on camera.
+  - The run and the u, v fields did not reset, and there was no run before the first Next.
+  - The view re-fits by itself after the re-root, so Fit was not pressed on camera.
+  - The re-layout and the re-fit together take about 0.9 s after the keystroke.
+  - The select's dropdown cannot be shown in headless Chromium, so the interaction is keyboard focus plus type-ahead.
+  - The clip runs 27.9 s, within the 30 s limit.
 - **No on-canvas weight editing:** the app has none, so 03 uses Draw graph → Edges. That text commits on every valid change.
 - **Panel move in 02:** the Status tab goes into the left group, not the bottom region, so the drawing size and viewport stay the same. Reset panel layout also asks for a fit; it changes nothing here because setup already pressed Fit view.
 - **02b:** the three drops follow the requested order, and all of them were allowed.

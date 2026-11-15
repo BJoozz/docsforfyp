@@ -428,7 +428,7 @@
           ]
         }
       },
-      "intendedSlide": "Deck slide 17 (LCA)",
+      "intendedSlide": "Earlier LCA clip (replaced by 01d)",
       "caption": "Re-rooted at 16: lift, keep, lift both",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",
@@ -781,6 +781,413 @@
           ]
         }
       ]
+    },
+    {
+      "id": "01d_lca_reroot_on_camera_8_20",
+      "file": "clips/01d_lca_reroot_on_camera_8_20.mp4",
+      "bytes": 1248496,
+      "sha256": "9b7bbebb6551a8c87dcd2c45492acaf919f7831ecd2660301ed203e6b6bbf8ea",
+      "durationSeconds": 27.933333333333334,
+      "frames": 838,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/01d_lca_reroot_on_camera_8_20.png",
+        "bytes": 207952,
+        "sha256": "5f555d91887599cc7a74310816cdd5a9ccdc170e07c62e2b1470242343ef4a57",
+        "takenAtSeconds": 20.934,
+        "shows": {
+          "footerFrame": "FRAME 9 / 12",
+          "status": "k = 0: ancestors 10 and 18 differ, so both lift 1 level.",
+          "notes": [
+            "differ · lift both (above 10)"
+          ]
+        }
+      },
+      "intendedSlide": "Deck slide 17 (LCA)",
+      "caption": "Re-root at 16, then LCA(8, 20)",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/tree-editor/lca-binary-lifting",
+      "inputs": {
+        "preset": "Balanced · 10 nodes (edges 10 4, 4 2, 4 6, 6 8, 10 16, 16 12, 12 14, 16 18, 18 20; root 10)",
+        "reroot": "on camera: click at the end of the Edges text, Tab to Structure → Root, type \"16\" (the closed select’s type-ahead moves 10 → 16 in one change)",
+        "operation": "Query",
+        "u": "8 (chosen before the re-root; kept)",
+        "v": "20 (chosen before the re-root; kept)",
+        "view": "Fit view before recording; the app re-fits by itself after the re-root"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Tree Editor /tree-editor/lca-binary-lifting, Query; Select preset → \"Balanced · 10 nodes\" (root 10); preset list closed; Edit tree open (default), so Structure → Root is in view; u = 8, v = 20; Fit view; no run; mouse parked on empty canvas.",
+        "Node centres when the run started: {\"2\":[558,540],\"4\":[604,416],\"6\":[650,540],\"8\":[650,664],\"10\":[604,292],\"12\":[733,292],\"14\":[733,416],\"16\":[733,168],\"18\":[862,292],\"20\":[862,416]}"
+      ],
+      "actions": [
+        {
+          "atSeconds": 1.514,
+          "doneSeconds": 1.55,
+          "action": "click at the end of the Edges text"
+        },
+        {
+          "atSeconds": 1.759,
+          "doneSeconds": 1.768,
+          "action": "Tab to Structure → Root"
+        },
+        {
+          "atSeconds": 2.41,
+          "doneSeconds": 2.831,
+          "action": "type \"16\" in the Root control"
+        },
+        {
+          "atSeconds": 5.027,
+          "doneSeconds": 5.145,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 6.22,
+          "doneSeconds": 6.305,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 8.227,
+          "doneSeconds": 8.279,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 10.248,
+          "doneSeconds": 10.327,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 12.233,
+          "doneSeconds": 12.337,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 14.285,
+          "doneSeconds": 14.386,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 16.288,
+          "doneSeconds": 16.389,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 18.258,
+          "doneSeconds": 18.38,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 20.267,
+          "doneSeconds": 20.374,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 22.302,
+          "doneSeconds": 22.402,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 24.24,
+          "doneSeconds": 24.347,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 25.441,
+          "doneSeconds": 25.545,
+          "action": "Next"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.034,
+          "moment": "start: root 10",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(140.2px, 102.109px) scale(1);"
+        },
+        {
+          "atSeconds": 1.918,
+          "moment": "Root focused",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(140.2px, 102.109px) scale(1);"
+        },
+        {
+          "atSeconds": 3.791,
+          "moment": "after the re-root",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 5.166,
+          "moment": "after Next",
+          "footerFrame": "FRAME 1 / 12",
+          "status": "Table ready. Query LCA(8, 20); depths 4 and 2.",
+          "strip": "LCA(8, 20): depths 4 and 2 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 6.387,
+          "moment": "after Next",
+          "footerFrame": "FRAME 2 / 12",
+          "status": "k = 3: depth gap 2 < 8, so u stays.",
+          "strip": "k = 3: depth gap 2 < 8: keep u | up[8][3] | Ancestor table",
+          "notes": [
+            {
+              "text": "gap 2 < 8 · keep u",
+              "opacity": 0.81,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 8.368,
+          "moment": "after Next",
+          "footerFrame": "FRAME 3 / 12",
+          "status": "k = 2: depth gap 2 < 4, so u stays.",
+          "strip": "k = 2: depth gap 2 < 4: keep u | up[8][2] | Ancestor table",
+          "notes": [
+            {
+              "text": "gap 2 < 4 · keep u",
+              "opacity": 0.88,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 10.384,
+          "moment": "after Next",
+          "footerFrame": "FRAME 4 / 12",
+          "status": "k = 1: depth gap 2 ≥ 2, so u lifts 2 levels.",
+          "strip": "k = 1: depth gap 2 ≥ 2: lift u | up[8][1] | Ancestor table",
+          "notes": [
+            {
+              "text": "gap 2 ≥ 2 · lift u",
+              "opacity": 0.69,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 12.388,
+          "moment": "after Next",
+          "footerFrame": "FRAME 5 / 12",
+          "status": "Lift u: 8 → 4 by 2^1 = 2 levels.",
+          "strip": "Lift u: 8 to 4 | up[8][1] | Ancestor table",
+          "notes": [
+            {
+              "text": "↑ 2 levels",
+              "opacity": 0.3,
+              "above": "4"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 14.415,
+          "moment": "after Next",
+          "footerFrame": "FRAME 6 / 12",
+          "status": "k = 3: both ancestors are 16, so u and v stay.",
+          "strip": "k = 3: up[4][3] = 16, up[20][3] = 16, equal: keep | up[4][3] | up[20][3] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0.3,
+              "above": "16"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 16.418,
+          "moment": "after Next",
+          "footerFrame": "FRAME 7 / 12",
+          "status": "k = 2: both ancestors are 16, so u and v stay.",
+          "strip": "k = 2: up[4][2] = 16, up[20][2] = 16, equal: keep | up[4][2] | up[20][2] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0.53,
+              "above": "16"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 18.417,
+          "moment": "after Next",
+          "footerFrame": "FRAME 8 / 12",
+          "status": "k = 1: both ancestors are 16, so u and v stay.",
+          "strip": "k = 1: up[4][1] = 16, up[20][1] = 16, equal: keep | up[4][1] | up[20][1] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0.3,
+              "above": "16"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 20.416,
+          "moment": "after Next",
+          "footerFrame": "FRAME 9 / 12",
+          "status": "k = 0: ancestors 10 and 18 differ, so both lift 1 level.",
+          "strip": "k = 0: up[4][0] = 10, up[20][0] = 18, differ: lift both | up[4][0] | up[20][0] | Ancestor table",
+          "notes": [
+            {
+              "text": "differ · lift both",
+              "opacity": 0.3,
+              "above": "10"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 22.433,
+          "moment": "after Next",
+          "footerFrame": "FRAME 10 / 12",
+          "status": "Lift both by 2^0: u = 10, v = 18.",
+          "strip": "Lift both: 4 to 10, 20 to 18 | up[4][0] | up[20][0] | Ancestor table",
+          "notes": [
+            {
+              "text": "↑ 1 level",
+              "opacity": 0.3,
+              "above": "10"
+            },
+            {
+              "text": "↑ 1 level",
+              "opacity": 0.3,
+              "above": "18"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 24.392,
+          "moment": "after Next",
+          "footerFrame": "FRAME 11 / 12",
+          "status": "Both cursors now have the same parent, 16.",
+          "strip": "LCA = up[10][0] = 16 | up[10][0] | up[18][0] | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 25.609,
+          "moment": "after Next",
+          "footerFrame": "FRAME 12 / 12",
+          "status": "LCA(8, 20) = 16.",
+          "strip": "LCA(8, 20) = 16 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        },
+        {
+          "atSeconds": 27.926,
+          "moment": "end",
+          "footerFrame": "FRAME 12 / 12",
+          "status": "LCA(8, 20) = 16.",
+          "strip": "LCA(8, 20) = 16 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "First frame (0.0 s), 2.0 s (Root focused), a 10 fps contact sheet of the re-root (2.3-3.4 s), the last frame (27.90 s) and the poster.",
+      "narration": [
+        "0.0–1.5 s: The 10-node preset with root 10. The Root control under Structure reads 10, the Depth tile reads 3, and u = 8, v = 20.",
+        "1.5–2.4 s: Keyboard focus moves to the Root control.",
+        "2.4–3.3 s: Typing 16 changes the root. The ROOT badge moves to 16, the tree re-lays out under it, and the view re-fits. The picker now reads \"Custom tree\" and Depth reads 4; u and v are kept.",
+        "3.3–5.0 s: The re-rooted tree is shown, with no run yet.",
+        "5.0–6.2 s: Next starts Query LCA(8, 20) at frame 1 of 12. The depths are 4 and 2.",
+        "6.2–10.2 s: Frames 2 and 3: at k = 3 and k = 2 the depth gap 2 is too small, so u stays (\"keep u\" above 8).",
+        "10.2–12.2 s: Frame 4: k = 1, the gap 2 is at least 2, so u lifts 2 levels (\"gap 2 ≥ 2 · lift u\").",
+        "12.2–14.3 s: Frame 5: u moves from 8 to 4, with \"↑ 2 levels\" above 4.",
+        "14.3–20.3 s: Frames 6 to 8: at k = 3, 2 and 1 both ancestors are 16, so u and v stay (\"same ancestor · keep u, v\" above 16).",
+        "20.3–22.3 s: Frame 9: k = 0, the ancestors 10 and 18 differ, so both lift (\"differ · lift both\" above 10).",
+        "22.3–24.2 s: Frame 10: u becomes 10 and v becomes 18, with \"↑ 1 level\" over each.",
+        "24.2–25.4 s: Frame 11: both cursors now have the same parent, 16.",
+        "25.4–27.9 s: Frame 12: LCA(8, 20) = 16."
+      ],
+      "checks": "reproduce/checks/01d_lca_reroot_on_camera_8_20.json",
+      "reroot": {
+        "keystrokeAtSeconds": 2.41,
+        "rootChangeVisibleAtSeconds": 2.5,
+        "nodesAnimateSeconds": "about 2.5-2.9",
+        "viewRefitSeconds": "about 2.9-3.25",
+        "settledBySeconds": 3.32,
+        "firstPolledAfterTypingSeconds": 2.903,
+        "before": {
+          "root": "10",
+          "rootFocused": false,
+          "picker": "Balanced · 10 nodes",
+          "u": "8",
+          "v": "20",
+          "tiles": {
+            "NODES": 10,
+            "EDGES": 9,
+            "DEPTH": 3
+          },
+          "nodeCount": 10,
+          "edgesText": "10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20",
+          "footer": "NO RUN",
+          "viewport": "translate(140.2px, 102.109px) scale(1)"
+        },
+        "after": {
+          "root": "16",
+          "rootFocused": true,
+          "picker": "Custom tree",
+          "u": "8",
+          "v": "20",
+          "tiles": {
+            "NODES": 10,
+            "EDGES": 9,
+            "DEPTH": 4
+          },
+          "nodeCount": 10,
+          "edgesText": "10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20",
+          "footer": "NO RUN",
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        "note": "Times of the visible change come from the video frames (10 fps contact sheet); the DOM poll started after typing finished."
+      }
     },
     {
       "id": "02_v10_move_panel",
@@ -2924,7 +3331,7 @@
           "notes": []
         }
       },
-      "intendedSlide": "Backup slide 24",
+      "intendedSlide": "Backup B2 (backup file)",
       "caption": "Preview first; Apply commits the insertion",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",
@@ -3106,7 +3513,7 @@
           "notes": []
         }
       },
-      "intendedSlide": "Backup slide 27 (fallback for the live demo)",
+      "intendedSlide": "Backup B1 (backup file; fallback for the live demo)",
       "caption": "The finished DFS replays its tree",
       "app": {
         "repo": "kerktaiheng/visualgo-plus-design",

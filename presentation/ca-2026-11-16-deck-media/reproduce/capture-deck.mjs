@@ -517,6 +517,103 @@ const CLIPS = {
       ctx.note('Node centres at the start: ' + JSON.stringify(start.nodes));
     },
   },
+  '01d_lca_reroot_on_camera_8_20': {
+    route: '/tree-editor/lca-binary-lifting',
+    end: 40, // set in clip(): 2.5 s after the answer
+    async setup(ctx) {
+      const { page } = ctx;
+      await ready(page, '/tree-editor/lca-binary-lifting');
+      const checked = await page.locator('[aria-label="Binary Lifting operation"] [aria-checked="true"]').innerText();
+      if (checked.trim() !== 'Query') throw new Error('operation is not Query: ' + checked);
+      await page.locator('.action-panel__picker').click();
+      await page.getByRole('group', { name: 'Samples', exact: true }).getByRole('button').filter({ hasText: 'Balanced · 10 nodes' }).click();
+      await page.waitForTimeout(800);
+      if ((await page.locator('.action-panel__picker').getAttribute('aria-expanded')) === 'true') await page.locator('.action-panel__picker').click();
+      if ((await page.locator('[aria-label="Root node"]').inputValue()) !== '10') throw new Error('preset root is not 10');
+      if (!(await page.locator('[aria-label="Root node"]').isVisible())) throw new Error('Root control not visible (Edit tree shut?)');
+      await page.locator('[aria-label="Binary Lifting node u"]').selectOption('8');
+      await page.locator('[aria-label="Binary Lifting node v"]').selectOption('20');
+      await page.getByRole('button', { name: 'Fit view', exact: true }).click();
+      await page.waitForTimeout(1200);
+      await page.mouse.move(1050, 760); // empty canvas
+      await page.waitForTimeout(800);
+      ctx.note('Tree Editor /tree-editor/lca-binary-lifting, Query; Select preset → "Balanced · 10 nodes" (root 10); preset list closed; Edit tree open (default), so Structure → Root is in view; u = 8, v = 20; Fit view; no run; mouse parked on empty canvas.');
+    },
+    async clip(ctx, spec) {
+      const { page } = ctx;
+      // Before/after facts of the re-root, read from the page.
+      const treeFacts = () => page.evaluate(() => {
+        const tiles = {};
+        for (const e of document.querySelectorAll('[data-panel-body="action"] *')) {
+          const m = e.innerText?.trim().match(/^(NODES|EDGES|DEPTH)\s+(\d+)$/);
+          if (m && e.children.length >= 1 && e.children.length <= 3) tiles[m[1]] = Number(m[2]);
+        }
+        const nodes = {};
+        for (const n of document.querySelectorAll('.react-flow__node')) {
+          const r = n.getBoundingClientRect();
+          nodes[n.dataset.id] = [Math.round(r.x + r.width / 2), Math.round(r.y + r.height / 2)];
+        }
+        return {
+          root: document.querySelector('[aria-label="Root node"]')?.value,
+          rootFocused: document.activeElement?.getAttribute('aria-label') === 'Root node',
+          picker: document.querySelector('.action-panel__picker-name')?.textContent.trim(),
+          u: document.querySelector('[aria-label="Binary Lifting node u"]')?.value,
+          v: document.querySelector('[aria-label="Binary Lifting node v"]')?.value,
+          tiles,
+          nodeCount: Object.keys(nodes).length,
+          edgesText: document.querySelector('#tree-edges-text')?.value,
+          footer: document.querySelector('.footer-bar__frame')?.innerText,
+          viewport: document.querySelector('.react-flow__viewport')?.style.transform,
+          nodes,
+        };
+      });
+      const before = await treeFacts();
+      await ctx.observe('start: root 10', { tree: before });
+      // 1. Focus the Root control with the keyboard: a click at the end of the Edges text, then Tab.
+      const box = await page.locator('#tree-edges-text').boundingBox();
+      await ctx.at(1.5);
+      await ctx.act('click at the end of the Edges text', async () => { await page.mouse.move(box.x + box.width - 20, box.y + box.height - 15); await page.mouse.down(); await page.mouse.up(); });
+      await ctx.at(1.75); await ctx.act('Tab to Structure → Root', () => page.keyboard.press('Tab'));
+      await ctx.at(1.9); await ctx.observe('Root focused', { tree: await treeFacts() });
+      // 2. Type "16": the closed select's type-ahead moves 10 → 16 in one change (options run 10, 4, 2, 6, 8, 16, …).
+      await ctx.at(2.4);
+      const typed = ctx.clock();
+      await ctx.act('type "16" in the Root control', () => page.keyboard.type('16', { delay: 150 }));
+      // Track the re-layout until the node centres and viewport hold still for 0.3 s.
+      const track = [];
+      let rerootAt = null;
+      let last = null;
+      let stillSince = null;
+      for (let i = 0; i < 40; i++) {
+        const f = await treeFacts();
+        const now2 = ctx.clock();
+        if (rerootAt === null && f.root === '16') rerootAt = now2;
+        const key = JSON.stringify([f.nodes, f.viewport]);
+        track.push({ t: now2, root: f.root, n16: f.nodes['16'], n8: f.nodes['8'], viewport: f.viewport });
+        if (rerootAt !== null && key === last) { stillSince ??= now2; if (now2 - stillSince >= 0.3) break; } else stillSince = null;
+        last = key;
+        await sleep(80);
+      }
+      const after = await treeFacts();
+      await ctx.observe('after the re-root', { tree: after, typedAt: typed, rootChangedBy: rerootAt, settledBy: stillSince, track });
+      if (after.u !== '8' || after.v !== '20') throw new Error('u/v were not kept: ' + after.u + ', ' + after.v);
+      // 3. Next starts the run; every step as in 01c, holds 2.0 s with a note, 1.2 s without, 2.5 s on the answer.
+      const next = footerButton(page, 'Next');
+      const sentenceOf = async () => sentence(await page.locator('[data-panel-body="status"]').innerText());
+      const runStart = await lcaState(page);
+      let at = Math.max(ctx.clock() + 0.1, typed + 2.6);
+      for (let i = 0; i < 20; i++) {
+        await ctx.at(at); await ctx.click('Next', next);
+        await ctx.at(at + 0.15);
+        const o = await ctx.observe('after Next', { statusSentence: await sentenceOf(), ...(await lcaState(page)) });
+        const [, shown, total] = o.footerFrame.match(/FRAME (\d+) \/ (\d+)/);
+        if (o.noteBoxes.some((n) => n.text === 'differ · lift both')) { await ctx.at(at + 0.7); await ctx.poster(); }
+        if (shown === total) { spec.end = at + 2.5; break; }
+        at += o.noteBoxes.length > 0 ? 2.0 : 1.2;
+      }
+      ctx.note('Node centres when the run started: ' + JSON.stringify(runStart.nodes));
+    },
+  },
   '01b_lca_keep_then_jump': {
     route: '/tree-editor/lca-binary-lifting',
     end: 10.3,

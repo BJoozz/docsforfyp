@@ -1,0 +1,1482 @@
+{
+  "id": "01d_lca_reroot_on_camera_8_20",
+  "route": "/tree-editor/lca-binary-lifting",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Tree Editor /tree-editor/lca-binary-lifting, Query; Select preset → \"Balanced · 10 nodes\" (root 10); preset list closed; Edit tree open (default), so Structure → Root is in view; u = 8, v = 20; Fit view; no run; mouse parked on empty canvas.",
+    "Node centres when the run started: {\"2\":[558,540],\"4\":[604,416],\"6\":[650,540],\"8\":[650,664],\"10\":[604,292],\"12\":[733,292],\"14\":[733,416],\"16\":[733,168],\"18\":[862,292],\"20\":[862,416]}"
+  ],
+  "observations": [
+    {
+      "t": 0.034,
+      "name": "start: root 10",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+      "graphViewport": "transform: translate(140.2px, 102.109px) scale(1);",
+      "tree": {
+        "root": "10",
+        "rootFocused": false,
+        "picker": "Balanced · 10 nodes",
+        "u": "8",
+        "v": "20",
+        "tiles": {
+          "NODES": 10,
+          "EDGES": 9,
+          "DEPTH": 3
+        },
+        "nodeCount": 10,
+        "edgesText": "10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20",
+        "footer": "NO RUN",
+        "viewport": "translate(140.2px, 102.109px) scale(1)",
+        "nodes": {
+          "2": [
+            535,
+            478
+          ],
+          "4": [
+            581,
+            354
+          ],
+          "6": [
+            627,
+            478
+          ],
+          "8": [
+            627,
+            602
+          ],
+          "10": [
+            701,
+            230
+          ],
+          "12": [
+            756,
+            478
+          ],
+          "14": [
+            756,
+            602
+          ],
+          "16": [
+            820,
+            354
+          ],
+          "18": [
+            885,
+            478
+          ],
+          "20": [
+            885,
+            602
+          ]
+        }
+      }
+    },
+    {
+      "t": 1.918,
+      "name": "Root focused",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+      "graphViewport": "transform: translate(140.2px, 102.109px) scale(1);",
+      "tree": {
+        "root": "10",
+        "rootFocused": true,
+        "picker": "Balanced · 10 nodes",
+        "u": "8",
+        "v": "20",
+        "tiles": {
+          "NODES": 10,
+          "EDGES": 9,
+          "DEPTH": 3
+        },
+        "nodeCount": 10,
+        "edgesText": "10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20",
+        "footer": "NO RUN",
+        "viewport": "translate(140.2px, 102.109px) scale(1)",
+        "nodes": {
+          "2": [
+            535,
+            478
+          ],
+          "4": [
+            581,
+            354
+          ],
+          "6": [
+            627,
+            478
+          ],
+          "8": [
+            627,
+            602
+          ],
+          "10": [
+            701,
+            230
+          ],
+          "12": [
+            756,
+            478
+          ],
+          "14": [
+            756,
+            602
+          ],
+          "16": [
+            820,
+            354
+          ],
+          "18": [
+            885,
+            478
+          ],
+          "20": [
+            885,
+            602
+          ]
+        }
+      }
+    },
+    {
+      "t": 3.791,
+      "name": "after the re-root",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "Ancestor table up[v][k] of this tree: run Query to lift u and v to their lowest common ancestor. | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "tree": {
+        "root": "16",
+        "rootFocused": true,
+        "picker": "Custom tree",
+        "u": "8",
+        "v": "20",
+        "tiles": {
+          "NODES": 10,
+          "EDGES": 9,
+          "DEPTH": 4
+        },
+        "nodeCount": 10,
+        "edgesText": "10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20",
+        "footer": "NO RUN",
+        "viewport": "translate(163.2px, 40.1094px) scale(1)",
+        "nodes": {
+          "2": [
+            558,
+            540
+          ],
+          "4": [
+            604,
+            416
+          ],
+          "6": [
+            650,
+            540
+          ],
+          "8": [
+            650,
+            664
+          ],
+          "10": [
+            604,
+            292
+          ],
+          "12": [
+            733,
+            292
+          ],
+          "14": [
+            733,
+            416
+          ],
+          "16": [
+            733,
+            168
+          ],
+          "18": [
+            862,
+            292
+          ],
+          "20": [
+            862,
+            416
+          ]
+        }
+      },
+      "typedAt": 2.41,
+      "rootChangedBy": 2.903,
+      "settledBy": 3.415,
+      "track": [
+        {
+          "t": 2.903,
+          "root": "16",
+          "n16": [
+            710,
+            230
+          ],
+          "n8": [
+            627,
+            726
+          ],
+          "viewport": "translate(140.2px, 102.109px) scale(1)"
+        },
+        {
+          "t": 3.012,
+          "root": "16",
+          "n16": [
+            710,
+            230
+          ],
+          "n8": [
+            627,
+            726
+          ],
+          "viewport": "translate(140.219px, 102.067px) scale(0.99999)"
+        },
+        {
+          "t": 3.11,
+          "root": "16",
+          "n16": [
+            720,
+            203
+          ],
+          "n8": [
+            638,
+            697
+          ],
+          "viewport": "translate(151.532px, 74.8271px) scale(0.996677)"
+        },
+        {
+          "t": 3.232,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.136px, 40.3229px) scale(0.999957)"
+        },
+        {
+          "t": 3.316,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        {
+          "t": 3.415,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        {
+          "t": 3.505,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        {
+          "t": 3.603,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        {
+          "t": 3.696,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        },
+        {
+          "t": 3.782,
+          "root": "16",
+          "n16": [
+            733,
+            168
+          ],
+          "n8": [
+            650,
+            664
+          ],
+          "viewport": "translate(163.2px, 40.1094px) scale(1)"
+        }
+      ]
+    },
+    {
+      "t": 5.166,
+      "name": "after Next",
+      "footerFrame": "FRAME 1 / 12",
+      "status": "query\n\nTable ready. Query LCA(8, 20); depths 4 and 2.\n\nCURRENT U\n8 depth 4\nCURRENT V\n20 depth 2\nACTIVE K\n—",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(8, 20): depths 4 and 2 | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "Table ready. Query LCA(8, 20); depths 4 and 2.",
+      "pseudocodeHint": "Line 1",
+      "pseudocodeLit": [
+        "1*: Query(u, v) using the table"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": []
+    },
+    {
+      "t": 6.387,
+      "name": "after Next",
+      "footerFrame": "FRAME 2 / 12",
+      "status": "query\n\nk = 3: depth gap 2 < 8, so u stays.\n\nCURRENT U\n8 depth 4\nCURRENT V\n20 depth 2\nACTIVE K\n3 (2^k = 8)",
+      "statusRegion": "right",
+      "notes": [
+        "gap 2 < 8 · keep u"
+      ],
+      "noteItems": [
+        {
+          "text": "gap 2 < 8 · keep u",
+          "opacity": "0.805355",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 3: depth gap 2 < 8: keep u | up[8][3] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 3: depth gap 2 < 8, so u stays.",
+      "pseudocodeHint": "Line 2",
+      "pseudocodeLit": [
+        "2*: for k descending: gap >= 2^k?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "gap 2 < 8 · keep u",
+          "box": [
+            592,
+            600,
+            116,
+            16
+          ],
+          "nearestNode": "8",
+          "fromNode": [
+            0,
+            -56
+          ],
+          "opacity": 0.694699
+        }
+      ]
+    },
+    {
+      "t": 8.368,
+      "name": "after Next",
+      "footerFrame": "FRAME 3 / 12",
+      "status": "query\n\nk = 2: depth gap 2 < 4, so u stays.\n\nCURRENT U\n8 depth 4\nCURRENT V\n20 depth 2\nACTIVE K\n2 (2^k = 4)",
+      "statusRegion": "right",
+      "notes": [
+        "gap 2 < 4 · keep u"
+      ],
+      "noteItems": [
+        {
+          "text": "gap 2 < 4 · keep u",
+          "opacity": "0.878147",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 2: depth gap 2 < 4: keep u | up[8][2] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 2: depth gap 2 < 4, so u stays.",
+      "pseudocodeHint": "Line 2",
+      "pseudocodeLit": [
+        "2*: for k descending: gap >= 2^k?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "gap 2 < 4 · keep u",
+          "box": [
+            589,
+            599,
+            121,
+            17
+          ],
+          "nearestNode": "8",
+          "fromNode": [
+            0,
+            -57
+          ],
+          "opacity": 0.878147
+        }
+      ]
+    },
+    {
+      "t": 10.384,
+      "name": "after Next",
+      "footerFrame": "FRAME 4 / 12",
+      "status": "query\n\nk = 1: depth gap 2 ≥ 2, so u lifts 2 levels.\n\nCURRENT U\n8 depth 4\nCURRENT V\n20 depth 2\nACTIVE K\n1 (2^k = 2)",
+      "statusRegion": "right",
+      "notes": [
+        "gap 2 ≥ 2 · lift u"
+      ],
+      "noteItems": [
+        {
+          "text": "gap 2 ≥ 2 · lift u",
+          "opacity": "0.694781",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 1: depth gap 2 ≥ 2: lift u | up[8][1] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 1: depth gap 2 ≥ 2, so u lifts 2 levels.",
+      "pseudocodeHint": "Line 2",
+      "pseudocodeLit": [
+        "2*: for k descending: gap >= 2^k?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "gap 2 ≥ 2 · lift u",
+          "box": [
+            600,
+            600,
+            100,
+            16
+          ],
+          "nearestNode": "8",
+          "fromNode": [
+            0,
+            -56
+          ],
+          "opacity": 0.694781
+        }
+      ]
+    },
+    {
+      "t": 12.388,
+      "name": "after Next",
+      "footerFrame": "FRAME 5 / 12",
+      "status": "query\n\nLift u: 8 → 4 by 2^1 = 2 levels.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n1 (2^k = 2)",
+      "statusRegion": "right",
+      "notes": [
+        "↑ 2 levels"
+      ],
+      "noteItems": [
+        {
+          "text": "↑ 2 levels",
+          "opacity": "0.295706",
+          "nearestNodeBelow": "4"
+        }
+      ],
+      "strip": "Lift u: 8 to 4 | up[8][1] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "Lift u: 8 → 4 by 2^1 = 2 levels.",
+      "pseudocodeHint": "Line 3",
+      "pseudocodeLit": [
+        "3*: yes: deeper = up[deeper][k]"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "↑ 2 levels",
+          "box": [
+            575,
+            354,
+            59,
+            15
+          ],
+          "nearestNode": "4",
+          "fromNode": [
+            0,
+            -55
+          ],
+          "opacity": 0.295706
+        }
+      ]
+    },
+    {
+      "t": 14.415,
+      "name": "after Next",
+      "footerFrame": "FRAME 6 / 12",
+      "status": "query\n\nk = 3: both ancestors are 16, so u and v stay.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n3 (2^k = 8)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0.295353",
+          "nearestNodeBelow": "16"
+        }
+      ],
+      "strip": "k = 3: up[4][3] = 16, up[20][3] = 16, equal: keep | up[4][3] | up[20][3] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 3: both ancestors are 16, so u and v stay.",
+      "pseudocodeHint": "Line 4",
+      "pseudocodeLit": [
+        "4*: for k desc: up[u][k] != up[v][k]?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "same ancestor · keep u, v",
+          "box": [
+            657,
+            83,
+            151,
+            15
+          ],
+          "nearestNode": "16",
+          "fromNode": [
+            0,
+            -78
+          ],
+          "opacity": 0.295353
+        }
+      ]
+    },
+    {
+      "t": 16.418,
+      "name": "after Next",
+      "footerFrame": "FRAME 7 / 12",
+      "status": "query\n\nk = 2: both ancestors are 16, so u and v stay.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n2 (2^k = 4)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0.528936",
+          "nearestNodeBelow": "16"
+        }
+      ],
+      "strip": "k = 2: up[4][2] = 16, up[20][2] = 16, equal: keep | up[4][2] | up[20][2] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 2: both ancestors are 16, so u and v stay.",
+      "pseudocodeHint": "Line 4",
+      "pseudocodeLit": [
+        "4*: for k desc: up[u][k] != up[v][k]?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "same ancestor · keep u, v",
+          "box": [
+            664,
+            85,
+            139,
+            14
+          ],
+          "nearestNode": "16",
+          "fromNode": [
+            0,
+            -76
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "t": 18.417,
+      "name": "after Next",
+      "footerFrame": "FRAME 8 / 12",
+      "status": "query\n\nk = 1: both ancestors are 16, so u and v stay.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n1 (2^k = 2)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0.295353",
+          "nearestNodeBelow": "16"
+        }
+      ],
+      "strip": "k = 1: up[4][1] = 16, up[20][1] = 16, equal: keep | up[4][1] | up[20][1] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 1: both ancestors are 16, so u and v stay.",
+      "pseudocodeHint": "Line 4",
+      "pseudocodeLit": [
+        "4*: for k desc: up[u][k] != up[v][k]?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "same ancestor · keep u, v",
+          "box": [
+            664,
+            85,
+            139,
+            14
+          ],
+          "nearestNode": "16",
+          "fromNode": [
+            0,
+            -76
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "t": 20.416,
+      "name": "after Next",
+      "footerFrame": "FRAME 9 / 12",
+      "status": "query\n\nk = 0: ancestors 10 and 18 differ, so both lift 1 level.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [
+        "differ · lift both"
+      ],
+      "noteItems": [
+        {
+          "text": "differ · lift both",
+          "opacity": "0.295513",
+          "nearestNodeBelow": "10"
+        }
+      ],
+      "strip": "k = 0: up[4][0] = 10, up[20][0] = 18, differ: lift both | up[4][0] | up[20][0] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "k = 0: ancestors 10 and 18 differ, so both lift 1 level.",
+      "pseudocodeHint": "Line 4",
+      "pseudocodeLit": [
+        "4*: for k desc: up[u][k] != up[v][k]?"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "differ · lift both",
+          "box": [
+            564,
+            232,
+            80,
+            14
+          ],
+          "nearestNode": "10",
+          "fromNode": [
+            0,
+            -53
+          ],
+          "opacity": 0
+        }
+      ]
+    },
+    {
+      "t": 22.433,
+      "name": "after Next",
+      "footerFrame": "FRAME 10 / 12",
+      "status": "query\n\nLift both by 2^0: u = 10, v = 18.\n\nCURRENT U\n10 depth 1\nCURRENT V\n18 depth 1\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [
+        "↑ 1 level\n↑ 1 level"
+      ],
+      "noteItems": [
+        {
+          "text": "↑ 1 level",
+          "opacity": "0.295513",
+          "nearestNodeBelow": "10"
+        },
+        {
+          "text": "↑ 1 level",
+          "opacity": "0.295513",
+          "nearestNodeBelow": "18"
+        }
+      ],
+      "strip": "Lift both: 4 to 10, 20 to 18 | up[4][0] | up[20][0] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "Lift both by 2^0: u = 10, v = 18.",
+      "pseudocodeHint": "Line 5",
+      "pseudocodeLit": [
+        "5*: yes: lift u and v by 2^k"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": [
+        {
+          "text": "↑ 1 level",
+          "box": [
+            579,
+            230,
+            50,
+            15
+          ],
+          "nearestNode": "10",
+          "fromNode": [
+            0,
+            -55
+          ],
+          "opacity": 0.295513
+        },
+        {
+          "text": "↑ 1 level",
+          "box": [
+            837,
+            230,
+            50,
+            15
+          ],
+          "nearestNode": "18",
+          "fromNode": [
+            0,
+            -55
+          ],
+          "opacity": 0.295513
+        }
+      ]
+    },
+    {
+      "t": 24.392,
+      "name": "after Next",
+      "footerFrame": "FRAME 11 / 12",
+      "status": "query\n\nBoth cursors now have the same parent, 16.\n\nCURRENT U\n16 depth 0\nCURRENT V\n16 depth 0\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA = up[10][0] = 16 | up[10][0] | up[18][0] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "Both cursors now have the same parent, 16.",
+      "pseudocodeHint": "Line 6",
+      "pseudocodeLit": [
+        "6*: if u != v: LCA = up[u][0]"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": []
+    },
+    {
+      "t": 25.609,
+      "name": "after Next",
+      "footerFrame": "FRAME 12 / 12",
+      "status": "query\n\nLCA(8, 20) = 16.\n\nCURRENT U\n16 depth 0\nCURRENT V\n16 depth 0\nACTIVE K\n—\nLOWEST COMMON ANCESTOR\n16",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(8, 20) = 16 | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);",
+      "statusSentence": "LCA(8, 20) = 16.",
+      "pseudocodeHint": "Line 7",
+      "pseudocodeLit": [
+        "7*: return meeting node or LCA"
+      ],
+      "nodes": {
+        "2": [
+          558,
+          540
+        ],
+        "4": [
+          604,
+          416
+        ],
+        "6": [
+          650,
+          540
+        ],
+        "8": [
+          650,
+          664
+        ],
+        "10": [
+          604,
+          292
+        ],
+        "12": [
+          733,
+          292
+        ],
+        "14": [
+          733,
+          416
+        ],
+        "16": [
+          733,
+          168
+        ],
+        "18": [
+          862,
+          292
+        ],
+        "20": [
+          862,
+          416
+        ]
+      },
+      "noteBoxes": []
+    },
+    {
+      "t": 27.926,
+      "name": "end",
+      "footerFrame": "FRAME 12 / 12",
+      "status": "query\n\nLCA(8, 20) = 16.\n\nCURRENT U\n16 depth 0\nCURRENT V\n16 depth 0\nACTIVE K\n—\nLOWEST COMMON ANCESTOR\n16",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(8, 20) = 16 | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 1.514,
+      "tDone": 1.55,
+      "scheduled": 1.5,
+      "action": "click at the end of the Edges text"
+    },
+    {
+      "t": 1.759,
+      "tDone": 1.768,
+      "scheduled": 1.75,
+      "action": "Tab to Structure → Root"
+    },
+    {
+      "t": 2.41,
+      "tDone": 2.831,
+      "scheduled": 2.4,
+      "action": "type \"16\" in the Root control"
+    },
+    {
+      "t": 5.027,
+      "tDone": 5.145,
+      "scheduled": 5.01,
+      "action": "Next"
+    },
+    {
+      "t": 6.22,
+      "tDone": 6.305,
+      "scheduled": 6.21,
+      "action": "Next"
+    },
+    {
+      "t": 8.227,
+      "tDone": 8.279,
+      "scheduled": 8.21,
+      "action": "Next"
+    },
+    {
+      "t": 10.248,
+      "tDone": 10.327,
+      "scheduled": 10.21,
+      "action": "Next"
+    },
+    {
+      "t": 12.233,
+      "tDone": 12.337,
+      "scheduled": 12.21,
+      "action": "Next"
+    },
+    {
+      "t": 14.285,
+      "tDone": 14.386,
+      "scheduled": 14.21,
+      "action": "Next"
+    },
+    {
+      "t": 16.288,
+      "tDone": 16.389,
+      "scheduled": 16.21,
+      "action": "Next"
+    },
+    {
+      "t": 18.258,
+      "tDone": 18.38,
+      "scheduled": 18.21,
+      "action": "Next"
+    },
+    {
+      "t": 20.267,
+      "tDone": 20.374,
+      "scheduled": 20.21,
+      "action": "Next"
+    },
+    {
+      "t": 22.302,
+      "tDone": 22.402,
+      "scheduled": 22.21,
+      "action": "Next"
+    },
+    {
+      "t": 24.24,
+      "tDone": 24.347,
+      "scheduled": 24.21,
+      "action": "Next"
+    },
+    {
+      "t": 25.441,
+      "tDone": 25.545,
+      "scheduled": 25.41,
+      "action": "Next"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794785900.325,
+    "tEndEpoch": 1794785928.248,
+    "screencastFrames": 1102,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0406,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/01d_lca_reroot_on_camera_8_20.png",
+    "t": 20.934,
+    "state": {
+      "footerFrame": "FRAME 9 / 12",
+      "status": "query\n\nk = 0: ancestors 10 and 18 differ, so both lift 1 level.\n\nCURRENT U\n4 depth 2\nCURRENT V\n20 depth 2\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [
+        "differ · lift both"
+      ],
+      "noteItems": [
+        {
+          "text": "differ · lift both",
+          "opacity": "0.705082",
+          "nearestNodeBelow": "10"
+        }
+      ],
+      "strip": "k = 0: up[4][0] = 10, up[20][0] = 18, differ: lift both | up[4][0] | up[20][0] | Ancestor table",
+      "graphViewport": "transform: translate(163.2px, 40.1094px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 838,
+    "durationSeconds": 27.933333333333334,
+    "sourceFramesUsed": 616,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "838",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "01d_lca_reroot_on_camera_8_20.mp4"
+    ]
+  },
+  "maxActionLateness": 0.092,
+  "pageErrors": []
+}
