@@ -2,10 +2,11 @@
 
 This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx) to its source; [`CA_DECK_CHANGELOG.md`](CA_DECK_CHANGELOG.md) says what changed from the draft.
 
-All app images and clips are real captures; none is generated or composited. The only additions are the coloured outlines on slide 8, drawn on the slide over the screenshot. The sources are:
+All app images and clips are real captures; none is generated or composited. The only additions are coloured outlines drawn on the slide over an image: around V2 and V7 in the wireframe grid on slide 7, and around the regions of the app on slide 8. The sources are:
 
 - the [Codex pack](ca-2026-11-16/README.md): app `346e84b`, captured 15–16 November;
 - the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and one Trie still in `stills/`;
+- the [design-history stills](ca-2026-11-16-deck-media/design-history/README.md): Kerk's UI kit (`634b5be`, 3 September) and wireframes (`69aa8e4`, 4 September), and Bao's working V2 and V7 builds (`ae63a62`), each rendered from its own commit on 16 November;
 - the [historical figures](../figures/README.md): app `662e7b3`, 1 November.
 
 | Slide | Asset | What it shows | If a clip will not play, the poster shows |
@@ -13,7 +14,9 @@ All app images and clips are real captures; none is generated or composited. The
 | 1 | Codex `02_dijkstra_decision.png`, cropped | A Dijkstra step with its note | — |
 | 2 | Crops of Codex `06`, `02`, `05`, and of [`stills/trie_insert_care_frame5.png`](ca-2026-11-16-deck-media/stills/trie_insert_care_frame5.png) | A graph, a step note, two sorting panes, and the current Trie page (Insert "care" on car, cart, cat, dog, dot; frame 5/7, "Create edge e and prefix care") | — |
 | 5 | `early-prototypes/02_graph_v1_run_crop.png`, `03_graph_v2_workspace.png`, `04_tree_binary_lifting_table_crop.png`, `05_sorting_two_panes_crop.png` | The standalone builds at 5fc06a0, c8b14e6, 46ce0a7 and 9236a65, rebuilt and captured on 16 November; not the current app | — |
-| 8 | Codex `04_tree_insert_preview.png`, with outlines | V10 regions: tab groups, the canvas, the playback bar | — |
+| 6 | `early-prototypes/03_graph_v2_workspace.png`, `04_tree_binary_lifting_table_crop.png`, `05_sorting_two_panes_crop.png`; `design-history/C1_ui_kit_home.png`, `C2_ui_kit_visualisation.png` | Left: Bao's standalone builds. Right: the home and visualisation screens of Kerk's design-system UI kit (commit 634b5be, 3 September) | — |
+| 7 | `design-history/A1_wireframes_at_a_glance_v1-v9_crop.png`, `A2_wireframe_v2_split_rails.png`, `A3_wireframe_v7_docks.png`, `B1_graph_v2_split_rails.png`, `B2_graph_v7_docks.png` | Kerk's nine wireframes V1–V9 (commit 69aa8e4, 4 September) with V2 and V7 outlined; the two chosen wireframes; Bao's working Graph builds in V2 and V7 (commit ae63a62) | — |
+| 8 | `design-history/B1_graph_v2_split_rails.png`, `B2_graph_v7_docks.png`; Codex `04_tree_insert_preview.png`, with outlines | Bao's V2 and V7 builds beside the current app's V10 regions: tab groups, the canvas, the playback bar | — |
 | 13 | Crops of Codex `03`, `06`, `02`, and of the Trie still | Thumbnails | — |
 | 14 | [`02b_v10_split_left_bottom.mp4`](ca-2026-11-16-deck-media/clips/02b_v10_split_left_bottom.mp4), 16.3 s | While the run stays at frame 12/21, the Status tab is dragged down its group to split the right column in two, then into the left group, then to the bottom row under the drawing. The drawing re-fits when the canvas gets shorter. Set-up before recording, also by a real drag: Status beside Pseudocode as a tab | Status under the drawing at 12/21 |
 | 15 | [`03b_graph_drag_edit_parallel.mp4`](ca-2026-11-16-deck-media/clips/03b_graph_drag_edit_parallel.mp4), 16.2 s | Dragging B keeps frame 12/21. Changing B → A from 1 to 5 in the Edges text ends the run (NO RUN). A second B → A edge is then drawn on the canvas from B's handle to A's; it appears as a new `B A` line with no weight (the app counts it as 1 and says so) until ` 2` is typed. The two parallel edges end up curved apart and labelled 5 and 2 | the graph with both B → A edges, labelled 5 and 2 |

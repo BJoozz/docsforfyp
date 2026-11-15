@@ -271,115 +271,12 @@ if EARLY_READY:
 else:
     LOG.append('5 left as draft (no early-prototype stills yet)')
 
-# ======================= slide 6: common direction =======================
-s = S[6]
-clear_body(s)
-for k, (who, what, extra) in enumerate([
-        ('Bao', 'Visualizers, algorithm execution, the V10 shell core and site integration',
-         'competitive programming and teaching background'),
-        ('Kerk', 'Design system, engine foundation and infrastructure; organised user feedback; '
-                 'consolidated the application', '')]):
-    x = 0.62 + k * 6.15
-    box(s, x, 1.42, 5.95, 2.45, fill=WHITE, line=BORDER, name=f'card-{k}')
-    badge(s, x + 0.25, 1.64, f'{k + 1:02d}', name=f'number-{k}')
-    text(s, x + 0.85, 1.6, 4.9, 0.5, who, size=22, color=TEAL, bold=True, name=f'point-{k}')
-    text(s, x + 0.25, 2.25, 5.45, 1.05, what, size=17, color=NAVY, bold=True, name=f'detail-{k}')
-    if extra:
-        text(s, x + 0.25, 3.3, 5.45, 0.4, extra, size=13, color=MUTED, name=f'extra-{k}')
-card(s, 0.62, 4.1, 12.1, 1.05,
-     [[('03  ', {'color': TEAL, 'bold': True}), ('Joint design decisions with supervisor feedback', {'bold': True, 'color': NAVY})],
-      [('V10 was decided together; Bao implemented its core model, Kerk refined and consolidated it.', {'size': 14, 'color': INK})]],
-     fill=TINT, size=18, anchor=MSO_ANCHOR.MIDDLE, pad=0.25, name='joint')
-text(s, 0.62, 5.42, 6, 0.32, 'Requirements we carried forward', size=13, color=MUTED, bold=True, name='req-label')
-for k, req in enumerate(['Keep the drawing available', 'Familiar playback across topics', 'Topic-specific information alongside']):
-    chip(s, 0.62 + k * 4.08, 5.82, 3.9, 0.62, req, fill=WHITE, color=NAVY, size=14.5, line=BORDER, name=f'req-{k}')
-
-# ======================= slide 7: layout exploration (Kerk) =======================
-s = S[7]
-clear_body(s)
-
-
-def wire(slide, x, y, w, h, kind, name):
-    box(slide, x, y, w, h, fill=WHITE, line=BORDER, radius=0.03, name=name)
-    pad = 0.06
-    ix, iy, iw, ih = x + pad, y + pad, w - 2 * pad, h - 2 * pad
-    if kind == 'rails':
-        box(slide, ix, iy, iw * 0.2, ih, fill=TINT, radius=0.05, name=name + '-l')
-        box(slide, ix + iw * 0.23, iy, iw * 0.54, ih, fill=CARD, radius=0.05, name=name + '-c')
-        box(slide, ix + iw * 0.8, iy, iw * 0.2, ih, fill=TINT, radius=0.05, name=name + '-r')
-    elif kind == 'docks':
-        box(slide, ix, iy, iw, ih, fill=CARD, radius=0.05, name=name + '-c')
-        box(slide, ix + iw * 0.05, iy + ih * 0.1, iw * 0.24, ih * 0.38, fill=TINT, line=TEAL, radius=0.1, name=name + '-d1')
-        box(slide, ix + iw * 0.68, iy + ih * 0.45, iw * 0.27, ih * 0.42, fill=TINT, line=TEAL, radius=0.1, name=name + '-d2')
-    elif kind == 'v10':
-        box(slide, ix, iy, iw * 0.2, ih * 0.86, fill=TINT, radius=0.05, name=name + '-l')
-        box(slide, ix + iw * 0.23, iy, iw * 0.54, ih * 0.62, fill=CARD, radius=0.05, name=name + '-c')
-        box(slide, ix + iw * 0.23, iy + ih * 0.66, iw * 0.54, ih * 0.2, fill=TINT, radius=0.08, name=name + '-b')
-        box(slide, ix + iw * 0.8, iy, iw * 0.2, ih * 0.86, fill=TINT, radius=0.05, name=name + '-r')
-        box(slide, ix, iy + ih * 0.9, iw, ih * 0.1, fill=BORDER, radius=0.3, name=name + '-f')
-    elif kind == 'grid':
-        for r in range(3):
-            for c in range(3):
-                box(slide, ix + c * iw / 3 + 0.03, iy + r * ih / 3 + 0.03, iw / 3 - 0.06, ih / 3 - 0.06,
-                    fill=CARD if (r + c) % 2 else TINT, radius=0.08, name=f'{name}-{r}{c}')
-
-
-wire(s, 0.62, 1.95, 2.9, 2.2, 'grid', 'wf-grid')
-text(s, 0.62, 1.45, 3.6, 0.4, [[('01  ', {'color': TEAL}), ('Nine candidate layouts', {})]], size=16, color=NAVY, bold=True, name='point-0')
-text(s, 0.62, 4.3, 2.9, 0.9, 'Wireframes explored before building', size=13, color=MUTED, name='detail-0')
-arrow(s, 3.7, 3.05, 4.35, 3.05, name='a1')
-wire(s, 4.5, 1.95, 2.25, 2.2, 'rails', 'wf-v2')
-wire(s, 6.95, 1.95, 2.25, 2.2, 'docks', 'wf-v7')
-text(s, 4.5, 1.45, 4.75, 0.4, [[('02  ', {'color': TEAL}), ('V2 split rails and V7 docks', {})]], size=16, color=NAVY, bold=True, name='point-1')
-text(s, 4.5, 4.22, 2.25, 0.3, 'V2 · split rails', size=12.5, color=INK, bold=True, align=PP_ALIGN.CENTER, name='lab-v2')
-text(s, 6.95, 4.22, 2.25, 0.3, 'V7 · draggable docks', size=12.5, color=INK, bold=True, align=PP_ALIGN.CENTER, name='lab-v7')
-arrow(s, 9.4, 3.05, 10.05, 3.05, name='a2')
-wire(s, 10.2, 1.95, 2.5, 2.2, 'v10', 'wf-v10')
-text(s, 10.2, 1.45, 2.6, 0.4, 'V10 (Week 9)', size=17, color=NAVY, bold=True, name='lab-v10-head')
-text(s, 10.2, 4.22, 2.5, 0.55, 'canvas + tab groups (next slide)', size=12.5, color=INK, align=PP_ALIGN.CENTER, name='lab-v10')
-card(s, 0.62, 5.0, 12.1, 1.15,
-     [[('03  ', {'color': TEAL, 'bold': True}), ('Comparable functionality across both builds', {'bold': True, 'color': NAVY})],
-      [('Graph, Tree and Sorting were built in both layouts on the design system, so discussions compared the '
-        'interface rather than unrelated features. The early layout survey was separate from the Week 10 trial.',
-        {'size': 13.5, 'color': INK})]],
-     fill=TINT, size=17, anchor=MSO_ANCHOR.MIDDLE, pad=0.25, name='comparable')
-text(s, 0.62, 6.4, 8, 0.3, 'Schematic drawings, not screenshots', size=11, color=MUTED, name='capture-source')
-
-LOG.append('6-7 restyled')
-
-# ======================= slide 8: V10 layout (Kerk) =======================
-s = S[8]
-clear_body(s)
-base8 = PACK / '01_main_slides/04_tree_insert_preview.png'
-IMG_X, IMG_Y, IMG_W = 0.62, 1.4, 8.6
-sc = IMG_W / 1440
-picture(s, base8, IMG_X, IMG_Y, IMG_W, IMG_W / 1.6, name='screenshot')
-
-
-def region(px, py, pw, ph, color, label, name, lx=None, ly=None, lw=1.75):
-    box(s, IMG_X + px * sc, IMG_Y + py * sc, pw * sc, ph * sc, fill=None, line=color, line_w=2.5, radius=0.02, name=name)
-    chip(s, IMG_X + (lx if lx is not None else px) * sc + 0.08, IMG_Y + (ly if ly is not None else py) * sc + 0.08,
-         lw, 0.34, label, fill=color, color=WHITE, size=11, name=name + '-label')
-
-
-region(2, 42, 298, 794, TEAL, 'Tab group', 'r-left', ly=480)
-region(306, 42, 808, 794, NAVY, 'Canvas (stays mounted)', 'r-canvas', lx=560, ly=700, lw=2.3)
-region(1120, 42, 318, 794, TEAL, 'Tab groups', 'r-right', ly=480)
-region(2, 842, 1436, 56, MUTED, 'Shared playback bar', 'r-footer', lx=1040, ly=760)
-for k, (h1, h2, col) in enumerate([
-        ('A persistent central canvas', 'stays mounted while panels move', NAVY),
-        ('Tab groups around the drawing', 'left, right and bottom; move, split, resize', TEAL),
-        ('One application after consolidation', 'Graph, Tree and Sorting share this shell', MUTED)]):
-    y = 1.55 + k * 1.55
-    box(s, 9.55, y + 0.08, 0.16, 0.16, fill=col, shape=MSO_SHAPE.OVAL, name=f'swatch-{k}')
-    text(s, 9.85, y - 0.02, 2.9, 0.75, h1, size=17, color=NAVY, bold=True, name=f'point-{k}')
-    text(s, 9.85, y + 0.72, 2.9, 0.6, h2, size=13, color=MUTED, name=f'detail-{k}')
-caption(s, 'Application capture: 15–16 Nov 2026, app 346e84b (Tree Editor, BST) · coloured outlines added for this slide',
-        x=0.62, w=8.6)
-notes_replace(s, 'Screenshot: https://github.com/BJoozz/docsforfyp/blob/main/figures/F3-tab-drag-preview.png\n'
-                 'Historical app commit 662e7b3. See figures/README.md for capture details.',
-              'Screenshot: current app 346e84b, 16 Nov 2026, with region outlines added on the slide. '
-              'Historical drag-preview still: https://github.com/BJoozz/docsforfyp/blob/main/figures/F3-tab-drag-preview.png (662e7b3).')
+# ======================= slides 6-8: the design history =======================
+# Slide 6 (Bao): two parallel foundations. Slide 7 (Kerk): nine wireframes to two
+# working prototypes. Slide 8 (Kerk): V2 and V7 to V10. Layout in slides_6_8.py,
+# text in slides_6_8_copy.json, images in ../design-history/.
+import slides_6_8
+LOG.extend(slides_6_8.apply({6: S[6], 7: S[7], 8: S[8]}, REPO))
 
 # ======================= slide 9: application boundaries (Kerk) =======================
 s = S[9]
@@ -743,7 +640,7 @@ set_notes(S[26], f"""Both | Backup | Q&A / backup
 
 Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b.
 
-Media in this deck: slides 1, 2, 8, 14-19 and 24 use real captures of app 346e84b from 15-16 November 2026, with manifests and reproduce steps in presentation/ca-2026-11-16/ (Codex pack) and presentation/ca-2026-11-16-deck-media/. Slide 25 uses a historical capture of app 662e7b3 from 1 November 2026, documented in figures/README.md. {{EARLY26}}Slide 7 uses schematic drawings, not screenshots.
+Media in this deck: slides 1, 2, 8, 14-19 and 24 use real captures of app 346e84b from 15-16 November 2026, with manifests and reproduce steps in presentation/ca-2026-11-16/ (Codex pack) and presentation/ca-2026-11-16-deck-media/. Slide 25 uses a historical capture of app 662e7b3 from 1 November 2026, documented in figures/README.md. {{EARLY26}}Slides 6 to 8 use design-history artifacts rendered from their own commits (presentation/ca-2026-11-16-deck-media/design-history/): Kerk's UI kit (634b5be, 3 September) and wireframes (69aa8e4, 4 September), and Bao's working V2 and V7 builds (ae63a62).
 
 The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7-12 against his current engine and website work before the joint presentation.
 

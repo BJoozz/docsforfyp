@@ -12,6 +12,7 @@ try { $app = [Runtime.InteropServices.Marshal]::GetActiveObject('PowerPoint.Appl
 catch { $app = New-Object -ComObject PowerPoint.Application; $started = $true }
 $before = $app.Presentations.Count
 $pres = $app.Presentations.Open($Deck, 0, 0, 0)
+if (-not $pres) { throw 'PowerPoint did not return the presentation (it is busy, for example showing a Protected View window). Nothing was changed. Close that window and run again.' }
 try {
   foreach ($s in $pres.Slides) {
     foreach ($sh in $s.Shapes) {

@@ -16,6 +16,7 @@ catch { $app = New-Object -ComObject PowerPoint.Application; $started = $true }
 $before = $app.Presentations.Count
 # Open(FileName, ReadOnly, Untitled, WithWindow)
 $pres = $app.Presentations.Open($Deck, -1, 0, 0)
+if (-not $pres) { throw 'PowerPoint did not return the presentation (it is busy, for example showing a Protected View window). Nothing was changed. Close that window and run again.' }
 try {
   $count = $pres.Slides.Count
   $wanted = if ($Slides) { $Slides.Split(',') | ForEach-Object { [int]$_ } } else { 1..$count }

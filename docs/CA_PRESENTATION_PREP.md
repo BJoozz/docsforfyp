@@ -249,3 +249,7 @@ Still open:
 Bao added that, in early discussions, Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports, alongside interaction, visualization and architecture. This is Bao's account; there is no written record, and no specific topic is attributed to Prof. Halim.
 
 The deck now reflects it on slides 2, 4, 5, 13, 16 and 22: LCA with Binary Lifting and Trie as added topics (built in the standalone Tree prototype in September 2026 and present in the current app), and Heavy-Light Decomposition and Centroid Decomposition only as possible later extensions. The checks behind each statement are in the [changelog](../presentation/CA_DECK_CHANGELOG.md).
+
+## Design history on slides 6–8 — 16 November 2026
+
+Bao asked for slides 6–8 to show the collaborative design process. Slide 6 sets his standalone visualizers beside Kerk's design system and UI kit. Slide 7 goes from Kerk's nine wireframes, through the feedback he organised and the joint choice of V2 and V7, to Bao's six working builds. Slide 8 goes from V2 and V7 to V10, with a credit line for the discussion, Bao's part and Kerk's part. The images are real artifacts rendered from their own commits. What the records support, and the wording limits that follow, are in the [changelog](../presentation/CA_DECK_CHANGELOG.md). Kerk still has to confirm slides 7–8.

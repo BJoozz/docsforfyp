@@ -35,7 +35,8 @@
    - Confirm the current engine implementation and the worker, protobuf and Pyodide details.
    - Confirm the exact website ownership.
    - Confirm whether the optional separate-engine demo is reliable.
-   - These slides were restyled into diagrams with the draft's wording. Their content is still provisional.
+   - Slides 7–8 were rewritten on 16 November for the design history (nine wireframes, V2 and V7, V10). Kerk should read their new notes: they are in his voice and credit his wireframes, the feedback he organised, his refinements and the consolidation.
+   - Slides 9–12 were restyled into diagrams with the draft's wording. Their content is still provisional.
 2. **Click through the deck once in slideshow mode on the presenting computer.**
    - On slides 14–18, 24 and 27, press → once: the clip should play with motion. Press → again to move on.
    - Check that the poster is visible before the clip plays.
@@ -81,7 +82,7 @@ Live alternatives for slides 14–18 are in the notes, for use only if time allo
   - Slides 1, 2, 8, 13–19, 24 and 27 use current captures of app `346e84b` from 15–16 November.
   - Slide 25 is historical (1 November, `662e7b3`).
   - Slide 5 shows the standalone prototypes, rebuilt at their documented commits and captured on 16 November.
-  - Slide 7 is schematic.
+  - Slides 6–8 use design-history artifacts rendered from their own commits: Kerk's UI kit (3 September) and wireframes (4 September), and Bao's working V2 and V7 builds.
 
 ## Suggested Q&A focus
 

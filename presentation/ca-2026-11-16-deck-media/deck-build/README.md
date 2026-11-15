@@ -19,6 +19,14 @@ powershell -File presentation/ca-2026-11-16-deck-media/deck-build/render.ps1 -De
 
 The PowerPoint scripts attach to a running PowerPoint if there is one. They close only the presentation they opened, and quit PowerPoint only if they started it.
 
+## Other files
+
+- `slides_6_8.py` lays out slides 6–8 (the design history) and `slides_6_8_copy.json` holds their text. `build_deck.py` calls it.
+- `apply_slides_6_8.py` applies only those three slides to an already finalised deck, for when PowerPoint cannot be automated.
+- `ppt_probe.ps1` says whether PowerPoint accepts automation right now. A PowerPoint that is showing a Protected View window rejects it; the three PowerPoint scripts then stop without changing anything.
+- `approx_render.py` draws slides with Pillow for a rough layout check when PowerPoint is not available. It is not a substitute for `render.ps1`.
+- Always give the PowerPoint scripts a scratch copy of the deck, never the file in the repository.
+
 ## Inputs
 
 - Codex's verified pack: `../../ca-2026-11-16/`, app `346e84b`.

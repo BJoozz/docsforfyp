@@ -11,7 +11,7 @@ The following are unchanged:
 - every on-slide claim (the draft's lines are kept as headings);
 - the speaker notes, except on the slides marked below.
 
-Slides 7–12 were restyled only. Kerk still has to confirm their content.
+Slides 9–12 were restyled only, and slides 7–8 were rewritten for the design history (see below). Kerk still has to confirm the content of slides 7–12.
 
 ## Embedded clips
 
@@ -44,6 +44,21 @@ What was checked before the slides changed:
 
 Slides changed for this: 2, 4, 5, 13, 16 (notes only), 22 and 26 (notes only). No slide was added and the LCA clip on slide 16 is unchanged.
 
+## Design history on slides 6–8 (added 16 November)
+
+Bao asked for slides 6–8 to tell the collaborative design process: two parallel foundations, nine wireframes to two working prototypes, and V2 and V7 to V10. Slide 5 is unchanged.
+
+What the records support, and how the slides word it:
+- **Kerk's design system and UI kit:** committed on 3 September 2026 (`634b5be`). The UI kit describes itself as a recreation of visualgo.net's pages in the new style, so the slides say "restyled visualgo.net" and never "designed from scratch".
+- **Nine wireframes:** Kerk's file of 4 September (`69aa8e4`) has nine frames, V1–V9. V8 and V9 are V7 mid-drag and after the drop, so the slides say "nine wireframes" with "seven panel layouts and two drag states", not "nine layouts". Only V2 and V7 were built.
+- **Student feedback:** it rests on Bao's account that Kerk organised it. No date, size or result is on record, so the slides give no numbers and credit the choice of V2 and V7 to Kerk and Bao.
+- **Working builds:** Bao built Graph, Tree and Sorting in both layouts in PRs #1–#3, 20–27 September: six apps, from his standalone prototypes, on Kerk's design tokens and themes.
+- **V10:** Bao proposed it on 16 October and built the panel-group model and shell in PRs #15–#17 (16–18 October). Kerk implemented the later refinements agreed with Bao and merged everything into one application on 18 October (`0394b64`).
+- **Prof. Halim:** his part in the discussion rests on Bao's account, so the slides say "with Prof. Halim's feedback" and nothing stronger.
+- **Naming:** "standalone Graph rewrite" is Bao's own repository; "V2 (split rails)" is the team layout.
+
+The images are real artifacts rendered from their own commits; see [`design-history/`](ca-2026-11-16-deck-media/design-history/README.md). The text was checked against the records by a separate fact-checking pass before it went on the slides.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |
@@ -53,9 +68,9 @@ Slides changed for this: 2, 4, 5, 13, 16 (notes only), 22 and 26 (notes only). N
 | 3 | Three lines | Simplified diagram of the original graph topics over one shared widget, and the three points with details | unchanged |
 | 4 | Three lines | Objective cards with NOW and NEXT, and a band stating the TypeScript/engine boundary; objective 1 now says LCA and Trie already run on the shell and that topics are added on the same foundations | one phrase replaced (coverage) |
 | 5 | Three lines | Stills of the standalone Graph (prototype 1 and rewrite), Tree and Sorting builds, and what each tested; the Tree card names LCA and Trie | VISUAL cue and media source added; the Tree sentences rewritten (coverage) |
-| 6 | Three lines | Bao and Kerk cards, a joint-decisions band, three requirement chips | unchanged |
-| 7 | Three lines | Schematic flow: nine wireframes → V2 rails and V7 docks → V10 | unchanged |
-| 8 | Small historical still (F3) | Current Tree Editor screenshot with outlined tab groups, canvas and playback bar | screenshot source updated |
+| 6 | Three lines ("A common direction") | "Two parallel foundations": Bao's standalone visualizers beside Kerk's design system and UI kit (real renders from commit 634b5be), and the three requirements carried forward | rewritten |
+| 7 | Three lines ("Layout exploration") | "From nine wireframes to two working prototypes": Kerk's real wireframe grid V1–V9 with V2 and V7 outlined, the two chosen wireframes, and Bao's working V2 and V7 builds; it replaces a schematic drawn for the first build | rewritten; Kerk to confirm |
+| 8 | Small historical still (F3), "The V10 panel layout" | "From V2 and V7 to V10": what V10 keeps from V2 and from V7 (with Bao's two builds), the current app with outlined regions, and a credit band for the discussion, Bao's part and Kerk's part | rewritten; Kerk to confirm |
 | 9 | Four lines | Layered diagram: site host, three visualizers, shared layer, separate engine | unchanged |
 | 10 | Four lines | Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly, Pyodide) | unchanged |
 | 11 | Three lines | Two history models (≠) over the three things integration must preserve | unchanged |

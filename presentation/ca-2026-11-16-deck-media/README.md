@@ -46,6 +46,7 @@ All clips: H.264 High, 1440 × 900, constant 30 fps, no audio, real speed (no sp
 | `clips/`, `posters/` | The ten clips above and their poster stills. |
 | `reproduce/` | The capture script, its recipe and the raw DOM checks. |
 | `early-prototypes/` | Stills of the standalone Graph, Tree and Sorting prototypes. The builds were rebuilt at their last documented commits and captured on 16 November 2026. That folder has its own README and manifest. |
+| `design-history/` | Real artifacts for slides 6–8, each rendered from its own commit on 16 November 2026: Kerk's wireframes (`69aa8e4`), Bao's working V2 and V7 builds of Graph, Tree and Sorting (`ae63a62`) and Kerk's design-system UI kit (`634b5be`). That folder has its own README and manifest. |
 | `stills/` | One still of the current app's Trie page, used on slides 2 and 13: default words car, cart, cat, dog, dot; Insert "care"; Next five times to frame 5/7, "Create edge e and prefix care". App `346e84b`, 16 November 2026, 1440 × 900. `capture-trie-still.mjs` reproduces it (set `CA_APP_REPO` and `CA_BASE_URL`; arguments: output path, 5). |
 | `deck-crops/` | Crops of Codex's stills (`../ca-2026-11-16/`) and of the Trie still, used on slides 1, 2 and 13. `deck-build/build_deck.py` generates them. |
 | `deck-build/` | The scripts that built `../VisuAlgo_CA_Presentation.pptx` from the GPT draft, and how to rerun them. |

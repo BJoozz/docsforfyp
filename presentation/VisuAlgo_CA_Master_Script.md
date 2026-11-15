@@ -118,64 +118,73 @@ The early prototypes were experiments in how to achieve the goals we had discuss
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 
-### 06. A common direction
+### 06. Two parallel foundations
 
 **Bao · Early Design · 05:30–07:00**
 
 **On slide**
 
-- Bao: visualizers, algorithm execution, the V10 shell core and site integration
-- Kerk: design system, engine foundation and infrastructure; organised user feedback; consolidated the application
-- Joint design decisions with supervisor feedback: V10 decided together; Bao implemented its core model, Kerk refined and consolidated it
-- Requirements carried forward: keep the drawing available · familiar playback across topics · topic-specific information alongside
+- Bao · standalone visualizers, 28 Jul–17 Sep: Working Graph, Tree and Sorting visualizers; Engines, editors and playback, reused in every later build; Showed what a shared page must support
+- Kerk · design system, UI kit, committed 3 Sep: Restyled visualgo.net: purple and gold, Inter, nine themes; 26 components, from the top bar to lesson cards; UI kit recreating the home and visualisation pages
+- Requirements we carried forward: Keep the drawing available · Familiar playback across topics · Topic-specific information alongside
 
-**Visual:** Two contributor cards, a joint band and three requirement chips.
+**Visual:** Left card: three stills of Bao's standalone builds (the Graph rewrite, the Tree prototype, Sorting Room). Right card: the home and visualisation screens of Kerk's design-system UI kit, rendered from commit 634b5be (3 Sep 2026). All captured on 16 Nov 2026.
 
 **English script**
 
-We divided the work around our strengths, while discussing the interface together. My competitive programming and teaching experience helped me focus on algorithm behavior, intermediate states and explanations. I built the visualizer foundations and later the core shared shell and site integration. Kerk focused on the design system, engine foundation and infrastructure, and organized user feedback. The responsibilities overlap. In particular, we made the V10 design decisions together, I implemented its core model, and Kerk made later refinements and consolidated the application. Our early prototypes gave us concrete requirements: keep the drawing available, make playback familiar across topics, and allow topic-specific information alongside it. We used those requirements with Kerk's design system to explore the shared interface. Kerk will now explain how the layout evolved.
+From late August, two strands developed in parallel. While I worked on the standalone Graph rewrite and the Tree prototype, Kerk was designing the look of VisuAlgo+. My visualizers already worked, and their engines, editors and playback became the base of every later build. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system: purple and gold, the Inter font, nine themes and twenty-six components. His UI kit recreates the home and visualisation pages, and the site I built later follows its home page. The kit's visualisation page is a scripted demo, though, so his design needed real visualizers behind it. Each strand filled a gap in the other. We carried forward three requirements: keep the drawing available, familiar playback across topics, and topic-specific information alongside. Kerk will now show how he laid out the visualisation page.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
-### 07. Layout exploration
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
+
+### 07. From nine wireframes to two working prototypes
 
 **Kerk · UI/UX Evolution · 07:00–08:30**
 
 **On slide**
 
-- Nine candidate layouts
-- V2 split rails and V7 docks
-- Comparable functionality across both builds
+- Kerk's nine wireframes, V1–V9: One top bar and footer; seven panel layouts and two drag states of V7
+- V2 and V7 chosen together: By Kerk and Bao, after early student feedback that Kerk organised
+- Bao's six working builds: Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes
+- Same features in both builds, so we could compare the layouts themselves on real runs, not just as drawings
 
-**Visual:** Schematic flow (drawings, not screenshots): nine wireframes → V2 rails and V7 docks → V10 (Week 9).
+**Visual:** Left: the "At a glance" grid of Kerk's wireframe page (commit 69aa8e4, 4 Sep 2026), nine frames V1–V9 with V2 and V7 outlined on the slide. Middle: the V2 and V7 wireframes. Right: Bao's working Graph builds in V2 (split rails) and V7 (docks), captured from commit ae63a62, the last one that still had them.
 
 **English script**
 
-The design process explored nine candidate visualization-page layouts. After an early user survey, Bao and I selected V2, with split rails, and V7, with draggable docks, for functional prototypes. Bao implemented Graph, Tree and Sorting in both layouts using the design system. Keeping comparable functionality helped us discuss the interface rather than compare unrelated features. Split rails provided a familiar arrangement for supporting information. Docks allowed users to move panels around the drawing. We used the working builds and discussions to decide which properties to retain. This early layout survey was separate from the Week 10 user trial. The purpose of the functional prototypes was to explore these choices in use.
+Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I set one top bar and one footer for every version, with e-Lecture as a panel and a scrubber, zoom and shortcuts in the footer. They differ only in where the panels live and how they open. There are nine: seven layouts, plus V8 and V9, which show V7 during a drag and after the drop. I organised early feedback from students. It was formative input. After it, Bao and I chose two layouts together: V2, split rails, and V7, draggable docks. Bao then built Graph, Tree and Sorting in both layouts, from his standalone prototypes and on my design tokens and themes. That gave six working apps between 20 and 27 September. Both layouts had the same features, so any difference came from the layout itself, seen on real runs rather than drawings.
 
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+**Team review:** Kerk to confirm this slide: the wireframes, the student feedback he organised (no numbers are on record) and how the choice is described. The script was rewritten on 16 November from the records and Bao's account.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
 
-### 08. The V10 panel layout
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
+
+### 08. From V2 and V7 to V10
 
 **Kerk · UI/UX Evolution · 08:30–10:00**
 
 **On slide**
 
-- A persistent central canvas: stays mounted while panels move
-- Tab groups around the drawing: left, right and bottom; move, split, resize
-- One application after consolidation: Graph, Tree and Sorting share this shell
+- From V2 · split rails: Panels stacked and visible together; Its panel positions as V10's default
+- From V7 · draggable docks: Panels moved by dragging their tabs; A bottom area and splitters to resize
+- V10 · panel groups: A persistent central canvas; Tab groups around the drawing; One application after consolidation
+- Discussed together: Kerk and Bao, with Prof. Halim's feedback
+- Bao: proposed V10 in Week 9, built its panel-group model and shell (16–18 Oct)
+- Kerk: refined V10 with Bao and merged the apps into one (18–22 Oct)
 
-**Visual:** Current app screenshot (Tree Editor, app 346e84b, 16 Nov 2026) with coloured outlines for the tab groups, the canvas and the shared playback bar.
+**Visual:** Left: Bao's working V2 (split rails) and V7 (docks) builds with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
 
 **English script**
 
-In Week 9, we discussed combining selected strengths of V2 and V7 into V10. The central drawing stays available, while the supporting information lives in panel groups. Users can move tabs, split groups and resize the surrounding space. Bao implemented the core model and shell. We then discussed refinements to the interaction, and I implemented several of them. I also consolidated the separate visualizer copies into one application and moved common code into a shared layer. That reduced the need to make the same shared fix in multiple copies. The Week 10 trial used V10 after this decision. Bao will explain the implementation constraints behind the shell later. I will now turn to the website and execution architecture.
+With six working apps, we could compare the layouts. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed them, with feedback from Prof. Halim. In Week 9, Bao proposed V10 to keep both strengths. Panels stay stacked and visible together, as in V2, and tabs drag between areas, as in V7. Each area can now hold several tab groups, and the canvas in the centre is never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and visualizers into one application with a shared layer, so a shell fix is now one edit. The Week 10 trial used V10. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture.
 
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+**Team review:** Kerk to confirm this slide: his refinements, the consolidation and how the discussion with Prof. Halim is described. The script was rewritten on 16 November from the records and Bao's account.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
 
 ### 09. Application boundaries
 
@@ -579,7 +588,7 @@ For cut vertices and bridges, an independent oracle removes each candidate and c
 
 **English script**
 
-Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slide 7 is schematic. The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
+Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slides 6 to 8 use design-history artifacts rendered from their own commits: Kerk's UI kit (634b5be) and wireframes (69aa8e4), and Bao's working V2 and V7 builds (ae63a62). The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 
