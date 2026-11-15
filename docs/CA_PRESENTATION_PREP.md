@@ -200,3 +200,8 @@ Project references:
 - [Architecture and decisions](../03_architecture_and_decisions.md).
 
 **15 November 2026:** Created this focused note to preserve the Part 1 brainstorming, repository evidence, latest slide proposal and complete English draft from the conversation.
+
+
+## Technical-case continuation — 15 November 2026
+
+[Graph editing and reproducible playback](CA_PRESENTATION_GRAPH_CASE.md) now contains the first technical case: slide wording, a 2–3 minute English script, proposed demo, Q&A, source references and a commit-based timing fix. Code and existing tests were inspected; the demo has not yet been rehearsed and tests were not rerun during this preparation.
