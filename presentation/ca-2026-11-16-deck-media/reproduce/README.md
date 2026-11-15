@@ -13,7 +13,7 @@ $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'
 $env:CA_BASE_URL = 'http://127.0.0.1:5205'
 $env:CA_DECK_OUTPUT = 'C:\path\outside\any\synced\folder\deck'
 $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'
-node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 03b_graph_drag_edit_parallel 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
+node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 01c_lca_reroot_8_20 02_v10_move_panel 02b_v10_split_left_bottom 03_graph_drag_then_edit 03b_graph_drag_edit_parallel 04_dijkstra_note_pause_hover 04b_dijkstra_big_note_pause_hover 05_bst_preview_apply 06_dfs_recursive_recap
 ```
 
 The script writes `clips/`, `posters/`, `checks/` and `raw/<clip>/` under `CA_DECK_OUTPUT`. Each `raw/<clip>/` folder holds the screencast JPEGs and the `list.ffconcat` used for the encode. Clips run one after another. The script only drives the UI: it edits no source, injects no state, hides nothing with CSS and adds no overlay.
@@ -91,6 +91,49 @@ Poster at 1.30 s, frame 2/6, with the note showing.
 - End at 10.3.
 
 Poster at 3.30 s, frame 4/7.
+
+This clip is now the earlier LCA take; 01c replaces it on the slide.
+
+### 01c_lca_reroot_8_20 (25.7 s, slide 17)
+
+**Setup:**
+1. Open `/tree-editor/lca-binary-lifting` and check that Query is selected.
+2. Select preset → "Balanced · 10 nodes". The script checks the text `10 4 / 4 2 / 4 6 / 6 8 / 10 16 / 16 12 / 12 14 / 16 18 / 18 20` and root 10.
+3. Edit tree → Structure → Root: choose 16. After this the picker reads "Custom tree".
+4. Set u = 8 and v = 20.
+5. Click Fit view. All five levels are visible: 16 at the top, 8 at y 664. The panel layout is the default.
+6. Next starts the run at 1/12; then wait 2.3 s. The pointer stays on Next.
+
+**Recorded:** Next is pressed once per step. The hold is 2.15 s after a step with a note and 1.2 s after one without, plus about 0.15 s for each click. The clip ends 2.5 s after the answer. Notes sit straight above their node: 57 px above its centre, or 80 px for 16, because of its badges. No node moved at any step.
+
+| Next at (s) | Frame | Status sentence | Note (over node) | Strip under the drawing | Pseudocode |
+| --- | --- | --- | --- | --- | --- |
+| start | 1/12 | Table ready. Query LCA(8, 20); depths 4 and 2. | — | LCA(8, 20): depths 4 and 2 | line 1 |
+| 1.07 | 2/12 | k = 3: depth gap 2 < 8, so u stays. | gap 2 < 8 · keep u (8) | k = 3: depth gap 2 < 8: keep u · up[8][3] | line 2 |
+| 3.42 | 3/12 | k = 2: depth gap 2 < 4, so u stays. | gap 2 < 4 · keep u (8) | k = 2: depth gap 2 < 4: keep u · up[8][2] | line 2 |
+| 5.72 | 4/12 | k = 1: depth gap 2 ≥ 2, so u lifts 2 levels. | gap 2 ≥ 2 · lift u (8) | k = 1: depth gap 2 ≥ 2: lift u · up[8][1] | line 2 |
+| 8.07 | 5/12 | Lift u: 8 → 4 by 2^1 = 2 levels. | ↑ 2 levels (4) | Lift u: 8 to 4 · up[8][1] | line 3 |
+| 10.36 | 6/12 | k = 3: both ancestors are 16, so u and v stay. | same ancestor · keep u, v (16) | k = 3: up[4][3] = 16, up[20][3] = 16, equal: keep | line 4 |
+| 12.65 | 7/12 | k = 2: both ancestors are 16, so u and v stay. | same ancestor · keep u, v (16) | k = 2: up[4][2] = 16, up[20][2] = 16, equal: keep | line 4 |
+| 14.91 | 8/12 | k = 1: both ancestors are 16, so u and v stay. | same ancestor · keep u, v (16) | k = 1: up[4][1] = 16, up[20][1] = 16, equal: keep | line 4 |
+| 17.17 | 9/12 | k = 0: ancestors 10 and 18 differ, so both lift 1 level. | differ · lift both (10) | k = 0: up[4][0] = 10, up[20][0] = 18, differ: lift both | line 4 |
+| 19.47 | 10/12 | Lift both by 2^0: u = 10, v = 18. | ↑ 1 level (10), ↑ 1 level (18) | Lift both: 4 to 10, 20 to 18 | line 5 |
+| 21.79 | 11/12 | Both cursors now have the same parent, 16. | — | LCA = up[10][0] = 16 | line 6 |
+| 23.11 | 12/12 | LCA(8, 20) = 16. | — | LCA(8, 20) = 16 | line 7 |
+
+The clip ends at 25.73.
+
+**Stills,** taken with `page.screenshot` 0.45 s after the step arrived, with the note fully shown. Boxes are x, y, width, height in page pixels:
+
+| Still | Frame | Note | Over node | Box |
+| --- | --- | --- | --- | --- |
+| `stills/lca_8_20_depth_lift.png` | 4/12 | gap 2 ≥ 2 · lift u | 8, centre (650, 664) | 598, 595, 105×17 |
+| `stills/lca_8_20_keep.png` | 8/12 | same ancestor · keep u, v | 16, centre (733, 168) | 644, 76, 177×17 |
+| `stills/lca_8_20_lift_both.png` | 9/12 | differ · lift both | 10, centre (604, 292) | 553, 222, 103×17 |
+
+Nodes are about 64 px across.
+
+**Poster:** 18.00 s, frame 9/12 with "differ · lift both" shown.
 
 ### 02_v10_move_panel (7.3 s)
 
@@ -289,6 +332,11 @@ Poster at 3.01 s.
 ## Where this differs from the brief
 
 - **LCA, k = 2:** this tree has two steps where both ancestors are 8 (k = 2 and k = 1). For (6, 2) the k = 0 step also keeps u and v, with both ancestors 4. 01 starts just before k = 2. 01b starts at k = 2 already shown, so its first new note is the one for k = 1.
+- **01c, against the owner's hand trace:** the depths, the 8 → 4 lift, the keep on 16, the differ at k = 0 (10 and 18), the common parent 16 and LCA(8, 20) = 16 all match. The app shows more steps than the trace, though: 12 frames, not about 8.
+  - The table has columns k = 0 to 3, so the depth loop first checks k = 3 and k = 2: "gap 2 < 8 · keep u" and "gap 2 < 4 · keep u", both over 8. Only then does k = 1 lift u.
+  - The compare loop keeps at k = 3, k = 2 and k = 1, each "same ancestor · keep u, v" over 16, before k = 0 differs.
+  - The note wording is the app's, as in the table above.
+  - With the requested holds, the clip runs 25.7 s, over the 14–20 s target. Holding each noted step 1.7 s, still longer than a note's 1.6 s life, would bring it to about 20 s.
 - **No on-canvas weight editing:** the app has none, so 03 uses Draw graph → Edges. That text commits on every valid change.
 - **Panel move in 02:** the Status tab goes into the left group, not the bottom region, so the drawing size and viewport stay the same. Reset panel layout also asks for a fit; it changes nothing here because setup already pressed Fit view.
 - **02b:** the three drops follow the requested order, and all of them were allowed.

@@ -216,12 +216,19 @@ async function runClip(id, spec) {
       await page.screenshot({ path: file, caret: 'initial' });
       log.poster = { file: 'posters/' + id + '.png', t: time, state: await domState(page) };
     },
+    /** A full-page still for the deck, besides the poster, with what it shows. */
+    async still(name, extra = {}) {
+      await mkdir(path.join(OUT, 'stills'), { recursive: true });
+      const time = t();
+      await page.screenshot({ path: path.join(OUT, 'stills', name + '.png'), caret: 'initial' });
+      (log.stills ??= []).push({ file: 'stills/' + name + '.png', t: time, state: await domState(page), ...extra });
+    },
   };
   try {
     await spec.setup(ctx);
     rec = await startRecorder(page, path.join(OUT, 'raw', id));
     log.recording = { method: 'CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)', t0Epoch: rec.t0 };
-    await spec.clip(ctx);
+    await spec.clip(ctx, spec);
     await ctx.at(spec.end);
     rec.tEnd = now();
     await ctx.observe('end');
@@ -404,6 +411,38 @@ const previewInfo = (page) => page.evaluate(() => {
   };
 });
 
+// ---------- LCA step details: pseudocode line, node centres, notes with their boxes ----------
+function lcaState(page) {
+  return page.evaluate(() => {
+    const nodes = {};
+    for (const n of document.querySelectorAll('.react-flow__node')) {
+      const r = n.getBoundingClientRect();
+      nodes[n.dataset.id] = [Math.round(r.x + r.width / 2), Math.round(r.y + r.height / 2)];
+    }
+    const lines = [...document.querySelectorAll('.pseudocode-panel__listing li')];
+    const notes = [...document.querySelectorAll('.step-notes *')].filter((e) => e.children.length === 0 && e.textContent.trim()).map((e) => {
+      const r = e.getBoundingClientRect();
+      const cx = r.x + r.width / 2;
+      const cy = r.y + r.height / 2;
+      // The node the note belongs to: the nearest node centre; dx, dy say where the note sits from it.
+      const [id, [nx, ny]] = Object.entries(nodes).sort(([, a], [, b]) => Math.hypot(a[0] - cx, a[1] - cy) - Math.hypot(b[0] - cx, b[1] - cy))[0];
+      return {
+        text: e.textContent.trim(),
+        box: [r.x, r.y, r.width, r.height].map(Math.round),
+        nearestNode: id,
+        fromNode: [Math.round(cx - nx), Math.round(cy - ny)],
+        opacity: Number(getComputedStyle(e.closest('[style]') ?? e).opacity),
+      };
+    });
+    return {
+      pseudocodeHint: document.querySelector('.pseudocode-panel__hint')?.textContent.trim() ?? null,
+      pseudocodeLit: lines.map((li, i) => (li.classList.contains('pseudocode-panel__line--active') ? `${i + 1}${li.getAttribute('aria-current') === 'step' ? '*' : ''}: ${li.textContent.trim()}` : null)).filter(Boolean),
+      nodes,
+      noteBoxes: notes,
+    };
+  });
+}
+
 const CLIPS = {
   '01_lca_equal_ancestors': {
     route: '/tree-editor/lca-binary-lifting',
@@ -420,6 +459,62 @@ const CLIPS = {
       await ctx.at(5.2); await ctx.click('Next', next); await ctx.at(5.35); await ctx.observe('return parent');
       await ctx.at(6.3); await ctx.click('Next', next); await ctx.at(6.45); await ctx.observe('complete');
       await ctx.at(8.0); await ctx.hover('hover node 6', treeNode(page, '6')); await ctx.at(8.3); await ctx.observe('hover node 6 on the final frame');
+    },
+  },
+  '01c_lca_reroot_8_20': {
+    route: '/tree-editor/lca-binary-lifting',
+    end: 30, // replaced in clip() once the last frame is reached: the clip ends 2.5 s after the answer
+    async setup(ctx) {
+      const { page } = ctx;
+      await ready(page, '/tree-editor/lca-binary-lifting');
+      const checked = await page.locator('[aria-label="Binary Lifting operation"] [aria-checked="true"]').innerText();
+      if (checked.trim() !== 'Query') throw new Error('operation is not Query: ' + checked);
+      await page.locator('.action-panel__picker').click();
+      await page.getByRole('group', { name: 'Samples', exact: true }).getByRole('button').filter({ hasText: 'Balanced · 10 nodes' }).click();
+      await page.waitForTimeout(800);
+      if ((await page.locator('.action-panel__picker').getAttribute('aria-expanded')) === 'true') await page.locator('.action-panel__picker').click();
+      const text = await page.locator('#tree-edges-text').inputValue();
+      const expected = '10 4\n4 2\n4 6\n6 8\n10 16\n16 12\n12 14\n16 18\n18 20';
+      if (text !== expected) throw new Error('unexpected preset text: ' + JSON.stringify(text));
+      if ((await page.locator('[aria-label="Root node"]').inputValue()) !== '10') throw new Error('preset root is not 10');
+      await page.locator('[aria-label="Root node"]').selectOption('16'); // Edit tree → Structure → Root
+      await page.waitForTimeout(1200);
+      await page.locator('[aria-label="Binary Lifting node u"]').selectOption('8');
+      await page.locator('[aria-label="Binary Lifting node v"]').selectOption('20');
+      await page.waitForTimeout(600);
+      await page.getByRole('button', { name: 'Fit view', exact: true }).click();
+      await page.waitForTimeout(1200);
+      await footerButton(page, 'Next').click(); // Next starts the Query run at frame 1
+      await page.waitForTimeout(2300);
+      const frame = await frameText(page);
+      if (!frame.startsWith('FRAME 1 /')) throw new Error('start frame ' + frame);
+      ctx.note(`Tree Editor /tree-editor/lca-binary-lifting, Query; Select preset → "Balanced · 10 nodes" (${expected.replace(/\n/g, ', ')}; preset root 10); Root changed to 16 with Edit tree → Structure → Root; u = 8, v = 20; Fit view; default panel layout; Next started the run; paused at ${frame}; mouse left on the Next button.`);
+    },
+    async clip(ctx, spec) {
+      const { page } = ctx;
+      const next = footerButton(page, 'Next');
+      const sentenceOf = async () => sentence(await page.locator('[data-panel-body="status"]').innerText());
+      const step = async (name) => ctx.observe(name, { statusSentence: await sentenceOf(), ...(await lcaState(page)) });
+      const start = await step('start');
+      // The three decision moments get a full-page still while their note is shown.
+      const stillFor = (status, notes) => (/depth gap .* ≥ .*lifts/.test(status) ? 'lca_8_20_depth_lift'
+        : /^k = 1: both ancestors are/.test(status) ? 'lca_8_20_keep'
+        : notes.some((n) => n.text === 'differ · lift both') ? 'lca_8_20_lift_both' : null);
+      let at = 1.0;
+      for (let i = 0; i < 20; i++) {
+        await ctx.at(at); await ctx.click('Next', next);
+        const arrived = ctx.clock();
+        await ctx.at(arrived + 0.15);
+        const o = await step('after Next');
+        const [, shown, total] = o.footerFrame.match(/FRAME (\d+) \/ (\d+)/);
+        const hasNote = o.noteBoxes.length > 0;
+        const still = stillFor(o.statusSentence ?? '', o.noteBoxes);
+        if (still) { await ctx.at(arrived + 0.45); await ctx.still(still, { frame: o.footerFrame, notes: (await lcaState(page)).noteBoxes }); }
+        if (still === 'lca_8_20_lift_both') { await ctx.at(arrived + 0.7); await ctx.poster(); }
+        if (shown === total) { spec.end = arrived + 2.5; break; }
+        at = arrived + (hasNote ? 2.15 : 1.2);
+      }
+      ctx.note('Node centres at the start: ' + JSON.stringify(start.nodes));
     },
   },
   '01b_lca_keep_then_jump': {
