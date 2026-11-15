@@ -1,0 +1,41 @@
+{
+  "run": "tree",
+  "base": "http://127.0.0.1:5205",
+  "recordingStartedAt": 1794758684091,
+  "closedAt": 1794758689272,
+  "checks": [
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "01_main_slides/04_tree_insert_preview.png",
+        "frame": "FRAME 8 / 8"
+      }
+    },
+    {
+      "name": "tree_preview",
+      "data": {
+        "frame": "FRAME 8 / 8",
+        "status": "Complete\n\nInsertion preview is complete. Apply it to update the tree document.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 â†’ 4 â†’ 6\nINSERTION SLOT\n6 â†’ left\n\nInsertion preview ready. Apply it from the Action panel to update the document and text input.",
+        "nodes": 8,
+        "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4"
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "03_backup/02_tree_insert_applied.png",
+        "frame": "NO RUN"
+      }
+    },
+    {
+      "name": "tree_applied",
+      "data": {
+        "frame": "NO RUN",
+        "status": "NO ACTIVE RUN",
+        "nodes": 8,
+        "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4\n6 5"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,298 @@
+{
+  "prepared_local_dates": [
+    "2026-11-15",
+    "2026-11-16"
+  ],
+  "timezone": "Asia/Singapore",
+  "documentation_baseline": "99990d0311b60ba7aa6c8ddf6acf225a41780968",
+  "common": {
+    "application_repository": "https://github.com/kerktaiheng/visualgo-plus-design",
+    "branch": "main",
+    "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+    "viewport_css_pixels": [
+      1440,
+      900
+    ],
+    "device_scale_factor": 1,
+    "theme": "Light (default)",
+    "language": "en",
+    "reduced_motion": "no-preference",
+    "paused_motion": "default on; graph/tree only",
+    "browser": "Chromium via installed Playwright",
+    "capture_method": "Real application UI, isolated browser context; no application source edits, state injection or fake text."
+  },
+  "inputs": {
+    "graph": {
+      "directed": true,
+      "nodes": [
+        "S",
+        "A",
+        "B",
+        "T"
+      ],
+      "edges": [
+        "S A 4",
+        "S B 1",
+        "B A 1",
+        "A T 2",
+        "B T 6"
+      ],
+      "start": "S",
+      "end": "T",
+      "live_force_layout": false,
+      "speed_setting_ms": 500
+    },
+    "tree": {
+      "root": 8,
+      "edges": [
+        "12 8",
+        "4 8",
+        "14 12",
+        "10 12",
+        "6 4",
+        "2 4"
+      ],
+      "operation": "BST Insert",
+      "value": 5,
+      "speed_setting_ms": 500
+    },
+    "sorting": {
+      "values": [
+        8,
+        3,
+        10,
+        1,
+        6,
+        4,
+        12,
+        2,
+        9,
+        5,
+        11,
+        7
+      ],
+      "algorithms": [
+        "bubble",
+        "selection"
+      ],
+      "panes": 2,
+      "seed": "sorting-room-01",
+      "target_operations_per_second": 12
+    }
+  },
+  "assets": [
+    {
+      "id": "editors",
+      "file": "01_main_slides/01_editor_entry_points.png",
+      "caption_en": "Start with your own input.",
+      "suggested_slot": "Engine & Website hand-off / start of shared demo",
+      "route": "/",
+      "input_reference": null,
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/home-checks.json",
+      "evidence_check": "editor_links",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 20350,
+      "sha256": "035c37f077f55d3f273e5b16ff863f7913c75a95e6a4b087266c5f968efbba1b",
+      "image_dimensions": [
+        1370,
+        205
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "decision",
+      "file": "01_main_slides/02_dijkstra_decision.png",
+      "caption_en": "Explain the decision where it happens.",
+      "suggested_slot": "Algorithm Visualizers: explainable steps",
+      "route": "/graph-editor/dijkstra",
+      "input_reference": "graph",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/graph-checks.json",
+      "evidence_check": "decision",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 171453,
+      "sha256": "74300f81cd2fc0bf9050b056d695f5c25d124069a767fe2e7c524b34f64e43e6",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "final_t",
+      "file": "01_main_slides/03_dijkstra_final_path_t.png",
+      "caption_en": "A finished run is still explorable.",
+      "suggested_slot": "Shared demo / completed-result exploration",
+      "route": "/graph-editor/dijkstra",
+      "input_reference": "graph",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/graph-checks.json",
+      "evidence_check": "final_target_t",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 183902,
+      "sha256": "74be12eb86ee6e9404f0240272cdd32db67cf96e549e3f0f98f7e9efc48036bc",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "tree_preview",
+      "file": "01_main_slides/04_tree_insert_preview.png",
+      "caption_en": "Explore a change before applying it.",
+      "suggested_slot": "Algorithm Visualizers: Tree operations",
+      "route": "/tree-editor/bst",
+      "input_reference": "tree",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/tree-checks.json",
+      "evidence_check": "tree_preview",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 163310,
+      "sha256": "594142526db83fd2dfe18da6be1a09a5210de5dd2d29c548874221ac776f849c",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "sorting",
+      "file": "01_main_slides/05_sorting_compare.png",
+      "caption_en": "Same input. One playback clock. Different operations.",
+      "suggested_slot": "Algorithm Visualizers: Sorting execution",
+      "route": "/sorting",
+      "input_reference": "sorting",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/sort-checks.json",
+      "evidence_check": "sort_mid",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 61237,
+      "sha256": "dfd73ec80723a0309141724733c694c96e6dcf19f747d6300ae338f953d1975f",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "layout",
+      "file": "01_main_slides/06_v10_layout.png",
+      "caption_en": "Arrange the workspace around the task.",
+      "suggested_slot": "Algorithm Visualizers: shared V10 shell",
+      "route": "/graph-editor/dijkstra",
+      "input_reference": "graph",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/graph-checks.json",
+      "evidence_check": "layout_keeps_run",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 160329,
+      "sha256": "e71466d29933fbe447233a34a9a7a63f3ae282393d7e8ce4ca5c0798355358d4",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "graph_clip",
+      "file": "02_short_clips/01_graph_paused_step.mp4",
+      "caption_en": "The frame is paused; the emphasis is still moving.",
+      "suggested_slot": "Technical case or shared demo fallback",
+      "route": "/graph-editor/dijkstra",
+      "input_reference": "graph",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/graph-checks.json",
+      "evidence_check": "paused_frame_and_animation",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 375814,
+      "sha256": "635697732288b33a78e45ee21ff7701b25d64e8fde684f6a6b56370faba415ed",
+      "media": {
+        "start_seconds_in_raw_recording": 5.0,
+        "duration_seconds": 7.8,
+        "codec": "H.264",
+        "pixel_format": "yuv420p",
+        "fps": 25,
+        "resolution": [
+          1440,
+          900
+        ],
+        "audio": false,
+        "processing": "Continuous source recording; trim and transcode only. No speed change, compositing or UI overlays.",
+        "requested_trim_duration_seconds": 7.8
+      }
+    },
+    {
+      "id": "sort_clip",
+      "file": "02_short_clips/02_sorting_shared_clock.mp4",
+      "caption_en": "Compare the steps side by side.",
+      "suggested_slot": "Technical case or shared demo fallback",
+      "route": "/sorting",
+      "input_reference": "sorting",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/sort-checks.json",
+      "evidence_check": "sort_mid",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 503663,
+      "sha256": "cce56b75c13f9de3d71dc3b1151af4f04e7c66055f56ea83bc28288adfcb6e83",
+      "media": {
+        "start_seconds_in_raw_recording": 1.5,
+        "duration_seconds": 10.36,
+        "codec": "H.264",
+        "pixel_format": "yuv420p",
+        "fps": 25,
+        "resolution": [
+          1440,
+          900
+        ],
+        "audio": false,
+        "processing": "Continuous source recording; trim and transcode only. No speed change, compositing or UI overlays.",
+        "requested_trim_duration_seconds": 10.4
+      }
+    },
+    {
+      "id": "final_a",
+      "file": "03_backup/01_dijkstra_final_path_a.png",
+      "caption_en": "A different target, without another run.",
+      "suggested_slot": "Backup paired with final-path T",
+      "route": "/graph-editor/dijkstra",
+      "input_reference": "graph",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/graph-checks.json",
+      "evidence_check": "final_target_a",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 189495,
+      "sha256": "ec236d449b080acc6f92014d884fa37c29d64e3699babe237a0115ffb459e510",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    },
+    {
+      "id": "tree_applied",
+      "file": "03_backup/02_tree_insert_applied.png",
+      "caption_en": "Apply commits the preview.",
+      "suggested_slot": "Backup paired with BST preview",
+      "route": "/tree-editor/bst",
+      "input_reference": "tree",
+      "verification_state": "captured and checked",
+      "evidence_log": "04_reproduce/tree-checks.json",
+      "evidence_check": "tree_applied",
+      "reproduce": "04_reproduce/README.md",
+      "bytes": 127567,
+      "sha256": "5b7f1dc41e719e46e1809840c4fbf96bc24ec9e88ee55347e5a75821911201f8",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "processing": "Real viewport screenshot; Editors is a browser crop. No added annotations."
+    }
+  ],
+  "verification_limits": [
+    "Selected browser workflows only; full project test suite not rerun.",
+    "Not a timed Zoom rehearsal or learning-outcome study.",
+    "Current revision, not early-prototype or historical report imagery."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "images": [
+    {
+      "source": "01_main_slides/01_editor_entry_points.png",
+      "width": 1370,
+      "height": 205
+    },
+    {
+      "source": "01_main_slides/02_dijkstra_decision.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "01_main_slides/03_dijkstra_final_path_t.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "01_main_slides/04_tree_insert_preview.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "01_main_slides/05_sorting_compare.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "01_main_slides/06_v10_layout.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "03_backup/01_dijkstra_final_path_a.png",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "source": "03_backup/02_tree_insert_applied.png",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "videos": [
+    {
+      "source": "02_short_clips/01_graph_paused_step.mp4",
+      "duration": 7.8,
+      "width": 1440,
+      "height": 900,
+      "currentTime": 0.4663,
+      "error": null
+    },
+    {
+      "source": "02_short_clips/02_sorting_shared_clock.mp4",
+      "duration": 10.36,
+      "width": 1440,
+      "height": 900,
+      "currentTime": 0.5037,
+      "error": null
+    }
+  ],
+  "pageErrors": [],
+  "check": "Local chooser opens all eight PNGs and plays both H.264 MP4s in Chromium; each exported video also decoded fully with ffmpeg."
+}

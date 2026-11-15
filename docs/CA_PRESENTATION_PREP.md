@@ -215,3 +215,11 @@ The initial three-case shortlist was too narrow to represent the full contributi
 ## Interactive demonstration and editor audience — 15 November 2026
 
 The owner explicitly wants to demonstrate floating text, paused visual emphasis, final-frame interactions and the dedicated Graph/Tree Editor entry points. See [Interactive demo and editor positioning](CA_PRESENTATION_INTERACTIVE_DEMO.md) for the proposed sequence and English script. The editors aim to support experienced CP users constructing examples and thinking through problems; this is a design goal, not a measured adoption or learning result. Dijkstra final-frame hover paths and DFS final traversal recap are distinguished in the plan. Include this within the shared demo allocation, not as additional unbudgeted time.
+
+## Selected visual evidence — 16 November 2026
+
+A small [ready-to-use presentation pack](../presentation/ca-2026-11-16/README.md) is now available: 6 main screenshots, 2 backup screenshots and exactly 2 short MP4s (7.8s and about 10.4s), with no GIFs. Open the [visual chooser](../presentation/ca-2026-11-16/START_HERE.html) locally to browse them. The [claim-to-evidence selection note](CA_PRESENTATION_ASSET_PLAN.md) ties them to the existing outline; [captions and short speaking cues](../presentation/ca-2026-11-16/CAPTIONS_AND_CUES.md) are in simple English.
+
+The pack uses one four-vertex Dijkstra graph, BST Insert(5), Bubble/Selection on twelve values, the editor entry points and a rearranged V10 layout. Captures were made against app `346e84b`, on 15–16 November, after pulling this documentation repo to `99990d0`. Inputs, settings, actions, source revision and fresh workflow checks are recorded in the pack. The checked subset includes paused motion with a fixed frame, a local decision note, final hover paths, preview versus Apply and a panel move preserving the run. Both exported MP4s were decoded and played locally.
+
+This verifies the selected captures, not the entire proposed demo or a timed Zoom rehearsal. No application source was changed and the complete project test suite was not rerun. The wider contribution map, historical evidence, attribution and evaluation limits still apply. Choose where each asset belongs during rehearsal rather than repeating the same feature in both the technical section and the shared demo.

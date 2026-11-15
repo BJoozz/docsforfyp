@@ -1,0 +1,14 @@
+{
+  "start_seconds_in_raw_recording": 5.0,
+  "duration_seconds": 7.8,
+  "codec": "H.264",
+  "pixel_format": "yuv420p",
+  "fps": 25,
+  "resolution": [
+    1440,
+    900
+  ],
+  "audio": false,
+  "processing": "Continuous source recording; trim and transcode only. No speed change, compositing or UI overlays.",
+  "requested_trim_duration_seconds": 7.8
+}

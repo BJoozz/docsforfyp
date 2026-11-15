@@ -1,0 +1,395 @@
+{
+  "run": "graph",
+  "base": "http://127.0.0.1:5205",
+  "checks": [
+    {
+      "name": "steps_before_note",
+      "data": [
+        {
+          "frame": "FRAME 1 / 21",
+          "status": "Initialize\nSETTLED\n0 / 4\n\nInitialize Dijkstra from S.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\tâˆž\tâ€”\tUnreachable\nA\tâˆž\tâ€”\tUnreachable\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 2 / 21",
+          "status": "Set start\nSETTLED\n0 / 4\n\nSet distance to S to 0.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nS\n0\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tFrontier\nA\tâˆž\tâ€”\tUnreachable\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 3 / 21",
+          "status": "Select node\nSETTLED\n0 / 4\n\nSelect S with distance 0.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nS\n0\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\tâˆž\tâ€”\tUnreachable\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 4 / 21",
+          "status": "Settle node\nSETTLED\n1 / 4\n\nSettle S.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\tâˆž\tâ€”\tUnreachable\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 5 / 21",
+          "status": "Inspect edge\nSETTLED\n1 / 4\n\nInspect edge S â†’ A, weight 4.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nRELAXATION\n\nS â†’ A\n\n0 + 4 = 4\n\nPREVIOUS DISTANCE\nâˆž\nPREVIOUS PREDECESSOR\nâ€”\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\tâˆž\tâ€”\tUnreachable\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 6 / 21",
+          "status": "Relax edge\nSETTLED\n1 / 4\n\nRelax S â†’ A: 0 + 4 = 4, so the distance to A becomes 4.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n4\nRELAXATION\n\nS â†’ A\n\n0 + 4 = 4\n\nPREVIOUS DISTANCE\nâˆž\nRESULT\nUpdate to 4\nPREVIOUS PREDECESSOR\nâ€”\nNEXT PREDECESSOR\nS\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\t4\tS\tFrontier\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 7 / 21",
+          "status": "Inspect edge\nSETTLED\n1 / 4\n\nInspect edge S â†’ B, weight 1.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n4\nRELAXATION\n\nS â†’ B\n\n0 + 1 = 1\n\nPREVIOUS DISTANCE\nâˆž\nPREVIOUS PREDECESSOR\nâ€”\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\t4\tS\tFrontier\nB\tâˆž\tâ€”\tUnreachable\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 8 / 21",
+          "status": "Relax edge\nSETTLED\n1 / 4\n\nRelax S â†’ B: 0 + 1 = 1, so the distance to B becomes 1.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nB\n1\nA\n4\nRELAXATION\n\nS â†’ B\n\n0 + 1 = 1\n\nPREVIOUS DISTANCE\nâˆž\nRESULT\nUpdate to 1\nPREVIOUS PREDECESSOR\nâ€”\nNEXT PREDECESSOR\nS\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tCurrent\nA\t4\tS\tFrontier\nB\t1\tS\tFrontier\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 9 / 21",
+          "status": "Select node\nSETTLED\n1 / 4\n\nSelect B with distance 1.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nB\n1\nA\n4\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t4\tS\tFrontier\nB\t1\tS\tCurrent\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 10 / 21",
+          "status": "Settle node\nSETTLED\n2 / 4\n\nSettle B.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n4\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t4\tS\tFrontier\nB\t1\tS\tCurrent\nT\tâˆž\tâ€”\tUnreachable"
+        },
+        {
+          "frame": "FRAME 11 / 21",
+          "status": "Inspect edge\nSETTLED\n2 / 4\n\nInspect edge B â†’ A, weight 1.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n4\nRELAXATION\n\nB â†’ A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nPREVIOUS PREDECESSOR\nS\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t4\tS\tFrontier\nB\t1\tS\tCurrent\nT\tâˆž\tâ€”\tUnreachable"
+        }
+      ]
+    },
+    {
+      "name": "clip_start",
+      "data": {
+        "frame": "FRAME 11 / 21",
+        "status": "Inspect edge\nSETTLED\n2 / 4\n\nInspect edge B â†’ A, weight 1.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n4\nRELAXATION\n\nB â†’ A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nPREVIOUS PREDECESSOR\nS\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t4\tS\tFrontier\nB\t1\tS\tCurrent\nT\tâˆž\tâ€”\tUnreachable",
+        "time": 1794758253607
+      }
+    },
+    {
+      "name": "paused_frame_and_animation",
+      "data": {
+        "frameBefore": "FRAME 11 / 21",
+        "frameAfter": "FRAME 11 / 21",
+        "animationBefore": [
+          {
+            "name": "_edge-paused-streak_2obm3_1",
+            "time": 16.723000019837286
+          },
+          {
+            "name": "_node-paused-glow_2obm3_1",
+            "time": 16.723000019837286
+          }
+        ],
+        "animationAfter": [
+          {
+            "name": "_edge-paused-streak_2obm3_1",
+            "time": 2133.335000019837
+          },
+          {
+            "name": "_node-paused-glow_2obm3_1",
+            "time": 2133.335000019837
+          }
+        ]
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "01_main_slides/02_dijkstra_decision.png",
+        "frame": "FRAME 12 / 21"
+      }
+    },
+    {
+      "name": "decision",
+      "data": {
+        "frame": "FRAME 12 / 21",
+        "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B â†’ A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB â†’ A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\tâˆž\tâ€”\tUnreachable",
+        "notes": "1 + 1 < 4 Â· update"
+      }
+    },
+    {
+      "name": "drag_preserves_run",
+      "data": {
+        "beforeDrag": "FRAME 12 / 21",
+        "afterDrag": "FRAME 12 / 21"
+      }
+    },
+    {
+      "name": "clip_end",
+      "data": {
+        "time": 1794758261541
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "03_backup/graph_paused_after_drag.png",
+        "frame": "FRAME 12 / 21"
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "01_main_slides/03_dijkstra_final_path_t.png",
+        "frame": "FRAME 21 / 21"
+      }
+    },
+    {
+      "name": "final_target_t",
+      "data": {
+        "frame": "FRAME 21 / 21",
+        "status": "Complete\nSETTLED\n4 / 4\n\nDijkstra complete. Settled 4 nodes.\n\nPATH TO T\n\nS â†’ B â†’ A â†’ T Â· distance 4\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t2\tB\tSettled\nB\t1\tS\tSettled\nT\t4\tA\tSettled"
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "03_backup/01_dijkstra_final_path_a.png",
+        "frame": "FRAME 21 / 21"
+      }
+    },
+    {
+      "name": "final_target_a",
+      "data": {
+        "frame": "FRAME 21 / 21",
+        "status": "Complete\nSETTLED\n4 / 4\n\nDijkstra complete. Settled 4 nodes.\n\nPATH TO A\n\nS â†’ B â†’ A Â· distance 2\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nEmpty\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\tâ€”\tSettled\nA\t2\tB\tSettled\nB\t1\tS\tSettled\nT\t4\tA\tSettled"
+      }
+    },
+    {
+      "name": "layout_drop_targets",
+      "data": [
+        {
+          "key": "group:g1:0",
+          "box": {
+            "x": 0,
+            "y": 40,
+            "width": 35.515625,
+            "height": 31,
+            "top": 40,
+            "right": 35.515625,
+            "bottom": 71,
+            "left": 0
+          }
+        },
+        {
+          "key": "group:g1:1",
+          "box": {
+            "x": 35.515625,
+            "y": 40,
+            "width": 83,
+            "height": 31,
+            "top": 40,
+            "right": 118.515625,
+            "bottom": 71,
+            "left": 35.515625
+          }
+        },
+        {
+          "key": "group:g1:2",
+          "box": {
+            "x": 118.515625,
+            "y": 40,
+            "width": 181.484375,
+            "height": 31,
+            "top": 40,
+            "right": 300,
+            "bottom": 71,
+            "left": 118.515625
+          }
+        },
+        {
+          "key": "split:g1:before",
+          "box": {
+            "x": 0,
+            "y": 71,
+            "width": 300,
+            "height": 153.390625,
+            "top": 71,
+            "right": 300,
+            "bottom": 224.390625,
+            "left": 0
+          }
+        },
+        {
+          "key": "split:g1:after",
+          "box": {
+            "x": 0,
+            "y": 684.59375,
+            "width": 300,
+            "height": 153.390625,
+            "top": 684.59375,
+            "right": 300,
+            "bottom": 837.984375,
+            "left": 0
+          }
+        },
+        {
+          "key": "group:g1",
+          "box": {
+            "x": 0,
+            "y": 224.390625,
+            "width": 300,
+            "height": 460.1875,
+            "top": 224.390625,
+            "right": 300,
+            "bottom": 684.578125,
+            "left": 0
+          }
+        },
+        {
+          "key": "group:g2:0",
+          "box": {
+            "x": 1120,
+            "y": 40,
+            "width": 56.328125,
+            "height": 31,
+            "top": 40,
+            "right": 1176.328125,
+            "bottom": 71,
+            "left": 1120
+          }
+        },
+        {
+          "key": "group:g2:1",
+          "box": {
+            "x": 1176.328125,
+            "y": 40,
+            "width": 263.65625,
+            "height": 31,
+            "top": 40,
+            "right": 1439.984375,
+            "bottom": 71,
+            "left": 1176.328125
+          }
+        },
+        {
+          "key": "split:g2:before",
+          "box": {
+            "x": 1120,
+            "y": 71,
+            "width": 320,
+            "height": 98,
+            "top": 71,
+            "right": 1440,
+            "bottom": 169,
+            "left": 1120
+          }
+        },
+        {
+          "key": "split:g2:after",
+          "box": {
+            "x": 1120,
+            "y": 463,
+            "width": 320,
+            "height": 98,
+            "top": 463,
+            "right": 1440,
+            "bottom": 561,
+            "left": 1120
+          }
+        },
+        {
+          "key": "group:g2",
+          "box": {
+            "x": 1120,
+            "y": 169,
+            "width": 320,
+            "height": 294,
+            "top": 169,
+            "right": 1440,
+            "bottom": 463,
+            "left": 1120
+          }
+        },
+        {
+          "key": "group:g3:0",
+          "box": {
+            "x": 1120,
+            "y": 568,
+            "width": 35.59375,
+            "height": 31,
+            "top": 568,
+            "right": 1155.59375,
+            "bottom": 599,
+            "left": 1120
+          }
+        },
+        {
+          "key": "group:g3:1",
+          "box": {
+            "x": 1155.59375,
+            "y": 568,
+            "width": 284.390625,
+            "height": 31,
+            "top": 568,
+            "right": 1439.984375,
+            "bottom": 599,
+            "left": 1155.59375
+          }
+        },
+        {
+          "key": "split:g3:before",
+          "box": {
+            "x": 1120,
+            "y": 599,
+            "width": 320,
+            "height": 47.796875,
+            "top": 599,
+            "right": 1440,
+            "bottom": 646.796875,
+            "left": 1120
+          }
+        },
+        {
+          "key": "split:g3:after",
+          "box": {
+            "x": 1120,
+            "y": 790.1875,
+            "width": 320,
+            "height": 47.796875,
+            "top": 790.1875,
+            "right": 1440,
+            "bottom": 837.984375,
+            "left": 1120
+          }
+        },
+        {
+          "key": "group:g3",
+          "box": {
+            "x": 1120,
+            "y": 646.796875,
+            "width": 320,
+            "height": 143.390625,
+            "top": 646.796875,
+            "right": 1440,
+            "bottom": 790.1875,
+            "left": 1120
+          }
+        },
+        {
+          "key": "region:bottom",
+          "box": {
+            "x": 307,
+            "y": 718,
+            "width": 806,
+            "height": 120,
+            "top": 718,
+            "right": 1113,
+            "bottom": 838,
+            "left": 307
+          }
+        }
+      ]
+    },
+    {
+      "name": "layout_keeps_run",
+      "data": {
+        "before": "FRAME 21 / 21",
+        "after": "FRAME 21 / 21",
+        "statusRegion": "bottom"
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "01_main_slides/06_v10_layout.png",
+        "frame": "FRAME 21 / 21"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,20 @@
+{
+  "run": "home",
+  "base": "http://127.0.0.1:5205",
+  "checks": [
+    {
+      "name": "editor_links",
+      "data": [
+        {
+          "text": "Graph Editor\nNew\nDraw a graph and explore every graph algorithm here on the same input.\nâ†’",
+          "href": "/graph-editor"
+        },
+        {
+          "text": "Tree Editor\nNew\nEdit a tree and explore LCA, BST and AVL on the same input.\nâ†’",
+          "href": "/tree-editor"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,46 @@
+{
+  "run": "sort",
+  "base": "http://127.0.0.1:5205",
+  "recordingStartedAt": 1794758717495,
+  "closedAt": 1794758730543,
+  "checks": [
+    {
+      "name": "sort_ready",
+      "data": {
+        "text": "7\nVisuAlgo.net\nen\n/sorting\nHOME\n1\n2\n4\nFull screen\nShortcuts\nSettings\nâ–¾ DATASET\nDISTRIBUTION\nRandom\nSorted\nReverse sorted\nNearly sorted\nFew unique values\nCustom input\nVALUES\nSEED\nGenerate\n12 values Â· Generate caps at 160\nAlgorithm for pane 1\nBUB â€” Bubble Sort\nSEL â€” Selection Sort\nINS â€” Insertion Sort\nMER â€” Merge Sort\nQUI â€” Quick Sort\nRQS â€” Randomized Quick Sort\nCOU â€” Counting Sort\nRAD â€” Radix Sort\nReady\nOps 0 Â· Compare 0 Â· Swaps 0 Â· Writes 0\nAlgorithm for pane 2\nBUB â€” Bubble Sort\nSEL â€” Selection Sort\nINS â€” Insertion Sort\nMER â€” Merge Sort\nQUI â€” Quick Sort\nRQS â€” Randomized Quick Sort\nCOU â€” Counting Sort\nRAD â€” Radix Sort\nReady\nOps 0 Â· Compare 0 Â· Swaps 0 Â· Writes 0\nSTATUS\nâ‹¯\nNO RUN\nTARGET\n12 ops/s\nAutoplay\nStop"
+      }
+    },
+    {
+      "name": "clip_start",
+      "data": {
+        "time": 1794758719724,
+        "frame": "OP 0 / 92"
+      }
+    },
+    {
+      "name": "screenshot",
+      "data": {
+        "file": "01_main_slides/05_sorting_compare.png",
+        "frame": "OP 48 / 92"
+      }
+    },
+    {
+      "name": "sort_mid",
+      "data": {
+        "frame": "OP 48 / 92",
+        "panes": [
+          "Algorithm for pane 1\nBUB â€” Bubble Sort\nSEL â€” Selection Sort\nINS â€” Insertion Sort\nMER â€” Merge Sort\nQUI â€” Quick Sort\nRQS â€” Randomized Quick Sort\nCOU â€” Counting Sort\nRAD â€” Radix Sort\nPaused\nOps 48 Â· Compare 27 Â· Swaps 19 Â· Writes 38",
+          "Algorithm for pane 2\nBUB â€” Bubble Sort\nSEL â€” Selection Sort\nINS â€” Insertion Sort\nMER â€” Merge Sort\nQUI â€” Quick Sort\nRQS â€” Randomized Quick Sort\nCOU â€” Counting Sort\nRAD â€” Radix Sort\nPaused\nOps 48 Â· Compare 40 Â· Swaps 4 Â· Writes 8"
+        ]
+      }
+    },
+    {
+      "name": "clip_end",
+      "data": {
+        "time": 1794758730043,
+        "frame": "OP 92 / 92"
+      }
+    }
+  ],
+  "errors": []
+}
