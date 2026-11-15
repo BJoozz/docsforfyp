@@ -1,0 +1,137 @@
+{
+  "id": "06_dfs_recursive_recap",
+  "route": "/graph-editor/dfs-recursive",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dfs-recursive: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+    "Same graph, Graph Editor /graph-editor/dfs-recursive (default start)."
+  ],
+  "observations": [
+    {
+      "t": 0.004,
+      "name": "start: run started",
+      "footerFrame": "FRAME 1 / 21",
+      "status": "Initialize\nVISITED\n0 / 4\n\nInitialize recursive DFS from S.\n\nCALL STACK\nBOTTOM -> TOP\nEmpty\nSTATE\nCURRENT\nNone\nVISITED\nNone\nFINISHED\n0\nTREE EDGES\n0",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 1.013,
+      "name": "final frame",
+      "footerFrame": "FRAME 21 / 21",
+      "status": "Complete\nVISITED\n4 / 4\n\nRecursive DFS complete. Visited 4 nodes.\n\nCALL STACK\nBOTTOM -> TOP\nEmpty\nSTATE\nCURRENT\nNone\nVISITED\nS, A, T, B\nFINISHED\n4\nTREE EDGES\n3",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 4.515,
+      "name": "final frame, later",
+      "footerFrame": "FRAME 21 / 21",
+      "status": "Complete\nVISITED\n4 / 4\n\nRecursive DFS complete. Visited 4 nodes.\n\nCALL STACK\nBOTTOM -> TOP\nEmpty\nSTATE\nCURRENT\nNone\nVISITED\nS, A, T, B\nFINISHED\n4\nTREE EDGES\n3",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 8.507,
+      "name": "end",
+      "footerFrame": "FRAME 21 / 21",
+      "status": "Complete\nVISITED\n4 / 4\n\nRecursive DFS complete. Visited 4 nodes.\n\nCALL STACK\nBOTTOM -> TOP\nEmpty\nSTATE\nCURRENT\nNone\nVISITED\nS, A, T, B\nFINISHED\n4\nTREE EDGES\n3",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 0.829,
+      "tDone": 0.876,
+      "scheduled": 0.8,
+      "action": "Last"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794771412.766,
+    "tEndEpoch": 1794771421.271,
+    "screencastFrames": 291,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0448,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/06_dfs_recursive_recap.png",
+    "t": 3.005,
+    "state": {
+      "footerFrame": "FRAME 21 / 21",
+      "status": "Complete\nVISITED\n4 / 4\n\nRecursive DFS complete. Visited 4 nodes.\n\nCALL STACK\nBOTTOM -> TOP\nEmpty\nSTATE\nCURRENT\nNone\nVISITED\nS, A, T, B\nFINISHED\n4\nTREE EDGES\n3",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 255,
+    "durationSeconds": 8.5,
+    "sourceFramesUsed": 169,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "255",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "06_dfs_recursive_recap.mp4"
+    ]
+  },
+  "maxActionLateness": 0.029,
+  "pageErrors": []
+}

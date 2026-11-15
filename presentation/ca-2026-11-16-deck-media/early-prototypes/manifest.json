@@ -1,0 +1,191 @@
+{
+  "title": "Early standalone prototypes: stills for the CA presentation",
+  "captureDate": "2026-11-16",
+  "note": "Stills of the owner's early standalone prototype repositories at their last documented snapshots, not of the current VisuAlgo+ app. Each repo was cloned fresh, checked out at the listed commit, installed with npm ci from its own lockfile and run on its own Vite dev server. Only the real UI was driven (clicks, selects, typing, mouse wheel). No source edits, injected state, CSS changes or added annotations.",
+  "environment": {
+    "browser": "Chromium 156.0.8078.4 (headless, bundled with Playwright 1.64.1)",
+    "node": "24.17.0",
+    "viewport": { "width": 1440, "height": 900 },
+    "deviceScaleFactor": 1,
+    "colorScheme": "light",
+    "locale": "en-US",
+    "waits": "network idle and document.fonts.ready after load and before each screenshot, plus a 2 to 2.5 s settle for layout and transitions",
+    "pointer": "moved to the bottom-right corner before each screenshot so no hover state shows"
+  },
+  "repos": {
+    "graph-algorithm-visualizer": {
+      "repo": "BJoozz/graph-algorithm-visualizer",
+      "label": "Graph prototype 1",
+      "ref": "5fc06a0",
+      "sha": "5fc06a0251ef03ee4f6f01ceae4d64f6bad6318d",
+      "commitDate": "2026-08-19T19:36:04+08:00",
+      "commitSubject": "Merge pull request #8 from BJoozz/agent/edit-tools-sidebar",
+      "isDefaultBranchTip": true,
+      "server": "vite 8.0.16 dev server, port 5211"
+    },
+    "graph-visualizer-v2": {
+      "repo": "BJoozz/graph-visualizer-v2",
+      "label": "Standalone Graph rewrite",
+      "ref": "c8b14e6",
+      "sha": "c8b14e625e855bab1af92651fe93aa80320115e3",
+      "commitDate": "2026-09-11T07:53:09+08:00",
+      "commitSubject": "fix: align inspector edge identity and flow filters",
+      "isDefaultBranchTip": true,
+      "server": "vite 8.2.2 dev server, port 5212"
+    },
+    "tree-visualizer": {
+      "repo": "BJoozz/tree-visualizer",
+      "label": "Standalone Tree Visualizer",
+      "ref": "46ce0a7",
+      "sha": "46ce0a7f2fd1ee61a6f7acaf3a359862a8d71bbc",
+      "commitDate": "2026-09-17T12:19:23+08:00",
+      "commitSubject": "Merge pull request #8 from BJoozz/feat/toggle-binary-lifting-table",
+      "isDefaultBranchTip": true,
+      "server": "vite 8.2.2 dev server, port 5213"
+    },
+    "sorting-algorithm-visualizer": {
+      "repo": "BJoozz/sorting-algorithm-visualizer",
+      "label": "Sorting Room",
+      "ref": "9236a65",
+      "sha": "9236a655f8a26c6d43ba8464933a516e7dffb395",
+      "commitDate": "2026-08-19T19:23:11+08:00",
+      "commitSubject": "Initial sorting algorithm visualizer",
+      "isDefaultBranchTip": true,
+      "server": "vite 8.2.1 dev server, port 5214"
+    }
+  },
+  "images": [
+    {
+      "file": "01_graph_v1_edit.png",
+      "crop": { "file": "01_graph_v1_edit_crop.png", "x": 120, "y": 28, "width": 1200, "height": 1047 },
+      "repo": "BJoozz/graph-algorithm-visualizer",
+      "ref": "5fc06a0",
+      "sha": "5fc06a0251ef03ee4f6f01ceae4d64f6bad6318d",
+      "commitDate": "2026-08-19T19:36:04+08:00",
+      "route": "/ (single-page app; the editor and run views are switched in the app, not by URL)",
+      "input": {
+        "algorithm": "BFS",
+        "sample": "Directed branches (built-in Test sample, id bfs-directed-branches)",
+        "startNode": "1",
+        "directed": true,
+        "nodes": "1 2 3 4 5 6 7",
+        "edges": ["1 2", "1 3", "2 4", "2 5", "3 6", "5 7"]
+      },
+      "actions": [
+        "Open /",
+        "Choose Test sample: Directed branches",
+        "Wait for the force layout to settle (Live Layout is on by default)"
+      ],
+      "viewport": "1440x900",
+      "screenshot": "full page, 1440x1106 (the editor page is taller than the viewport)",
+      "captureDate": "2026-11-16",
+      "shows": "The editor view, headed 'Custom Graph Editor': Algorithm, Test sample, Start node, Directed and the Run BFS button; Nodes and Edges text inputs with Apply Input; Layout, Graph actions and Fixed nodes panels; the editable canvas with the 7-node sample.",
+      "caption": "Graph prototype 1 (Aug 2026): separate editor view"
+    },
+    {
+      "file": "02_graph_v1_run.png",
+      "crop": { "file": "02_graph_v1_run_crop.png", "x": 120, "y": 28, "width": 1200, "height": 902 },
+      "repo": "BJoozz/graph-algorithm-visualizer",
+      "ref": "5fc06a0",
+      "sha": "5fc06a0251ef03ee4f6f01ceae4d64f6bad6318d",
+      "commitDate": "2026-08-19T19:36:04+08:00",
+      "route": "/ (run view entered with Run BFS; same page session as image 01)",
+      "input": "Same as image 01 (Directed branches, BFS from node 1, directed)",
+      "actions": [
+        "Continue from image 01",
+        "Click Run BFS; the page changes to the 'BFS Visualization' run view",
+        "Click Next 9 times (Step 1 to Step 10 of 19); Play is never pressed, so playback stays paused"
+      ],
+      "viewport": "1440x900",
+      "screenshot": "full page, 1440x963",
+      "captureDate": "2026-11-16",
+      "shows": "The separate run view, headed 'BFS Visualization', with Back to Edit and Full Screen. Paused at Step 10 / 19, 'Add 5 to queue': queue 3 4 5, pseudocode line 8 'add neighbor to queue' highlighted, current node 2, visited 1 and 2, active edge 2 -> 5 drawn dashed red on the run canvas.",
+      "caption": "Graph prototype 1 (Aug 2026): separate run view"
+    },
+    {
+      "file": "03_graph_v2_workspace.png",
+      "crop": null,
+      "cropNote": "No crop: the canvas, the editor sidebar and the playback bar together span the full viewport, and cropping cut into the transport buttons.",
+      "repo": "BJoozz/graph-visualizer-v2",
+      "ref": "c8b14e6",
+      "sha": "c8b14e625e855bab1af92651fe93aa80320115e3",
+      "commitDate": "2026-09-11T07:53:09+08:00",
+      "route": "/",
+      "input": {
+        "algorithm": "Breadth-first search",
+        "graph": "The app's default graph at load (no sample chosen): 6 nodes A-F, directed, weighted",
+        "startNode": "A",
+        "nodes": "A B C D E F",
+        "edges": ["A B 4", "A C 2", "B D 5", "B E 3", "C D 1", "C E 6", "D F 2", "E F 4"]
+      },
+      "actions": [
+        "Open /",
+        "Click Run (it builds the sequence and does not autoplay)",
+        "Click Next 17 times (1 / 33 to 18 / 33); Play is never pressed",
+        "Click the 'Graph editor' group to reopen it (the app collapses it when a run starts)",
+        "Scroll the sidebar with the mouse wheel (582 px) so the editor sits under the sticky run status"
+      ],
+      "viewport": "1440x900",
+      "screenshot": "viewport, 1440x900",
+      "captureDate": "2026-11-16",
+      "shows": "One workspace: the BFS run paused at step 18 / 33 ('Enqueue E.', visited 2 / 6) is drawn on the same canvas that is used for editing (A visited, B current, C D E in queue). The open Graph editor shows the live Nodes and Edges text, the Directed graph checkbox and Add node, beside the Previous / Play / Next / Reset playback bar.",
+      "caption": "Standalone Graph rewrite (Sep 2026): one shared canvas"
+    },
+    {
+      "file": "04_tree_binary_lifting_table.png",
+      "crop": { "file": "04_tree_binary_lifting_table_crop.png", "x": 0, "y": 80, "width": 1094, "height": 732 },
+      "repo": "BJoozz/tree-visualizer",
+      "ref": "46ce0a7",
+      "sha": "46ce0a7f2fd1ee61a6f7acaf3a359862a8d71bbc",
+      "commitDate": "2026-09-17T12:19:23+08:00",
+      "route": "/",
+      "input": {
+        "workspace": "LCA · Binary Lifting (the default workspace)",
+        "tree": "The workspace's default tree at load: root 8, 7 nodes",
+        "edges": ["12 8", "4 8", "14 12", "10 12", "6 4", "2 4"],
+        "u": "6",
+        "v": "2"
+      },
+      "actions": [
+        "Open /",
+        "Click Run Binary Lifting",
+        "Click Next 9 times (1 / 21 to 10 / 21); Play is never pressed"
+      ],
+      "viewport": "1440x900",
+      "screenshot": "viewport, 1440x900",
+      "captureDate": "2026-11-16",
+      "shows": "Preprocessing at step 10 / 21: the ancestor table up[v][k] is built column by column. Columns k=0 and k=1 are filled, k=2 is in progress with uncomputed cells shown as '…', and the amber cells are the entries the rule reads for node 14 (mid = up[14][1] = 8, ancestor = up[8][1] = 8). The jump 14 -> 12 -> 8 is drawn dashed on the tree. The sidebar shows the step explanation, columns ready 2 / 3 and pseudocode line 3. The crop keeps the tree and the table.",
+      "caption": "Standalone Tree prototype (Sep 2026): Binary Lifting table"
+    },
+    {
+      "file": "05_sorting_two_panes.png",
+      "crop": { "file": "05_sorting_two_panes_crop.png", "x": 436, "y": 140, "width": 930, "height": 905 },
+      "repo": "BJoozz/sorting-algorithm-visualizer",
+      "ref": "9236a65",
+      "sha": "9236a655f8a26c6d43ba8464933a516e7dffb395",
+      "commitDate": "2026-08-19T19:23:11+08:00",
+      "route": "/",
+      "input": {
+        "layout": "2 panes",
+        "inputSize": 24,
+        "seed": "sorting-room-01 (default)",
+        "distribution": "Random (default)",
+        "canonicalInputStart": "54 · 62 · 60 · 23 · 83 · 76 · 89 · 41 …",
+        "pane1": "Bubble Sort (default)",
+        "pane2": "Merge Sort (default)"
+      },
+      "actions": [
+        "Open /",
+        "Click 2 Panes",
+        "Type 24 into Input size and click Generate / regenerate",
+        "Click Next operation 100 times (shared Tick 100); Play is never pressed"
+      ],
+      "viewport": "1440x900",
+      "screenshot": "full page, 1440x1174 (the shared playback bar sits below the 900 px fold)",
+      "captureDate": "2026-11-16",
+      "shows": "Side-by-side comparison at Tick 100 on the same 24-value input. Both panes are paused after 100 operations each: Bubble Sort with 57 comparisons, 41 swaps and 82 writes, and the two largest values already sorted; Merge Sort with 41 comparisons, 0 swaps and 59 writes, and its left half merged. The shared Reset / Previous / Play / Next controls sit under both panes.",
+      "knownQuirk": "The header badge '05 · Four-way' is a static milestone label in this build and does not change with the pane count.",
+      "caption": "Sorting Room prototype (Aug 2026): panes share input"
+    }
+  ]
+}

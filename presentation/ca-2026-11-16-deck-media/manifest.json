@@ -1,0 +1,1244 @@
+{
+  "title": "CA presentation deck clips, 16 November 2026",
+  "capturedOn": "2026-11-16 (Asia/Singapore)",
+  "method": "Real UI driven by Playwright; only the clip segment recorded with the Chrome DevTools screencast (JPEG q92, every frame timestamped); rebuilt at constant 30 fps from those timestamps, so playback is real time. No source edits, state injection, CSS hiding, overlays or speed changes. Headless Chromium draws no mouse cursor.",
+  "app": {
+    "repo": "kerktaiheng/visualgo-plus-design",
+    "branch": "main",
+    "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529"
+  },
+  "fieldNotes": {
+    "atSeconds": "Time inside the delivered clip, from its first frame. Actions are logged when the input was sent; observations are DOM reads made just after.",
+    "footerFrame": "The footer frame counter as rendered (e.g. FRAME 12 / 21, or NO RUN).",
+    "status": "The Status panel sentence; statusPath is the hovered path line when there is one.",
+    "notes": "Step-note text in the DOM with the computed opacity of its positioned element at that instant. A note fades in just after a forward step and is gone by about 1.6 s; opacity 0 at a clip start is a note left from before the clip, already invisible. The posters were taken while the note was fully shown.",
+    "canvasViewport": "The React Flow viewport transform; unchanged values mean the drawing did not move or zoom."
+  },
+  "assets": [
+    {
+      "id": "01_lca_equal_ancestors",
+      "file": "clips/01_lca_equal_ancestors.mp4",
+      "bytes": 429473,
+      "sha256": "31430e1aa2769a2ad2083c398440430869b33e649a10666d262dd9fcae8ba4d5",
+      "durationSeconds": 9.6,
+      "frames": 288,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/01_lca_equal_ancestors.png",
+        "bytes": 173131,
+        "sha256": "5f503ffd1254f59a05cf37e14d9ade9498bf50a527bb765ede50a55100a64291",
+        "takenAtSeconds": 1.302,
+        "shows": {
+          "footerFrame": "FRAME 2 / 6",
+          "status": "k = 2: both ancestors are 8, so u and v stay.",
+          "notes": [
+            "same ancestor · keep u, v (above 8)"
+          ]
+        }
+      },
+      "intendedSlide": "Alternative for deck slide 16 (not in the deck)",
+      "caption": "Same ancestor 8: u and v stay",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/tree-editor/lca-binary-lifting",
+      "inputs": {
+        "tree": "12 8, 4 8, 14 12, 10 12, 6 4, 2 4 (the default tree; edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14)",
+        "root": "8",
+        "operation": "Query",
+        "u": "6",
+        "v": "2",
+        "layout": "default (Status in front; the Ancestor table tab behind it)"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Tree Editor /tree-editor/lca-binary-lifting, default tree (12 8, 4 8, 14 12, 10 12, 6 4, 2 4), root 8, default layout; Query; u = 6, v = 2; Next started the run; paused at FRAME 1 / 6."
+      ],
+      "actions": [
+        {
+          "atSeconds": 0.873,
+          "doneSeconds": 0.991,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 2.815,
+          "doneSeconds": 2.903,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 4.016,
+          "doneSeconds": 4.091,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 5.262,
+          "doneSeconds": 5.353,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 6.315,
+          "doneSeconds": 6.42,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 8.035,
+          "doneSeconds": 8.048,
+          "action": "hover node 6"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.008,
+          "moment": "start: Query paused at frame 1",
+          "footerFrame": "FRAME 1 / 6",
+          "status": "Table ready. Query LCA(6, 2); depths 2 and 2.",
+          "strip": "LCA(6, 2): depths 2 and 2 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 1.02,
+          "moment": "k = 2 compare",
+          "footerFrame": "FRAME 2 / 6",
+          "status": "k = 2: both ancestors are 8, so u and v stay.",
+          "strip": "k = 2: up[6][2] = 8, up[2][2] = 8, equal: keep | up[6][2] | up[2][2] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 2.984,
+          "moment": "k = 1 compare",
+          "footerFrame": "FRAME 3 / 6",
+          "status": "k = 1: both ancestors are 8, so u and v stay.",
+          "strip": "k = 1: up[6][1] = 8, up[2][1] = 8, equal: keep | up[6][1] | up[2][1] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0.8,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 4.16,
+          "moment": "k = 0 compare",
+          "footerFrame": "FRAME 4 / 6",
+          "status": "k = 0: both ancestors are 4, so u and v stay.",
+          "strip": "k = 0: up[6][0] = 4, up[2][0] = 4, equal: keep | up[6][0] | up[2][0] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0.8,
+              "above": "4"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 5.369,
+          "moment": "return parent",
+          "footerFrame": "FRAME 5 / 6",
+          "status": "Both cursors now have the same parent, 4.",
+          "strip": "LCA = up[6][0] = 4 | up[6][0] | up[2][0] | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 6.462,
+          "moment": "complete",
+          "footerFrame": "FRAME 6 / 6",
+          "status": "LCA(6, 2) = 4.",
+          "strip": "LCA(6, 2) = 4 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 8.302,
+          "moment": "hover node 6 on the final frame",
+          "footerFrame": "FRAME 6 / 6",
+          "status": "LCA(6, 2) = 4.",
+          "strip": "LCA(6, 2) = 4 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 9.609,
+          "moment": "end",
+          "footerFrame": "FRAME 6 / 6",
+          "status": "LCA(6, 2) = 4.",
+          "strip": "LCA(6, 2) = 4 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames every 0.5 s from 0.0 to 9.5 s and the last frame (9.57 s); poster.",
+      "narration": [
+        "0.0–0.9 s: Query LCA(6, 2) is paused at frame 1 of 6. Both nodes have depth 2, so no depth lift is needed.",
+        "0.9–2.8 s: Next, frame 2: k = 2, both ancestors are 8. The note \"same ancestor · keep u, v\" appears above 8, and Status says u and v stay.",
+        "2.8–4.0 s: Frame 3: k = 1, both ancestors are 8 again, so u and v stay.",
+        "4.0–5.3 s: Frame 4: k = 0, both ancestors are 4. They are still equal, so u and v still stay.",
+        "5.3–6.3 s: Frame 5: both cursors now have the same parent, 4.",
+        "6.3–8.0 s: Frame 6: LCA(6, 2) = 4.",
+        "8.0–9.6 s: Hovering 6 on the final frame shows its path to the root and its 2^k ancestors: 4 at distance 1 and 8 at distance 2."
+      ],
+      "checks": "reproduce/checks/01_lca_equal_ancestors.json"
+    },
+    {
+      "id": "01b_lca_keep_then_jump",
+      "file": "clips/01b_lca_keep_then_jump.mp4",
+      "bytes": 468485,
+      "sha256": "35dad16ce8a9acda80b38df8dce7995dc508316a99cbae2f6f68913070032b75",
+      "durationSeconds": 10.3,
+      "frames": 309,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/01b_lca_keep_then_jump.png",
+        "bytes": 185540,
+        "sha256": "a85b821789d71a560b93325e0c2c4b1bf334a98702a2b34696649bf85dbc58da",
+        "takenAtSeconds": 3.303,
+        "shows": {
+          "footerFrame": "FRAME 4 / 7",
+          "status": "k = 0: ancestors 4 and 12 differ, so both lift 1 level.",
+          "notes": [
+            "differ · lift both (above 4)"
+          ]
+        }
+      },
+      "intendedSlide": "Deck slide 16",
+      "caption": "Keep while equal, lift when they differ",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/tree-editor/lca-binary-lifting",
+      "inputs": {
+        "tree": "the default tree, as in 01",
+        "root": "8",
+        "operation": "Query",
+        "u": "6",
+        "v": "10",
+        "layout": "default"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Tree Editor /tree-editor/lca-binary-lifting, default tree (12 8, 4 8, 14 12, 10 12, 6 4, 2 4), root 8, default layout; Query; u = 6, v = 10; Next started the run; paused at FRAME 2 / 7."
+      ],
+      "actions": [
+        {
+          "atSeconds": 0.855,
+          "doneSeconds": 0.937,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 2.829,
+          "doneSeconds": 2.933,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 4.925,
+          "doneSeconds": 5.025,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 6.723,
+          "doneSeconds": 6.811,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 8.019,
+          "doneSeconds": 8.127,
+          "action": "Next"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.01,
+          "moment": "start: paused at frame 2 (k = 2, both 8)",
+          "footerFrame": "FRAME 2 / 7",
+          "status": "k = 2: both ancestors are 8, so u and v stay.",
+          "strip": "k = 2: up[6][2] = 8, up[10][2] = 8, equal: keep | up[6][2] | up[10][2] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 0.964,
+          "moment": "k = 1 compare",
+          "footerFrame": "FRAME 3 / 7",
+          "status": "k = 1: both ancestors are 8, so u and v stay.",
+          "strip": "k = 1: up[6][1] = 8, up[10][1] = 8, equal: keep | up[6][1] | up[10][1] | Ancestor table",
+          "notes": [
+            {
+              "text": "same ancestor · keep u, v",
+              "opacity": 0,
+              "above": "8"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 2.954,
+          "moment": "k = 0 compare",
+          "footerFrame": "FRAME 4 / 7",
+          "status": "k = 0: ancestors 4 and 12 differ, so both lift 1 level.",
+          "strip": "k = 0: up[6][0] = 4, up[10][0] = 12, differ: lift both | up[6][0] | up[10][0] | Ancestor table",
+          "notes": [
+            {
+              "text": "differ · lift both",
+              "opacity": 0,
+              "above": "4"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 5.06,
+          "moment": "lift both",
+          "footerFrame": "FRAME 5 / 7",
+          "status": "Lift both by 2^0: u = 4, v = 12.",
+          "strip": "Lift both: 6 to 4, 10 to 12 | up[6][0] | up[10][0] | Ancestor table",
+          "notes": [
+            {
+              "text": "↑ 1 level",
+              "opacity": 0,
+              "above": "4"
+            },
+            {
+              "text": "↑ 1 level",
+              "opacity": 0,
+              "above": "12"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 6.854,
+          "moment": "return parent",
+          "footerFrame": "FRAME 6 / 7",
+          "status": "Both cursors now have the same parent, 8.",
+          "strip": "LCA = up[4][0] = 8 | up[4][0] | up[12][0] | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 8.165,
+          "moment": "complete",
+          "footerFrame": "FRAME 7 / 7",
+          "status": "LCA(6, 10) = 8.",
+          "strip": "LCA(6, 10) = 8 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        },
+        {
+          "atSeconds": 10.306,
+          "moment": "end",
+          "footerFrame": "FRAME 7 / 7",
+          "status": "LCA(6, 10) = 8.",
+          "strip": "LCA(6, 10) = 8 | Ancestor table",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames every 0.5 s from 0.0 to 10.0 s and the first frame; poster.",
+      "narration": [
+        "0.0–0.9 s: Query LCA(6, 10) is paused at frame 2 of 7. At k = 2 both ancestors are 8, so u = 6 and v = 10 stay.",
+        "0.9–2.8 s: Next, frame 3: k = 1, both ancestors are 8 again. The note \"same ancestor · keep u, v\" appears above 8.",
+        "2.8–4.9 s: Frame 4: k = 0, the ancestors 4 and 12 differ. The note says \"differ · lift both\".",
+        "4.9–6.7 s: Frame 5: both lift one level, so u = 4 and v = 12. \"↑ 1 level\" appears over each.",
+        "6.7–8.0 s: Frame 6: both cursors now have the same parent, 8.",
+        "8.0–10.3 s: Frame 7: LCA(6, 10) = 8."
+      ],
+      "checks": "reproduce/checks/01b_lca_keep_then_jump.json"
+    },
+    {
+      "id": "02_v10_move_panel",
+      "file": "clips/02_v10_move_panel.mp4",
+      "bytes": 310899,
+      "sha256": "6924eba0d26e5eb55d2711783cb86647b4e2dd261e934fd4a9434f4b9638766a",
+      "durationSeconds": 7.3,
+      "frames": 219,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/02_v10_move_panel.png",
+        "bytes": 172273,
+        "sha256": "eb6dbe0f759864aa7b54428a580e9fbafd9bc76bb1ab93e608297a77da340898",
+        "takenAtSeconds": 3.107,
+        "shows": {
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Deck slide 14",
+      "caption": "Move a panel; the run stays put",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6",
+        "start": "S",
+        "end": "T",
+        "pausedAt": "frame 12 of 21 (Relax B → A)",
+        "drop": "Status tab onto the left group body (drop target group:g1)"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Next to frame 12; mouse parked on empty canvas."
+      ],
+      "actions": [
+        {
+          "atSeconds": 0.999,
+          "doneSeconds": 1.024,
+          "action": "press Status tab"
+        },
+        {
+          "atSeconds": 1.024,
+          "doneSeconds": 1.943,
+          "action": "drag Status tab to the left group"
+        },
+        {
+          "atSeconds": 2.599,
+          "doneSeconds": 2.651,
+          "action": "release"
+        },
+        {
+          "atSeconds": 4.52,
+          "doneSeconds": 4.544,
+          "action": "open Settings"
+        },
+        {
+          "atSeconds": 5.214,
+          "doneSeconds": 5.28,
+          "action": "Reset panel layout"
+        },
+        {
+          "atSeconds": 5.701,
+          "doneSeconds": 5.717,
+          "action": "Escape closes the menu"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.01,
+          "moment": "start",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 2.305,
+          "moment": "drop preview",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "hotTarget": "group:g1",
+          "preview": true,
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 2.759,
+          "moment": "dropped",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "left",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 4.66,
+          "moment": "Settings open",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "left",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 5.355,
+          "moment": "after Reset panel layout",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 5.912,
+          "moment": "menu closed",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "menuOpen": false,
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 7.304,
+          "moment": "end",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames every 0.5 s from 0.0 to 7.0 s; poster.",
+      "narration": [
+        "0.0–1.0 s: Dijkstra is paused at frame 12 of 21. Status is in the lower right.",
+        "1.0–2.6 s: The Status tab is dragged onto the left group, and the drop preview outlines that group.",
+        "2.6–4.5 s: After the drop, Status is a tab beside Action and e-Lecture. The frame is still 12 of 21 and the drawing has not moved.",
+        "4.5–5.7 s: Settings, then Reset panel layout, puts Status back in the lower right.",
+        "5.7–7.3 s: The menu is closed and the run is still at frame 12 of 21."
+      ],
+      "checks": "reproduce/checks/02_v10_move_panel.json"
+    },
+    {
+      "id": "03_graph_drag_then_edit",
+      "file": "clips/03_graph_drag_then_edit.mp4",
+      "bytes": 235709,
+      "sha256": "e2de7d5bea92736a278614f59e17e524dc001184d72778b5e7c383165b4dfa2b",
+      "durationSeconds": 8,
+      "frames": 240,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/03_graph_drag_then_edit.png",
+        "bytes": 138692,
+        "sha256": "c3a4b28cfa0c758a7af1d784e5915b204170a6adb2e50283a43f73ebc2f805c9",
+        "takenAtSeconds": 5.105,
+        "shows": {
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Deck slide 15",
+      "caption": "Dragging keeps the run; an edit ends it",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6",
+        "start": "S",
+        "end": "T",
+        "pausedAt": "frame 12 of 21 (Relax B → A)",
+        "drag": "B by (+35, -35) px",
+        "edit": "Draw graph → Edges: \"B A 1\" → \"B A 5\""
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Next to frame 12; mouse parked on empty canvas."
+      ],
+      "actions": [
+        {
+          "atSeconds": 0.807,
+          "doneSeconds": 1.767,
+          "action": "drag B up-right by (35, -35)"
+        },
+        {
+          "atSeconds": 3.027,
+          "doneSeconds": 3.109,
+          "action": "open Draw graph"
+        },
+        {
+          "atSeconds": 3.904,
+          "doneSeconds": 3.928,
+          "action": "click at the end of line \"B A 1\""
+        },
+        {
+          "atSeconds": 4.056,
+          "doneSeconds": 4.077,
+          "action": "Shift+ArrowLeft selects \"1\""
+        },
+        {
+          "atSeconds": 4.5,
+          "doneSeconds": 4.564,
+          "action": "type 5"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.055,
+          "moment": "start",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgeBA": {
+            "text": "1",
+            "distanceFromMidpoint": 47
+          },
+          "edgesText": "(Draw graph collapsed)",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 1.846,
+          "moment": "after drag",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgeBA": {
+            "text": "1",
+            "distanceFromMidpoint": 41
+          },
+          "edgesText": "(Draw graph collapsed)",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 3.268,
+          "moment": "Draw graph open",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "edgeBA": {
+            "text": "1",
+            "distanceFromMidpoint": 41
+          },
+          "edgesText": "S A 4\nS B 1\nB A 1\nA T 2\nB T 6",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 4.744,
+          "moment": "after edit",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "edgeBA": {
+            "text": "5",
+            "distanceFromMidpoint": 41
+          },
+          "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 8.032,
+          "moment": "end",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "First frame (0.0 s), last frame (7.97 s) and a 5 fps contact sheet; poster.",
+      "narration": [
+        "0.0–0.8 s: Dijkstra is paused at frame 12 of 21, relaxing B → A, whose weight is 1.",
+        "0.8–1.8 s: Vertex B is dragged a short way, and the frame stays at 12 of 21.",
+        "1.8–3.0 s: Hold: same frame, same Status.",
+        "3.0–4.5 s: Draw graph opens, and the 1 of \"B A 1\" is selected in the Edges text.",
+        "4.5–8.0 s: Typing 5 commits the edit. The edge label reads 5, the footer says NO RUN and Status says NO ACTIVE RUN."
+      ],
+      "checks": "reproduce/checks/03_graph_drag_then_edit.json"
+    },
+    {
+      "id": "04_dijkstra_note_pause_hover",
+      "file": "clips/04_dijkstra_note_pause_hover.mp4",
+      "bytes": 452325,
+      "sha256": "93985da2ceb940fb7524f3bff7d85d17199778f9277f13e015a5c07042b847ab",
+      "durationSeconds": 10.2,
+      "frames": 306,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/04_dijkstra_note_pause_hover.png",
+        "bytes": 153593,
+        "sha256": "d9834700ef47e29086a879e5d834b7fe2fa48f8ab15f5e6f781abb4a0d6e6e2a",
+        "takenAtSeconds": 2.953,
+        "shows": {
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            "1 + 1 < 4 · update (above A)"
+          ]
+        }
+      },
+      "intendedSlide": "Deck slide 18",
+      "caption": "Paused motion, step note, hover after the end",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dijkstra",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6",
+        "start": "S",
+        "end": "T",
+        "pausedAt": "frame 11 of 21 (Inspect edge B → A)"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Next to frame 11; mouse left on the Next button."
+      ],
+      "actions": [
+        {
+          "atSeconds": 2.527,
+          "doneSeconds": 2.608,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 4.716,
+          "doneSeconds": 4.786,
+          "action": "Last"
+        },
+        {
+          "atSeconds": 5.92,
+          "doneSeconds": 5.936,
+          "action": "hover T"
+        },
+        {
+          "atSeconds": 7.924,
+          "doneSeconds": 7.938,
+          "action": "hover A"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.014,
+          "moment": "start",
+          "footerFrame": "FRAME 11 / 21",
+          "status": "Inspect edge B → A, weight 1.",
+          "statusRegion": "right",
+          "pausedAnimations": [
+            {
+              "name": "_edge-paused-streak_2obm3_1",
+              "time": 2067
+            },
+            {
+              "name": "_node-paused-glow_2obm3_1",
+              "time": 2067
+            }
+          ],
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 2.406,
+          "moment": "end of hold",
+          "footerFrame": "FRAME 11 / 21",
+          "status": "Inspect edge B → A, weight 1.",
+          "statusRegion": "right",
+          "pausedAnimations": [
+            {
+              "name": "_edge-paused-streak_2obm3_1",
+              "time": 4450
+            },
+            {
+              "name": "_node-paused-glow_2obm3_1",
+              "time": 4450
+            }
+          ],
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 2.658,
+          "moment": "frame 12",
+          "footerFrame": "FRAME 12 / 21",
+          "status": "Relax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.",
+          "notes": [
+            {
+              "text": "1 + 1 < 4 · update",
+              "opacity": 0.69,
+              "above": "A"
+            }
+          ],
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 4.865,
+          "moment": "Last",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Dijkstra complete. Settled 4 nodes.",
+          "statusPath": "PATH TO T: S → B → A → T · distance 4",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 6.109,
+          "moment": "hover T",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Dijkstra complete. Settled 4 nodes.",
+          "statusPath": "PATH TO T: S → B → A → T · distance 4",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 8.104,
+          "moment": "hover A",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Dijkstra complete. Settled 4 nodes.",
+          "statusPath": "PATH TO A: S → B → A · distance 2",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 10.206,
+          "moment": "end",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Dijkstra complete. Settled 4 nodes.",
+          "statusPath": "PATH TO A: S → B → A · distance 2",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "MP4 frames at 0.0, 1.2, 2.8, 6.67 and 10.17 s (last); poster.",
+      "narration": [
+        "0.0–2.5 s: Dijkstra is paused at frame 11 of 21: inspect edge B → A, weight 1. The edge streak and B's glow keep moving while the counter stays at 11.",
+        "2.5–4.7 s: Next, frame 12: \"1 + 1 < 4 · update\" appears above A, and Status says A's distance becomes 2.",
+        "4.7–5.9 s: Last, frame 21 of 21: Dijkstra is complete with 4 nodes settled.",
+        "5.9–7.9 s: Hover T: S → B → A → T · distance 4.",
+        "7.9–10.2 s: Hover A: S → B → A · distance 2."
+      ],
+      "checks": "reproduce/checks/04_dijkstra_note_pause_hover.json"
+    },
+    {
+      "id": "05_bst_preview_apply",
+      "file": "clips/05_bst_preview_apply.mp4",
+      "bytes": 557168,
+      "sha256": "c5b3630081b7d73b6ad5819f2cbde353061bf035b2f8af1fce51a7a21cc0531b",
+      "durationSeconds": 8.6,
+      "frames": 258,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/05_bst_preview_apply.png",
+        "bytes": 163310,
+        "sha256": "eec51d6afc823ae49286bf6739bdd61d775b909a8b65dfb96ef82bcdd15da6e9",
+        "takenAtSeconds": 0.518,
+        "shows": {
+          "footerFrame": "FRAME 8 / 8",
+          "status": "Insertion preview is complete. Apply it to update the tree document.",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Backup slide 24",
+      "caption": "Preview first; Apply commits the insertion",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/tree-editor/bst",
+      "inputs": {
+        "tree": "the default tree, as in 01",
+        "operation": "Insert",
+        "value": "5",
+        "editTree": "collapsed during the preview"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Tree Editor /tree-editor/bst, default tree, Insert, value 5, Edit tree collapsed; Next started the run; Last."
+      ],
+      "actions": [
+        {
+          "atSeconds": 1.548,
+          "doneSeconds": 1.616,
+          "action": "Previous"
+        },
+        {
+          "atSeconds": 2.437,
+          "doneSeconds": 2.555,
+          "action": "Previous"
+        },
+        {
+          "atSeconds": 3.323,
+          "doneSeconds": 3.439,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 4.126,
+          "doneSeconds": 4.201,
+          "action": "Next"
+        },
+        {
+          "atSeconds": 5.224,
+          "doneSeconds": 5.348,
+          "action": "Apply insertion"
+        },
+        {
+          "atSeconds": 6.226,
+          "doneSeconds": 6.283,
+          "action": "expand Edit tree"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.023,
+          "moment": "start: completed preview",
+          "footerFrame": "FRAME 8 / 8",
+          "status": "Insertion preview is complete. Apply it to update the tree document.",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+          "canvasNodes": 8,
+          "applyVisible": true,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 1.67,
+          "moment": "back 1",
+          "footerFrame": "FRAME 7 / 8",
+          "status": "Node 6 has no left child: create node 5 there.",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+          "canvasNodes": 8,
+          "applyVisible": false,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 2.752,
+          "moment": "back 2",
+          "footerFrame": "FRAME 6 / 8",
+          "status": "5 is smaller than 6; inspect the left child.",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+          "canvasNodes": 7,
+          "applyVisible": false,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 3.528,
+          "moment": "forward 1",
+          "footerFrame": "FRAME 7 / 8",
+          "status": "Node 6 has no left child: create node 5 there.",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+          "canvasNodes": 8,
+          "applyVisible": false,
+          "canvasViewport": "transform: translate(158.6px, 187px) scale(1);"
+        },
+        {
+          "atSeconds": 4.277,
+          "moment": "forward 2",
+          "footerFrame": "FRAME 8 / 8",
+          "status": "Insertion preview is complete. Apply it to update the tree document.",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+          "canvasNodes": 8,
+          "applyVisible": true,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 5.43,
+          "moment": "applied",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4\n6 5",
+          "canvasNodes": 8,
+          "applyVisible": false,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 6.486,
+          "moment": "Edit tree open",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4\n6 5",
+          "canvasNodes": 8,
+          "applyVisible": false,
+          "textareaVisible": true,
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        },
+        {
+          "atSeconds": 8.609,
+          "moment": "end",
+          "footerFrame": "NO RUN",
+          "status": "NO ACTIVE RUN",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(158.6px, 125px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "First frame (0.0 s) and last frame (8.57 s) of this take; key frames of an earlier take with the same schedule; poster.",
+      "narration": [
+        "0.0–1.5 s: The Insert 5 preview is complete at frame 8 of 8. Node 5 is marked INSERTED and Apply insertion is shown, but the tree text still has its 6 original lines.",
+        "1.5–3.3 s: Previous twice: frame 7 creates node 5 under 6, and frame 6 compares 5 with 6.",
+        "3.3–5.2 s: Next twice returns to frame 8 of 8, where Apply insertion shows again.",
+        "5.2–6.2 s: Apply insertion ends the run (NO RUN). Node 5 stays as an ordinary node.",
+        "6.2–8.6 s: Edit tree opens, and the text now ends with \"6 5\": 8 nodes, 7 edges."
+      ],
+      "checks": "reproduce/checks/05_bst_preview_apply.json"
+    },
+    {
+      "id": "06_dfs_recursive_recap",
+      "file": "clips/06_dfs_recursive_recap.mp4",
+      "bytes": 339427,
+      "sha256": "5110ea9ae5ea5eb050fe7c3bfd29e7382dd2c80b448cdf7361def03858f0adbf",
+      "durationSeconds": 8.5,
+      "frames": 255,
+      "resolution": [
+        1440,
+        900
+      ],
+      "fps": 30,
+      "codec": "H.264 High (libx264), yuv420p, CRF 18, preset slow, +faststart, no audio, BT.709 matrix",
+      "poster": {
+        "file": "posters/06_dfs_recursive_recap.png",
+        "bytes": 140152,
+        "sha256": "83fbbfa5ec0f9de50f79f7bc6174858b4ce878703537ea28c96c40135e3a445b",
+        "takenAtSeconds": 3.005,
+        "shows": {
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Recursive DFS complete. Visited 4 nodes.",
+          "notes": []
+        }
+      },
+      "intendedSlide": "Backup slide 27 (fallback for the live demo)",
+      "caption": "The finished DFS replays its tree",
+      "app": {
+        "repo": "kerktaiheng/visualgo-plus-design",
+        "commit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+        "workingTreeClean": true
+      },
+      "route": "/graph-editor/dfs-recursive",
+      "inputs": {
+        "graph": "directed S A 4, S B 1, B A 1, A T 2, B T 6 (weights unused)",
+        "start": "S (default)"
+      },
+      "settings": {
+        "browser": "Chromium (Playwright), headless, fresh context",
+        "viewport": "1440x900",
+        "deviceScaleFactor": 1,
+        "theme": "Light",
+        "language": "English",
+        "reducedMotion": "no-preference",
+        "animatePausedSteps": "on (default)",
+        "speed": "0.50s (default)"
+      },
+      "setup": [
+        "Graph Editor /graph-editor/dfs-recursive: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+        "Same graph, Graph Editor /graph-editor/dfs-recursive (default start)."
+      ],
+      "actions": [
+        {
+          "atSeconds": 0.829,
+          "doneSeconds": 0.876,
+          "action": "Last"
+        }
+      ],
+      "observations": [
+        {
+          "atSeconds": 0.004,
+          "moment": "start: run started",
+          "footerFrame": "FRAME 1 / 21",
+          "status": "Initialize recursive DFS from S.",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 1.013,
+          "moment": "final frame",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Recursive DFS complete. Visited 4 nodes.",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 4.515,
+          "moment": "final frame, later",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Recursive DFS complete. Visited 4 nodes.",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        },
+        {
+          "atSeconds": 8.507,
+          "moment": "end",
+          "footerFrame": "FRAME 21 / 21",
+          "status": "Recursive DFS complete. Visited 4 nodes.",
+          "statusRegion": "right",
+          "canvasViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+        }
+      ],
+      "pageErrors": [],
+      "framesInspected": "First (0.0 s) and last (8.47 s) frames, frames at 1.2, 3.0 and 6.0 s, and a 3.3 fps contact sheet from 0.9 to 5.7 s; poster.",
+      "narration": [
+        "0.0–0.8 s: Recursive DFS from S, at frame 1 of 21.",
+        "0.8–8.5 s: Last, frame 21 of 21: the search is complete, visiting S, A, T, B. On the final frame a glow and a light streak replay the DFS tree in visit order (S → A → T, then S → B), about every 3 s."
+      ],
+      "checks": "reproduce/checks/06_dfs_recursive_recap.json"
+    }
+  ]
+}

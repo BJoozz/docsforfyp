@@ -1,0 +1,242 @@
+{
+  "id": "01_lca_equal_ancestors",
+  "route": "/tree-editor/lca-binary-lifting",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Tree Editor /tree-editor/lca-binary-lifting, default tree (12 8, 4 8, 14 12, 10 12, 6 4, 2 4), root 8, default layout; Query; u = 6, v = 2; Next started the run; paused at FRAME 1 / 6."
+  ],
+  "observations": [
+    {
+      "t": 0.008,
+      "name": "start: Query paused at frame 1",
+      "footerFrame": "FRAME 1 / 6",
+      "status": "query\n\nTable ready. Query LCA(6, 2); depths 2 and 2.\n\nCURRENT U\n6 depth 2\nCURRENT V\n2 depth 2\nACTIVE K\n—",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(6, 2): depths 2 and 2 | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 1.02,
+      "name": "k = 2 compare",
+      "footerFrame": "FRAME 2 / 6",
+      "status": "query\n\nk = 2: both ancestors are 8, so u and v stay.\n\nCURRENT U\n6 depth 2\nCURRENT V\n2 depth 2\nACTIVE K\n2 (2^k = 4)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 2: up[6][2] = 8, up[2][2] = 8, equal: keep | up[6][2] | up[2][2] | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 2.984,
+      "name": "k = 1 compare",
+      "footerFrame": "FRAME 3 / 6",
+      "status": "query\n\nk = 1: both ancestors are 8, so u and v stay.\n\nCURRENT U\n6 depth 2\nCURRENT V\n2 depth 2\nACTIVE K\n1 (2^k = 2)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0.804997",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 1: up[6][1] = 8, up[2][1] = 8, equal: keep | up[6][1] | up[2][1] | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 4.16,
+      "name": "k = 0 compare",
+      "footerFrame": "FRAME 4 / 6",
+      "status": "query\n\nk = 0: both ancestors are 4, so u and v stay.\n\nCURRENT U\n6 depth 2\nCURRENT V\n2 depth 2\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "0.804546",
+          "nearestNodeBelow": "4"
+        }
+      ],
+      "strip": "k = 0: up[6][0] = 4, up[2][0] = 4, equal: keep | up[6][0] | up[2][0] | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 5.369,
+      "name": "return parent",
+      "footerFrame": "FRAME 5 / 6",
+      "status": "query\n\nBoth cursors now have the same parent, 4.\n\nCURRENT U\n4 depth 1\nCURRENT V\n4 depth 1\nACTIVE K\n0 (2^k = 1)",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA = up[6][0] = 4 | up[6][0] | up[2][0] | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 6.462,
+      "name": "complete",
+      "footerFrame": "FRAME 6 / 6",
+      "status": "query\n\nLCA(6, 2) = 4.\n\nCURRENT U\n4 depth 1\nCURRENT V\n4 depth 1\nACTIVE K\n—\nLOWEST COMMON ANCESTOR\n4",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(6, 2) = 4 | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 8.302,
+      "name": "hover node 6 on the final frame",
+      "footerFrame": "FRAME 6 / 6",
+      "status": "query\n\nLCA(6, 2) = 4.\n\nCURRENT U\n4 depth 1\nCURRENT V\n4 depth 1\nACTIVE K\n—\nLOWEST COMMON ANCESTOR\n4\n\n6 → 4 → 8 (root) · up[6]: 4, 8",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(6, 2) = 4 | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    },
+    {
+      "t": 9.609,
+      "name": "end",
+      "footerFrame": "FRAME 6 / 6",
+      "status": "query\n\nLCA(6, 2) = 4.\n\nCURRENT U\n4 depth 1\nCURRENT V\n4 depth 1\nACTIVE K\n—\nLOWEST COMMON ANCESTOR\n4\n\n6 → 4 → 8 (root) · up[6]: 4, 8",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": "LCA(6, 2) = 4 | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 0.873,
+      "tDone": 0.991,
+      "scheduled": 0.8,
+      "action": "Next"
+    },
+    {
+      "t": 2.815,
+      "tDone": 2.903,
+      "scheduled": 2.8,
+      "action": "Next"
+    },
+    {
+      "t": 4.016,
+      "tDone": 4.091,
+      "scheduled": 4,
+      "action": "Next"
+    },
+    {
+      "t": 5.262,
+      "tDone": 5.353,
+      "scheduled": 5.2,
+      "action": "Next"
+    },
+    {
+      "t": 6.315,
+      "tDone": 6.42,
+      "scheduled": 6.3,
+      "action": "Next"
+    },
+    {
+      "t": 8.035,
+      "tDone": 8.048,
+      "scheduled": 8,
+      "action": "hover node 6"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794771546.998,
+    "tEndEpoch": 1794771556.603,
+    "screencastFrames": 378,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0335,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/01_lca_equal_ancestors.png",
+    "t": 1.302,
+    "state": {
+      "footerFrame": "FRAME 2 / 6",
+      "status": "query\n\nk = 2: both ancestors are 8, so u and v stay.\n\nCURRENT U\n6 depth 2\nCURRENT V\n2 depth 2\nACTIVE K\n2 (2^k = 4)",
+      "statusRegion": "right",
+      "notes": [
+        "same ancestor · keep u, v"
+      ],
+      "noteItems": [
+        {
+          "text": "same ancestor · keep u, v",
+          "opacity": "1",
+          "nearestNodeBelow": "8"
+        }
+      ],
+      "strip": "k = 2: up[6][2] = 8, up[2][2] = 8, equal: keep | up[6][2] | up[2][2] | Ancestor table",
+      "graphViewport": "transform: translate(158.6px, 164.109px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 288,
+    "durationSeconds": 9.6,
+    "sourceFramesUsed": 202,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "288",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "01_lca_equal_ancestors.mp4"
+    ]
+  },
+  "maxActionLateness": 0.073,
+  "pageErrors": []
+}

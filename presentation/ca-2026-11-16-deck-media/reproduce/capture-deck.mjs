@@ -1,0 +1,517 @@
+// Deck clips for the CA presentation, recorded from the real VisuAlgo+ app.
+//
+// Drives the real UI only (mouse, keyboard, the app's own controls). No source
+// edits, no state injection, no CSS hiding, no overlays. Each clip runs in a
+// fresh browser context; only the clip segment is recorded, with the Chrome
+// DevTools screencast, and every frame keeps its own timestamp, so the video is
+// rebuilt at the real speed (constant 30 fps) from exactly that segment.
+//
+// Usage (PowerShell):
+//   $env:CA_APP_REPO = 'C:\path\to\visualgo-plus-design'   # repo root; @playwright/test is loaded from it
+//   $env:CA_BASE_URL = 'http://127.0.0.1:5205'              # your own dev server of that checkout
+//   $env:CA_DECK_OUTPUT = 'C:\path\outside\onedrive\deck'    # frames, clips, posters, checks
+//   $env:CA_FFMPEG = 'C:\path\to\ffmpeg.exe'                 # optional: a full build with libx264
+//   node .\capture-deck.mjs 01_lca_equal_ancestors 01b_lca_keep_then_jump 02_v10_move_panel ...
+//   node .\capture-deck.mjs all
+import { createRequire } from 'node:module';
+import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+
+const APP = process.env.CA_APP_REPO;
+const OUT = process.env.CA_DECK_OUTPUT;
+if (!APP) throw new Error('Set CA_APP_REPO to the app checkout.');
+if (!OUT) throw new Error('Set CA_DECK_OUTPUT to an output folder (keep it outside a synced folder).');
+const require = createRequire(path.join(APP, 'package.json'));
+const { chromium } = require('@playwright/test');
+const BASE = process.env.CA_BASE_URL ?? 'http://127.0.0.1:5205';
+const FFMPEG = process.env.CA_FFMPEG;
+const FPS = 30;
+const VIEWPORT = { width: 1440, height: 900 };
+const git = (...args) => spawnSync('git', ['-C', APP, ...args], { encoding: 'utf8' }).stdout.trim();
+const APP_COMMIT = git('rev-parse', 'HEAD');
+const APP_DIRTY = git('status', '--porcelain') !== '';
+const now = () => Date.now() / 1000;
+const sleep = (ms) => new Promise((r) => setTimeout(r, Math.max(0, ms)));
+const round = (x, d = 3) => Math.round(x * 10 ** d) / 10 ** d;
+
+// ---------- recorder: CDP screencast of the clip segment only ----------
+async function startRecorder(page, dir) {
+  await rm(dir, { recursive: true, force: true });
+  await mkdir(dir, { recursive: true });
+  const cdp = await page.context().newCDPSession(page);
+  const frames = [];
+  const writes = [];
+  cdp.on('Page.screencastFrame', ({ data, metadata, sessionId }) => {
+    const file = `f${String(frames.length).padStart(5, '0')}.jpg`;
+    frames.push({ file, ts: metadata.timestamp, recv: now(), w: metadata.deviceWidth, h: metadata.deviceHeight });
+    writes.push(writeFile(path.join(dir, file), Buffer.from(data, 'base64')));
+    cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+  });
+  await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidth: VIEWPORT.width, maxHeight: VIEWPORT.height, everyNthFrame: 1 });
+  const waitFrom = now();
+  while (frames.length === 0 && now() - waitFrom < 5) await sleep(20);
+  if (frames.length === 0) throw new Error('No screencast frame arrived.');
+  await sleep(150);
+  const rec = { dir, frames, t0: now(), tEnd: null, pendingWrites: () => writes.length - settled.count };
+  const settled = { count: 0 };
+  writes.push = ((push) => function (p) { p.then(() => settled.count++); return push.call(this, p); })(writes.push);
+  rec.stop = async () => {
+    rec.tEnd = rec.tEnd ?? now();
+    await sleep(120); // let the frames up to tEnd arrive
+    await cdp.send('Page.stopScreencast');
+    await Promise.all(writes);
+    await cdp.detach();
+  };
+  return rec;
+}
+
+// Constant 30 fps: output frame n shows the newest screencast frame swapped at or before t0 + n/30.
+function encode(rec, mp4) {
+  const frames = rec.frames.slice().sort((a, b) => a.ts - b.ts);
+  const n = Math.round((rec.tEnd - rec.t0) * FPS);
+  const pick = [];
+  let j = 0;
+  for (let i = 0; i < n; i++) {
+    const t = rec.t0 + i / FPS;
+    while (j + 1 < frames.length && frames[j + 1].ts <= t) j++;
+    pick.push(j);
+  }
+  const lines = ['ffconcat version 1.0'];
+  for (let i = 0; i < n;) {
+    let k = i;
+    while (k + 1 < n && pick[k + 1] === pick[i]) k++;
+    lines.push(`file '${frames[pick[i]].file}'`, `duration ${((k - i + 1) / FPS).toFixed(6)}`);
+    i = k + 1;
+  }
+  lines.push(`file '${frames[pick[n - 1]].file}'`);
+  const list = path.join(rec.dir, 'list.ffconcat');
+  return writeFile(list, lines.join('\n') + '\n').then(() => {
+    const args = ['-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', list,
+      '-vf', 'fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p',
+      '-frames:v', String(n), '-r', '30', '-c:v', 'libx264', '-profile:v', 'high', '-preset', 'slow', '-crf', '18',
+      '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
+      '-movflags', '+faststart', '-an', mp4];
+    const r = spawnSync(FFMPEG, args, { encoding: 'utf8' });
+    if (r.status !== 0) throw new Error('ffmpeg failed: ' + r.stderr);
+    return { outputFrames: n, durationSeconds: n / FPS, sourceFramesUsed: new Set(pick).size, ffmpegArgs: args.map((a) => (a === list ? 'list.ffconcat' : a === mp4 ? path.basename(mp4) : a)) };
+  });
+}
+
+// ---------- page helpers ----------
+async function ready(page, route) {
+  await page.goto(BASE + route);
+  await page.locator('.viz-page').waitFor();
+  await page.locator('.workspace-loading__message').waitFor({ state: 'hidden' });
+  const fonts = await page.evaluate(async () => {
+    await document.fonts.load('700 14px Inter');
+    await document.fonts.ready;
+    return [...document.fonts].filter((f) => f.family === 'Inter' && f.status === 'loaded').length;
+  });
+  if (fonts === 0) throw new Error('Inter did not load');
+  await page.waitForTimeout(500);
+}
+const footerButton = (page, name) => page.locator('.footer-bar').getByRole('button', { name, exact: true });
+const frameText = (page) => page.locator('.footer-bar__frame').innerText();
+const graphNode = (page, label) => page.locator('.react-flow__node').filter({ has: page.getByText(label, { exact: true }) });
+const treeNode = (page, id) => page.locator(`.react-flow__node[data-id="${id}"]`);
+async function center(locator) {
+  const b = await locator.boundingBox();
+  if (!b) throw new Error('No box for ' + locator);
+  return { x: b.x + b.width / 2, y: b.y + b.height / 2 };
+}
+async function dragPath(page, from, to, ms, steps = 12) {
+  await page.mouse.move(from.x, from.y);
+  await page.mouse.down();
+  for (let i = 1; i <= steps; i++) {
+    await page.mouse.move(from.x + (to.x - from.x) * i / steps, from.y + (to.y - from.y) * i / steps);
+    await page.waitForTimeout(ms / steps);
+  }
+  await page.mouse.up();
+}
+
+// What the page shows now, read from the DOM.
+function domState(page) {
+  return page.evaluate(() => {
+    const q = (s) => document.querySelector(s);
+    const status = q('[data-panel-body="status"]');
+    const notes = [...document.querySelectorAll('.step-notes')].map((e) => e.innerText.trim()).filter(Boolean);
+    // Which node each visible note sits above: the nearest node centre below the note.
+    // A tree node's React Flow id is its value; a graph node's label is its one leaf text made of letters (badges are numbers).
+    const isTree = location.pathname.startsWith('/tree-editor');
+    const nodes = [...document.querySelectorAll('.react-flow__node')].map((e) => {
+      const r = e.getBoundingClientRect();
+      const label = isTree ? e.dataset.id : [...e.querySelectorAll('*')].filter((x) => x.children.length === 0).map((x) => x.textContent.trim()).find((s) => /^[A-Za-z]+$/.test(s)) ?? null;
+      return { label, x: r.x + r.width / 2, y: r.y + r.height / 2 };
+    });
+    const noteItems = [...document.querySelectorAll('.step-notes *')].filter((e) => e.children.length === 0 && e.textContent.trim()).map((e) => {
+      const r = e.getBoundingClientRect();
+      const cx = r.x + r.width / 2;
+      const cy = r.y + r.height / 2;
+      const near = nodes.filter((n) => n.y >= cy).sort((a, b) => Math.hypot(a.x - cx, a.y - cy) - Math.hypot(b.x - cx, b.y - cy))[0];
+      return { text: e.textContent.trim(), opacity: getComputedStyle(e.closest('[style]') ?? e).opacity, nearestNodeBelow: near?.label ?? null };
+    });
+    const strip = q('.binary-strip__line');
+    const vp = q('.react-flow__viewport');
+    return {
+      footerFrame: q('.footer-bar__frame')?.innerText ?? null,
+      status: status ? status.innerText : null,
+      statusRegion: status?.closest('[data-region]')?.dataset.region ?? null,
+      notes,
+      noteItems,
+      strip: strip ? strip.innerText.replace(/\n/g, ' | ') : null,
+      graphViewport: vp ? vp.getAttribute('style') : null,
+    };
+  });
+}
+
+// ---------- clip runner ----------
+const lag = { max: 0, last: now() };
+setInterval(() => { const n = now(); lag.max = Math.max(lag.max, n - lag.last - 0.05); lag.last = n; }, 50).unref();
+async function runClip(id, spec) {
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 1, reducedMotion: 'no-preference', colorScheme: 'light', locale: 'en-US' });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  const log = { id, route: spec.route, base: BASE, appCommit: APP_COMMIT, appWorkingTreeDirty: APP_DIRTY, viewport: VIEWPORT, setup: [], observations: [], actions: [] };
+  let rec = null;
+  let scheduled = null;
+  const t = () => (rec ? round(now() - rec.t0) : null);
+  const ctx = {
+    page,
+    note: (text) => log.setup.push(text),
+    async observe(name, extra = {}) {
+      const d = await domState(page);
+      const o = { t: t(), name, ...d, ...extra };
+      log.observations.push(o);
+      console.log(id, o.t, name, d.footerFrame, JSON.stringify(d.notes), d.statusRegion, JSON.stringify(extra), 'lag', round(lag.max, 3), 'pending', rec?.pendingWrites?.());
+      lag.max = 0;
+      return o;
+    },
+    async at(seconds) { scheduled = seconds; if (rec) await sleep((rec.t0 + seconds - now()) * 1000); },
+    act(name, fn) {
+      return (async () => {
+        const start = t();
+        await fn();
+        log.actions.push({ t: start, tDone: t(), scheduled, action: name });
+      })();
+    },
+    async click(name, locator) {
+      const c = await center(locator);
+      await ctx.act(name, async () => { await page.mouse.move(c.x, c.y); await page.mouse.down(); await page.mouse.up(); });
+    },
+    async hover(name, locator) {
+      const c = await center(locator);
+      await ctx.act(name, () => page.mouse.move(c.x, c.y));
+    },
+    async poster() {
+      await mkdir(path.join(OUT, 'posters'), { recursive: true });
+      const file = path.join(OUT, 'posters', id + '.png');
+      const time = t();
+      await page.screenshot({ path: file, caret: 'initial' });
+      log.poster = { file: 'posters/' + id + '.png', t: time, state: await domState(page) };
+    },
+  };
+  try {
+    await spec.setup(ctx);
+    rec = await startRecorder(page, path.join(OUT, 'raw', id));
+    log.recording = { method: 'CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)', t0Epoch: rec.t0 };
+    await spec.clip(ctx);
+    await ctx.at(spec.end);
+    rec.tEnd = now();
+    await ctx.observe('end');
+    await rec.stop();
+    log.recording.tEndEpoch = rec.tEnd;
+    log.recording.screencastFrames = rec.frames.length;
+    log.recording.firstFrameBeforeStart = rec.frames[0].ts <= rec.t0;
+    log.recording.medianFrameLatency = round([...rec.frames.map((f) => f.recv - f.ts)].sort((a, b) => a - b)[Math.floor(rec.frames.length / 2)], 4);
+    log.recording.frameSize = [...new Set(rec.frames.map((f) => `${f.w}x${f.h}`))];
+    if (FFMPEG) {
+      await mkdir(path.join(OUT, 'clips'), { recursive: true });
+      log.encode = await encode(rec, path.join(OUT, 'clips', id + '.mp4'));
+    }
+    log.maxActionLateness = round(Math.max(0, ...log.actions.map((a) => a.t - (a.scheduled ?? a.t))));
+    console.log(id, 'max action lateness', log.maxActionLateness, 's');
+    log.pageErrors = errors;
+    if (errors.length) throw new Error('page errors: ' + errors.join('; '));
+  } catch (error) {
+    await page.screenshot({ path: path.join(OUT, id + '-failed.png') }).catch(() => {});
+    log.failure = String(error?.stack ?? error);
+    throw error;
+  } finally {
+    await mkdir(path.join(OUT, 'checks'), { recursive: true });
+    await writeFile(path.join(OUT, 'checks', id + '.json'), JSON.stringify(log, null, 2) + '\n');
+    await context.close();
+    await browser.close();
+  }
+}
+
+// ---------- the graph used by Codex's stills: directed Dijkstra S, A, B, T ----------
+async function setupGraph(ctx, algorithm = 'dijkstra') {
+  const { page } = ctx;
+  await ready(page, '/graph-editor/' + algorithm);
+  await page.getByRole('checkbox', { name: 'Live force layout', exact: true }).uncheck();
+  await page.locator('#graph-nodes-text').fill('S\nA\nB\nT');
+  await page.locator('#graph-edges-text').fill('S A 4\nS B 1\nB A 1\nA T 2\nB T 6');
+  await page.getByRole('checkbox', { name: 'Directed graph', exact: true }).check();
+  if (algorithm === 'dijkstra') {
+    await page.getByRole('combobox', { name: 'Dijkstra start node', exact: true }).selectOption({ label: 'S' });
+    await page.getByRole('combobox', { name: 'Dijkstra end node', exact: true }).selectOption({ label: 'T' });
+  }
+  await page.getByRole('button', { name: 'Draw graph', exact: true }).click(); // collapses Draw graph
+  await page.waitForTimeout(500);
+  // The app's own Fit view before and after the drags, so the framing is the same on every run.
+  await page.getByRole('button', { name: 'Fit view', exact: true }).click();
+  await page.waitForTimeout(900);
+  for (const [label, p] of [['S', { x: 445, y: 440 }], ['A', { x: 710, y: 275 }], ['B', { x: 710, y: 595 }], ['T', { x: 980, y: 440 }]]) {
+    await dragPath(page, await center(graphNode(page, label)), p, 300);
+  }
+  await page.getByRole('button', { name: 'Fit view', exact: true }).click();
+  await page.waitForTimeout(900);
+  if ((await page.locator('.react-flow__node').count()) !== 4) throw new Error('expected 4 nodes');
+  if ((await page.locator('.react-flow__edge').count()) !== 5) throw new Error('expected 5 edges');
+  ctx.note('Graph Editor /graph-editor/' + algorithm + ': Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6' +
+    (algorithm === 'dijkstra' ? '; start S, end T' : '') + '; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.');
+}
+async function graphToFrame(ctx, target) {
+  const { page } = ctx;
+  for (let i = 0; i < 40; i++) {
+    await footerButton(page, 'Next').click();
+    if ((await frameText(page)).startsWith(`FRAME ${target} /`)) return;
+  }
+  throw new Error('did not reach frame ' + target);
+}
+// The weight label of edge from -> to: the label nearest the midpoint of the two node centres.
+async function edgeLabel(page, from, to) {
+  const a = await center(graphNode(page, from));
+  const b = await center(graphNode(page, to));
+  return page.evaluate(({ a, b }) => {
+    const mx = (a.x + b.x) / 2;
+    const my = (a.y + b.y) / 2;
+    const labels = [...document.querySelectorAll('.react-flow__edgelabel-renderer [class*="edgeLabel"]')].map((e) => {
+      const r = e.getBoundingClientRect();
+      return { text: e.textContent.trim(), d: Math.hypot(r.x + r.width / 2 - mx, r.y + r.height / 2 - my) };
+    }).sort((p, q) => p.d - q.d);
+    return labels[0] ? { text: labels[0].text, distanceFromMidpoint: Math.round(labels[0].d) } : null;
+  }, { a, b });
+}
+
+// ---------- LCA (Tree Editor, Binary Lifting, Query) ----------
+const DEFAULT_TREE = '12 8\n4 8\n14 12\n10 12\n6 4\n2 4';
+async function setupLca(ctx, u, v, startFrame) {
+  const { page } = ctx;
+  await ready(page, '/tree-editor/lca-binary-lifting');
+  const text = await page.locator('#tree-edges-text').inputValue();
+  if (text !== DEFAULT_TREE) throw new Error('unexpected default tree: ' + JSON.stringify(text));
+  if ((await page.locator('[aria-label="Root node"]').inputValue()) !== '8') throw new Error('root is not 8');
+  const checked = await page.locator('[aria-label="Binary Lifting operation"] [aria-checked="true"]').innerText();
+  if (checked.trim() !== 'Query') throw new Error('operation is not Query: ' + checked);
+  await page.locator('[aria-label="Binary Lifting node u"]').selectOption(u);
+  await page.locator('[aria-label="Binary Lifting node v"]').selectOption(v);
+  await footerButton(page, 'Next').click(); // Next starts the Query run at frame 1
+  for (let f = 1; f < startFrame; f++) await footerButton(page, 'Next').click();
+  await page.waitForTimeout(2300); // any arrival note (1.6 s) has gone
+  const frame = await frameText(page);
+  if (!frame.startsWith(`FRAME ${startFrame} /`)) throw new Error('start frame ' + frame);
+  ctx.note(`Tree Editor /tree-editor/lca-binary-lifting, default tree (${DEFAULT_TREE.replace(/\n/g, ', ')}), root 8, default layout; Query; u = ${u}, v = ${v}; Next started the run; paused at ${frame}.`);
+}
+
+const CLIPS = {
+  '01_lca_equal_ancestors': {
+    route: '/tree-editor/lca-binary-lifting',
+    end: 9.6,
+    setup: (ctx) => setupLca(ctx, '6', '2', 1),
+    async clip(ctx) {
+      const { page } = ctx;
+      const next = footerButton(page, 'Next');
+      await ctx.observe('start: Query paused at frame 1');
+      await ctx.at(0.8); await ctx.click('Next', next); await ctx.at(0.95); await ctx.observe('k = 2 compare');
+      await ctx.at(1.3); await ctx.poster();
+      await ctx.at(2.8); await ctx.click('Next', next); await ctx.at(2.95); await ctx.observe('k = 1 compare');
+      await ctx.at(4.0); await ctx.click('Next', next); await ctx.at(4.15); await ctx.observe('k = 0 compare');
+      await ctx.at(5.2); await ctx.click('Next', next); await ctx.at(5.35); await ctx.observe('return parent');
+      await ctx.at(6.3); await ctx.click('Next', next); await ctx.at(6.45); await ctx.observe('complete');
+      await ctx.at(8.0); await ctx.hover('hover node 6', treeNode(page, '6')); await ctx.at(8.3); await ctx.observe('hover node 6 on the final frame');
+    },
+  },
+  '01b_lca_keep_then_jump': {
+    route: '/tree-editor/lca-binary-lifting',
+    end: 10.3,
+    setup: (ctx) => setupLca(ctx, '6', '10', 2),
+    async clip(ctx) {
+      const { page } = ctx;
+      const next = footerButton(page, 'Next');
+      await ctx.observe('start: paused at frame 2 (k = 2, both 8)');
+      await ctx.at(0.8); await ctx.click('Next', next); await ctx.at(0.95); await ctx.observe('k = 1 compare');
+      await ctx.at(2.8); await ctx.click('Next', next); await ctx.at(2.95); await ctx.observe('k = 0 compare');
+      await ctx.at(3.3); await ctx.poster();
+      await ctx.at(4.9); await ctx.click('Next', next); await ctx.at(5.05); await ctx.observe('lift both');
+      await ctx.at(6.7); await ctx.click('Next', next); await ctx.at(6.85); await ctx.observe('return parent');
+      await ctx.at(8.0); await ctx.click('Next', next); await ctx.at(8.15); await ctx.observe('complete');
+    },
+  },
+  '02_v10_move_panel': {
+    route: '/graph-editor/dijkstra',
+    end: 7.3,
+    async setup(ctx) {
+      await setupGraph(ctx);
+      await graphToFrame(ctx, 12);
+      await ctx.page.mouse.move(1050, 720); // empty canvas, nothing hovered
+      await ctx.page.waitForTimeout(2300);
+      ctx.note('Next to frame 12; mouse parked on empty canvas.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      await ctx.observe('start');
+      const tab = await center(page.locator('[data-panel-tab="status"]'));
+      const target = { x: 150, y: 450 }; // the left group's body: the drop target "group:g1"
+      await ctx.at(1.0);
+      await ctx.act('press Status tab', async () => { await page.mouse.move(tab.x, tab.y); await page.mouse.down(); });
+      await ctx.act('drag Status tab to the left group', async () => {
+        for (let i = 1; i <= 12; i++) {
+          await page.mouse.move(tab.x + (target.x - tab.x) * i / 12, tab.y + (target.y - tab.y) * i / 12);
+          await sleep(40);
+        }
+      });
+      await ctx.at(2.3);
+      const hot = await page.evaluate(() => ({
+        hotTarget: document.querySelector('[data-drop-target][data-hot="true"]')?.dataset.dropTarget ?? null,
+        preview: !!document.querySelector('.groups__preview, .groups__preview-caret'),
+        dragging: document.querySelector('.viz-page__body.groups')?.dataset.dragging ?? null,
+      }));
+      await ctx.observe('drop preview', hot);
+      await ctx.at(2.6); await ctx.act('release', () => page.mouse.up());
+      await ctx.at(2.75); await ctx.observe('dropped');
+      await ctx.at(3.1); await ctx.poster();
+      await ctx.at(4.5); await ctx.click('open Settings', page.getByRole('button', { name: 'Settings', exact: true }));
+      await ctx.at(4.65); await ctx.observe('Settings open', { menu: await page.getByRole('menu').innerText().catch(() => null) });
+      await ctx.at(5.2); await ctx.click('Reset panel layout', page.getByRole('menuitem', { name: 'Reset panel layout', exact: true }));
+      await ctx.at(5.35); await ctx.observe('after Reset panel layout');
+      await ctx.at(5.7); await ctx.act('Escape closes the menu', () => page.keyboard.press('Escape'));
+      await ctx.at(5.9); await ctx.observe('menu closed', { menuOpen: await page.locator('.va-settings__menu').isVisible() });
+    },
+  },
+  '03_graph_drag_then_edit': {
+    route: '/graph-editor/dijkstra',
+    end: 8.0,
+    async setup(ctx) {
+      await setupGraph(ctx);
+      await graphToFrame(ctx, 12);
+      await ctx.page.mouse.move(1050, 720);
+      await ctx.page.waitForTimeout(2300);
+      ctx.note('Next to frame 12; mouse parked on empty canvas.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const edges = page.locator('#graph-edges-text');
+      // The Edges text exists only while Draw graph is open.
+      const label = async () => ({ edgeBA: await edgeLabel(page, 'B', 'A'), edgesText: (await edges.count()) ? await edges.inputValue() : '(Draw graph collapsed)' });
+      await ctx.observe('start', await label());
+      const b = await center(graphNode(page, 'B'));
+      await ctx.at(0.8);
+      await ctx.act('drag B up-right by (35, -35)', () => dragPath(page, b, { x: b.x + 35, y: b.y - 35 }, 300));
+      await ctx.observe('after drag', { ...(await label()), bCentre: await center(graphNode(page, 'B')), bBefore: b });
+      await ctx.at(3.0); await ctx.click('open Draw graph', page.getByRole('button', { name: 'Draw graph', exact: true }));
+      await ctx.at(3.2); await ctx.observe('Draw graph open', await label());
+      const geo = await page.locator('#graph-edges-text').evaluate((e) => {
+        const cs = getComputedStyle(e);
+        const r = e.getBoundingClientRect();
+        return { x: r.x, y: r.y, w: r.width, top: parseFloat(cs.borderTopWidth) + parseFloat(cs.paddingTop), lh: parseFloat(cs.lineHeight) };
+      });
+      const line3 = { x: geo.x + geo.w - 30, y: geo.y + geo.top + geo.lh * 2.5 }; // right of "B A 1": the caret lands at the line end
+      await ctx.at(3.9);
+      await ctx.act('click at the end of line "B A 1"', async () => { await page.mouse.move(line3.x, line3.y); await page.mouse.down(); await page.mouse.up(); });
+      await ctx.at(4.05); await ctx.act('Shift+ArrowLeft selects "1"', () => page.keyboard.press('Shift+ArrowLeft'));
+      await ctx.at(4.5); await ctx.act('type 5', () => page.keyboard.type('5'));
+      await ctx.at(4.7); await ctx.observe('after edit', await label());
+      await ctx.at(5.1); await ctx.poster();
+    },
+  },
+  '04_dijkstra_note_pause_hover': {
+    route: '/graph-editor/dijkstra',
+    end: 10.2,
+    async setup(ctx) {
+      await setupGraph(ctx);
+      await graphToFrame(ctx, 11);
+      await ctx.page.waitForTimeout(1800);
+      ctx.note('Next to frame 11; mouse left on the Next button.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const paused = () => page.evaluate(() => document.getAnimations().map((a) => ({ name: a.animationName, time: Math.round(a.currentTime) })).filter((a) => a.name?.includes('paused')));
+      await ctx.observe('start', { pausedAnimations: await paused() });
+      await ctx.at(2.4); await ctx.observe('end of hold', { pausedAnimations: await paused() });
+      await ctx.at(2.5); await ctx.click('Next', footerButton(page, 'Next'));
+      await ctx.at(2.65); await ctx.observe('frame 12');
+      await ctx.at(2.95); await ctx.poster();
+      await ctx.at(4.7); await ctx.click('Last', footerButton(page, 'Last'));
+      await ctx.at(4.85); await ctx.observe('Last');
+      await ctx.at(5.9); await ctx.hover('hover T', graphNode(page, 'T'));
+      await ctx.at(6.1); await ctx.observe('hover T');
+      await ctx.at(7.9); await ctx.hover('hover A', graphNode(page, 'A'));
+      await ctx.at(8.1); await ctx.observe('hover A');
+    },
+  },
+  '05_bst_preview_apply': {
+    route: '/tree-editor/bst',
+    end: 8.6,
+    async setup(ctx) {
+      const { page } = ctx;
+      await ready(page, '/tree-editor/bst');
+      const text = await page.locator('#tree-edges-text').inputValue();
+      if (text !== DEFAULT_TREE) throw new Error('unexpected default tree');
+      await page.getByRole('radio', { name: 'Insert', exact: true }).click();
+      await page.getByRole('textbox', { name: 'BST Insert value', exact: true }).fill('5');
+      await page.getByRole('button', { name: 'Edit tree', exact: true }).click(); // collapse
+      await footerButton(page, 'Next').click();
+      await footerButton(page, 'Last').click();
+      await page.waitForTimeout(1500);
+      ctx.note('Tree Editor /tree-editor/bst, default tree, Insert, value 5, Edit tree collapsed; Next started the run; Last.');
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      const committed = async () => ({
+        committedText: await page.locator('#tree-edges-text').inputValue(),
+        canvasNodes: await page.locator('.react-flow__node').count(),
+        applyVisible: await page.getByRole('button', { name: 'Apply insertion', exact: true }).isVisible(),
+      });
+      await ctx.observe('start: completed preview', await committed());
+      await ctx.at(0.5); await ctx.poster();
+      await ctx.at(1.5); await ctx.click('Previous', footerButton(page, 'Previous')); await ctx.at(1.65); await ctx.observe('back 1', await committed());
+      await ctx.at(2.4); await ctx.click('Previous', footerButton(page, 'Previous')); await ctx.at(2.55); await ctx.observe('back 2', await committed());
+      await ctx.at(3.3); await ctx.click('Next', footerButton(page, 'Next')); await ctx.at(3.45); await ctx.observe('forward 1', await committed());
+      await ctx.at(4.1); await ctx.click('Next', footerButton(page, 'Next')); await ctx.at(4.25); await ctx.observe('forward 2', await committed());
+      await ctx.at(5.2); await ctx.click('Apply insertion', page.getByRole('button', { name: 'Apply insertion', exact: true }));
+      await ctx.at(5.4); await ctx.observe('applied', await committed());
+      await ctx.at(6.2); await ctx.click('expand Edit tree', page.getByRole('button', { name: 'Edit tree', exact: true }));
+      await ctx.at(6.45); await ctx.observe('Edit tree open', { ...(await committed()), textareaVisible: await page.locator('#tree-edges-text').isVisible() });
+    },
+  },
+  '06_dfs_recursive_recap': {
+    route: '/graph-editor/dfs-recursive',
+    end: 8.5,
+    async setup(ctx) {
+      await setupGraph(ctx, 'dfs-recursive');
+      ctx.note('Same graph, Graph Editor /graph-editor/dfs-recursive (default start).');
+      await footerButton(ctx.page, 'Next').click();
+      await ctx.page.waitForTimeout(800);
+    },
+    async clip(ctx) {
+      const { page } = ctx;
+      await ctx.observe('start: run started');
+      await ctx.at(0.8); await ctx.click('Last', footerButton(page, 'Last'));
+      await ctx.at(1.0); await ctx.observe('final frame');
+      await ctx.at(3.0); await ctx.poster();
+      await ctx.at(4.5); await ctx.observe('final frame, later');
+    },
+  },
+};
+
+const wanted = process.argv.slice(2);
+const ids = wanted.length === 0 || wanted.includes('all') ? Object.keys(CLIPS) : wanted;
+for (const id of ids) {
+  if (!CLIPS[id]) throw new Error('unknown clip ' + id);
+  console.log('== ' + id);
+  await runClip(id, CLIPS[id]);
+}

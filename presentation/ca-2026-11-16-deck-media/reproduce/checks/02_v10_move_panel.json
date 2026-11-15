@@ -1,0 +1,269 @@
+{
+  "id": "02_v10_move_panel",
+  "route": "/graph-editor/dijkstra",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+    "Next to frame 12; mouse parked on empty canvas."
+  ],
+  "observations": [
+    {
+      "t": 0.01,
+      "name": "start",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 2.305,
+      "name": "drop preview",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "hotTarget": "group:g1",
+      "preview": true,
+      "dragging": "true"
+    },
+    {
+      "t": 2.759,
+      "name": "dropped",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 4.66,
+      "name": "Settings open",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "menu": "THEME\n\nLight\nTide\nForest\nClay\nMidnight\nAbyss\nPine\nEmber\nClassic\nMOTION\nAnimate paused steps\nReset panel layout"
+    },
+    {
+      "t": 5.355,
+      "name": "after Reset panel layout",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    },
+    {
+      "t": 5.912,
+      "name": "menu closed",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "menuOpen": false
+    },
+    {
+      "t": 7.304,
+      "name": "end",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 0.999,
+      "tDone": 1.024,
+      "scheduled": 1,
+      "action": "press Status tab"
+    },
+    {
+      "t": 1.024,
+      "tDone": 1.943,
+      "scheduled": 1,
+      "action": "drag Status tab to the left group"
+    },
+    {
+      "t": 2.599,
+      "tDone": 2.651,
+      "scheduled": 2.6,
+      "action": "release"
+    },
+    {
+      "t": 4.52,
+      "tDone": 4.544,
+      "scheduled": 4.5,
+      "action": "open Settings"
+    },
+    {
+      "t": 5.214,
+      "tDone": 5.28,
+      "scheduled": 5.2,
+      "action": "Reset panel layout"
+    },
+    {
+      "t": 5.701,
+      "tDone": 5.717,
+      "scheduled": 5.7,
+      "action": "Escape closes the menu"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794771102.932,
+    "tEndEpoch": 1794771110.232,
+    "screencastFrames": 445,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0119,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/02_v10_move_panel.png",
+    "t": 3.107,
+    "state": {
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "left",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 219,
+    "durationSeconds": 7.3,
+    "sourceFramesUsed": 218,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "219",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "02_v10_move_panel.mp4"
+    ]
+  },
+  "maxActionLateness": 0.024,
+  "pageErrors": []
+}

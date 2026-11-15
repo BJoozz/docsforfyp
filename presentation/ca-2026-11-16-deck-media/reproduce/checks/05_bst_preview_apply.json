@@ -1,0 +1,232 @@
+{
+  "id": "05_bst_preview_apply",
+  "route": "/tree-editor/bst",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Tree Editor /tree-editor/bst, default tree, Insert, value 5, Edit tree collapsed; Next started the run; Last."
+  ],
+  "observations": [
+    {
+      "t": 0.023,
+      "name": "start: completed preview",
+      "footerFrame": "FRAME 8 / 8",
+      "status": "Complete\n\nInsertion preview is complete. Apply it to update the tree document.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\n6 → left\n\nInsertion preview ready. Apply it from the Action panel to update the document and text input.",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+      "canvasNodes": 8,
+      "applyVisible": true
+    },
+    {
+      "t": 1.67,
+      "name": "back 1",
+      "footerFrame": "FRAME 7 / 8",
+      "status": "Insert\n\nNode 6 has no left child: create node 5 there.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\n6 → left",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+      "canvasNodes": 8,
+      "applyVisible": false
+    },
+    {
+      "t": 2.752,
+      "name": "back 2",
+      "footerFrame": "FRAME 6 / 8",
+      "status": "Compare\n\n5 is smaller than 6; inspect the left child.\n\nCURRENT NODE\n6\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\nSearching",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+      "canvasNodes": 7,
+      "applyVisible": false
+    },
+    {
+      "t": 3.528,
+      "name": "forward 1",
+      "footerFrame": "FRAME 7 / 8",
+      "status": "Insert\n\nNode 6 has no left child: create node 5 there.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\n6 → left",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 187px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+      "canvasNodes": 8,
+      "applyVisible": false
+    },
+    {
+      "t": 4.277,
+      "name": "forward 2",
+      "footerFrame": "FRAME 8 / 8",
+      "status": "Complete\n\nInsertion preview is complete. Apply it to update the tree document.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\n6 → left\n\nInsertion preview ready. Apply it from the Action panel to update the document and text input.",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4",
+      "canvasNodes": 8,
+      "applyVisible": true
+    },
+    {
+      "t": 5.43,
+      "name": "applied",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4\n6 5",
+      "canvasNodes": 8,
+      "applyVisible": false
+    },
+    {
+      "t": 6.486,
+      "name": "Edit tree open",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);",
+      "committedText": "12 8\n4 8\n14 12\n10 12\n6 4\n2 4\n6 5",
+      "canvasNodes": 8,
+      "applyVisible": false,
+      "textareaVisible": true
+    },
+    {
+      "t": 8.609,
+      "name": "end",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 1.548,
+      "tDone": 1.616,
+      "scheduled": 1.5,
+      "action": "Previous"
+    },
+    {
+      "t": 2.437,
+      "tDone": 2.555,
+      "scheduled": 2.4,
+      "action": "Previous"
+    },
+    {
+      "t": 3.323,
+      "tDone": 3.439,
+      "scheduled": 3.3,
+      "action": "Next"
+    },
+    {
+      "t": 4.126,
+      "tDone": 4.201,
+      "scheduled": 4.1,
+      "action": "Next"
+    },
+    {
+      "t": 5.224,
+      "tDone": 5.348,
+      "scheduled": 5.2,
+      "action": "Apply insertion"
+    },
+    {
+      "t": 6.226,
+      "tDone": 6.283,
+      "scheduled": 6.2,
+      "action": "expand Edit tree"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794771391.792,
+    "tEndEpoch": 1794771400.398,
+    "screencastFrames": 192,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.033,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/05_bst_preview_apply.png",
+    "t": 0.518,
+    "state": {
+      "footerFrame": "FRAME 8 / 8",
+      "status": "Complete\n\nInsertion preview is complete. Apply it to update the tree document.\n\nCURRENT NODE\n5\nINSERT VALUE\n5\nSEARCH PATH\n8 → 4 → 6\nINSERTION SLOT\n6 → left\n\nInsertion preview ready. Apply it from the Action panel to update the document and text input.",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(158.6px, 125px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 258,
+    "durationSeconds": 8.6,
+    "sourceFramesUsed": 106,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "258",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "05_bst_preview_apply.mp4"
+    ]
+  },
+  "maxActionLateness": 0.048,
+  "pageErrors": []
+}

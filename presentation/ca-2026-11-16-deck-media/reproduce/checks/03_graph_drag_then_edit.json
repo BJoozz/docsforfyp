@@ -1,0 +1,224 @@
+{
+  "id": "03_graph_drag_then_edit",
+  "route": "/graph-editor/dijkstra",
+  "base": "http://127.0.0.1:5205",
+  "appCommit": "346e84b838e87ae8affacdc54f0e0eb75eab1529",
+  "appWorkingTreeDirty": false,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "setup": [
+    "Graph Editor /graph-editor/dijkstra: Live force layout off; nodes S A B T; directed edges S A 4, S B 1, B A 1, A T 2, B T 6; start S, end T; Draw graph collapsed; Fit view; nodes dragged to S(445,440) A(710,275) B(710,595) T(980,440); Fit view.",
+    "Next to frame 12; mouse parked on empty canvas."
+  ],
+  "observations": [
+    {
+      "t": 0.055,
+      "name": "start",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgeBA": {
+        "text": "1",
+        "distanceFromMidpoint": 47
+      },
+      "edgesText": "(Draw graph collapsed)"
+    },
+    {
+      "t": 1.846,
+      "name": "after drag",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgeBA": {
+        "text": "1",
+        "distanceFromMidpoint": 41
+      },
+      "edgesText": "(Draw graph collapsed)",
+      "bCentre": {
+        "x": 723.0448608398438,
+        "y": 548.5
+      },
+      "bBefore": {
+        "x": 690.0448608398438,
+        "y": 580.5
+      }
+    },
+    {
+      "t": 3.268,
+      "name": "Draw graph open",
+      "footerFrame": "FRAME 12 / 21",
+      "status": "Relax edge\nSETTLED\n2 / 4\n\nRelax B → A: 1 + 1 = 2 is shorter than 4, so update A's distance to 2.\n\nPRIORITY FRONTIER\nMINIMUM FIRST\nA\n2\nRELAXATION\n\nB → A\n\n1 + 1 = 2\n\nPREVIOUS DISTANCE\n4\nRESULT\nUpdate to 2\nPREVIOUS PREDECESSOR\nS\nNEXT PREDECESSOR\nB\nSHORTEST-PATH STATE\nCANONICAL NODE ORDER\nNODE\tDISTANCE\tPREDECESSOR\tSTATE\nS\t0\t—\tSettled\nA\t2\tB\tFrontier\nB\t1\tS\tCurrent\nT\t∞\t—\tUnreachable",
+      "statusRegion": "right",
+      "notes": [
+        "1 + 1 < 4 · update"
+      ],
+      "noteItems": [
+        {
+          "text": "1 + 1 < 4 · update",
+          "opacity": "0",
+          "nearestNodeBelow": "A"
+        }
+      ],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgeBA": {
+        "text": "1",
+        "distanceFromMidpoint": 41
+      },
+      "edgesText": "S A 4\nS B 1\nB A 1\nA T 2\nB T 6"
+    },
+    {
+      "t": 4.744,
+      "name": "after edit",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);",
+      "edgeBA": {
+        "text": "5",
+        "distanceFromMidpoint": 41
+      },
+      "edgesText": "S A 4\nS B 1\nB A 5\nA T 2\nB T 6"
+    },
+    {
+      "t": 8.032,
+      "name": "end",
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  ],
+  "actions": [
+    {
+      "t": 0.807,
+      "tDone": 1.767,
+      "scheduled": 0.8,
+      "action": "drag B up-right by (35, -35)"
+    },
+    {
+      "t": 3.027,
+      "tDone": 3.109,
+      "scheduled": 3,
+      "action": "open Draw graph"
+    },
+    {
+      "t": 3.904,
+      "tDone": 3.928,
+      "scheduled": 3.9,
+      "action": "click at the end of line \"B A 1\""
+    },
+    {
+      "t": 4.056,
+      "tDone": 4.077,
+      "scheduled": 4.05,
+      "action": "Shift+ArrowLeft selects \"1\""
+    },
+    {
+      "t": 4.5,
+      "tDone": 4.564,
+      "scheduled": 4.5,
+      "action": "type 5"
+    }
+  ],
+  "recording": {
+    "method": "CDP Page.startScreencast (jpeg, quality 92, 1440x900, every frame acked)",
+    "t0Epoch": 1794771245.335,
+    "tEndEpoch": 1794771253.351,
+    "screencastFrames": 300,
+    "firstFrameBeforeStart": true,
+    "medianFrameLatency": 0.0147,
+    "frameSize": [
+      "1440x900"
+    ]
+  },
+  "poster": {
+    "file": "posters/03_graph_drag_then_edit.png",
+    "t": 5.105,
+    "state": {
+      "footerFrame": "NO RUN",
+      "status": "NO ACTIVE RUN",
+      "statusRegion": "right",
+      "notes": [],
+      "noteItems": [],
+      "strip": null,
+      "graphViewport": "transform: translate(42.0449px, 77.5px) scale(1);"
+    }
+  },
+  "encode": {
+    "outputFrames": 240,
+    "durationSeconds": 8,
+    "sourceFramesUsed": 152,
+    "ffmpegArgs": [
+      "-y",
+      "-v",
+      "error",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "list.ffconcat",
+      "-vf",
+      "fps=30,scale=in_range=pc:out_range=tv:in_color_matrix=bt601:out_color_matrix=bt709:flags=accurate_rnd+full_chroma_int,format=yuv420p",
+      "-frames:v",
+      "240",
+      "-r",
+      "30",
+      "-c:v",
+      "libx264",
+      "-profile:v",
+      "high",
+      "-preset",
+      "slow",
+      "-crf",
+      "18",
+      "-colorspace",
+      "bt709",
+      "-color_primaries",
+      "bt709",
+      "-color_trc",
+      "bt709",
+      "-color_range",
+      "tv",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "03_graph_drag_then_edit.mp4"
+    ]
+  },
+  "maxActionLateness": 0.027,
+  "pageErrors": []
+}
