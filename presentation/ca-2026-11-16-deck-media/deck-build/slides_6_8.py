@@ -62,6 +62,8 @@ def apply(slides, repo, copy=None):
         'wf_v7': dh / 'A3_wireframe_v7_docks.png',
         'b_v2': dh / 'B1_graph_v2_split_rails.png',
         'b_v7': dh / 'B2_graph_v7_docks.png',
+        'bt_v2': dh / 'B3_tree_v2_split_rails.png',
+        'bt_v7': dh / 'B4_tree_v7_docks.png',
         'kit_home': dh / 'C1_ui_kit_home.png',
         'kit_viz': dh / 'C2_ui_kit_visualisation.png',
         'p_graph': ep / '03_graph_v2_workspace.png',
@@ -79,7 +81,7 @@ def apply(slides, repo, copy=None):
     set_title_text(s, c['title'])
     style_title(s)
     CY, CH = 1.36, 3.92
-    cols = [(0.62, c['left_heading'], c['left_points'], [img['p_graph'], img['p_tree'], img['p_sort']], '01'),
+    cols = [(0.62, c['left_heading'], c['left_points'], [img['p_graph']], '01'),
             (6.77, c['right_heading'], c['right_points'], [img['kit_home'], img['kit_viz']], '02')]
     for k, (x, heading, pts, pics, num) in enumerate(cols):
         box(s, x, CY, 5.95, CH, fill=WHITE, line=BORDER, name=f'card-{k}')
@@ -104,8 +106,9 @@ def apply(slides, repo, copy=None):
     text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=11, color=MUTED, name='capture-source')
     set_notes(s, _notes(
         'Bao | Early Design | 90 seconds including actions', c['notes_script'],
-        'Left card: three stills of my standalone prototypes (Graph rewrite, Tree, Sorting). Right card: two screens of Kerk\'s '
-        'design-system UI kit, rendered from his first commit of 3 September 2026. The band lists the requirements carried forward.',
+        'Left card: a still of my standalone Graph rewrite (slide 5 showed all three prototypes). Right card: two screens of '
+        'Kerk\'s design-system UI kit, rendered from his first commit of 3 September 2026; they recreate visualgo.net\'s home and '
+        'visualisation pages in the new style. The band lists the requirements carried forward.',
         [GH + 'docs/CA_PRESENTATION_CONTRIBUTION_MAP.md', GH + '01_scope_and_timeline.md',
          'Images: ' + GH + 'presentation/ca-2026-11-16-deck-media/design-history/README.md and '
          + GH + 'presentation/ca-2026-11-16-deck-media/early-prototypes/README.md']))
@@ -155,8 +158,8 @@ def apply(slides, repo, copy=None):
     set_notes(s, _notes(
         'Kerk | UI/UX Evolution | 90 seconds including actions', c['notes_script'],
         'Left: Kerk\'s wireframe page of 4 September 2026, its "At a glance" grid of nine frames with V2 and V7 outlined. '
-        'Middle: the V2 and V7 wireframes. Right: Bao\'s working Graph builds in V2 (split rails) and V7 (docks), '
-        'captured from the last commit that still had them (ae63a62).',
+        'Middle: the V2 and V7 wireframes. Right: Bao\'s working Graph builds in V2 (split rails) and V7 (docks). He made them on '
+        '20 to 27 September; the stills show them as they stood on 17 October, at the last commit that still had them (ae63a62).',
         [GH + '03_architecture_and_decisions.md', GH + '01_scope_and_timeline.md',
          'Images: ' + GH + 'presentation/ca-2026-11-16-deck-media/design-history/README.md'],
         review='Kerk to confirm this slide: the wireframes, the student feedback he organised and the wording of the choice.'))
@@ -167,8 +170,8 @@ def apply(slides, repo, copy=None):
     set_title_text(s, c['title'])
     style_title(s)
     LY = 1.36
-    for k, (heading, pts, key) in enumerate(((c['from_v2_heading'], c['from_v2_points'], 'b_v2'),
-                                              (c['from_v7_heading'], c['from_v7_points'], 'b_v7'))):
+    for k, (heading, pts, key) in enumerate(((c['from_v2_heading'], c['from_v2_points'], 'bt_v2'),
+                                              (c['from_v7_heading'], c['from_v7_points'], 'bt_v7'))):
         y = LY + k * 1.9
         box(s, 0.62, y, 4.25, 1.76, fill=WHITE, line=BORDER, name=f'from-{k}')
         _pic(s, img[key], 0.78, y + 0.16, 1.55, 0.97, f'from-image-{k}')
@@ -197,8 +200,9 @@ def apply(slides, repo, copy=None):
     text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=11, color=MUTED, name='capture-source')
     set_notes(s, _notes(
         'Kerk | UI/UX Evolution | 90 seconds including actions', c['notes_script'],
-        'Left: Bao\'s working V2 (split rails) and V7 (docks) builds with what V10 keeps from each. Right: the current app '
-        '(Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.',
+        'Left: Bao\'s working Tree builds in V2 (split rails) and V7 (docks), as of 17 October, with what V10 keeps from each. '
+        'Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared '
+        'playback bar; the three points beside it use the same colours.',
         [GH + '03_architecture_and_decisions.md', GH + '01_scope_and_timeline.md',
          'Images: ' + GH + 'presentation/ca-2026-11-16-deck-media/design-history/README.md; current app: '
          + GH + 'presentation/ca-2026-11-16/01_main_slides/04_tree_insert_preview.png'],

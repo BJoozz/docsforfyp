@@ -124,36 +124,36 @@ The early prototypes were experiments in how to achieve the goals we had discuss
 
 **On slide**
 
-- Bao · standalone visualizers, 28 Jul–17 Sep: Working Graph, Tree and Sorting visualizers; Engines, editors and playback, reused in every later build; Showed what a shared page must support
-- Kerk · design system, UI kit, committed 3 Sep: Restyled visualgo.net: purple and gold, Inter, nine themes; 26 components, from the top bar to lesson cards; UI kit recreating the home and visualisation pages
+- Bao · standalone visualizers, Jul–Sep 2026: TypeScript algorithms, editors and playback, reused later; Separate apps, each with its own bars and controls; Showed what each topic needs from a shared page
+- Kerk · design system and UI kit, Aug–Sep 2026: Restyled visualgo.net: purple and gold, Inter, nine themes; 26 components, from the top bar to lesson cards; UI kit recreating visualgo.net's home and visualisation pages
 - Requirements we carried forward: Keep the drawing available · Familiar playback across topics · Topic-specific information alongside
 
-**Visual:** Left card: three stills of Bao's standalone builds (the Graph rewrite, the Tree prototype, Sorting Room). Right card: the home and visualisation screens of Kerk's design-system UI kit, rendered from commit 634b5be (3 Sep 2026). All captured on 16 Nov 2026.
+**Visual:** Left card: a still of Bao's standalone Graph rewrite (slide 5 showed all three prototypes). Right card: the home and visualisation screens of Kerk's design-system UI kit, which recreate visualgo.net's pages in the new style, rendered from commit 634b5be (3 Sep 2026). Both captured on 16 Nov 2026.
 
 **English script**
 
-From late August, two strands developed in parallel. While I worked on the standalone Graph rewrite and the Tree prototype, Kerk was designing the look of VisuAlgo+. My visualizers already worked, and their engines, editors and playback became the base of every later build. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system: purple and gold, the Inter font, nine themes and twenty-six components. His UI kit recreates the home and visualisation pages, and the site I built later follows its home page. The kit's visualisation page is a scripted demo, though, so his design needed real visualizers behind it. Each strand filled a gap in the other. We carried forward three requirements: keep the drawing available, familiar playback across topics, and topic-specific information alongside. Kerk will now show how he laid out the visualisation page.
+From late August, Kerk and I worked in parallel. I was building the standalone Graph rewrite and the Tree prototype, while Kerk designed the look of VisuAlgo+. My visualizers already worked, and their algorithms, editors and playback became the base of the later builds. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system with nine themes and twenty-six components. His UI kit recreates visualgo.net's home and visualisation pages, and the site I built later follows his home page. Around the same time, Kerk also committed the first version of his C++ and WebAssembly engine foundation, which he will present later. The prototypes gave us three requirements: keep the drawing available, keep playback familiar across topics, and show topic-specific information beside the drawing. Kerk will now show how he laid out the new visualisation page.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
 **Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
 
-### 07. From nine wireframes to two working prototypes
+### 07. From nine wireframes to two working layouts
 
 **Kerk · UI/UX Evolution · 07:00–08:30**
 
 **On slide**
 
-- Kerk's nine wireframes, V1–V9: One top bar and footer; seven panel layouts and two drag states of V7
-- V2 and V7 chosen together: By Kerk and Bao, after early student feedback that Kerk organised
+- Kerk's wireframes, V1–V9: One top bar and footer; seven panel layouts and two drag states of V7
+- V2 and V7 chosen together: By Kerk and Bao, after an early layout survey of students that Kerk organised
 - Bao's six working builds: Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes
-- Same features in both builds, so we could compare the layouts themselves on real runs, not just as drawings
+- Same features in both builds, so our discussions compared the layouts on real runs, not just as drawings
 
-**Visual:** Left: the "At a glance" grid of Kerk's wireframe page (commit 69aa8e4, 4 Sep 2026), nine frames V1–V9 with V2 and V7 outlined on the slide. Middle: the V2 and V7 wireframes. Right: Bao's working Graph builds in V2 (split rails) and V7 (docks), captured from commit ae63a62, the last one that still had them.
+**Visual:** Left: the "At a glance" grid of Kerk's wireframe page (commit 69aa8e4, 4 Sep 2026), nine frames V1–V9 with V2 and V7 outlined on the slide. Middle: the V2 and V7 wireframes. Right: Bao's working Graph builds in V2 (split rails) and V7 (docks). He made them on 20–27 September; the stills show them as they stood on 17 October, at commit ae63a62, the last one that still had them.
 
 **English script**
 
-Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I set one top bar and one footer for every version, with e-Lecture as a panel and a scrubber, zoom and shortcuts in the footer. They differ only in where the panels live and how they open. There are nine: seven layouts, plus V8 and V9, which show V7 during a drag and after the drop. I organised early feedback from students. It was formative input. After it, Bao and I chose two layouts together: V2, split rails, and V7, draggable docks. Bao then built Graph, Tree and Sorting in both layouts, from his standalone prototypes and on my design tokens and themes. That gave six working apps between 20 and 27 September. Both layouts had the same features, so any difference came from the layout itself, seen on real runs rather than drawings.
+Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I gave every version the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop. I then organised an early layout survey with students. It was formative input, separate from the Week 10 trial. After that, Bao and I chose two layouts together: V2 with split rails, and V7 with draggable docks. Bao built Graph, Tree and Sorting in both layouts, reusing his standalone prototypes and my design tokens and themes. The two layouts had the same features, so when we discussed them, we were comparing the layouts themselves, on real runs rather than drawings.
 
 **Team review:** Kerk to confirm this slide: the wireframes, the student feedback he organised (no numbers are on record) and how the choice is described. The script was rewritten on 16 November from the records and Bao's account.
 
@@ -169,16 +169,16 @@ Alongside the design system, I drew low-fidelity wireframes of the visualisation
 
 - From V2 · split rails: Panels stacked and visible together; Its panel positions as V10's default
 - From V7 · draggable docks: Panels moved by dragging their tabs; A bottom area and splitters to resize
-- V10 · panel groups: A persistent central canvas; Tab groups around the drawing; One application after consolidation
+- V10 · panel groups: The canvas stays central and uncovered; Tab groups around the drawing; One playback bar for every topic
 - Discussed together: Kerk and Bao, with Prof. Halim's feedback
 - Bao: built V10's panel-group model and shell (16–18 Oct)
-- Kerk: refined V10 with Bao and merged the apps into one (18–22 Oct)
+- Kerk: refined V10's dragging, controls and fonts; made its site and visualizers one app (18–22 Oct)
 
-**Visual:** Left: Bao's working V2 (split rails) and V7 (docks) builds with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
+**Visual:** Left: Bao's working Tree builds in V2 (split rails) and V7 (docks), as of 17 October, with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
 
 **English script**
 
-With six working apps, we could compare the layouts. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed them, with feedback from Prof. Halim. In Week 9, we arrived at V10 to keep both strengths. Panels stay stacked and visible together, as in V2, and tabs drag between areas, as in V7. Each area can now hold several tab groups, and the canvas in the centre is never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and visualizers into one application with a shared layer, so a shell fix is now one edit. The Week 10 trial used V10. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture.
+Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths. Panels stay stacked and visible together, as in V2, and you drag tabs between areas, as in V7. Each area can now hold several tab groups, and the canvas stays in the centre, never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture.
 
 **Team review:** Kerk to confirm this slide: his refinements, the consolidation and how the discussion with Prof. Halim is described. The script was rewritten on 16 November from the records and Bao's account.
 
@@ -409,7 +409,7 @@ Sorting comparison gives every pane the same input while keeping its execution s
 
 **English script**
 
-I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Press → to play the clip: frame 17 stays fixed while edge 2 → 3 is emphasised; Next shows the note at frame 18, and 3's distance drops from 33 to 26; Last, then hover 8 and 4.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
+I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Kerk suggested this paused motion; I implemented it. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Press → to play the clip: frame 17 stays fixed while edge 2 → 3 is emphasised; Next shows the note at frame 18, and 3's distance drops from 33 to 26; Last, then hover 8 and 4.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
 
 **Delivery cue:** Clip, 14.0 s.
 - 0–3.0 s: paused at 17/53 (inspect 2 → 3, weight 14); the streak and glow move.

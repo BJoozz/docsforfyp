@@ -15,17 +15,17 @@
   },
   "slide6": {
     "title": "Two parallel foundations",
-    "left_heading": "Bao · standalone visualizers, 28 Jul–17 Sep",
+    "left_heading": "Bao · standalone visualizers, Jul–Sep 2026",
     "left_points": [
-      "Working Graph, Tree and Sorting visualizers",
-      "Engines, editors and playback, reused in every later build",
-      "Showed what a shared page must support"
+      "TypeScript algorithms, editors and playback, reused later",
+      "Separate apps, each with its own bars and controls",
+      "Showed what each topic needs from a shared page"
     ],
-    "right_heading": "Kerk · design system, UI kit, committed 3 Sep",
+    "right_heading": "Kerk · design system and UI kit, Aug–Sep 2026",
     "right_points": [
       "Restyled visualgo.net: purple and gold, Inter, nine themes",
       "26 components, from the top bar to lesson cards",
-      "UI kit recreating the home and visualisation pages"
+      "UI kit recreating visualgo.net's home and visualisation pages"
     ],
     "bridge_label": "Requirements we carried forward",
     "bridge_chips": [
@@ -33,21 +33,21 @@
       "Familiar playback across topics",
       "Topic-specific information alongside"
     ],
-    "footer": "Left: Bao's standalone builds · right: Kerk's UI kit, rendered from commit 634b5be · both captured 16 Nov 2026",
-    "notes_script": "From late August, two strands developed in parallel. While I worked on the standalone Graph rewrite and the Tree prototype, Kerk was designing the look of VisuAlgo+. My visualizers already worked, and their engines, editors and playback became the base of every later build. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system: purple and gold, the Inter font, nine themes and twenty-six components. His UI kit recreates the home and visualisation pages, and the site I built later follows its home page. The kit's visualisation page is a scripted demo, though, so his design needed real visualizers behind it. Each strand filled a gap in the other. We carried forward three requirements: keep the drawing available, familiar playback across topics, and topic-specific information alongside. Kerk will now show how he laid out the visualisation page."
+    "footer": "Left: Bao's standalone Graph rewrite · right: Kerk's UI kit, rendered from commit 634b5be · both captured 16 Nov 2026",
+    "notes_script": "From late August, Kerk and I worked in parallel. I was building the standalone Graph rewrite and the Tree prototype, while Kerk designed the look of VisuAlgo+. My visualizers already worked, and their algorithms, editors and playback became the base of the later builds. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system with nine themes and twenty-six components. His UI kit recreates visualgo.net's home and visualisation pages, and the site I built later follows his home page. Around the same time, Kerk also committed the first version of his C++ and WebAssembly engine foundation, which he will present later. The prototypes gave us three requirements: keep the drawing available, keep playback familiar across topics, and show topic-specific information beside the drawing. Kerk will now show how he laid out the new visualisation page."
   },
   "slide7": {
-    "title": "From nine wireframes to two working prototypes",
-    "step1_heading": "Kerk's nine wireframes, V1–V9",
+    "title": "From nine wireframes to two working layouts",
+    "step1_heading": "Kerk's wireframes, V1–V9",
     "step1_detail": "One top bar and footer; seven panel layouts and two drag states of V7",
     "step2_heading": "V2 and V7 chosen together",
-    "step2_detail": "By Kerk and Bao, after early student feedback that Kerk organised",
+    "step2_detail": "By Kerk and Bao, after an early layout survey of students that Kerk organised",
     "step3_heading": "Bao's six working builds",
     "step3_detail": "Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes",
-    "band": "Same features in both builds, so we could compare the layouts themselves on real runs, not just as drawings",
+    "band": "Same features in both builds, so our discussions compared the layouts on real runs, not just as drawings",
     "wireframes_caption": "Kerk's wireframes, 4 Sep 2026 · V2 and V7 outlined on the slide",
-    "builds_caption": "Bao's working builds, 20–27 Sep 2026 (Graph shown, captured at ae63a62)",
-    "notes_script": "Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I set one top bar and one footer for every version, with e-Lecture as a panel and a scrubber, zoom and shortcuts in the footer. They differ only in where the panels live and how they open. There are nine: seven layouts, plus V8 and V9, which show V7 during a drag and after the drop. I organised early feedback from students. It was formative input. After it, Bao and I chose two layouts together: V2, split rails, and V7, draggable docks. Bao then built Graph, Tree and Sorting in both layouts, from his standalone prototypes and on my design tokens and themes. That gave six working apps between 20 and 27 September. Both layouts had the same features, so any difference came from the layout itself, seen on real runs rather than drawings."
+    "builds_caption": "Bao's builds, made 20–27 Sep · Graph shown as of 17 Oct (ae63a62)",
+    "notes_script": "Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I gave every version the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop. I then organised an early layout survey with students. It was formative input, separate from the Week 10 trial. After that, Bao and I chose two layouts together: V2 with split rails, and V7 with draggable docks. Bao built Graph, Tree and Sorting in both layouts, reusing his standalone prototypes and my design tokens and themes. The two layouts had the same features, so when we discussed them, we were comparing the layouts themselves, on real runs rather than drawings."
   },
   "slide8": {
     "title": "From V2 and V7 to V10",
@@ -63,16 +63,16 @@
     ],
     "v10_heading": "V10 · panel groups",
     "v10_points": [
-      "A persistent central canvas",
+      "The canvas stays central and uncovered",
       "Tab groups around the drawing",
-      "One application after consolidation"
+      "One playback bar for every topic"
     ],
     "credit_lines": [
       "Discussed together: Kerk and Bao, with Prof. Halim's feedback",
       "Bao: built V10's panel-group model and shell (16–18 Oct)",
-      "Kerk: refined V10 with Bao and merged the apps into one (18–22 Oct)"
+      "Kerk: refined V10's dragging, controls and fonts; made its site and visualizers one app (18–22 Oct)"
     ],
-    "footer": "Left: Bao's V2 and V7 builds at commit ae63a62 · right: current app 346e84b, outlines added · captured 15–16 Nov 2026",
-    "notes_script": "With six working apps, we could compare the layouts. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed them, with feedback from Prof. Halim. In Week 9, we arrived at V10 to keep both strengths. Panels stay stacked and visible together, as in V2, and tabs drag between areas, as in V7. Each area can now hold several tab groups, and the canvas in the centre is never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and visualizers into one application with a shared layer, so a shell fix is now one edit. The Week 10 trial used V10. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture."
+    "footer": "Left: Bao's V2 and V7 Tree builds (ae63a62, as of 17 Oct) · right: current app 346e84b, outlines added · captured 15–16 Nov 2026",
+    "notes_script": "Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths. Panels stay stacked and visible together, as in V2, and you drag tabs between areas, as in V7. Each area can now hold several tab groups, and the canvas stays in the centre, never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture."
   }
 }

@@ -46,7 +46,7 @@ Slides changed for this: 2, 4, 5, 13, 16 (notes only), 22 and 26 (notes only). N
 
 ## Design history on slides 6–8 (added 16 November)
 
-Bao asked for slides 6–8 to tell the collaborative design process: two parallel foundations, nine wireframes to two working prototypes, and V2 and V7 to V10. Slide 5 is unchanged.
+Bao asked for slides 6–8 to tell the collaborative design process: two parallel foundations, nine wireframes to two working layouts, and V2 and V7 to V10. Slide 5 is unchanged.
 
 What the records support, and how the slides word it:
 - **Kerk's design system and UI kit:** committed on 3 September 2026 (`634b5be`). The UI kit describes itself as a recreation of visualgo.net's pages in the new style, so the slides say "restyled visualgo.net" and never "designed from scratch".
@@ -56,6 +56,12 @@ What the records support, and how the slides word it:
 - **V10:** it came out of joint discussion, and the slides say "Discussed together". The written proposal of 16 October is Bao's, but on 16 November he asked that the slides not single that out. Bao built the panel-group model and shell in PRs #15–#17 (16–18 October). Kerk implemented the later refinements agreed with Bao and merged everything into one application on 18 October (`0394b64`).
 - **Prof. Halim:** his part in the discussion rests on Bao's account, so the slides say "with Prof. Halim's feedback" and nothing stronger.
 - **Naming:** "standalone Graph rewrite" is Bao's own repository; "V2 (split rails)" is the team layout.
+
+A review pass then changed the first version of these slides (three reviewers read the text against the records, for flow and timing, and as the evaluators would):
+- **Slide 6:** "engines" for Bao's TypeScript code was replaced, because the deck uses "engine" only for Kerk's C++/WebAssembly work. A sentence that read the UI kit's visualisation page as Kerk's own design was removed; that page recreates visualgo.net's layout. The UI kit point now names visualgo.net, the left card shows one still instead of repeating slide 5's three, and the notes mention Kerk's engine foundation of the same days.
+- **Slide 7:** the title says "two working layouts" (two layouts, six builds). The caption says the builds were made on 20–27 September and are shown as of 17 October. The notes use "layout survey", the term slide 21 uses, and no longer count apps by date.
+- **Slide 8:** the V10 points now answer slide 6's three requirements (canvas, tab groups, one playback bar), the left thumbnails are the Tree builds, and Kerk's credit line names what he refined.
+- **Slide 18 (notes):** one sentence credits Kerk for suggesting paused motion, as the CA report does.
 
 The images are real artifacts rendered from their own commits; see [`design-history/`](ca-2026-11-16-deck-media/design-history/README.md). The text was checked against the records by a separate fact-checking pass before it went on the slides.
 
@@ -68,9 +74,9 @@ The images are real artifacts rendered from their own commits; see [`design-hist
 | 3 | Three lines | Simplified diagram of the original graph topics over one shared widget, and the three points with details | unchanged |
 | 4 | Three lines | Objective cards with NOW and NEXT, and a band stating the TypeScript/engine boundary; objective 1 now says LCA and Trie already run on the shell and that topics are added on the same foundations | one phrase replaced (coverage) |
 | 5 | Three lines | Stills of the standalone Graph (prototype 1 and rewrite), Tree and Sorting builds, and what each tested; the Tree card names LCA and Trie | VISUAL cue and media source added; the Tree sentences rewritten (coverage) |
-| 6 | Three lines ("A common direction") | "Two parallel foundations": Bao's standalone visualizers beside Kerk's design system and UI kit (real renders from commit 634b5be), and the three requirements carried forward | rewritten |
-| 7 | Three lines ("Layout exploration") | "From nine wireframes to two working prototypes": Kerk's real wireframe grid V1–V9 with V2 and V7 outlined, the two chosen wireframes, and Bao's working V2 and V7 builds; it replaces a schematic drawn for the first build | rewritten; Kerk to confirm |
-| 8 | Small historical still (F3), "The V10 panel layout" | "From V2 and V7 to V10": what V10 keeps from V2 and from V7 (with Bao's two builds), the current app with outlined regions, and a credit band for the discussion, Bao's part and Kerk's part | rewritten; Kerk to confirm |
+| 6 | Three lines ("A common direction") | "Two parallel foundations": Bao's standalone visualizers (one still of the Graph rewrite) beside Kerk's design system and UI kit (real renders from commit 634b5be), and the three requirements carried forward | rewritten |
+| 7 | Three lines ("Layout exploration") | "From nine wireframes to two working layouts": Kerk's real wireframe grid V1–V9 with V2 and V7 outlined, the two chosen wireframes, and Bao's working V2 and V7 builds; it replaces a schematic drawn for the first build | rewritten; Kerk to confirm |
+| 8 | Small historical still (F3), "The V10 panel layout" | "From V2 and V7 to V10": what V10 keeps from V2 and from V7 (with Bao's Tree builds in each), the current app with outlined regions, and a credit band for the discussion, Bao's part and Kerk's part | rewritten; Kerk to confirm |
 | 9 | Four lines | Layered diagram: site host, three visualizers, shared layer, separate engine | unchanged |
 | 10 | Four lines | Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly, Pyodide) | unchanged |
 | 11 | Three lines | Two history models (≠) over the three things integration must preserve | unchanged |
@@ -80,7 +86,7 @@ The images are real artifacts rendered from their own commits; see [`design-hist
 | 15 | Historical BFS still (F2) | State-ownership diagram, three outcome cards (the third: "Add a parallel edge: a separate edge") and the drag, re-weight and parallel-edge clip (it replaced a first take without the parallel edge, `03_graph_drag_then_edit.mp4`, which is kept) | rewritten around the clip |
 | 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative; one linking sentence on later tree topics added and one sentence cut (coverage) |
 | 17 | Historical four-pane still (F7) | Points and the Codex sorting clip | clip section added |
-| 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip on the nine-vertex Big preset (it replaced a first take on the four-vertex graph, `04_dijkstra_note_pause_hover.mp4`, which is kept) | rewritten around the clip |
+| 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip on the nine-vertex Big preset (it replaced a first take on the four-vertex graph, `04_dijkstra_note_pause_hover.mp4`, which is kept) | rewritten around the clip; one sentence credits Kerk for suggesting paused motion |
 | 19 | Historical home page (F1) | Current Editors section above a three-step flow and a limits line | screenshot source updated |
 | 20 | Three lines | Demo timeline with time ranges and a fallback card | fallback sentence added |
 | 21 | Four lines | Stat callouts (dated snapshot), Week 10 card, design-response and limits bands | unchanged |
