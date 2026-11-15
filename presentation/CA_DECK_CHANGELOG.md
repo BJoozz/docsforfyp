@@ -53,7 +53,7 @@ What the records support, and how the slides word it:
 - **Nine wireframes:** Kerk's file of 4 September (`69aa8e4`) has nine frames, V1–V9. V8 and V9 are V7 mid-drag and after the drop, so the slides say "nine wireframes" with "seven panel layouts and two drag states", not "nine layouts". Only V2 and V7 were built.
 - **Student feedback:** it rests on Bao's account that Kerk organised it. No date, size or result is on record, so the slides give no numbers and credit the choice of V2 and V7 to Kerk and Bao.
 - **Working builds:** Bao built Graph, Tree and Sorting in both layouts in PRs #1–#3, 20–27 September: six apps, from his standalone prototypes, on Kerk's design tokens and themes.
-- **V10:** Bao proposed it on 16 October and built the panel-group model and shell in PRs #15–#17 (16–18 October). Kerk implemented the later refinements agreed with Bao and merged everything into one application on 18 October (`0394b64`).
+- **V10:** it came out of joint discussion, and the slides say "Discussed together". The written proposal of 16 October is Bao's, but on 16 November he asked that the slides not single that out. Bao built the panel-group model and shell in PRs #15–#17 (16–18 October). Kerk implemented the later refinements agreed with Bao and merged everything into one application on 18 October (`0394b64`).
 - **Prof. Halim:** his part in the discussion rests on Bao's account, so the slides say "with Prof. Halim's feedback" and nothing stronger.
 - **Naming:** "standalone Graph rewrite" is Bao's own repository; "V2 (split rails)" is the team layout.
 

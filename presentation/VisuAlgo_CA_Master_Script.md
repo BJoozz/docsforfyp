@@ -171,14 +171,14 @@ Alongside the design system, I drew low-fidelity wireframes of the visualisation
 - From V7 · draggable docks: Panels moved by dragging their tabs; A bottom area and splitters to resize
 - V10 · panel groups: A persistent central canvas; Tab groups around the drawing; One application after consolidation
 - Discussed together: Kerk and Bao, with Prof. Halim's feedback
-- Bao: proposed V10 in Week 9, built its panel-group model and shell (16–18 Oct)
+- Bao: built V10's panel-group model and shell (16–18 Oct)
 - Kerk: refined V10 with Bao and merged the apps into one (18–22 Oct)
 
 **Visual:** Left: Bao's working V2 (split rails) and V7 (docks) builds with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
 
 **English script**
 
-With six working apps, we could compare the layouts. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed them, with feedback from Prof. Halim. In Week 9, Bao proposed V10 to keep both strengths. Panels stay stacked and visible together, as in V2, and tabs drag between areas, as in V7. Each area can now hold several tab groups, and the canvas in the centre is never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and visualizers into one application with a shared layer, so a shell fix is now one edit. The Week 10 trial used V10. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture.
+With six working apps, we could compare the layouts. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed them, with feedback from Prof. Halim. In Week 9, we arrived at V10 to keep both strengths. Panels stay stacked and visible together, as in V2, and tabs drag between areas, as in V7. Each area can now hold several tab groups, and the canvas in the centre is never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and visualizers into one application with a shared layer, so a shell fix is now one edit. The Week 10 trial used V10. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture.
 
 **Team review:** Kerk to confirm this slide: his refinements, the consolidation and how the discussion with Prof. Halim is described. The script was rewritten on 16 November from the records and Bao's account.
 
