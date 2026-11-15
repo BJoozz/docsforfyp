@@ -243,3 +243,9 @@ Still open:
 - Kerk’s confirmation of slides 7–12;
 - one slideshow click-through on the presenting computer;
 - a timed joint rehearsal.
+
+## Algorithm coverage context — 16 November 2026
+
+Bao added that, in early discussions, Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports, alongside interaction, visualization and architecture. This is Bao's account; there is no written record, and no specific topic is attributed to Prof. Halim.
+
+The deck now reflects it on slides 2, 4, 5, 13, 16 and 22: LCA with Binary Lifting and Trie as added topics (built in the standalone Tree prototype in September 2026 and present in the current app), and Heavy-Light Decomposition and Centroid Decomposition only as possible later extensions. The checks behind each statement are in the [changelog](../presentation/CA_DECK_CHANGELOG.md).

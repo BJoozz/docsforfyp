@@ -32,15 +32,27 @@ There are seven embedded MP4s, all real recordings of app `346e84b`.
 
 The main talk uses five clips (slides 14–18), about 59 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
 
+## Algorithm-coverage context (added 16 November)
+
+Bao added one piece of context after the first build: in early discussions Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports. This rests on Bao's account; the repository holds no written record of it, and no specific topic is attributed to Prof. Halim.
+
+What was checked before the slides changed:
+- **LCA with Binary Lifting and Trie in the standalone Tree prototype:** confirmed in `BJoozz/tree-visualizer`. LCA came with the first commit (`e687099`, 3 September 2026), Trie Insert and Search with `015469e` (8 September) and Binary Lifting with `f10d6d1` (10 September). All 50 commits are Bao's.
+- **Both in the current app:** confirmed at `346e84b`. The catalogue has `/lca` and `/trie` cards, and Trie offers Insert and Search. The Trie still on slides 2 and 13 was captured from that build.
+- **Heavy-Light Decomposition and Centroid Decomposition:** not in the app and not in any record. The deck names them only as possible later extensions.
+- **The original VisuAlgo:** the deck makes no claim about whether it has Trie or LCA pages. A comment in the app's `modules.ts` says it has both, while Bao's copy of its source (`BJoozz/visualgo`) has no view named for either.
+
+Slides changed for this: 2, 4, 5, 13, 16 (notes only), 22 and 26 (notes only). No slide was added and the LCA clip on slide 16 is unchanged.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |
 |---|---|---|---|
 | 1 | Title text | Course line and a current app screenshot (a Dijkstra step with its note) | unchanged |
-| 2 | Three numbered lines | Three cards, each with a one-line detail and a crop of today's prototype | unchanged |
+| 2 | Three numbered lines | Four cards, each with a one-line detail and a crop of today's prototype; the fourth, "A wider range of algorithms", was added with the coverage context below | one sentence replaced (coverage) |
 | 3 | Three lines | Simplified diagram of the original graph topics over one shared widget, and the three points with details | unchanged |
-| 4 | Three lines | Objective cards with NOW and NEXT, and a band stating the TypeScript/engine boundary | unchanged |
-| 5 | Three lines | Stills of the standalone Graph (prototype 1 and rewrite), Tree and Sorting builds, and what each tested | VISUAL cue and media source added |
+| 4 | Three lines | Objective cards with NOW and NEXT, and a band stating the TypeScript/engine boundary; objective 1 now says LCA and Trie already run on the shell and that topics are added on the same foundations | one phrase replaced (coverage) |
+| 5 | Three lines | Stills of the standalone Graph (prototype 1 and rewrite), Tree and Sorting builds, and what each tested; the Tree card names LCA and Trie | VISUAL cue and media source added; the Tree sentences rewritten (coverage) |
 | 6 | Three lines | Bao and Kerk cards, a joint-decisions band, three requirement chips | unchanged |
 | 7 | Three lines | Schematic flow: nine wireframes → V2 rails and V7 docks → V10 | unchanged |
 | 8 | Small historical still (F3) | Current Tree Editor screenshot with outlined tab groups, canvas and playback bar | screenshot source updated |
@@ -48,16 +60,16 @@ The main talk uses five clips (slides 14–18), about 59 seconds in total. They 
 | 10 | Four lines | Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly, Pyodide) | unchanged |
 | 11 | Three lines | Two history models (≠) over the three things integration must preserve | unchanged |
 | 12 | Three lines | Site frame with three visualizer slots, the infrastructure card, an attribution line | unchanged |
-| 13 | Four lines | 2×2 cards with details and thumbnails | unchanged |
+| 13 | Four lines | 2×2 cards with details and thumbnails; card 02 leads with LCA (Binary Lifting) and Trie and shows the current Trie page | first sentences rewritten (coverage) |
 | 14 | Three lines | Points and the V10 clip (split, join, dock; it replaced a shorter first take, `02_v10_move_panel.mp4`, which is kept) | rewritten around the clip |
 | 15 | Historical BFS still (F2) | State-ownership diagram and the drag/edit clip | rewritten around the clip |
-| 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative |
+| 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative; one linking sentence on later tree topics added and one sentence cut (coverage) |
 | 17 | Historical four-pane still (F7) | Points and the Codex sorting clip | clip section added |
 | 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip on the nine-vertex Big preset (it replaced a first take on the four-vertex graph, `04_dijkstra_note_pause_hover.mp4`, which is kept) | rewritten around the clip |
 | 19 | Historical home page (F1) | Current Editors section above a three-step flow and a limits line | screenshot source updated |
 | 20 | Three lines | Demo timeline with time ranges and a fallback card | fallback sentence added |
 | 21 | Four lines | Stat callouts (dated snapshot), Week 10 card, design-response and limits bands | unchanged |
-| 22 | Four lines | Four-step roadmap with details | unchanged |
+| 22 | Four lines | Four-step roadmap with details; a second limits line names Heavy-Light Decomposition and Centroid Decomposition as possible later extensions, not commitments | one sentence expanded (coverage) |
 | 23 | Questions | Evidence link added | unchanged |
 | 24 | Historical heap still (F6) | BST preview/Apply clip | rewritten for BST; heap mentioned as the same contract |
 | 25 | Small historical still (F8) | Larger still with details | unchanged |

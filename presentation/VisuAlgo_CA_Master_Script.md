@@ -8,6 +8,8 @@ The PowerPoint contains 22 timed slides, one Q&A slide and four backup slides (s
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
+Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports. There is no written record of this, and he did not name specific topics. LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions; they are not implemented and are not Semester 2 commitments.
+
 ## Run of show
 
 | Section | Speaker | Time | Slides |
@@ -51,12 +53,13 @@ Good afternoon. We are Bao and Kerk, and our project is VisuAlgo+. We are rebuil
 - More convenient graph editing: draw and change the graph you are studying, with parallel and curved edges handled clearly
 - Richer interaction on the canvas: inspect a step, move things and see why a decision happens
 - Sorting comparison on the same input: several algorithms on one dataset, side by side
+- A wider range of algorithms: more topics, such as LCA with Binary Lifting and Trie, on foundations that make later ones easier to add
 
-**Visual:** Three cards, each with a crop of today's prototype; footer: directions proposed by Prof. Halim in early weekly meetings.
+**Visual:** Four cards, each with a crop of today's prototype; the fourth shows the current Trie page (Insert "care", frame 5/7). Footer: directions proposed by Prof. Halim in early weekly meetings.
 
 **English script**
 
-VisuAlgo already lets students explore their own inputs and follow algorithms step by step. We want to preserve those strengths. In our early discussions, Prof. Halim proposed several directions for improving the platform. These included more convenient graph editing, clearer handling of parallel and curved edges, and multiple sorting panes for comparison. Editing, playback and comparison were goals from the beginning. The prototypes helped us investigate how to implement them. My background in competitive programming and teaching also shaped my focus. When explaining an algorithm, I want the learner to understand why a decision happens, rather than only see the final answer. That means supporting examples that learners can change, inspect and discuss.
+VisuAlgo already lets students explore their own inputs and follow algorithms step by step. We want to preserve those strengths. In our early discussions, Prof. Halim proposed several directions for improving the platform. These included more convenient graph editing, clearer handling of parallel and curved edges, and multiple sorting panes for comparison. He also encouraged us to widen the range of algorithms that VisuAlgo+ can visualize, so we wanted foundations that make new topics easier to add. These were goals from the beginning, and the prototypes helped us investigate how to reach them. My background in competitive programming and teaching also shaped my focus. When explaining an algorithm, I want the learner to understand why a decision happens, rather than only see the final answer. That means supporting examples that learners can change, inspect and discuss.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PREP.md
 
@@ -84,7 +87,7 @@ The original platform has grown through contributions over many years. It alread
 
 **On slide**
 
-- A reusable visualization and interaction layer · now: Graph, Tree and Sorting share one V10 shell · next: stabilize the shown workflows
+- A reusable visualization and interaction layer · now: Graph, Tree and Sorting share one V10 shell; LCA and Trie already run on it · next: stabilize the shown workflows; add topics on the same foundations
 - A renewed website and execution foundation · now: site with catalogue and routes; separate C++/WebAssembly engine foundation · next: connect them to the visualizers
 - A working prototype with further integration ahead · now: students tried V10 in Week 10 · next: validate, then an initial release around March 2027 (target)
 - Current boundary: the visualizers run TypeScript algorithms in the browser; the engine is separate and connecting it is Semester 2 work
@@ -93,7 +96,7 @@ The original platform has grown through contributions over many years. It alread
 
 **English script**
 
-Our objectives are to improve interaction across topics, build clearer boundaries for future development, and validate the resulting functionality. We already have a working prototype that students have tried. Graph, Tree and Sorting currently run TypeScript implementations in the browser. Kerk has also developed a separate engine foundation. Connecting that engine and the wider website infrastructure to the visualizers remains part of the next stage. We are targeting an initial public release around March 2027, subject to integration and validation. The intended transition keeps the original VisuAlgo available and links to completed topics in VisuAlgo+. We will begin with how the early prototypes helped us make the interaction requirements concrete.
+Our objectives are to improve interaction across topics, build clearer boundaries so that new algorithms are easier to add, and validate the resulting functionality. We already have a working prototype that students have tried. Graph, Tree and Sorting currently run TypeScript implementations in the browser. Kerk has also developed a separate engine foundation. Connecting that engine and the wider website infrastructure to the visualizers remains part of the next stage. We are targeting an initial public release around March 2027, subject to integration and validation. The intended transition keeps the original VisuAlgo available and links to completed topics in VisuAlgo+. We will begin with how the early prototypes helped us make the interaction requirements concrete.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PREP.md
 
@@ -107,11 +110,11 @@ Our objectives are to improve interaction across topics, build clearer boundarie
 - Tree: structural operations and ancestor information
 - Sorting: independent runs with shared controls
 
-**Visual:** Real stills of the standalone builds, rebuilt at their last documented commits (5fc06a0, c8b14e6, 46ce0a7, 9236a65) and captured on 16 Nov 2026: Graph prototype 1 run view, the Graph rewrite with one canvas, the Tree prototype's Binary Lifting table, and Sorting Room with two panes. Not the current app.
+**Visual:** Real stills of the standalone builds, rebuilt at their last documented commits (5fc06a0, c8b14e6, 46ce0a7, 9236a65) and captured on 16 Nov 2026: Graph prototype 1 run view, the Graph rewrite with one canvas, the Tree prototype's Binary Lifting table, and Sorting Room with two panes. Not the current app. The Tree card reads: LCA: an ancestor table beside the tree · Trie: insert and search along a prefix · changes previewed before Apply. The prototype's Trie workspace (Insert and Search) is not pictured.
 
 **English script**
 
-The early prototypes were experiments in how to achieve the goals we had discussed with Prof. Halim. The first Graph prototype used separate editing and running views. In the standalone Graph rewrite, I kept one canvas and separated input, positions and playback. That let a learner move a vertex while continuing to inspect the same algorithm step. For Tree, I explored operations that change the structure, and how to inspect a proposed result before applying it. Binary Lifting also required a tree and an ancestor table to explain one query together. Sorting explored a different interaction: several algorithms receive the same array, maintain their own states and advance through shared controls. Each prototype therefore tested a different requirement. The standalone Graph rewrite is distinct from the later layout named V2. I will use those names separately throughout the presentation.
+The early prototypes were experiments in how to achieve the goals we had discussed with Prof. Halim. The first Graph prototype used separate editing and running views. In the standalone Graph rewrite, I kept one canvas and separated input, positions and playback. That let a learner move a vertex while continuing to inspect the same algorithm step. The Tree prototype also widened the range of topics: it included LCA with Binary Lifting, and Trie. Different algorithms brought different visualization needs: an ancestor table beside the tree for LCA queries, and insert and search along a prefix for Trie. For operations that change the structure, I explored how to inspect a proposed result before applying it. Sorting explored a different interaction: several algorithms receive the same array, maintain their own states and advance through shared controls. Each prototype therefore tested a different requirement. The standalone Graph rewrite is distinct from the later layout named V2. I will use those names separately throughout the presentation.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 
@@ -269,11 +272,11 @@ The website needs to host the visualizers without duplicating their controls. Th
 - V10 shell and site integration
 - Step explanations and validation
 
-**Visual:** 2×2 cards with a one-line detail and a small current-app thumbnail each.
+**Visual:** 2×2 cards with a short detail and a small current-app thumbnail each. Card 02 reads: more topics: LCA (Binary Lifting), Trie, recursive DFS, Bellman-Ford, Prim, bridges, AVL, heap, lazy segment tree; each with its own steps, pseudocode and inspector. Its thumbnail is the current Trie page.
 
 **English script**
 
-My contribution covers the visualizer foundations, algorithm execution and operation extensions, the V10 shell, and integration into the site. I also worked on how individual steps communicate their meaning and how the behavior is tested. I will show selected decisions across these areas. The examples connect the underlying state model to something a user can directly observe.
+My contribution covers the visualizer foundations, the V10 shell and integration into the site. It also covers the algorithms themselves: I added topics such as LCA with Binary Lifting and Trie, and each algorithm needs its own step model, pseudocode and inspector. I also worked on how individual steps communicate their meaning and how the behavior is tested. I will show selected decisions. The examples connect the underlying state model to something a user can directly observe.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
@@ -342,7 +345,7 @@ Moving a vertex changes the drawing. Changing an edge weight changes the problem
 
 **English script**
 
-Binary Lifting is a useful example because a query has several stages and connects a tree with an ancestor table. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. Status remains available for the full explanation. We still need to evaluate whether this reduces attention switching.
+Binary Lifting is one of the topics I added. It is a useful example because a query has several stages and connects a tree with an ancestor table; the same rooted tree and ancestor queries are groundwork for more advanced tree topics later. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. We still need to evaluate whether this reduces attention switching.
 
 **Delivery cue:** Clip, 10.3 s: frame 2/7 (k = 2, both 8); 0.9 s frame 3, k = 1, note "same ancestor · keep u, v" above 8; 2.8 s frame 4, k = 0, 4 and 12 differ, "differ · lift both"; 4.9 s frame 5, u = 4, v = 12, "↑ 1 level"; 6.7 s same parent 8; 8.0 s LCA(6, 10) = 8. Tree: root 8; edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14. Do not describe a depth-balancing move.
 
@@ -482,7 +485,7 @@ Bao: My recollection is that newer learners still had to read Status frequently,
 - Evaluate revised explanations with defined tasks
 - Target an initial release around March 2027
 
-**Visual:** Four-step roadmap, each with a one-line detail; limits line: March 2027 is a target.
+**Visual:** Four-step roadmap, each with a one-line detail. Limits lines: March 2027 is a target; possible later extensions, not Semester 2 commitments: advanced tree topics such as Heavy-Light Decomposition and Centroid Decomposition.
 
 **English script**
 
@@ -490,7 +493,7 @@ Kerk: Our next integration milestone is one Graph algorithm working across the f
 
 Bao: In parallel, I want to stabilize the workflows we have shown and evaluate the revised explanations. A task could ask a learner to explain why an LCA step keeps both nodes in place. We can observe how they use the canvas, ancestor table and Status, rather than assume that additional animation helps. We also need measurements for startup, seeking and memory on longer runs.
 
-Both: We are targeting an initial public release around March 2027, depending on integration and validation. The current transition plan keeps the original platform available and links to completed topics. Our broader ambition is to cover the original algorithm range. The current work provides the visualizer foundations and a working prototype on which to build that release.
+Both: We are targeting an initial public release around March 2027, depending on integration and validation. The current transition plan keeps the original platform available and links to completed topics. Our broader ambition is to cover the original algorithm range and, later, to add advanced topics. For example, the rooted-tree and ancestor-query work behind LCA could support Heavy-Light Decomposition or Centroid Decomposition. Those are possibilities, not Semester 2 commitments; integration, validation and stability come first. The current work provides the visualizer foundations and a working prototype on which to build that release.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 
@@ -566,7 +569,7 @@ For cut vertices and bridges, an independent oracle removes each candidate and c
 
 **English script**
 
-Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slide 7 is schematic. The November 16 clarification records early supervisor direction, the LCA selection and Bao's recollection about Status reading. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
+Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slide 7 is schematic. The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 

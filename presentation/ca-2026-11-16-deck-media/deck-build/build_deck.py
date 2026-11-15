@@ -137,21 +137,28 @@ clear_body(s)
 c1 = crop(PACK / '01_main_slides/06_v10_layout.png', (330, 75, 1090, 550), 'mot_graph.png')
 c2 = crop(PACK / '01_main_slides/02_dijkstra_decision.png', (520, 195, 1110, 564), 'mot_canvas.png')
 c3 = crop(PACK / '01_main_slides/05_sorting_compare.png', (0, 85, 1152, 805), 'mot_sorting.png')
+TRIE_STILL = NEW / 'stills' / 'trie_insert_care_frame5.png'
+c4 = crop(TRIE_STILL, (326, 120, 1094, 730), 'trie_insert.png')
 cards = [
     ('More convenient graph editing', 'Draw and change the graph you are studying, with parallel and curved edges handled clearly', c1),
     ('Richer interaction on the canvas', 'Inspect a step, move things and see why a decision happens', c2),
     ('Sorting comparison on the same input', 'Several algorithms on one dataset, side by side', c3),
+    ('A wider range of algorithms', 'More topics, such as LCA with Binary Lifting and Trie, on foundations that make later ones easier to add', c4),
 ]
 for k, (h1, h2, img) in enumerate(cards):
-    x = 0.62 + k * 4.2
-    box(s, x, 1.42, 3.7, 5.12, fill=WHITE, line=BORDER, name=f'card-{k}')
-    badge(s, x + 0.25, 1.64, f'{k + 1:02d}', name=f'number-{k}')
-    text(s, x + 0.85, 1.6, 2.65, 0.85, h1, size=19, color=NAVY, bold=True, anchor=MSO_ANCHOR.MIDDLE, name=f'point-{k}')
-    text(s, x + 0.25, 2.62, 3.2, 1.2, h2, size=15, color=INK, name=f'detail-{k}')
-    picture(s, img, x + 0.25, 4.15, 3.2, 2.0, name=f'image-{k}')
+    x = 0.62 + k * 3.08
+    box(s, x, 1.42, 2.86, 5.12, fill=WHITE, line=BORDER, name=f'card-{k}')
+    badge(s, x + 0.2, 1.6, f'{k + 1:02d}', name=f'number-{k}')
+    text(s, x + 0.2, 2.18, 2.46, 0.72, h1, size=17, color=NAVY, bold=True, name=f'point-{k}')
+    text(s, x + 0.2, 2.98, 2.46, 1.35, h2, size=13.5, color=INK, name=f'detail-{k}')
+    ix, iy, iw, ih = fit(img, x + 0.2, 4.5, 2.46, 1.54)
+    picture(s, img, ix, iy, iw, ih, name=f'image-{k}')
 text(s, 0.62, 6.72, 11.6, 0.3,
      'Directions proposed by Prof. Halim in early weekly meetings · images: VisuAlgo+ prototype today (app 346e84b)',
      size=11, color=MUTED, name='capture-source')
+notes_replace(s, 'Editing, playback and comparison were goals from the beginning. The prototypes helped us investigate how to implement them.',
+              'He also encouraged us to widen the range of algorithms that VisuAlgo+ can visualize, so we wanted foundations that make '
+              'new topics easier to add. These were goals from the beginning, and the prototypes helped us investigate how to reach them.')
 
 # ======================= slide 3: why rebuild =======================
 s = S[3]
@@ -182,7 +189,8 @@ s = S[4]
 clear_body(s)
 objs = [
     ('A reusable visualization and interaction layer',
-     'Graph, Tree and Sorting visualizers share one V10 shell', 'Stabilize the shown workflows'),
+     'Graph, Tree and Sorting share one V10 shell; LCA and Trie already run on it',
+     'Stabilize the shown workflows; add topics on the same foundations'),
     ('A renewed website and execution foundation',
      'Site with catalogue and routes; a separate C++/WebAssembly engine foundation',
      'Connect the engine and infrastructure to the visualizers'),
@@ -204,6 +212,8 @@ card(s, 0.62, 6.08, 12.1, 0.72,
         'connecting it is Semester 2 work.', {})]],
      fill=TINT, size=14.5, anchor=MSO_ANCHOR.MIDDLE, name='boundary')
 
+notes_replace(S[4], 'build clearer boundaries for future development, and validate the resulting functionality.',
+              'build clearer boundaries so that new algorithms are easier to add, and validate the resulting functionality.')
 LOG.append('1-4 restyled')
 
 # ======================= slide 5: early prototypes =======================
@@ -239,15 +249,21 @@ if EARLY_READY:
     picture(s, EP_SORT, x, y, w, h, name='sorting')
     text(s, 9.52, 4.68, 3.2, 0.5, 'Sorting Room (Aug): two panes on one input, shared controls', size=11, color=MUTED, name='cap-sort')
     for k, (x, w, t) in enumerate([(0.62, 5.0, 'Moving a vertex keeps the same step; input, positions and playback are separate'),
-                                   (5.92, 3.3, 'Inspect a proposed result before applying it; explain a query with a tree and a table'),
+                                   (5.92, 3.3, 'LCA: an ancestor table beside the tree · Trie: insert and search along a prefix · changes previewed before Apply'),
                                    (9.52, 3.2, 'Each pane keeps its own state; one transport moves them together')]):
-        card(s, x, 5.35, w, 1.1, t, fill=TINT, size=13.5, anchor=MSO_ANCHOR.MIDDLE, pad=0.16, name=f'tested-{k}')
-    text(s, 0.62, 6.62, 12.1, 0.3, 'Standalone builds rebuilt at their last documented commits (5fc06a0, c8b14e6, 46ce0a7, 9236a65) '
+        card(s, x, 5.3, w, 1.25, t, fill=TINT, size=13, anchor=MSO_ANCHOR.MIDDLE, pad=0.16, name=f'tested-{k}')
+    text(s, 0.62, 6.66, 12.1, 0.3, 'Standalone builds rebuilt at their last documented commits (5fc06a0, c8b14e6, 46ce0a7, 9236a65) '
          'and captured on 16 Nov 2026', size=11, color=MUTED, name='capture-source')
+    notes_replace(s, 'For Tree, I explored operations that change the structure, and how to inspect a proposed result before applying it. '
+                  'Binary Lifting also required a tree and an ancestor table to explain one query together.',
+                  'The Tree prototype also widened the range of topics: it included LCA with Binary Lifting, and Trie. '
+                  'Different algorithms brought different visualization needs: an ancestor table beside the tree for LCA queries, '
+                  'and insert and search along a prefix for Trie. For operations that change the structure, I explored how to '
+                  'inspect a proposed result before applying it.')
     notes_replace(s, 'SOURCE\n', 'VISUAL\nPoint left to right: the dark prototype-1 run view (it has its own Back to Edit button), '
                   'the rewrite with one canvas, the Tree prototype with its ancestor table, and Sorting Room with two panes. '
                   'These are the old standalone builds, rebuilt from their last documented commits and captured on 16 November 2026, '
-                  'not the current app.\n\nSOURCE\n')
+                  'not the current app. The Tree prototype also had a Trie workspace (Insert and Search), which is not pictured.\n\nSOURCE\n')
     notes_replace(s, 'CA_PRESENTATION_PROTOTYPE_REVIEW.md',
                   'CA_PRESENTATION_PROTOTYPE_REVIEW.md\n'
                   f'Stills: {GH}presentation/ca-2026-11-16-deck-media/early-prototypes/README.md (manifest.json lists repo, ref and commit date per image)')
@@ -467,13 +483,13 @@ s = S[13]
 clear_body(s)
 contrib = [
     ('Graph, Tree and Sorting foundations', 'Graph rewrite keeps document, layout, session and presentation apart; Tree operations; Sorting Room'),
-    ('Algorithm and operation extensions', 'e.g. recursive DFS, Bellman-Ford, Prim, cut vertices and bridges; BST/AVL, heap, LCA, lazy segment tree'),
+    ('Algorithm and operation extensions', 'more topics: LCA (Binary Lifting), Trie, recursive DFS, Bellman-Ford, Prim, bridges, AVL, heap, lazy segment tree; each with its own steps, pseudocode and inspector'),
     ('V10 shell and site integration', 'tab groups, drag, split and resize, validated saved layouts; catalogue, routes, host adapters'),
     ('Step explanations and validation', 'floating text, paused focus, final recap; independent oracles, property and regression tests'),
 ]
 thumbs13 = [
     crop(PACK / '01_main_slides/03_dijkstra_final_path_t.png', (400, 230, 1060, 642), 'c13_graph.png'),
-    crop(PACK / '01_main_slides/04_tree_insert_preview.png', (340, 205, 1060, 655), 'c13_tree.png'),
+    c4,
     crop(PACK / '01_main_slides/06_v10_layout.png', (300, 300, 1120, 812), 'c13_shell.png'),
     crop(PACK / '01_main_slides/02_dijkstra_decision.png', (560, 205, 880, 405), 'c13_note.png'),
 ]
@@ -483,11 +499,17 @@ for k, (h1, h2) in enumerate(contrib):
     box(s, x, y, 5.95, 2.42, fill=WHITE, line=BORDER, name=f'card-{k}')
     badge(s, x + 0.25, y + 0.25, f'{k + 1:02d}', name=f'number-{k}')
     text(s, x + 0.85, y + 0.2, 4.9, 0.6, h1, size=19, color=NAVY, bold=True, anchor=MSO_ANCHOR.MIDDLE, name=f'point-{k}')
-    text(s, x + 0.25, y + 0.95, 3.3, 1.35, h2, size=14.5, color=INK, name=f'detail-{k}')
-    picture(s, thumbs13[k], x + 3.75, y + 0.95, 1.98, 1.24, name=f'thumb-{k}')
+    text(s, x + 0.25, y + 0.95, 3.35, 1.4, h2, size=13.5 if k == 1 else 14.5, color=INK, name=f'detail-{k}')
+    tx, ty, tw, th = fit(thumbs13[k], x + 3.75, y + 0.95, 1.98, 1.24)
+    picture(s, thumbs13[k], tx, ty, tw, th, name=f'thumb-{k}')
 text(s, 0.62, 6.75, 12.1, 0.3, 'Selected decisions follow; the full inventory is in docs/CA_PRESENTATION_CONTRIBUTION_MAP.md',
      size=11, color=MUTED, name='capture-source')
 
+notes_replace(S[13], 'My contribution covers the visualizer foundations, algorithm execution and operation extensions, the V10 shell, and integration into the site. '
+              'I also worked on how individual steps communicate their meaning and how the behavior is tested. I will show selected decisions across these areas.',
+              'My contribution covers the visualizer foundations, the V10 shell and integration into the site. It also covers the algorithms themselves: '
+              'I added topics such as LCA with Binary Lifting and Trie, and each algorithm needs its own step model, pseudocode and inspector. '
+              'I also worked on how individual steps communicate their meaning and how the behavior is tested. I will show selected decisions.')
 LOG.append('13 restyled')
 
 # ======================= slides 14-18 & 24: media =======================
@@ -649,8 +671,14 @@ for k, (h1, h2) in enumerate(road):
     text(s, x + 0.22, 3.85, 2.45, 1.6, h2, size=14, color=INK, name=f'detail-{k}')
     if k < 3:
         arrow(s, x + 0.9, 1.89, x + 3.24, 1.89, color=BORDER, width=2, head=False, name=f'line-{k}')
-text(s, 0.62, 5.95, 12.1, 0.5, 'March 2027 is a target that depends on integration and validation; '
-     'covering the full original algorithm range is the longer-term aim.', size=13, color=MUTED, name='limits')
+text(s, 0.62, 5.9, 12.1, 0.75, ['March 2027 is a target that depends on integration and validation; '
+     'covering the full original algorithm range is the longer-term aim.',
+     'Possible later extensions, not Semester 2 commitments: advanced tree topics such as Heavy-Light Decomposition and Centroid Decomposition.'],
+     size=13, color=MUTED, name='limits', space_after=3)
+notes_replace(s, 'Our broader ambition is to cover the original algorithm range.',
+              'Our broader ambition is to cover the original algorithm range and, later, to add advanced topics. For example, the rooted-tree and '
+              'ancestor-query work behind LCA could support Heavy-Light Decomposition or Centroid Decomposition. Those are possibilities, not '
+              'Semester 2 commitments; integration, validation and stability come first.')
 
 # ======================= slide 23: questions =======================
 s = S[23]
@@ -709,7 +737,7 @@ Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_an
 
 Media in this deck: slides 1, 2, 8, 14-19 and 24 use real captures of app 346e84b from 15-16 November 2026, with manifests and reproduce steps in presentation/ca-2026-11-16/ (Codex pack) and presentation/ca-2026-11-16-deck-media/. Slide 25 uses a historical capture of app 662e7b3 from 1 November 2026, documented in figures/README.md. {{EARLY26}}Slide 7 uses schematic drawings, not screenshots.
 
-The November 16 clarification records early supervisor direction, the LCA selection and Bao's recollection about Status reading. Kerk should review slides 7-12 against his current engine and website work before the joint presentation.
+The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7-12 against his current engine and website work before the joint presentation.
 
 SOURCE
 {GH}docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
@@ -803,7 +831,7 @@ Media: {MEDIA}clips/03_graph_drag_then_edit.mp4 (app 346e84b, recorded 16 Nov 20
 
 set_notes(S[16], f"""Bao | Algorithm Visualizers | 100 seconds including the clip
 
-Binary Lifting is a useful example because a query has several stages and connects a tree with an ancestor table. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. Status remains available for the full explanation. We still need to evaluate whether this reduces attention switching.
+Binary Lifting is one of the topics I added. It is a useful example because a query has several stages and connects a tree with an ancestor table; the same rooted tree and ancestor queries are groundwork for more advanced tree topics later. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. We still need to evaluate whether this reduces attention switching.
 
 {clip_block(['0.0-0.9 s: frame 2 of 7 (k = 2: both ancestors are 8, so u = 6 and v = 10 stay).',
              '0.9-2.8 s: frame 3: k = 1, both ancestors are 8 again; the note "same ancestor · keep u, v" appears above 8.',

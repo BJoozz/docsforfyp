@@ -73,6 +73,10 @@ Live alternatives for slides 14–18 are in the notes, for use only if time allo
 - The Week 10 trial provided formative observations. Bao's specific recollection about newer learners frequently consulting Status is **not a coded analysis of recorded footage**.
 - Floating text is a response to that observation. **No measured learning improvement** or reduction in attention switching has yet been established.
 - March 2027 is a **target**, conditional on integration and validation, not a guaranteed release date.
+- **Algorithm coverage:** Prof. Halim's direction was to widen the range of algorithms in general (Bao's account, no written record). Do not say he asked for LCA, Trie, Heavy-Light Decomposition or Centroid Decomposition specifically.
+- **LCA and Trie** were built in the standalone Tree prototype (September 2026) and are in the current app. Do not say Trie provides groundwork for Heavy-Light or Centroid Decomposition; the link is from rooted trees and ancestor queries.
+- **Heavy-Light Decomposition and Centroid Decomposition** are possible later extensions. They are not implemented and are not Semester 2 commitments.
+- Make no claim about whether the original VisuAlgo has Trie or LCA pages; the records disagree.
 - **Images and clips by date:**
   - Slides 1, 2, 8, 13–19, 24 and 27 use current captures of app `346e84b` from 15–16 November.
   - Slide 25 is historical (1 November, `662e7b3`).

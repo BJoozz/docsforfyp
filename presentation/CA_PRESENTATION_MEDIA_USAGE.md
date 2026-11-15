@@ -5,16 +5,16 @@ This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlg
 All app images and clips are real captures; none is generated or composited. The only additions are the coloured outlines on slide 8, drawn on the slide over the screenshot. The sources are:
 
 - the [Codex pack](ca-2026-11-16/README.md): app `346e84b`, captured 15–16 November;
-- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds seven clips with posters and the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md);
+- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and one Trie still in `stills/`;
 - the [historical figures](../figures/README.md): app `662e7b3`, 1 November.
 
 | Slide | Asset | What it shows | If a clip will not play, the poster shows |
 |---|---|---|---|
 | 1 | Codex `02_dijkstra_decision.png`, cropped | A Dijkstra step with its note | — |
-| 2 | Crops of Codex `06`, `02`, `05` | A graph, a step note, two sorting panes | — |
+| 2 | Crops of Codex `06`, `02`, `05`, and of [`stills/trie_insert_care_frame5.png`](ca-2026-11-16-deck-media/stills/trie_insert_care_frame5.png) | A graph, a step note, two sorting panes, and the current Trie page (Insert "care" on car, cart, cat, dog, dot; frame 5/7, "Create edge e and prefix care") | — |
 | 5 | `early-prototypes/02_graph_v1_run_crop.png`, `03_graph_v2_workspace.png`, `04_tree_binary_lifting_table_crop.png`, `05_sorting_two_panes_crop.png` | The standalone builds at 5fc06a0, c8b14e6, 46ce0a7 and 9236a65, rebuilt and captured on 16 November; not the current app | — |
 | 8 | Codex `04_tree_insert_preview.png`, with outlines | V10 regions: tab groups, the canvas, the playback bar | — |
-| 13 | Crops of Codex `03`, `04`, `06`, `02` | Thumbnails | — |
+| 13 | Crops of Codex `03`, `06`, `02`, and of the Trie still | Thumbnails | — |
 | 14 | [`02b_v10_split_left_bottom.mp4`](ca-2026-11-16-deck-media/clips/02b_v10_split_left_bottom.mp4), 16.3 s | While the run stays at frame 12/21, the Status tab is dragged down its group to split the right column in two, then into the left group, then to the bottom row under the drawing. The drawing re-fits when the canvas gets shorter. Set-up before recording, also by a real drag: Status beside Pseudocode as a tab | Status under the drawing at 12/21 |
 | 15 | [`03_graph_drag_then_edit.mp4`](ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4), 8.0 s | Dragging B keeps frame 12/21; changing B → A from 1 to 5 in the Edges text ends the run (NO RUN) | the graph after the edit |
 | 16 | [`01b_lca_keep_then_jump.mp4`](ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4), 10.3 s | LCA(6, 10): at k = 1 both ancestors are 8, so u and v are kept (note "same ancestor · keep u, v"); at k = 0, 4 and 12 differ, so both are lifted ("differ · lift both"); answer 8 | frame 4/7 with "differ · lift both" |
