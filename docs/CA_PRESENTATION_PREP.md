@@ -210,3 +210,8 @@ Project references:
 ## Broader technical review — 15 November 2026
 
 The initial three-case shortlist was too narrow to represent the full contribution. See [Technical contribution map](CA_PRESENTATION_CONTRIBUTION_MAP.md) for nine presentation groups mapped to C1–C14, current-source checks, post-report commits and a revised breadth-first outline. V10 shell, site integration, Tree operations and algorithm validation need explicit visibility. The graph case remains a detailed draft, not the sole or necessarily first main technical story. Next prepare the contribution overview and V10 case before committing to the final case selection.
+
+
+## Interactive demonstration and editor audience — 15 November 2026
+
+The owner explicitly wants to demonstrate floating text, paused visual emphasis, final-frame interactions and the dedicated Graph/Tree Editor entry points. See [Interactive demo and editor positioning](CA_PRESENTATION_INTERACTIVE_DEMO.md) for the proposed sequence and English script. The editors aim to support experienced CP users constructing examples and thinking through problems; this is a design goal, not a measured adoption or learning result. Dijkstra final-frame hover paths and DFS final traversal recap are distinguished in the plan. Include this within the shared demo allocation, not as additional unbudgeted time.
