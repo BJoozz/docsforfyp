@@ -223,3 +223,23 @@ A small [ready-to-use presentation pack](../presentation/ca-2026-11-16/README.md
 The pack uses one four-vertex Dijkstra graph, BST Insert(5), Bubble/Selection on twelve values, the editor entry points and a rearranged V10 layout. Captures were made against app `346e84b`, on 15–16 November, after pulling this documentation repo to `99990d0`. Inputs, settings, actions, source revision and fresh workflow checks are recorded in the pack. The checked subset includes paused motion with a fixed frame, a local decision note, final hover paths, preview versus Apply and a panel move preserving the run. Both exported MP4s were decoded and played locally.
 
 This verifies the selected captures, not the entire proposed demo or a timed Zoom rehearsal. No application source was changed and the complete project test suite was not rerun. The wider contribution map, historical evidence, attribution and evaluation limits still apply. Choose where each asset belongs during rehearsal rather than repeating the same feature in both the technical section and the shared demo.
+
+## CA deck with embedded media — 16 November 2026
+
+The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../presentation/VisuAlgo_CA_Presentation.pptx). It has 27 slides (22 timed, 1 Q&A and 4 backup) and was built from the GPT draft, which is kept unchanged in `presentation/drafts/`.
+
+Slides 14–18 embed five real-app clips of app `346e84b`:
+- the V10 panel move;
+- a vertex drag versus a weight edit;
+- LCA(6, 10), keep then lift;
+- Codex’s sorting clip;
+- Dijkstra paused motion with its note and the final hover.
+
+Backups 24 and 27 add the BST preview/Apply clip and a recursive DFS recap for the live demo. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.
+
+See the [media map](../presentation/CA_PRESENTATION_MEDIA_USAGE.md), the [changelog](../presentation/CA_DECK_CHANGELOG.md), the updated [master script](../presentation/VisuAlgo_CA_Master_Script.md) and the [preflight](../presentation/VisuAlgo_CA_Preflight.md).
+
+Still open:
+- Kerk’s confirmation of slides 7–12;
+- one slideshow click-through on the presenting computer;
+- a timed joint rehearsal.

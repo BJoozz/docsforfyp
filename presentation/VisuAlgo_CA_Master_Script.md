@@ -4,7 +4,7 @@ Working rehearsal draft • 16 November 2026 • 33 minutes plus 12 minutes for 
 
 ## How to use this version
 
-The PowerPoint contains 22 timed slides, one Q&A slide and three backup slides. English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 7–12 are an evidence-based draft for Kerk to confirm and replace with his current details where necessary. No fabricated benchmarks or completed engine integration are claimed.
+The PowerPoint contains 22 timed slides, one Q&A slide and four backup slides (slide 27, a DFS recap clip, was added on 16 November as a fallback for the live demo). Slides 14–18, 24 and 27 embed real-app clips; see [the media map](CA_PRESENTATION_MEDIA_USAGE.md). English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 7–12 are an evidence-based draft for Kerk to confirm and replace with his current details where necessary. No fabricated benchmarks or completed engine integration are claimed.
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
@@ -29,9 +29,12 @@ Owner confirmations: editing, playback and comparison were early goals discussed
 
 **On slide**
 
+- VisuAlgo+
 - Rebuilding interactive algorithm visualization
-- Truong Van Quoc Bao and Kerk Tai Heng
-- Supervisor: A/P Steven Halim
+- Truong Van Quoc Bao and Kerk Tai Heng · Supervisor: A/P Steven Halim
+- NUS School of Computing · CP4101 Continuous Assessment · 16 November 2026
+
+**Visual:** Current app screenshot beside the title: a Dijkstra step with its floating note (app 346e84b).
 
 **English script**
 
@@ -45,9 +48,11 @@ Good afternoon. We are Bao and Kerk, and our project is VisuAlgo+. We are rebuil
 
 **On slide**
 
-- More convenient graph editing
-- Richer interaction on the canvas
-- Sorting comparison on the same input
+- More convenient graph editing: draw and change the graph you are studying, with parallel and curved edges handled clearly
+- Richer interaction on the canvas: inspect a step, move things and see why a decision happens
+- Sorting comparison on the same input: several algorithms on one dataset, side by side
+
+**Visual:** Three cards, each with a crop of today's prototype; footer: directions proposed by Prof. Halim in early weekly meetings.
 
 **English script**
 
@@ -61,9 +66,11 @@ VisuAlgo already lets students explore their own inputs and follow algorithms st
 
 **On slide**
 
-- Shared components already exist
-- Module-specific logic complicates common changes
-- New interactions need clearer state boundaries
+- Shared components already exist: for example, a graph widget used by several topics
+- Module-specific logic complicates common changes: input handling and visual-state building live inside each topic
+- New interactions need clearer state boundaries: comparison panes need their own state but shared controls
+
+**Visual:** Simplified diagram: three original graph topics, each with its own input handling and state building, over one shared graph widget; consequence: one editing change means coordinated changes and checks across every topic.
 
 **English script**
 
@@ -77,9 +84,12 @@ The original platform has grown through contributions over many years. It alread
 
 **On slide**
 
-- A reusable visualization and interaction layer
-- A renewed website and execution foundation
-- A working prototype with further integration ahead
+- A reusable visualization and interaction layer · now: Graph, Tree and Sorting share one V10 shell · next: stabilize the shown workflows
+- A renewed website and execution foundation · now: site with catalogue and routes; separate C++/WebAssembly engine foundation · next: connect them to the visualizers
+- A working prototype with further integration ahead · now: students tried V10 in Week 10 · next: validate, then an initial release around March 2027 (target)
+- Current boundary: the visualizers run TypeScript algorithms in the browser; the engine is separate and connecting it is Semester 2 work
+
+**Visual:** Three objective cards with NOW and NEXT chips, and a boundary band.
 
 **English script**
 
@@ -97,6 +107,8 @@ Our objectives are to improve interaction across topics, build clearer boundarie
 - Tree: structural operations and ancestor information
 - Sorting: independent runs with shared controls
 
+**Visual:** Real stills of the standalone builds, rebuilt at their last documented commits (5fc06a0, c8b14e6, 46ce0a7, 9236a65) and captured on 16 Nov 2026: Graph prototype 1 run view, the Graph rewrite with one canvas, the Tree prototype's Binary Lifting table, and Sorting Room with two panes. Not the current app.
+
 **English script**
 
 The early prototypes were experiments in how to achieve the goals we had discussed with Prof. Halim. The first Graph prototype used separate editing and running views. In the standalone Graph rewrite, I kept one canvas and separated input, positions and playback. That let a learner move a vertex while continuing to inspect the same algorithm step. For Tree, I explored operations that change the structure, and how to inspect a proposed result before applying it. Binary Lifting also required a tree and an ancestor table to explain one query together. Sorting explored a different interaction: several algorithms receive the same array, maintain their own states and advance through shared controls. Each prototype therefore tested a different requirement. The standalone Graph rewrite is distinct from the later layout named V2. I will use those names separately throughout the presentation.
@@ -109,9 +121,12 @@ The early prototypes were experiments in how to achieve the goals we had discuss
 
 **On slide**
 
-- Bao: visualizers, execution, shell and integration
-- Kerk: design system, engine and infrastructure
-- Joint design decisions with supervisor feedback
+- Bao: visualizers, algorithm execution, the V10 shell core and site integration
+- Kerk: design system, engine foundation and infrastructure; organised user feedback; consolidated the application
+- Joint design decisions with supervisor feedback: V10 decided together; Bao implemented its core model, Kerk refined and consolidated it
+- Requirements carried forward: keep the drawing available · familiar playback across topics · topic-specific information alongside
+
+**Visual:** Two contributor cards, a joint band and three requirement chips.
 
 **English script**
 
@@ -129,6 +144,8 @@ We divided the work around our strengths, while discussing the interface togethe
 - V2 split rails and V7 docks
 - Comparable functionality across both builds
 
+**Visual:** Schematic flow (drawings, not screenshots): nine wireframes → V2 rails and V7 docks → V10 (Week 9).
+
 **English script**
 
 The design process explored nine candidate visualization-page layouts. After an early user survey, Bao and I selected V2, with split rails, and V7, with draggable docks, for functional prototypes. Bao implemented Graph, Tree and Sorting in both layouts using the design system. Keeping comparable functionality helped us discuss the interface rather than compare unrelated features. Split rails provided a familiar arrangement for supporting information. Docks allowed users to move panels around the drawing. We used the working builds and discussions to decide which properties to retain. This early layout survey was separate from the Week 10 user trial. The purpose of the functional prototypes was to explore these choices in use.
@@ -143,9 +160,11 @@ The design process explored nine candidate visualization-page layouts. After an 
 
 **On slide**
 
-- A persistent central canvas
-- Tab groups around the drawing
-- One application after consolidation
+- A persistent central canvas: stays mounted while panels move
+- Tab groups around the drawing: left, right and bottom; move, split, resize
+- One application after consolidation: Graph, Tree and Sorting share this shell
+
+**Visual:** Current app screenshot (Tree Editor, app 346e84b, 16 Nov 2026) with coloured outlines for the tab groups, the canvas and the shared playback bar.
 
 **English script**
 
@@ -162,9 +181,11 @@ In Week 9, we discussed combining selected strengths of V2 and V7 into V10. The 
 **On slide**
 
 - Site host: routes, top bar and theme
-- Visualizers: input, execution and playback
+- Visualizers: input, execution and playback (TypeScript in the page)
 - Shared layer: layout and presentation utilities
 - Separate engine foundation awaiting integration
+
+**Visual:** Layered diagram: site host over three visualizer boxes (Graph and Tree: React Flow with D3 layout; Sorting: Canvas 2D) over the shared layer; the engine is a dashed box to the side.
 
 **English script**
 
@@ -184,6 +205,8 @@ The prototype is one React and TypeScript application built with Vite. The site 
 - Execution inside a worker
 - Protocol messages connect the page and engine
 - Python tracing explored through Pyodide
+
+**Visual:** Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly engine, Pyodide); band with the design question about exposing state without depending on page layout.
 
 **English script**
 
@@ -205,6 +228,8 @@ The engine foundation explores running C++ algorithms compiled to WebAssembly in
 - Current visualizers: sequences or operation history
 - Integration must preserve identity and step meaning
 
+**Visual:** Two cards marked ≠, over a band with three chips: node and edge identity, the same run across edits and restarts, state/pseudocode/notes agree on a step.
+
 **English script**
 
 The engine and visualizers currently use different history models. The documented engine keeps a reversible journal of records for each step, and can move backward through those records. The current Graph and Tree visualizers build their step sequences when a run starts. Sorting pulls operations from generators and retains history for seeking. Connecting these systems requires an explicit translation, rather than only replacing an algorithm function. Node and edge identities must stay consistent, particularly for parallel edges. The same run must remain identifiable when the user changes input or starts again. The displayed state, pseudocode and explanatory text must also agree on what a step means. Bao carried out an earlier integration experiment, including stable edge identities and a browser client. That experiment remains separate from the delivered visualizers. Our proposed next step is one complete Graph integration, checked against the current TypeScript behavior before expanding coverage.
@@ -222,6 +247,8 @@ The engine and visualizers currently use different history models. The documente
 - One site controls navigation and theme
 - Visualizers supply topic-specific controls
 - Shared infrastructure supports further integration
+
+**Visual:** Site frame with three visualizer slots and an infrastructure card; attribution line: Bao built the functional catalogue, routes and host adapters; Kerk consolidated and refined.
 
 **English script**
 
@@ -242,6 +269,8 @@ The website needs to host the visualizers without duplicating their controls. Th
 - V10 shell and site integration
 - Step explanations and validation
 
+**Visual:** 2×2 cards with a one-line detail and a small current-app thumbnail each.
+
 **English script**
 
 My contribution covers the visualizer foundations, algorithm execution and operation extensions, the V10 shell, and integration into the site. I also worked on how individual steps communicate their meaning and how the behavior is tested. I will show selected decisions across these areas. The examples connect the underlying state model to something a user can directly observe.
@@ -254,17 +283,21 @@ My contribution covers the visualizer foundations, algorithm execution and opera
 
 **On slide**
 
-- The canvas stays mounted
-- One model governs sizes and valid drops
-- Saved layouts recover safely
+- The canvas stays mounted: moving Status does not reload the drawing or the run
+- One model governs sizes and valid drops: the drop preview uses the same geometry as the result
+- Saved layouts recover safely: versioned and checked, repaired or reset
+
+**Visual:** Clip `02_v10_move_panel.mp4` (7.3 s, app 346e84b): Status dragged into the left group at frame 12/21, then Settings → Reset panel layout; the frame and the drawing never change.
 
 **English script**
 
-The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. [Move Status into another group while paused, then reset the layout.] The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
+The V10 shell is a stateful layout system. Moving a panel must preserve the canvas and the panel's input state. The layout model keeps groups in the left, right and bottom regions and enforces size constraints. One resolver handles the geometry used for both the displayed layout and drop previews. This helps the preview match what the user will get after releasing the tab. Saved layouts are versioned and checked when loaded, with repair or a default when needed. Each visualizer supplies its own panels and minimum drawing space. [Press → to play the clip: Status moves into the left group while the run stays at frame 12, then Reset panel layout puts it back.] The implementation trades the freedom of a completely general split layout for a stable drawing area and predictable interactions.
 
-**Delivery cue:** 20 seconds: move one tab while paused, show unchanged canvas/frame, then reset. Static fallback: describe the group model.
+**Delivery cue:** Clip, 7.3 s: 0–1.0 s paused at 12/21; 1.0–2.6 s Status dragged onto the left group (drop preview); 2.6–4.5 s Status beside Action and E-Lecture, still 12/21; 4.5–5.7 s Settings → Reset panel layout; ends at 12/21. Live alternative only if time allows.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/02_v10_move_panel.mp4
 
 ### 15. Input, layout and playback
 
@@ -272,17 +305,21 @@ The V10 shell is a stateful layout system. Moving a panel must preserve the canv
 
 **On slide**
 
-- Move a vertex: preserve the run
-- Change an edge weight: invalidate the run
-- Derive highlights from the selected step
+- Move a vertex: preserve the run (changes Layout only)
+- Change an edge weight: invalidate the run (changes the Document)
+- Who owns which state: Document (nodes, edges, weights) · Layout (positions) · Session (run and selected step) · Presentation (highlights derived from the step)
+
+**Visual:** State-ownership diagram beside clip `03_graph_drag_then_edit.mp4` (8.0 s): B dragged at frame 12/21, then B → A changed from 1 to 5 in Draw graph → Edges, giving NO RUN.
 
 **English script**
 
-Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. I separate the graph document, layout, playback session and presentation. The document contains nodes, edges and weights. Layout contains positions. A session records the run and selected step. Presentation derives the visible highlights and badges from that step. [Drag one vertex on a paused run, then edit a weight.] The drag preserves the current step. The semantic edit invalidates the old run so we cannot keep showing a result for the wrong input. Stable edge identity also lets us distinguish parallel edges. The aim is consistent interaction backed by clear state ownership.
+Moving a vertex changes the drawing. Changing an edge weight changes the problem the algorithm is solving. I separate the graph document, layout, playback session and presentation. The document contains nodes, edges and weights. Layout contains positions. A session records the run and selected step. Presentation derives the visible highlights and badges from that step. [Press → to play the clip.] Dragging B preserves the current step: the counter stays at 12. Changing the weight of B to A from 1 to 5 edits the document, so the old run is invalidated and the footer says No run. We cannot keep showing a result for the wrong input. Stable edge identity also lets us distinguish parallel edges. The aim is consistent interaction backed by clear state ownership.
 
-**Delivery cue:** 20 seconds: paused vertex drag, then weight edit and visible run reset. Disable Live layout for this comparison.
+**Delivery cue:** Clip, 8.0 s: 0–0.8 s paused at 12/21 relaxing B → A; 0.8–1.8 s B dragged, still 12/21; 3.0–4.5 s Draw graph → Edges, "B A 1" selected; 4.5–8.0 s typing 5: label 5, NO RUN, NO ACTIVE RUN. Live layout was off. The app has no on-canvas weight edit.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_GRAPH_CASE.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4
 
 ### 16. LCA: explaining a decision to stay
 
@@ -290,17 +327,21 @@ Moving a vertex changes the drawing. Changing an edge weight changes the problem
 
 **On slide**
 
-- Query: LCA(6, 2) = 4
-- Both candidate ancestors are 8
-- Keep u and v at this step
+- Query: LCA(6, 10) = 8 (same depth, so no depth lift)
+- k = 1: both ancestors are 8 (keep u and v: nothing moves, the note says why)
+- k = 0: ancestors 4 and 12 differ (lift both one level; their parent 8 is the answer)
+
+**Visual:** Clip `01b_lca_keep_then_jump.mp4` (10.3 s): notes "same ancestor · keep u, v" and "differ · lift both". Alternative clip `01_lca_equal_ancestors.mp4` shows LCA(6, 2) = 4.
 
 **English script**
 
-Binary Lifting is a useful example because a query has several stages and connects a tree with an ancestor table. For this small tree, we query nodes 6 and 2. At the shown step, both candidate ancestors are 8, so the algorithm keeps u and v where they are. The drawing changes very little, but a meaningful decision has happened. A short floating note explains that decision near the relevant ancestor. The tree, table, pseudocode and Status refer to the same selected step. [Advance into the equal-ancestor step, point to the note and the table, then continue to the answer 4.] During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. Status remains available for the full explanation. We still need to evaluate whether this reduces attention switching.
+Binary Lifting is a useful example because a query has several stages and connects a tree with an ancestor table. On this small tree we query 6 and 10. They have the same depth, so there is no depth-lifting phase. [Press → to play the clip.] At k = 1 both candidate ancestors are 8, so the algorithm keeps u and v where they are. Nothing moves on the drawing, but a meaningful decision has happened, and the short note above 8 says so. At k = 0 the candidates are 4 and 12. They differ, so both cursors lift one level; now they share the parent 8, which is the answer. The tree, the table reads in the strip under the drawing, the pseudocode and Status all describe the same selected step. During the Week 10 trial, I observed that less experienced users still depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response: bring a short explanation closer to the object being discussed. Status remains available for the full explanation. We still need to evaluate whether this reduces attention switching.
 
-**Delivery cue:** 35 seconds: root 8; edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14; query 6 and 2. Advance with Next to trigger note. Do not promise a depth-balancing move for this equal-depth pair.
+**Delivery cue:** Clip, 10.3 s: frame 2/7 (k = 2, both 8); 0.9 s frame 3, k = 1, note "same ancestor · keep u, v" above 8; 2.8 s frame 4, k = 0, 4 and 12 differ, "differ · lift both"; 4.9 s frame 5, u = 4, v = 12, "↑ 1 level"; 6.7 s same parent 8; 8.0 s LCA(6, 10) = 8. Tree: root 8; edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14. Do not describe a depth-balancing move.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4 (alternative: 01_lca_equal_ancestors.mp4, LCA(6, 2) = 4)
 
 ### 17. Sorting comparison
 
@@ -308,17 +349,22 @@ Binary Lifting is a useful example because a query has several stages and connec
 
 **On slide**
 
-- The same dataset in every pane
-- One clock, independent operation streams
-- Retained history supports seeking
+- The same dataset in every pane: 12 values, Bubble and Selection
+- One clock, independent operation streams: both panes pause at operation 48
+- Retained history supports seeking: the clip ends with Last, a seek to the final operation
+- Operation counts are not CPU time
+
+**Visual:** Codex clip `02_sorting_shared_clock.mp4` (10.4 s), poster at operation 48.
 
 **English script**
 
-Sorting comparison gives every pane the same input while keeping its execution state independent. A shared clock advances the active panes by logical operations. They can show different actions and finish at different times. Generators produce operations as needed. Upcoming operations use bounded buffering, while retained history supports backward seeking. Keeping that history has a memory cost on long runs. [Show two panes on the same input and move backward once.] The counters describe the visualization's operations. They are not CPU runtime measurements, and equal operation indices do not guarantee equal computational cost. This makes the comparison useful for examining behavior, while keeping the interpretation honest.
+Sorting comparison gives every pane the same input while keeping its execution state independent. A shared clock advances the active panes by logical operations. They can show different actions and finish at different times. Generators produce operations as needed. Upcoming operations use bounded buffering, while retained history supports backward seeking. Keeping that history has a memory cost on long runs. [Press → to play the clip: both panes pause together at operation 48, resume, then Last seeks to the end.] The counters describe the visualization's operations. They are not CPU runtime measurements, and equal operation indices do not guarantee equal computational cost. This makes the comparison useful for examining behavior, while keeping the interpretation honest.
 
-**Delivery cue:** 20 seconds: use two panes for a live explanation. The historical still shows the four-pane option.
+**Delivery cue:** Codex clip, 10.4 s: Bubble and Selection on 8, 3, 10, 1, 6, 4, 12, 2, 9, 5, 11, 7 at 12 operations/s; both pause at operation 48 (Bubble 27 compares, 19 swaps; Selection 40 compares, 4 swaps); Last ends at 92 and 86 operations. Live alternative: step back once with Prev, only if time allows.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4
 
 ### 18. Pause and inspect the result
 
@@ -326,17 +372,21 @@ Sorting comparison gives every pane the same input while keeping its execution s
 
 **On slide**
 
-- Paused motion keeps the current relationship visible
-- The algorithm frame stays fixed
-- Final Dijkstra hover reveals a computed path
+- Paused motion keeps the current relationship visible: the frame counter stays at 11
+- A short note explains the step on arrival: frame 12, 1 + 1 < 4 · update
+- Final Dijkstra hover reveals a computed path: T distance 4 · A distance 2, no rerun
+
+**Visual:** Clip `04_dijkstra_note_pause_hover.mp4` (10.2 s).
 
 **English script**
 
-I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Pause and show the fixed counter, then move to the final Dijkstra frame and hover two targets.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
+I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Press → to play the clip: frame 11 stays fixed while the emphasis moves; Next shows the note at frame 12; Last, then hover T and A.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
 
-**Delivery cue:** 30 seconds: prepared Dijkstra tab; Next into a relaxation, pause with counter visible, Last, hover two vertices. Static image cannot demonstrate these motions.
+**Delivery cue:** Clip, 10.2 s: 0–2.5 s paused at 11/21, streak and glow moving; 2.5 s Next to 12/21, "1 + 1 < 4 · update" above A; 4.7 s Last, 21/21; 5.9 s hover T: S → B → A → T, distance 4; 7.9 s hover A: S → B → A, distance 2. Point at the B → A edge while the counter reads 11.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4
 
 ### 19. Editors for exploring an example
 
@@ -347,6 +397,8 @@ I also separate visual emphasis from algorithm progress. When playback pauses, t
 - Begin with a graph or tree
 - Try compatible algorithms on the example
 - Build small tests and investigate conjectures
+
+**Visual:** Current Editors section of the home page (app 346e84b) above a three-step flow; limits line: custom input already exists in VisuAlgo, this is a clearer entry point; adoption not measured.
 
 **English script**
 
@@ -363,6 +415,8 @@ The Graph and Tree Editor entry points support a workflow that begins with an ex
 - Graph Editor: Dijkstra and recursive DFS
 - Tree Editor: a prepared LCA query
 - Change an example and inspect the result
+
+**Visual:** Timeline of the four demo steps with their time ranges, and a fallback card: if a live step fails, return to the clips on slides 15–18.
 
 **English script**
 
@@ -384,10 +438,12 @@ Bao: In Tree Editor, I will use the small tree from the LCA example. We can insp
 
 **On slide**
 
-- 1 Nov 2026: 3,273 unit tests and 151 Chromium cases
+- 1 Nov 2026: 3,273 unit tests and 151 Chromium cases (snapshot, app 662e7b3; not a rerun today)
 - Week 10: independent use, post-use test and feedback
 - Frequent Status reading motivated floating text
 - Learning impact remains unmeasured
+
+**Visual:** Two stat callouts, a Week 10 card, a design-response band and an amber limits band.
 
 **English script**
 
@@ -412,6 +468,8 @@ Bao: My recollection is that newer learners still had to read Status frequently,
 - Evaluate revised explanations with defined tasks
 - Target an initial release around March 2027
 
+**Visual:** Four-step roadmap, each with a one-line detail; limits line: March 2027 is a target.
+
 **English script**
 
 Kerk: Our next integration milestone is one Graph algorithm working across the full application. The input, engine execution and visualizer playback should agree on node and edge identity, step meaning and cancellation. We can check the result against the current TypeScript implementation before expanding the integration.
@@ -428,8 +486,10 @@ Both: We are targeting an initial public release around March 2027, depending on
 
 **On slide**
 
+- Questions
 - Interactive visualization foundations
 - A working prototype and a defined integration path
+- Evidence and media: github.com/BJoozz/docsforfyp
 
 **English script**
 
@@ -443,15 +503,21 @@ Thank you. We are happy to discuss the design decisions, implementation trade-of
 
 **On slide**
 
-- Inspect intermediate structures
-- Step backward through the preview
-- Apply the completed result to the input
+- Inspect intermediate structures: BST Insert(5), the new node is a preview
+- Step backward through the preview: the committed tree is unchanged
+- Apply the completed result to the input: the tree text gains the edge 6 5
+
+**Visual:** Clip `05_bst_preview_apply.mp4` (8.6 s).
 
 **English script**
 
-Heap insertion illustrates a mutating operation. The run can display temporary structures without committing every frame to the editor. A learner can inspect and reverse the preview, then apply the completed result. Changing the operation or relevant input invalidates the previous preview. This is a different semantic requirement from a read-only LCA query.
+A mutating operation needs a different contract from a read-only query such as LCA. BST Insert(5) runs as a preview: the search path and the new node are visible, and I can step backward through the preview, but the tree document and its text input stay unchanged. Only Apply commits the completed result; the tree text then gains the edge 6 5 and the run ends. Switching to another operation discards the preview. Heap insertion follows the same contract, with an array view alongside the tree.
+
+**Delivery cue:** Clip, 8.6 s: preview complete at 8/8 (text still 6 lines); Previous to 7/8 and 6/8; Next back to 8/8; 5.2 s Apply insertion, NO RUN; 6.2 s Edit tree shows "6 5" (8 nodes, 7 edges).
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4
 
 ### 25. Backup: correctness and limitations
 
@@ -462,6 +528,8 @@ Heap insertion illustrates a mutating operation. The run can display temporary s
 - Independent oracle for cut vertices and bridges
 - Stable edge identity for parallel edges
 - Long sorting histories still cost memory
+
+**Visual:** Historical still (app 662e7b3, 1 Nov 2026), now larger.
 
 **English script**
 
@@ -480,24 +548,48 @@ For cut vertices and bridges, an independent oracle removes each candidate and c
 - Week 10 trial addendum
 - Source links in each slide’s notes
 
+**Visual:** Four evidence cards with repository paths.
+
 **English script**
 
-Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: BJoozz/visualgo-plus-design. Screenshots in this deck are historical captures of app commit 662e7b3 documented in figures/README.md. The November 16 clarification records early supervisor direction, the LCA selection and Bao's recollection about Status reading. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
+Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slide 7 is schematic. The November 16 clarification records early supervisor direction, the LCA selection and Bao's recollection about Status reading. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
 
+### 27. Backup: recursive DFS recap (demo fallback)
+
+**Backup / demo fallback, outside timed talk**
+
+**On slide**
+
+- Same graph, another question: recursive DFS from S on the Dijkstra example
+- The final frame replays the DFS tree: glow and streak in visit order, S → A → T, then S → B
+- Different from Dijkstra's hover: a recap of the traversal, not a path query
+
+**Visual:** Clip `06_dfs_recursive_recap.mp4` (8.5 s): Last to 21/21, visited S, A, T, B; the final frame replays the DFS tree about every 3 s.
+
+**English script**
+
+Use this slide only if the live Graph Editor part of the demo on slide 20 fails. Recursive DFS runs on the same S, A, B, T graph as the Dijkstra clips. On its final frame, the drawing replays the DFS tree in visit order every few seconds: S to A to T, then S to B. This is a different final behaviour from Dijkstra's hover path.
+
+**Delivery cue:** Press → to play the clip.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4
+
 ## Demo preparation and remaining work
 
-The deck includes real historical stills. No fresh recording, current-build rehearsal or motion clip is included. Keep a separate browser tab ready for each short technical example. Confirm the presentation build and rehearse once with both speakers before using the timing.
+Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, recorded 15–16 November), so no window switching is needed during the technical section. The live demo stays on slide 20. Each clip has a poster frame on the slide as its static fallback; press → or click to play. Details: [media map](CA_PRESENTATION_MEDIA_USAGE.md) · [changelog](CA_DECK_CHANGELOG.md).
 
-| Clip or live action | Slide | Target | Fallback |
+| Clip or live action | Slide | Length | Fallback |
 |---|---:|---:|---|
-| Panel move while paused | 14 | 20 sec | Explain model and stable canvas |
-| Vertex drag versus weight edit | 15 | 20 sec | Existing BFS still and verbal state distinction |
-| LCA equal-ancestor decision | 16 | 35 sec | Embedded LCA still |
-| Sorting shared input and reverse step | 17 | 20 sec | Embedded four-pane still |
-| Dijkstra pause and final path hover | 18 | 30 sec | Embedded relaxation still; describe motion explicitly |
-| Joint editor workflow | 20 | 3 min | Return to technical examples |
+| V10: move Status while paused, then reset | 14 | 7.3 s clip | Poster: Status in the left group at 12/21 |
+| Vertex drag versus weight edit | 15 | 8.0 s clip | Poster: after the edit, NO RUN |
+| LCA(6, 10): keep, then lift | 16 | 10.3 s clip | Poster: frame 4/7, "differ · lift both" |
+| Sorting shared input and clock | 17 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
+| Dijkstra paused motion, note and final hover | 18 | 10.2 s clip | Poster: frame 12/21 with the note |
+| Joint editor workflow | 20 | 3 min live | Clips on slides 15–18; backup 27 for the DFS recap |
 
 ### Prepared Graph input
 
@@ -514,7 +606,7 @@ B D 2
 
 ### Prepared LCA input
 
-Root 8. Query 6 and 2. Expected LCA 4. Both nodes have equal depth, so this example demonstrates the equal-ancestor decision, not a visible depth-balancing phase.
+Root 8. The slide-16 clip queries 6 and 10: at k = 1 both ancestors are 8 (keep), at k = 0 they are 4 and 12 (lift both), so LCA(6, 10) = 8. The alternative query 6 and 2 keeps u and v at every step; LCA(6, 2) = 4. Both pairs have equal depth, so neither shows a depth-balancing phase.
 
 ```text
 8 4
@@ -531,13 +623,15 @@ Root 8. Query 6 and 2. Expected LCA 4. Both nodes have equal depth, so this exam
 - Disable Live layout for the graph drag comparison.
 - Check Animate paused steps and reduced-motion preferences.
 - Use Next to trigger floating text; verify the note remains legible long enough.
-- Pin a stable build and record short backup clips after verifying interactions.
+- The clips come from main 346e84b; if the demo build differs, check the slide-20 steps on it.
+- Click through slides 14–18, 24 and 27 once in slideshow mode; each clip should play on →.
 - Kerk confirms slides 7–12 and the first integration algorithm.
 - Keep March 2027 as a target, not a guaranteed release date.
-- If running late, shorten slide 20 to Graph only and use the LCA still already shown.
+- If running late, shorten slide 20 to Graph only; the LCA clip was already shown on slide 16.
 
 ## Source notes
 
+Deck media: https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/README.md
 Historical screenshots: https://github.com/BJoozz/docsforfyp/blob/main/figures/README.md
 Test evidence: https://github.com/BJoozz/docsforfyp/blob/main/04_figures_and_validation.md
 Trial record: https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
