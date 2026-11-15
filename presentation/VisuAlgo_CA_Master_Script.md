@@ -354,7 +354,7 @@ Live layout was off. The app has no on-canvas weight edit.
 
 ### 16. Sorting comparison
 
-**Bao · Algorithm Visualizers · 20:55–22:10**
+**Bao · Algorithm Visualizers · 20:55–21:55**
 
 **On slide**
 
@@ -377,7 +377,7 @@ Sorting comparison gives every pane the same input while keeping its execution s
 
 ### 17. LCA: explaining a decision to stay
 
-**Bao · Algorithm Visualizers · 22:10–23:50**
+**Bao · Algorithm Visualizers · 21:55–23:50**
 
 **On slide**
 

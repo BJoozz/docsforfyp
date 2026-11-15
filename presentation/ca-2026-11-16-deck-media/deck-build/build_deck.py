@@ -763,7 +763,7 @@ SOURCE
 {GH}docs/CA_PRESENTATION_GRAPH_CASE.md
 Media: {MEDIA}clips/03_graph_drag_then_edit.mp4 (app 346e84b, recorded 16 Nov 2026). Codex's earlier clip presentation/ca-2026-11-16/02_short_clips/01_graph_paused_step.mp4 shows a similar paused drag.""")
 
-set_notes(S[16], f"""Bao | Algorithm Visualizers | 100 seconds including the clip
+set_notes(S[16], f"""Bao | Algorithm Visualizers | 115 seconds including the clip
 
 Binary Lifting is one of the topics I added. A query has several stages and reads an ancestor table. Here I re-rooted a ten-node tree at 16 and asked for the LCA of 8 and 20. [Press → to play the clip.] First the deeper node must catch up: the gap is 2, so at k = 1, 8 lifts two levels to 4. Then the two cursors look for the highest ancestors that differ. At k = 3, 2 and 1 both candidates are 16, so they stay. At k = 0 the candidates are 10 and 18, so both lift, and their shared parent, 16, is the answer. In this run no node ever moves, and five of the twelve steps only decide to stay. Without a note, those steps look the same. With floating text, the reason sits beside the node, so the learner can read it without leaving the tree. Status keeps the full sentence, and the pseudocode and the table reads agree with it. During the Week 10 trial, I observed that less experienced users depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response. We still need to evaluate whether it reduces attention switching. The same rooted tree and ancestor queries are also groundwork for more advanced tree topics later.
 
@@ -780,7 +780,7 @@ SOURCE
 Media: {MEDIA}clips/01c_lca_reroot_8_20.mp4 (app 346e84b, recorded 16 Nov 2026); stills in {MEDIA}stills/
 Historical still of LCA(6, 2): {GH}figures/F5-lca-query-6-2-frame2-note.png (app 662e7b3)""")
 
-set_notes(S[17], f"""Bao | Algorithm Visualizers | 75 seconds including the clip
+set_notes(S[17], f"""Bao | Algorithm Visualizers | 60 seconds including the clip
 
 Sorting comparison gives every pane the same input while keeping its execution state independent. A shared clock advances the active panes by logical operations. They can show different actions and finish at different times. Generators produce operations as needed. Upcoming operations use bounded buffering, while retained history supports backward seeking. Keeping that history has a memory cost on long runs. [Press → to play the clip.] The counters describe the visualization's operations. They are not CPU runtime measurements, and equal operation indices do not guarantee equal computational cost. This makes the comparison useful for examining behavior, while keeping the interpretation honest.
 

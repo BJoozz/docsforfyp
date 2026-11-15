@@ -76,7 +76,7 @@ What the new run shows, read from the page while recording:
 - Both cursors then stay at k = 3, 2 and 1, where both ancestors are 16, and lift at k = 0, where the ancestors are 10 and 18. LCA(8, 20) = 16, as worked out by hand beforehand.
 - Nine of the twelve frames carry a floating note and no node moves in any of them. The slide says so, and shows three of the notes as crops beside the clip.
 
-The slide still says that the benefit of floating text is a design intention and has not been measured.
+The slide still says that the benefit of floating text is a design intention and has not been measured. Its script is about 215 words, so 15 seconds moved from the Sorting slide to it: Sorting has 60 seconds and LCA 115, and the section still ends at 25:10.
 
 ## Slide by slide
 
