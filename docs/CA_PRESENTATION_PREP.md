@@ -205,3 +205,8 @@ Project references:
 ## Technical-case continuation — 15 November 2026
 
 [Graph editing and reproducible playback](CA_PRESENTATION_GRAPH_CASE.md) now contains the first technical case: slide wording, a 2–3 minute English script, proposed demo, Q&A, source references and a commit-based timing fix. Code and existing tests were inspected; the demo has not yet been rehearsed and tests were not rerun during this preparation.
+
+
+## Broader technical review — 15 November 2026
+
+The initial three-case shortlist was too narrow to represent the full contribution. See [Technical contribution map](CA_PRESENTATION_CONTRIBUTION_MAP.md) for nine presentation groups mapped to C1–C14, current-source checks, post-report commits and a revised breadth-first outline. V10 shell, site integration, Tree operations and algorithm validation need explicit visibility. The graph case remains a detailed draft, not the sole or necessarily first main technical story. Next prepare the contribution overview and V10 case before committing to the final case selection.
