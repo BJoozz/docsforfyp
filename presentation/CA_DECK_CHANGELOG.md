@@ -26,11 +26,11 @@ There are seven embedded MP4s, all real recordings of app `346e84b`.
 | 15 | `03_graph_drag_then_edit.mp4` | 8.0 s | B dragged at frame 12/21 (the run is kept), then B → A changed from 1 to 5 (NO RUN) |
 | 16 | `01b_lca_keep_then_jump.mp4` | 10.3 s | LCA(6, 10): keep at k = 1 with its note, lift at k = 0, answer 8 |
 | 17 | `02_sorting_shared_clock.mp4` (Codex pack) | 10.4 s | Bubble and Selection on the same 12 values; both pause at operation 48; Last |
-| 18 | `04_dijkstra_note_pause_hover.mp4` | 10.2 s | Paused motion at 11/21, the note at 12/21, then hover T (distance 4) and A (distance 2) at 21/21 |
+| 18 | `04b_dijkstra_big_note_pause_hover.mp4` | 14.0 s | Dijkstra on the nine-vertex Big preset (visualgo.net's TESSELLATION): paused motion at 17/53 on edge 2 → 3, the note `12 + 14 < 33 · update` at 18/53, then hover 8 (distance 42) and 4 (distance 46) at 53/53 |
 | 24 (backup) | `05_bst_preview_apply.mp4` | 8.6 s | BST Insert(5): preview, step back, Apply; the tree text gains `6 5` |
 | 27 (backup, new) | `06_dfs_recursive_recap.mp4` | 8.5 s | Recursive DFS on the same graph and its final recap |
 
-The main talk uses five clips (slides 14–18), about 55 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
+The main talk uses five clips (slides 14–18), about 59 seconds in total. They replace the live actions the draft planned for those slides. The live demo stays on slide 20.
 
 ## Slide by slide
 
@@ -53,7 +53,7 @@ The main talk uses five clips (slides 14–18), about 55 seconds in total. They 
 | 15 | Historical BFS still (F2) | State-ownership diagram and the drag/edit clip | rewritten around the clip |
 | 16 | Historical LCA(6, 2) still (F5) | Points and the LCA(6, 10) clip | rewritten for the new query; LCA(6, 2) kept as an alternative |
 | 17 | Historical four-pane still (F7) | Points and the Codex sorting clip | clip section added |
-| 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip | rewritten around the clip |
+| 18 | Historical Dijkstra still (F4) | Points (a note-on-arrival point added) and the Dijkstra clip on the nine-vertex Big preset (it replaced a first take on the four-vertex graph, `04_dijkstra_note_pause_hover.mp4`, which is kept) | rewritten around the clip |
 | 19 | Historical home page (F1) | Current Editors section above a three-step flow and a limits line | screenshot source updated |
 | 20 | Three lines | Demo timeline with time ranges and a fallback card | fallback sentence added |
 | 21 | Four lines | Stat callouts (dated snapshot), Week 10 card, design-response and limits bands | unchanged |

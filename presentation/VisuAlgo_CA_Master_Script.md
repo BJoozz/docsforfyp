@@ -379,21 +379,28 @@ Sorting comparison gives every pane the same input while keeping its execution s
 
 **On slide**
 
-- Paused motion keeps the current relationship visible: the frame counter stays at 11
-- A short note explains the step on arrival: frame 12, 1 + 1 < 4 · update
-- Final Dijkstra hover reveals a computed path: T distance 4 · A distance 2, no rerun
+- Paused motion keeps the current relationship visible: the counter stays at frame 17 while edge 2 → 3 is emphasised
+- A short note explains the step on arrival: frame 18, 12 + 14 < 33 · update
+- Final Dijkstra hover reveals a computed path: 8: 0 → 2 → 3 → 8, distance 42 · 4: distance 46
 
-**Visual:** Clip `04_dijkstra_note_pause_hover.mp4` (10.2 s).
+**Visual:** Clip `04b_dijkstra_big_note_pause_hover.mp4` (14.0 s): Dijkstra from 0 on the nine-vertex Big preset (visualgo.net's TESSELLATION). The first take, on the four-vertex S, A, B, T graph, `04_dijkstra_note_pause_hover.mp4`, is kept as an alternative.
 
 **English script**
 
-I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Press → to play the clip: frame 11 stays fixed while the emphasis moves; Next shows the note at frame 12; Last, then hover T and A.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
+I also separate visual emphasis from algorithm progress. When playback pauses, the frame counter stays fixed. Optional motion can continue to emphasize the current node or edge without advancing the computation. This helps the learner inspect a relationship for longer. Floating text handles the arrival of a step and explains a short verdict. These are different mechanisms. At Dijkstra's final frame, the user can hover a vertex to inspect its computed shortest path. The application derives that highlight from the stored result. DFS has a different final behavior: a moving recap of the visit order and traversal tree. [Press → to play the clip: frame 17 stays fixed while edge 2 → 3 is emphasised; Next shows the note at frame 18, and 3's distance drops from 33 to 26; Last, then hover 8 and 4.] Motion can be turned off, and reduced-motion behavior matters for accessibility.
 
-**Delivery cue:** Clip, 10.2 s: 0–2.5 s paused at 11/21, streak and glow moving; 2.5 s Next to 12/21, "1 + 1 < 4 · update" above A; 4.7 s Last, 21/21; 5.9 s hover T: S → B → A → T, distance 4; 7.9 s hover A: S → B → A, distance 2. Point at the B → A edge while the counter reads 11.
+**Delivery cue:** Clip, 14.0 s.
+- 0–3.0 s: paused at 17/53 (inspect 2 → 3, weight 14); the streak and glow move.
+- 3.0 s: Next to 18/53; "12 + 14 < 33 · update" beside 3, whose badge reads 33→26.
+- 6.0 s: Last, 53/53, 9 nodes settled.
+- 7.6 s: hover 8: 0 → 2 → 3 → 8, distance 42.
+- 10.6 s: hover 4: 0 → 2 → 3 → 4, distance 46.
+
+Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at slide size.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
 
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/04b_dijkstra_big_note_pause_hover.mp4
 
 ### 19. Editors for exploring an example
 
@@ -595,7 +602,7 @@ Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, reco
 | Vertex drag versus weight edit | 15 | 8.0 s clip | Poster: after the edit, NO RUN |
 | LCA(6, 10): keep, then lift | 16 | 10.3 s clip | Poster: frame 4/7, "differ · lift both" |
 | Sorting shared input and clock | 17 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
-| Dijkstra paused motion, note and final hover | 18 | 10.2 s clip | Poster: frame 12/21 with the note |
+| Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 18 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
 | Joint editor workflow | 20 | 3 min live | Clips on slides 15–18; backup 27 for the DFS recap |
 
 ### Prepared Graph input

@@ -16,10 +16,11 @@ try {
   foreach ($s in $pres.Slides) {
     foreach ($sh in $s.Shapes) {
       if ($sh.Type -ne 16) { continue }
-      $sh.MediaFormat.SetDisplayPicture($AtMs)
+      $at = [Math]::Min($AtMs, [int]$sh.MediaFormat.Length - 200)
+      $sh.MediaFormat.SetDisplayPicture($at)
       $name = Join-Path $OutDir ("decoded-{0:D2}.png" -f $s.SlideIndex)
       $s.Export($name, 'PNG', 1600, 900)
-      "slide {0}: frame at {1} ms decoded -> {2}" -f $s.SlideIndex, $AtMs, (Split-Path $name -Leaf)
+      "slide {0}: frame at {1} ms decoded -> {2}" -f $s.SlideIndex, $at, (Split-Path $name -Leaf)
     }
   }
 }

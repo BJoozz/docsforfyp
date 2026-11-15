@@ -6,7 +6,7 @@
 
 - **Editable PowerPoint, 27 slides:** [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx), with 22 timed slides, 1 Questions slide and 4 backup slides. Backup 27 is new: a recursive DFS recap that serves as a fallback for the live demo.
 - **Seven embedded real-app clips** with posters as static fallbacks:
-  - five in the main talk, on slides 14–18 (about 55 s in total);
+  - five in the main talk, on slides 14–18 (about 59 s in total);
   - two on the backup slides 24 and 27.
   - Press → or click to play a clip. On 16 November, PowerPoint decoded a frame from inside each clip.
   - [Media map](CA_PRESENTATION_MEDIA_USAGE.md) · [what changed from the draft](CA_DECK_CHANGELOG.md).
@@ -61,7 +61,7 @@
 | 15 | B dragged at 12/21; then B → A changed from 1 to 5 in Draw graph → Edges | Counter unchanged after the drag; NO RUN after the edit |
 | 16 | LCA(6, 10) on root 8, edges 8-4, 8-12, 4-2, 4-6, 12-10, 12-14 | k = 1 note "same ancestor · keep u, v"; k = 0 "differ · lift both"; answer 8. No depth-balancing move (equal depths) |
 | 17 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
-| 18 | Paused at 11/21, Next to 12/21 with `1 + 1 < 4 · update`, Last, hover T then A | Paused motion is subtle: point at the B → A edge while the counter reads 11 |
+| 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |
 | 20 | **Live**: Graph Editor (Dijkstra + recursive DFS), then Tree Editor LCA | Narrate only the current action |
 
 Live alternatives for slides 14–18 are in the notes, for use only if time allows.

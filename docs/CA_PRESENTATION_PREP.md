@@ -233,7 +233,7 @@ Slides 14–18 embed five real-app clips of app `346e84b`:
 - a vertex drag versus a weight edit;
 - LCA(6, 10), keep then lift;
 - Codex’s sorting clip;
-- Dijkstra paused motion with its note and the final hover.
+- Dijkstra on a nine-vertex graph: paused motion, its note and the final hover.
 
 Backups 24 and 27 add the BST preview/Apply clip and a recursive DFS recap for the live demo. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.
 

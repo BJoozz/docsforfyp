@@ -550,10 +550,16 @@ media_slide(s, mp4=PACK / '02_short_clips/02_sorting_shared_clock.mp4', poster=P
 # 18 pause and inspect
 s = S[18]
 clear_body(s)
-points(s, [('Paused motion keeps the current relationship visible', 'the frame counter stays at 11'),
-           ('A short note explains the step on arrival', 'frame 12: 1 + 1 < 4 · update'),
-           ('Final Dijkstra hover reveals a computed path', 'T: distance 4 · A: distance 2, no rerun')], head=16)
-mp4, poster = clip('04_dijkstra_note_pause_hover')
+DIJ_CLIP = '04b_dijkstra_big_note_pause_hover' if clip('04b_dijkstra_big_note_pause_hover')[0] else '04_dijkstra_note_pause_hover'
+if DIJ_CLIP.startswith('04b'):
+    points(s, [('Paused motion keeps the current relationship visible', 'the counter stays at frame 17 while edge 2 → 3 is emphasised'),
+               ('A short note explains the step on arrival', 'frame 18: 12 + 14 < 33 · update'),
+               ('Final Dijkstra hover reveals a computed path', '8: 0 → 2 → 3 → 8, distance 42 · 4: distance 46')], head=16)
+else:
+    points(s, [('Paused motion keeps the current relationship visible', 'the frame counter stays at 11'),
+               ('A short note explains the step on arrival', 'frame 12: 1 + 1 < 4 · update'),
+               ('Final Dijkstra hover reveals a computed path', 'T: distance 4 · A: distance 2, no rerun')], head=16)
+mp4, poster = clip(DIJ_CLIP)
 media_slide(s, still=PACK / '01_main_slides/03_dijkstra_final_path_t.png', mp4=mp4, poster=poster,
             cap=NEW_CAP if mp4 else 'Application capture: 16 Nov 2026, app 346e84b')
 
@@ -829,7 +835,22 @@ SOURCE
 {GH}docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 Media: {GH}presentation/ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4 (Codex pack, app 346e84b)""")
 
-set_notes(S[18], f"""Bao | Algorithm Visualizers | 80 seconds including the clip
+if DIJ_CLIP.startswith('04b'):
+    set_notes(S[18], f"""Bao | Algorithm Visualizers | 80 seconds including the clip
+
+I also separate visual emphasis from algorithm progress. This is Dijkstra from vertex 0 on visualgo.net's nine-vertex "Big" example. [Press → to play the clip.] The run is paused at frame 17, where the algorithm inspects edge 2 to 3. The edge streak and the glow keep moving, but the frame counter stays at 17. They emphasize the current relationship without advancing the computation, which helps the learner inspect it for longer. When I press Next, the step arrives with a short note beside 3: 12 plus 14 is less than 33, so update. The badge on 3 changes from 33 to 26, and Status says the same. Floating text handles the arrival of a step; paused motion handles waiting on it. These are different mechanisms. At the final frame, hovering 8 shows its computed shortest path, 0 to 2 to 3 to 8, distance 42; hovering 4 shows 0 to 2 to 3 to 4, distance 46. Both go through 3 by way of 2, not along the direct-looking arc from 1 to 3. The application derives the highlight from the stored result; it does not rerun. DFS has a different final behavior, a moving recap of the visit order and traversal tree, which we show in the demo. Motion can be turned off, and reduced-motion behavior matters for accessibility.
+
+{clip_block(narration('04b_dijkstra_big_note_pause_hover'), 'frame 18 of 53 with the 2 → 3 update note.',
+            '\nThe paused motion is subtle over Zoom: point at the 2 → 3 edge while the counter reads 17. Edge weights are small at slide size; read them out if asked. Headless capture shows no mouse pointer; the hovers are real.')}
+
+EARLIER CLIP (not on the slide)
+{MEDIA}clips/04_dijkstra_note_pause_hover.mp4 shows the same sequence on the four-vertex S, A, B, T graph used on slide 15.
+
+SOURCE
+{GH}docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+Media: {MEDIA}clips/04b_dijkstra_big_note_pause_hover.mp4 (app 346e84b, recorded 16 Nov 2026; preset Big, visualgo.net's TESSELLATION example)""")
+else:
+  set_notes(S[18], f"""Bao | Algorithm Visualizers | 80 seconds including the clip
 
 I also separate visual emphasis from algorithm progress. [Press → to play the clip.] While the run is paused, the frame counter stays at 11, but the edge streak and the glow on B keep moving. They emphasize the current relationship without advancing the computation, which helps the learner inspect it for longer. When I press Next, the step arrives with a short note above A, "1 + 1 < 4, update", and it agrees with Status. Floating text handles the arrival of a step; paused motion handles waiting on it. These are different mechanisms. At Dijkstra's final frame, hovering T shows its computed shortest path, S to B to A to T, distance 4; hovering A shows distance 2. The application derives that highlight from the stored result; it does not rerun. DFS has a different final behavior, a moving recap of the visit order and traversal tree, which we show in the demo. Motion can be turned off, and reduced-motion behavior matters for accessibility.
 

@@ -19,13 +19,14 @@ All app images and clips are real captures; none is generated or composited. The
 | 15 | [`03_graph_drag_then_edit.mp4`](ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4), 8.0 s | Dragging B keeps frame 12/21; changing B → A from 1 to 5 in the Edges text ends the run (NO RUN) | the graph after the edit |
 | 16 | [`01b_lca_keep_then_jump.mp4`](ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4), 10.3 s | LCA(6, 10): at k = 1 both ancestors are 8, so u and v are kept (note "same ancestor · keep u, v"); at k = 0, 4 and 12 differ, so both are lifted ("differ · lift both"); answer 8 | frame 4/7 with "differ · lift both" |
 | 17 | Codex [`02_sorting_shared_clock.mp4`](ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4), 10.4 s | Bubble and Selection on the same 12 values pause together at operation 48 and resume; Last seeks to the end | both panes at operation 48 |
-| 18 | [`04_dijkstra_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4), 10.2 s | Frame 11/21 stays fixed while the emphasis moves; Next gives frame 12 with `1 + 1 < 4 · update`; Last, then hover T (distance 4) and A (distance 2) | frame 12/21 with the note |
+| 18 | [`04b_dijkstra_big_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04b_dijkstra_big_note_pause_hover.mp4), 14.0 s | Dijkstra from 0 on the nine-vertex Big preset (visualgo.net's TESSELLATION). Frame 17/53 stays fixed while edge 2 → 3 is emphasised; Next gives frame 18 with `12 + 14 < 33 · update` beside 3 (badge 33→26); Last, then hover 8 (0 → 2 → 3 → 8, distance 42) and 4 (0 → 2 → 3 → 4, distance 46) | frame 18/53 with the note |
 | 19 | Codex `01_editor_entry_points.png` | The Editors section of the home page | — |
 | 24 (backup) | [`05_bst_preview_apply.mp4`](ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4), 8.6 s | BST Insert(5) preview, two steps back and forward, then Apply; the tree text gains `6 5` | the preview with Apply insertion |
 | 25 (backup) | `figures/F8-cut-vertex-bridge-cp4-4-7-last.png` | Historical, 1 November (app `662e7b3`) | — |
 | 27 (backup) | [`06_dfs_recursive_recap.mp4`](ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4), 8.5 s | Recursive DFS on the same graph; the final frame replays the DFS tree (S → A → T, then S → B) | the final frame |
 
 Kept outside the deck for Q&A or rehearsal:
+- [`04_dijkstra_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4): the first take for slide 18, on the four-vertex S, A, B, T graph.
 - [`02_v10_move_panel.mp4`](ca-2026-11-16-deck-media/clips/02_v10_move_panel.mp4): the first take for slide 14. Status moves to the left group, then Settings → Reset panel layout.
 - [`01_lca_equal_ancestors.mp4`](ca-2026-11-16-deck-media/clips/01_lca_equal_ancestors.mp4): LCA(6, 2); every step keeps u and v, then a hover on 6 shows its 2^k ancestors.
 - Codex's [`01_graph_paused_step.mp4`](ca-2026-11-16/02_short_clips/01_graph_paused_step.mp4).
@@ -35,7 +36,7 @@ Kept outside the deck for Q&A or rehearsal:
 
 - **Start:** once the slide is up, press → or click the video. Pressing → again moves to the next slide. Each clip plays once and stops on its last frame.
 - **If a clip does not play:** its poster is already on the slide. Narrate from the CLIP section of the speaker notes, which lists the frame numbers.
-- **Zoom:** share the screen or the PowerPoint window with "Optimize for video clip" ticked. The paused motion on slide 18 is subtle, so point at the B → A edge while the counter shows 11.
+- **Zoom:** share the screen or the PowerPoint window with "Optimize for video clip" ticked. The paused motion on slide 18 is subtle, so point at the 2 → 3 edge while the counter shows 17.
 - **Before the talk:** click through slides 14–18, 24 and 27 once in slideshow mode on the presenting computer.
 
 ## Presentation decisions
