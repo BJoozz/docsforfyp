@@ -20,6 +20,20 @@ powershell -File presentation/ca-2026-11-16-deck-media/deck-build/render.ps1 -De
 
 The PowerPoint scripts attach to a running PowerPoint if there is one. They close only the presentation they opened, and quit PowerPoint only if they started it.
 
+## After the rearrangement of 16 November
+
+At about 12:30 on 16 November Kerk rearranged the deck by hand in PowerPoint and replaced three slides with six of his own. From then on the deck of record is his file, passed through two scripts; `build_deck.py` still rebuilds the earlier order.
+
+```powershell
+py -3.12 presentation/ca-2026-11-16-deck-media/deck-build/adopt_rearranged_deck.py <his file.pptx> $env:TEMP\adopted.pptx
+py -3.12 presentation/ca-2026-11-16-deck-media/deck-build/write_notes.py $env:TEMP\adopted.pptx $env:TEMP\deck-built.pptx main
+py -3.12 presentation/ca-2026-11-16-deck-media/deck-build/write_notes.py <backup file.pptx> $env:TEMP\backup-built.pptx backup
+```
+
+- `adopt_rearranged_deck.py` removes five leftover shapes on the Motivation slide and renumbers the page labels. It changes nothing else.
+- `write_notes.py` writes `speaking_script.json` into the speaker notes and keeps the reference blocks (CLIP, VISUAL, SOURCE) already there.
+- `finalize.ps1`, `render.ps1` and `decode_test.ps1` are then run as before.
+
 ## Other files
 
 - `speaking_script.json` holds what the presenters say: for each slide a main message, talking points, a script, cues and a transition. `build_deck.py` writes it into the speaker notes. `make_script_docs.py`, run from the repository root, writes it into `presentation/VisuAlgo_CA_Master_Script.md` and `presentation/VisuAlgo_CA_Cheat_Sheet.md`. Change the wording there, then run both.

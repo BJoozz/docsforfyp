@@ -2,23 +2,52 @@
 
 One glance per slide: the message, the points to hit and the line that leads to the next slide. Clip and demo slides also list their cues. The full wording is in [the master script](VisuAlgo_CA_Master_Script.md) and in the speaker notes. Both come from `ca-2026-11-16-deck-media/deck-build/speaking_script.json`.
 
-33 minutes of talk, then 12 minutes of questions. Slides 7 to 12 are Kerk's; 20 to 23 are shared.
+33 minutes of talk, then 12 minutes of questions. Order since 16 November: the title, the live demo, Bao's slides (up to 14), then Kerk's (15 to 23).
 
 ## 01 · VisuAlgo+
 
-*Bao · Introduction · 00:00–00:30*
+*Bao · Introduction · 00:00–00:40*
 
 **Message:** We are rebuilding VisuAlgo, and we keep what it is for: learning and exploring algorithms.
 
 - We are Bao and Kerk; the project is VisuAlgo+
 - Rebuild the platform, keep its purpose
-- Three parts today: how the design evolved, what each of us built, what the prototype taught us
+- Plan: the demo first; then why and how (Bao); then the design process, the engine and the website (Kerk)
 
-**Next:** Let me start with why we are doing this.
+**Next:** So let us start with the product itself.
 
-## 02 · Motivation
+## 02 · Live demo
 
-*Bao · Introduction · 00:30–01:40*
+*Bao · Demo · 00:40–04:30*
+
+**Message:** This is the product: one example, several questions, in one interface.
+
+- This is the running app, not a recording
+- Graph Editor: one small graph; eleven graph algorithms on the same input
+- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
+- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
+- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
+- Name the layout: this is V10; Kerk explains its history later
+
+**Cues**
+
+- A proposed plan, checked on app 346e84b on 16 November. It takes about three minutes; the slot is just under four.
+- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
+- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
+- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
+- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
+- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
+- 1:30 Click HOME, then the Tree Editor card.
+- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
+- If you are ahead: drag the Status tab under the drawing, to show a V10 panel move. It is also in the clip on slide 9.
+- Then return to PowerPoint and press → for slide 3, Motivation.
+- If a step fails, do not debug: say what it would show and move on. The clips on slides 10, 12 and 13 show the same features later, and B1 in the backup file has the DFS recap.
+
+**Next:** Now let me step back. Why did we rebuild VisuAlgo?
+
+## 03 · Motivation
+
+*Bao · Introduction · 04:30–05:40*
 
 **Message:** We keep VisuAlgo's strengths, and we follow Prof. Halim's directions: better interaction and a wider range of algorithms.
 
@@ -29,9 +58,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** So why not just add these features to the existing site?
 
-## 03 · Why rebuild the foundation?
+## 04 · Why rebuild the foundation?
 
-*Bao · Introduction · 01:40–02:50*
+*Bao · Introduction · 05:40–06:50*
 
 **Message:** In the original code, one common change touches several topics, so we reorganised the foundation.
 
@@ -43,9 +72,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** With that reason in mind, here is what we aim to deliver.
 
-## 04 · Objectives and current scope
+## 05 · Objectives and current scope
 
-*Bao · Introduction · 02:50–04:00*
+*Bao · Introduction · 06:50–08:00*
 
 **Message:** We have three objectives and a working prototype; connecting the engine and a first release come next.
 
@@ -56,9 +85,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** Let me go back to where it started: the early prototypes.
 
-## 05 · Early visualizer prototypes
+## 06 · Early visualizer prototypes
 
-*Bao · Early Design · 04:00–05:30*
+*Bao · Early Design · 08:00–09:30*
 
 **Message:** Each early prototype tested one requirement that the final design had to meet.
 
@@ -70,9 +99,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** While I was building the Graph rewrite and the Tree prototype, Kerk was designing the look of the new site.
 
-## 06 · Two parallel foundations
+## 07 · Two parallel foundations
 
-*Bao · Early Design · 05:30–07:00*
+*Bao · Early Design · 09:30–10:50*
 
 **Message:** Two foundations grew side by side: my working visualizers and Kerk's design system.
 
@@ -81,109 +110,25 @@ One glance per slide: the message, the points to hit and the line that leads to 
 - Kerk's: a design system from restyling visualgo.net (nine themes, twenty-six components) and a UI kit; also the first version of his engine
 - Three requirements carried forward: keep the drawing available; keep playback familiar; show topic information beside the drawing
 
-**Next:** Kerk will now show how he laid out the new visualisation page.
+**Next:** Kerk will explain the design process later. First, here is my part of the work.
 
-## 07 · From nine wireframes to two working layouts
+## 08 · Visualization contributions
 
-*Kerk · UI/UX Evolution · 07:00–08:30*
-
-**Message:** We narrowed nine wireframes to two layouts, and Bao built both, so we could compare real runs.
-
-- Low-fidelity wireframes of the visualisation page, with an AVL tree as the example
-- Same top bar and footer everywhere; the versions differ in where panels live and how they open
-- Nine versions: seven layouts and two drag states of V7
-- An early layout survey with students: formative, separate from the Week 10 trial
-- Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both
-
-**Next:** So what did the comparison show?
-
-## 08 · From V2 and V7 to V10
-
-*Kerk · UI/UX Evolution · 08:30–10:00*
-
-**Message:** V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.
-
-- Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock
-- Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9
-- V10: panels stacked and visible together, tabs dragged between areas, several tab groups per area, the canvas in the centre
-- Bao built the panel-group model and the shell
-- Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application
-
-**Next:** Bao will show the shell in detail later. Next, I will turn to the website and the execution architecture.
-
-## 09 · Application boundaries
-
-*Kerk · Engine & Website · 10:00–12:00*
-
-**Message:** The prototype is one application with clear owners, and today the engine is still separate from it.
-
-- One React and TypeScript application, built with Vite
-- The site host owns routing, the top bar and the theme; it mounts Graph, Tree or Sorting
-- Each visualizer owns its input and playback; a shared layer supplies the panel layout and presentation utilities
-- Drawing: React Flow for Graph and Tree, D3 for some layout calculations, Canvas 2D for Sorting
-- Boundary: the visualizers run TypeScript in the page; the WebAssembly engine is a separate project
-
-**Next:** Let me now describe that engine.
-
-## 10 · Engine foundation
-
-*Kerk · Engine & Website · 12:00–14:30*
-
-**Message:** The engine runs algorithms in a worker; the plan is that it describes their state and the visualizer explains it to the learner.
-
-- C++ algorithms compiled to WebAssembly, running inside a worker
-- The page and the engine talk through protocol messages, not direct calls
-- Protobuf messages with graph and array representations; a Python path through Pyodide for tracing sorting algorithms
-- Design question: expose enough state without tying the engine to the page layout
-- Plan: the engine describes state and changes; the visualizer decides the note and the pseudocode line
-
-**Next:** The harder part is connecting the engine to the visualizers.
-
-## 11 · Reversible execution and integration
-
-*Kerk · Engine & Website · 14:30–16:30*
-
-**Message:** The engine and the visualizers keep history differently, so connecting them needs an explicit translation, one Graph algorithm first.
-
-- Engine: a reversible journal, one record per step, and it can move backward
-- Visualizers: Graph and Tree build all steps when a run starts; Sorting pulls from generators and keeps history
-- Three things must stay consistent: node and edge identity, run identity, and the meaning of a step
-- Bao's earlier integration experiment stays separate from the delivered visualizers
-- Next step: one complete Graph integration, checked against the TypeScript behaviour
-
-**Next:** Finally, the website that hosts all of this.
-
-## 12 · Website integration
-
-*Kerk · Engine & Website · 16:30–18:00*
-
-**Message:** The site hosts the visualizers without duplicating their controls, and this boundary is where our contributions meet.
-
-- The site owns the top bar and the theme; each visualizer supplies its topic-specific parts
-- Bao built the working catalogue, the routes and the host adapters on the design system
-- Kerk's consolidation and refinements made it a single application
-- The wider website infrastructure and the engine still have to join the visualization layer
-- Clear responsibilities avoid a second set of playback controls and conflicting theme state
-
-**Next:** Bao will now explain how the visualization layer uses these boundaries for editing, comparison and explanations.
-
-## 13 · My visualization contributions
-
-*Bao · Algorithm Visualizers · 18:00–18:40*
+*Bao · Algorithm Visualizers · 10:50–11:40*
 
 **Message:** I built the visualizer foundations, the algorithms, the shell and the step explanations; I will show a few decisions you can see on screen.
 
 - Foundations for Graph, Tree and Sorting
 - Algorithms: each needs its own steps, pseudocode and inspector, for example LCA with Binary Lifting, and Trie
 - The V10 shell and the integration into the site
-- How each step explains itself, and how the behaviour is tested
+- How each step explains itself, and how the behaviour is tested (snapshot of 1 November: 3,273 unit tests, 151 browser cases)
 - Next: a few selected decisions
 
 **Next:** The first one is the shell.
 
-## 14 · A shared shell with clear constraints
+## 09 · A shared shell with clear constraints
 
-*Bao · Algorithm Visualizers · 18:40–19:50*
+*Bao · Algorithm Visualizers · 11:40–12:50*
 
 **Message:** You can move panels around without losing the drawing or the run.
 
@@ -201,9 +146,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** The same care for the run applies when the user edits the graph.
 
-## 15 · Input, layout and playback
+## 10 · Input, layout and playback
 
-*Bao · Algorithm Visualizers · 19:50–20:55*
+*Bao · Algorithm Visualizers · 12:50–13:55*
 
 **Message:** Moving a vertex changes the drawing; changing a weight changes the problem. So they are stored separately.
 
@@ -221,9 +166,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** That was one run. Sorting comparison needs several runs side by side.
 
-## 16 · Sorting comparison
+## 11 · Sorting comparison
 
-*Bao · Algorithm Visualizers · 20:55–21:55*
+*Bao · Algorithm Visualizers · 13:55–14:55*
 
 **Message:** The panes share one input and one clock, but each keeps its own state; the counters are operations, not runtime.
 
@@ -240,9 +185,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** The next two slides are about a different question: how one step explains itself.
 
-## 17 · LCA: explaining a decision to stay
+## 12 · LCA: explaining a decision to stay
 
-*Bao · Algorithm Visualizers · 21:55–23:50*
+*Bao · Algorithm Visualizers · 14:55–16:50*
 
 **Message:** Floating text puts the reason beside the node, so a step with no movement still explains itself.
 
@@ -262,9 +207,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** LCA shows a note when a step arrives. The next slide adds two more tools: motion while paused, and hover on the result.
 
-## 18 · Pause and inspect the result
+## 13 · Pause and inspect the result
 
-*Bao · Algorithm Visualizers · 23:50–25:10*
+*Bao · Algorithm Visualizers · 16:50–18:10*
 
 **Message:** Emphasis and progress are separate: motion while paused, a note when a step arrives, and hover on the result never advance or rerun the algorithm.
 
@@ -282,9 +227,9 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Next:** The editors bring these features together.
 
-## 19 · Editors for exploring an example
+## 14 · Graph/Tree Editors
 
-*Bao · Algorithm Visualizers · 25:10–26:00*
+*Bao · Algorithm Visualizers · 18:10–19:10*
 
 **Message:** The editors start from the user's own example, and let them ask several questions about it.
 
@@ -294,67 +239,131 @@ One glance per slide: the message, the points to hit and the line that leads to 
 - The original VisuAlgo already accepts custom input; ours is a more explicit entry point
 - An intended use; adoption is not measured
 
-**Next:** Let us look at this live.
+**Next:** That is my part. Kerk will now explain how we designed the layout, and then the engine and the website.
 
-## 20 · Live demo
+## 15 · Wireframing
 
-*Both · Demo & Evaluation · 26:00–29:00*
+*Kerk · UI/UX Evolution · 19:10–20:20*
 
-**Message:** One example, several questions: the same input drives different algorithms, in one interface.
+**Message:** From nine wireframes and a student survey, we chose two layouts to build: V2 and V7.
 
-- This is the running app, not a recording
-- Graph Editor: one small graph; eleven graph algorithms on the same input
-- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
-- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
-- Kerk: one interface for every structure
-- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
+- Low-fidelity wireframes of the visualisation page, with an AVL tree as the example
+- Nine versions: seven layouts and two drag states of V7
+- Layout survey: 61 respondents, mostly past and present CS2040S and CS3230 students
+- Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both
 
-**Cues**
+**Next:** So what did the two builds show?
 
-- A proposed plan, checked on app 346e84b on 16 November. Settle it in rehearsal.
-- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
-- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
-- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
-- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
-- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
-- 1:30 Kerk speaks. Bao clicks HOME, then the Tree Editor card.
-- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
-- 2:40 Return to PowerPoint and press → for slide 21.
-- If a step fails, do not debug: use the clips on slides 15, 17 and 18, or B1 in the backup file. If time is short, stop after the DFS recap.
+## 16 · Prototyping
 
-**Next:** So how did we evaluate all this?
+*Kerk · UI/UX Evolution · 20:20–21:25*
 
-## 21 · Evaluation and design response
+**Message:** V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.
 
-*Both · Demo & Evaluation · 29:00–31:00*
+- Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock
+- Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9
+- V10: panels stacked and visible together, tabs dragged between areas, the canvas in the centre
+- Bao built the panel-group model and the shell
+- Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application
 
-**Message:** We tested the software and ran a formative trial in Week 10; floating text is a design response, and its effect is not yet measured.
+**Next:** Then we put V10 in front of students.
 
-- Bao: tests, a snapshot of 1 November: 3,273 unit tests and 151 browser cases passing
-- Bao: an example of an independent check: cut vertices and bridges
-- Kerk: Week 10: NUS students used V10 on their own for 15 to 20 minutes; sessions recorded; a short post-use test and feedback
-- Bao: as I remember it, newer learners often had to read Status, so I added floating text, with legend and Status changes
-- Not measured yet; a follow-up study needs defined tasks
+## 17 · Prototyping
 
-**Next:** That brings us to the plan for Semester 2.
+*Kerk · UI/UX Evolution · 21:25–22:00*
 
-## 22 · Semester 2 priorities
+**Message:** Eight students tried V10 in Week 10, in a formative trial.
 
-*Both · Future Work · 31:00–33:00*
+- 8 prototype testers, mostly current CS2040S and CS3230 students
+- Each used V10 on their own for 15 to 20 minutes
+- Sessions recorded; then a short post-use test and feedback
+- Formative: it shows what to fix, not how much students learn
 
-**Message:** Next: one Graph algorithm through the engine end to end, a stable and evaluated prototype, and a first release around March 2027.
+**Next:** Here is what they told us.
 
-- Kerk: the integration milestone is one Graph algorithm across the full application, checked against the TypeScript version
-- Bao: stabilise the workflows we showed; evaluate the explanations with defined tasks; measure startup, seeking and memory
-- Kerk: target a first public release around March 2027; the original platform stays available
-- Bao: the wider ambition is the original range, then advanced topics; Heavy-Light and Centroid Decomposition are possibilities, not commitments
-- Today we have the foundation and a working prototype
+## 18 · Prototyping
+
+*Kerk · UI/UX Evolution · 22:00–23:10*
+
+**Message:** The trial supported the layout, showed that onboarding is weak, and left one open question: reading versus inference.
+
+- Plus: the layout worked for the testers
+- Minus: onboarding. Overwhelming at first glance (4 of 8); e-Lecture not helpful enough (3); less common features hard to discover (3); hard to navigate between pages (3)
+- Open question: should a learner read the explanation, or infer it from the animation?
+- Eight testers give signals, not statistics
+
+**Next:** Now the system behind the page.
+
+## 19 · Architecture
+
+*Kerk · Engine & Website · 23:10–25:10*
+
+**Message:** The architecture has a browser side and a server side; say clearly which parts the demo already uses.
+
+- Browser: the frontend (React, design tokens, panels and e-Lectures) starts a Run
+- Algorithm engine: C++ compiled to WebAssembly; it records the History
+- Render engine: d3 into SVG; it draws any History
+- CDN: static files, the frontend bundle and the wasm binary
+- Server: a Go API over REST, with Postgres, Redis and an email provider
+- Boundary: the demo ran TypeScript algorithms in the browser; this engine is not connected to those visualizers yet
+
+**Next:** Let me now describe that engine.
+
+## 20 · Architecture
+
+*Kerk · Engine & Website · same picture as slide 19*
+
+**Message:** This slide shows the same picture as slide 19.
+
+- In file (8), slides 19 and 20 are identical
+- Kerk: delete one of them, or replace this picture with the second one you meant to show
+
+## 21 · Engine foundation
+
+*Kerk · Engine & Website · 25:10–27:40*
+
+**Message:** The engine runs algorithms in a worker; the plan is that it describes their state and the visualizer explains it to the learner.
+
+- C++ algorithms compiled to WebAssembly, running inside a worker
+- The page and the engine talk through protocol messages, not direct calls
+- Protobuf messages with graph and array representations; a Python path through Pyodide for tracing sorting algorithms
+- Design question: expose enough state without tying the engine to the page layout
+- Plan: the engine describes state and changes; the visualizer decides the note and the pseudocode line
+
+**Next:** The harder part is connecting the engine to the visualizers.
+
+## 22 · Reversible execution and integration
+
+*Kerk · Engine & Website · 27:40–29:40*
+
+**Message:** The engine and the visualizers keep history differently, so connecting them needs an explicit translation, one Graph algorithm first.
+
+- Engine: a reversible journal, one record per step, and it can move backward
+- Visualizers: Graph and Tree build all steps when a run starts; Sorting pulls from generators and keeps history
+- Three things must stay consistent: node and edge identity, run identity, and the meaning of a step
+- Bao's earlier integration experiment stays separate from the delivered visualizers
+- Next step: one complete Graph integration, checked against the TypeScript behaviour
+
+**Next:** Finally, the website that hosts all of this.
+
+## 23 · Website integration
+
+*Kerk · Engine & Website, then Future Work · 29:40–33:00*
+
+**Message:** The site hosts the visualizers without duplicating their controls; then, with no slide of its own, the plan for Semester 2.
+
+- The site owns the top bar and the theme; each visualizer supplies its topic-specific parts
+- Bao built the working catalogue, the routes and the host adapters on the design system
+- Kerk's consolidation and refinements made it a single application
+- The wider website infrastructure and the engine still have to join the visualization layer
+- Clear responsibilities avoid a second set of playback controls and conflicting theme state
+- Future work, said over this slide: one Graph algorithm through the engine end to end; a first public release around March 2027 (a target); stabilise and evaluate; advanced tree topics are possibilities, not commitments
 
 **Next:** That is the end of our talk.
 
-## 23 · Questions
+## 24 · Questions
 
-*Backup*
+*Both · Q&A · after 33:00*
 
 **Message:** Thank the audience and open the floor.
 
@@ -368,7 +377,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Message:** If the live Graph demo fails, this clip shows the recursive DFS recap.
 
-- The same S, A, B, T graph as the clips on slides 14 and 15
+- The same S, A, B, T graph as the clips on slides 9 and 10
 - The final frame replays the DFS tree in visit order: S, A, T, then S, B
 - Different from Dijkstra's final frame, where you hover a vertex to see its path
 

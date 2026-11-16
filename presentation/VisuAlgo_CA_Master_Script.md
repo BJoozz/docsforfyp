@@ -4,38 +4,41 @@ Working rehearsal draft • 16 November 2026 • 33 minutes plus 12 minutes for 
 
 ## How to use this version
 
-The talk uses two PowerPoint files. `VisuAlgo_CA_Presentation.pptx` contains 22 timed slides and the Q&A slide (23). `VisuAlgo_CA_QA_Backup.pptx` contains four backup slides, B1 to B4; the recursive DFS recap comes first because it is the fallback for the live demo. Slides 14–18, B1 and B2 embed real-app clips; see [the media map](CA_PRESENTATION_MEDIA_USAGE.md). English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 7–12 are an evidence-based draft for Kerk to confirm and replace with his current details where necessary. No fabricated benchmarks or completed engine integration are claimed.
+The talk uses two PowerPoint files. `VisuAlgo_CA_Presentation.pptx` contains 23 slides for the talk and the Q&A slide (24). `VisuAlgo_CA_QA_Backup.pptx` contains four backup slides, B1 to B4; the recursive DFS recap comes first because it is the fallback for the live demo. Slides 9–13, B1 and B2 embed real-app clips; see [the media map](CA_PRESENTATION_MEDIA_USAGE.md). English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 15–23 are Kerk's; the scripts for the slides he remade (15–20) are drafts for him to confirm. No fabricated benchmarks or completed engine integration are claimed.
 
-Script format, 16 November, at Bao's request: every slide has a main message, three to five talking points, a script in plain spoken English, cues and a transition to the next slide. The talking points are there so the speaker can say it in their own words; the script is not meant to be learned by heart. The slide text, clip timings and sources are folded under each script. The same text is in the speaker notes of both PowerPoint files, and [the cheat sheet](VisuAlgo_CA_Cheat_Sheet.md) has the short version. The word counts assume about 130 words per minute and are a guide, not a measurement. Kerk's slides, 7 to 12, were reworded in the same style with their technical content kept; they are his to confirm.
+Script format, 16 November, at Bao's request: every slide has a main message, three to five talking points, a script in plain spoken English, cues and a transition to the next slide. The talking points are there so the speaker can say it in their own words; the script is not meant to be learned by heart. The slide text, clip timings and sources are folded under each script. The same text is in the speaker notes of both PowerPoint files, and [the cheat sheet](VisuAlgo_CA_Cheat_Sheet.md) has the short version. The word counts assume about 130 words per minute and are a guide, not a measurement. Kerk's slides are 15 to 23. For the ones he remade (15 to 20) the script is a draft built from the slide text and his earlier script; all of them are his to confirm.
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
-Order and test case, 16 November, at Bao's request: Sorting (slide 16) now comes before LCA (slide 17), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset. Its clip first moves the root from 10 to 16 on camera, which also shows the re-root operation, then runs the query LCA(8, 20). The slide stresses what floating text is for.
+Order and test case, 16 November, at Bao's request: Sorting (now slide 11) comes before LCA (now slide 12), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset. Its clip first moves the root from 10 to 16 on camera, which also shows the re-root operation, then runs the query LCA(8, 20). The slide stresses what floating text is for.
 
-Finalised on 16 November, at Bao's request: the captions under captures say only "Real app capture"; dates, commits and play instructions stay in the speaker notes and the media map. The two dated captions that remain, on slide 21 and backup B3, mark a snapshot of 1 November. Slide 20 says only "Live demo"; the text and cue in section 20 below are a working plan to settle in rehearsal. The backup slides moved to their own file.
+Finalised on 16 November, at Bao's request: the captions under captures say only "Real app capture"; dates, commits and play instructions stay in the speaker notes and the media map. The dated caption that remains, on backup B3, marks a snapshot of 1 November. The "Live demo" slide (now slide 2) says only that; the text and cue in section 02 below are a working plan to settle in rehearsal. The backup slides moved to their own file.
+
+New order, 16 November, about 12:30: Kerk rearranged the deck by hand and Bao adopted it. The live demo comes right after the title; Bao's slides follow (1–14); Kerk's come last (15–23). Kerk replaced the earlier slides 7, 8 and 9 with six slides of his own (15–20: Wireframing, three Prototyping slides and two Architecture slides), and the earlier slides 21 and 22 are no longer in the deck. Earlier numbers map to today's like this: 1 → 1; 20 → 2; 2–6 → 3–7; 13–19 → 8–14; 10–12 → 21–23; 23 → 24. Three things were then fixed in a copy of his file: leftover shapes on the Motivation slide, the page numbers, and the speaker notes, which now hold this script.
 
 Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports. There is no written record of this, and no specific topic is attributed to him. LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions; they are not implemented and are not Semester 2 commitments.
 
 ## Run of show
 
-| Section | Speaker | Time | Slides |
-|---|---|---:|---|
-| Introduction | Bao | 4:00 | 1–4 |
-| Early Design | Bao | 3:00 | 5–6 |
-| UI/UX Evolution | Kerk | 3:00 | 7–8 |
-| Engine & Website | Kerk | 8:00 | 9–12 |
-| Algorithm Visualizers | Bao | 8:00 | 13–19 |
-| Demo & Evaluation | Both | 5:00 | 20–21 |
-| Future Work | Both | 2:00 | 22 |
-| Q&A and buffer | Both | 12:00 | 23, then the backup file (B1–B4) |
+| Clock | Section | Speaker | Slides |
+|---|---|---|---|
+| 00:00–00:40 | Title | Bao | 1 |
+| 00:40–04:30 | Live demo | Bao | 2 |
+| 04:30–08:00 | Introduction | Bao | 3–5 |
+| 08:00–10:50 | Early Design | Bao | 6–7 |
+| 10:50–19:10 | Algorithm Visualizers | Bao | 8–14 |
+| 19:10–23:10 | UI/UX Evolution | Kerk | 15–18 |
+| 23:10–31:10 | Engine & Website | Kerk | 19–23 |
+| 31:10–33:00 | Future Work, said over slide 23 | Kerk | 23 |
+| 33:00–45:00 | Q&A and buffer | Both | 24, then the backup file (B1–B4) |
 
 ## Slide-by-slide script
 
 ### 01. VisuAlgo+
 
-**Bao · Introduction · 00:00–00:30**
+**Bao · Introduction · 00:00–00:40**
 
-*Script: 62 words, about 29 s at 130 words per minute; the slot is 30 s.*
+*Script: 74 words, about 34 s at 130 words per minute; the slot is 40 s.*
 
 **Main message:** We are rebuilding VisuAlgo, and we keep what it is for: learning and exploring algorithms.
 
@@ -43,7 +46,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 - We are Bao and Kerk; the project is VisuAlgo+
 - Rebuild the platform, keep its purpose
-- Three parts today: how the design evolved, what each of us built, what the prototype taught us
+- Plan: the demo first; then why and how (Bao); then the design process, the engine and the website (Kerk)
 
 **Script**
 
@@ -51,13 +54,13 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 >
 > We are rebuilding VisuAlgo, and we keep its purpose: helping people learn and explore data structures and algorithms.
 >
-> Today we will cover three things: how the design evolved, what each of us built, and what we learned from the working prototype.
+> Before the slides, let us show you the product. After the demo, I will explain why we rebuilt it and the decisions behind it. Then Kerk will cover the design process, the engine and the website.
 
 **Cues**
 
 - The picture is the home page of the current prototype. No click is needed.
 
-**Transition:** Let me start with why we are doing this.
+**Transition:** So let us start with the product itself.
 
 <details>
 <summary>Slide text, clip details and sources</summary>
@@ -69,15 +72,78 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 - Truong Van Quoc Bao and Kerk Tai Heng · Supervisor: A/P Steven Halim
 - NUS School of Computing · CP4101 Continuous Assessment · 16 November 2026
 
-**Visual:** The current app's home page beside the title (app 346e84b): the VisuAlgo logo, the credit line, the Editors row and the top of the catalogue. Bao chose it on 16 November in place of a Dijkstra step, which slide 2 also shows.
+**Visual:** The current app's home page beside the title (app 346e84b): the VisuAlgo logo, the credit line, the Editors row and the top of the catalogue. Bao chose it on 16 November in place of a Dijkstra step, which slide 3 also shows.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/main.tex
 
 </details>
 
-### 02. Motivation
+### 02. Live demo
 
-**Bao · Introduction · 00:30–01:40**
+**Bao · Demo · 00:40–04:30**
+
+*Script: 233 words, about 108 s at 130 words per minute; the slot is 230 s.*
+
+**Main message:** This is the product: one example, several questions, in one interface.
+
+**Talking points**
+
+- This is the running app, not a recording
+- Graph Editor: one small graph; eleven graph algorithms on the same input
+- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
+- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
+- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
+- Name the layout: this is V10; Kerk explains its history later
+
+**Script**
+
+> This is the running app, not a recording. I start from the home page and open the Graph Editor.
+>
+> This small graph is the input. The editor offers eleven graph algorithms on this same input.
+>
+> Question one: what are the shortest paths from A? I run Dijkstra and jump to the end. Hovering E shows its path: A, B, E, with distance 7. D goes through C, with distance 3. Nothing runs again; the app reads the finished result.
+>
+> Question two, on the same graph: in what order does recursive DFS visit the vertices? I switch to DFS and let it play. At the last frame, the drawing replays the DFS tree in visit order: A, B, D, F, then E, then C. So one input answered two questions.
+>
+> In the Tree Editor, one tree is shared by Binary Lifting, BST and AVL. I pause on a step and hover node 6. The app shows its path to the root, marks its ancestors one and two levels up, 4 and 8, and highlights row 6 of the ancestor table. The hover does not move the step.
+>
+> One more thing. The layout you see, with panels around a fixed drawing, is what we call V10. Kerk will explain later how we arrived at it.
+>
+> That is the idea of VisuAlgo+: one example, several questions.
+
+**Cues**
+
+- A proposed plan, checked on app 346e84b on 16 November. It takes about three minutes; the slot is just under four.
+- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
+- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
+- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
+- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
+- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
+- 1:30 Click HOME, then the Tree Editor card.
+- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
+- If you are ahead: drag the Status tab under the drawing, to show a V10 panel move. It is also in the clip on slide 9.
+- Then return to PowerPoint and press → for slide 3, Motivation.
+- If a step fails, do not debug: say what it would show and move on. The clips on slides 10, 12 and 13 show the same features later, and B1 in the backup file has the DFS recap.
+
+**Transition:** Now let me step back. Why did we rebuild VisuAlgo?
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Live demo
+- A short demo of VisuAlgo+
+
+**Visual:** A navy divider slide with only those two lines. At Bao's request (16 November), what the demo shows is settled here in the script, not on the slide. The text and cue below are a working plan to settle in rehearsal.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+
+</details>
+
+### 03. Motivation
+
+**Bao · Introduction · 04:30–05:40**
 
 *Script: 129 words, about 60 s at 130 words per minute; the slot is 70 s.*
 
@@ -123,9 +189,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 03. Why rebuild the foundation?
+### 04. Why rebuild the foundation?
 
-**Bao · Introduction · 01:40–02:50**
+**Bao · Introduction · 05:40–06:50**
 
 *Script: 131 words, about 60 s at 130 words per minute; the slot is 70 s.*
 
@@ -170,9 +236,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 04. Objectives and current scope
+### 05. Objectives and current scope
 
-**Bao · Introduction · 02:50–04:00**
+**Bao · Introduction · 06:50–08:00**
 
 *Script: 142 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -218,9 +284,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 05. Early visualizer prototypes
+### 06. Early visualizer prototypes
 
-**Bao · Early Design · 04:00–05:30**
+**Bao · Early Design · 08:00–09:30**
 
 *Script: 178 words, about 82 s at 130 words per minute; the slot is 90 s.*
 
@@ -268,11 +334,11 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 06. Two parallel foundations
+### 07. Two parallel foundations
 
-**Bao · Early Design · 05:30–07:00**
+**Bao · Early Design · 09:30–10:50**
 
-*Script: 145 words, about 67 s at 130 words per minute; the slot is 90 s.*
+*Script: 148 words, about 68 s at 130 words per minute; the slot is 80 s.*
 
 **Main message:** Two foundations grew side by side: my working visualizers and Kerk's design system.
 
@@ -297,9 +363,8 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 - Left card: my standalone Graph rewrite. Right card: Kerk's UI kit, home page and visualisation page.
 - Read the three requirements from the bottom of the slide.
-- Hand over to Kerk.
 
-**Transition:** Kerk will now show how he laid out the new visualisation page.
+**Transition:** Kerk will explain the design process later. First, here is my part of the work.
 
 <details>
 <summary>Slide text, clip details and sources</summary>
@@ -310,7 +375,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 - Kerk · design system and UI kit, Aug–Sep 2026: Restyled visualgo.net: purple and gold, Inter, nine themes; 26 components, from the top bar to lesson cards; UI kit recreating visualgo.net's home and visualisation pages
 - Requirements we carried forward: Keep the drawing available · Familiar playback across topics · Topic-specific information alongside
 
-**Visual:** Left card: a still of Bao's standalone Graph rewrite (slide 5 showed all three prototypes). Right card: the home and visualisation screens of Kerk's design-system UI kit, which recreate visualgo.net's pages in the new style, rendered from commit 634b5be (3 Sep 2026). Both captured on 16 Nov 2026.
+**Visual:** Left card: a still of Bao's standalone Graph rewrite (slide 6 showed all three prototypes). Right card: the home and visualisation screens of Kerk's design-system UI kit, which recreate visualgo.net's pages in the new style, rendered from commit 634b5be (3 Sep 2026). Both captured on 16 Nov 2026.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
@@ -318,338 +383,11 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 07. From nine wireframes to two working layouts
+### 08. Visualization contributions
 
-**Kerk · UI/UX Evolution · 07:00–08:30**
+**Bao · Algorithm Visualizers · 10:50–11:40**
 
-*Script: 164 words, about 76 s at 130 words per minute; the slot is 90 s.*
-
-**Main message:** We narrowed nine wireframes to two layouts, and Bao built both, so we could compare real runs.
-
-**Talking points**
-
-- Low-fidelity wireframes of the visualisation page, with an AVL tree as the example
-- Same top bar and footer everywhere; the versions differ in where panels live and how they open
-- Nine versions: seven layouts and two drag states of V7
-- An early layout survey with students: formative, separate from the Week 10 trial
-- Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both
-
-**Script**
-
-> Alongside the design system, I drew low-fidelity wireframes of the visualisation page. I used an AVL tree as the example.
->
-> Every version has the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop.
->
-> I then organised an early layout survey with students. It was formative input, and it is separate from the Week 10 trial.
->
-> After that, Bao and I chose two layouts together: V2, with split rails, and V7, with draggable docks.
->
-> Bao then built Graph, Tree and Sorting in both layouts, on top of his prototypes and my design tokens and themes. Both builds had the same features. So when we compared them, we were comparing the layouts themselves, on real runs and not on drawings.
-
-**Cues**
-
-- Left: the nine wireframes, with V2 and V7 outlined. Middle: the two chosen wireframes. Right: Bao's working builds.
-- Kerk to confirm the wording.
-
-**Transition:** So what did the comparison show?
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- Kerk's wireframes, V1–V9: One top bar and footer; seven panel layouts and two drag states of V7
-- V2 and V7 chosen together: By Kerk and Bao, after an early layout survey of students that Kerk organised
-- Bao's six working builds: Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes
-- Same features in both builds, so our discussions compared the layouts on real runs, not just as drawings
-
-**Visual:** Left: the "At a glance" grid of Kerk's wireframe page (commit 69aa8e4, 4 Sep 2026), nine frames V1–V9 with V2 and V7 outlined on the slide. Middle: the V2 and V7 wireframes. Right: Bao's working Graph builds in V2 (split rails) and V7 (docks). He made them on 20–27 September; the stills show them as they stood on 17 October, at commit ae63a62, the last one that still had them.
-
-**Team review:** Kerk to confirm this slide: the wireframes, the student feedback he organised (no numbers are on record) and how the choice is described. The script was rewritten on 16 November from the records and Bao's account.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
-
-</details>
-
-### 08. From V2 and V7 to V10
-
-**Kerk · UI/UX Evolution · 08:30–10:00**
-
-*Script: 154 words, about 71 s at 130 words per minute; the slot is 90 s.*
-
-**Main message:** V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.
-
-**Talking points**
-
-- Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock
-- Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9
-- V10: panels stacked and visible together, tabs dragged between areas, several tab groups per area, the canvas in the centre
-- Bao built the panel-group model and the shell
-- Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application
-
-**Script**
-
-> Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place, and several can be open at once. V7 lets you move panels, but each dock shows only one tab.
->
-> Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths.
->
-> Panels stay stacked and visible together, as in V2. You can drag tabs between areas, as in V7. Each area can hold several tab groups. And the canvas stays in the centre and is never covered.
->
-> Bao built the panel-group model and the shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place.
-
-**Cues**
-
-- Left: what V10 keeps from V2 and from V7. Right: the current app, with its regions outlined.
-- The band at the bottom says who did what.
-- Kerk to confirm the wording.
-
-**Transition:** Bao will show the shell in detail later. Next, I will turn to the website and the execution architecture.
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- From V2 · split rails: Panels stacked and visible together; Its panel positions as V10's default
-- From V7 · draggable docks: Panels moved by dragging their tabs; A bottom area and splitters to resize
-- V10 · panel groups: The canvas stays central and uncovered; Tab groups around the drawing; One playback bar for every topic
-- Discussed together: Kerk and Bao, with Prof. Halim's feedback
-- Bao: built V10's panel-group model and shell (16–18 Oct)
-- Kerk: refined V10's dragging, controls and fonts; made its site and visualizers one app (18–22 Oct)
-
-**Visual:** Left: Bao's working Tree builds in V2 (split rails) and V7 (docks), as of 17 October, with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
-
-**Team review:** Kerk to confirm this slide: his refinements, the consolidation and how the discussion with Prof. Halim is described. The script was rewritten on 16 November from the records and Bao's account.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
-
-</details>
-
-### 09. Application boundaries
-
-**Kerk · Engine & Website · 10:00–12:00**
-
-*Script: 131 words, about 60 s at 130 words per minute; the slot is 120 s.*
-
-**Main message:** The prototype is one application with clear owners, and today the engine is still separate from it.
-
-**Talking points**
-
-- One React and TypeScript application, built with Vite
-- The site host owns routing, the top bar and the theme; it mounts Graph, Tree or Sorting
-- Each visualizer owns its input and playback; a shared layer supplies the panel layout and presentation utilities
-- Drawing: React Flow for Graph and Tree, D3 for some layout calculations, Canvas 2D for Sorting
-- Boundary: the visualizers run TypeScript in the page; the WebAssembly engine is a separate project
-
-**Script**
-
-> The prototype is one React and TypeScript application, built with Vite.
->
-> The site host owns the routing, the top bar and the theme. It mounts Graph, Tree or Sorting. Each visualizer owns its own input and playback. A shared layer supplies the panel layout and some reusable presentation utilities.
->
-> Why separate them this way? The shell should know where the Status panel sits. The algorithm decides what that panel means.
->
-> For drawing, Graph and Tree use React Flow, with D3 for some layout calculations. Sorting uses Canvas 2D.
->
-> There is one important boundary in the current build. These visualizers run TypeScript algorithms in the page. The WebAssembly engine is a separate project. This lets us develop interaction and execution independently, while we work toward integration.
-
-**Cues**
-
-- Walk down the diagram: the site host, the three visualizers, the shared layer. The engine is the dashed box at the side.
-- Kerk to confirm against the current implementation.
-
-**Transition:** Let me now describe that engine.
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- Site host: routes, top bar and theme
-- Visualizers: input, execution and playback (TypeScript in the page)
-- Shared layer: layout and presentation utilities
-- Separate engine foundation awaiting integration
-
-**Visual:** Layered diagram: site host over three visualizer boxes (Graph and Tree: React Flow with D3 layout; Sorting: Canvas 2D) over the shared layer; the engine is a dashed box to the side.
-
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-</details>
-
-### 10. Engine foundation
-
-**Kerk · Engine & Website · 12:00–14:30**
-
-*Script: 156 words, about 72 s at 130 words per minute; the slot is 150 s.*
-
-**Main message:** The engine runs algorithms in a worker; the plan is that it describes their state and the visualizer explains it to the learner.
-
-**Talking points**
-
-- C++ algorithms compiled to WebAssembly, running inside a worker
-- The page and the engine talk through protocol messages, not direct calls
-- Protobuf messages with graph and array representations; a Python path through Pyodide for tracing sorting algorithms
-- Design question: expose enough state without tying the engine to the page layout
-- Plan: the engine describes state and changes; the visualizer decides the note and the pseudocode line
-
-**Script**
-
-> The engine foundation explores running C++ algorithms, compiled to WebAssembly, inside a worker.
->
-> The page and the engine talk through protocol messages, not through direct calls into the visual components. The worker gives execution its own context. The page stays responsible for interaction and drawing.
->
-> The documented engine uses protobuf messages, with graph and array representations. It also has a Python path, through Pyodide, for tracing sorting algorithms.
->
-> The main design question is this. How do we expose enough state for visualization, without making the engine depend on the page layout?
->
-> Our answer is a division of work. The engine should describe the algorithm's state and its changes. The visualizer still has to explain them to the learner. For example, when the engine updates a distance, it does not decide where a note appears, or which pseudocode line to highlight. That belongs to the integration boundary.
-
-**Cues**
-
-- Follow the flow on the diagram: the page, the protocol messages, the worker.
-- Optional engine demonstration: one forward step in the separate engine build, then its state output. Keep it within 45 seconds, and skip it if time is short.
-- Kerk to confirm against the current implementation.
-
-**Transition:** The harder part is connecting the engine to the visualizers.
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- C++20 compiled to WebAssembly
-- Execution inside a worker
-- Protocol messages connect the page and engine
-- Python tracing explored through Pyodide
-
-**Visual:** Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly engine, Pyodide); band with the design question about exposing state without depending on page layout.
-
-**Delivery cue:** Kerk: confirm against your current engine build. Optional 45-second separate-engine demonstration is included in this time slot.
-
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-</details>
-
-### 11. Reversible execution and integration
-
-**Kerk · Engine & Website · 14:30–16:30**
-
-*Script: 162 words, about 75 s at 130 words per minute; the slot is 120 s.*
-
-**Main message:** The engine and the visualizers keep history differently, so connecting them needs an explicit translation, one Graph algorithm first.
-
-**Talking points**
-
-- Engine: a reversible journal, one record per step, and it can move backward
-- Visualizers: Graph and Tree build all steps when a run starts; Sorting pulls from generators and keeps history
-- Three things must stay consistent: node and edge identity, run identity, and the meaning of a step
-- Bao's earlier integration experiment stays separate from the delivered visualizers
-- Next step: one complete Graph integration, checked against the TypeScript behaviour
-
-**Script**
-
-> The engine and the visualizers keep history in different ways.
->
-> The documented engine keeps a reversible journal: a record for each step, and it can move backward through those records. The current Graph and Tree visualizers build all their steps when a run starts. Sorting pulls operations from generators and keeps history for seeking.
->
-> So connecting them needs an explicit translation. We cannot simply replace one algorithm function with another.
->
-> Three things must stay consistent. First, the identity of nodes and edges, especially parallel edges. Second, the identity of a run, when the user changes the input or starts again. Third, the meaning of a step: the drawing, the pseudocode and the text must agree.
->
-> Bao did an earlier integration experiment, with stable edge identities and a browser client. It remains separate from the delivered visualizers.
->
-> Our proposed next step is one complete Graph integration, checked against the current TypeScript behaviour, before we expand.
-
-**Cues**
-
-- Left card: the engine's history. Right card: the visualizers' history. The three chips below are what integration must keep.
-- Kerk to confirm against the current implementation.
-
-**Transition:** Finally, the website that hosts all of this.
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- Engine history: reversible records per step
-- Current visualizers: sequences or operation history
-- Integration must preserve identity and step meaning
-
-**Visual:** Two cards marked ≠, over a band with three chips: node and edge identity, the same run across edits and restarts, state/pseudocode/notes agree on a step.
-
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-</details>
-
-### 12. Website integration
-
-**Kerk · Engine & Website · 16:30–18:00**
-
-*Script: 132 words, about 61 s at 130 words per minute; the slot is 90 s.*
-
-**Main message:** The site hosts the visualizers without duplicating their controls, and this boundary is where our contributions meet.
-
-**Talking points**
-
-- The site owns the top bar and the theme; each visualizer supplies its topic-specific parts
-- Bao built the working catalogue, the routes and the host adapters on the design system
-- Kerk's consolidation and refinements made it a single application
-- The wider website infrastructure and the engine still have to join the visualization layer
-- Clear responsibilities avoid a second set of playback controls and conflicting theme state
-
-**Script**
-
-> The website has to host the visualizers without duplicating their controls.
->
-> In the prototype, the site owns the top bar and the theme. Each visualizer supplies the topic-specific parts, such as the algorithm choices or the sorting pane controls. The host then presents them inside one site.
->
-> Bao built the working catalogue, the routes and the host adapters, on top of the design system. My consolidation and refinements made it a single application. So this boundary is where our contributions meet.
->
-> The wider website infrastructure and the engine still need to come together with the visualization layer.
->
-> Keeping these responsibilities explicit helps us avoid two problems: a second set of playback controls, and conflicting theme state.
-
-**Cues**
-
-- Point at the site frame, then the three visualizer slots, then the attribution line.
-- Kerk to confirm against the current implementation.
-- Hand back to Bao.
-
-**Transition:** Bao will now explain how the visualization layer uses these boundaries for editing, comparison and explanations.
-
-<details>
-<summary>Slide text, clip details and sources</summary>
-
-**On slide**
-
-- One site controls navigation and theme
-- Visualizers supply topic-specific controls
-- Shared infrastructure supports further integration
-
-**Visual:** Site frame with three visualizer slots and an infrastructure card; attribution line: Bao built the functional catalogue, routes and host adapters; Kerk consolidated and refined.
-
-**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
-
-</details>
-
-### 13. My visualization contributions
-
-**Bao · Algorithm Visualizers · 18:00–18:40**
-
-*Script: 81 words, about 37 s at 130 words per minute; the slot is 40 s.*
+*Script: 97 words, about 45 s at 130 words per minute; the slot is 50 s.*
 
 **Main message:** I built the visualizer foundations, the algorithms, the shell and the step explanations; I will show a few decisions you can see on screen.
 
@@ -658,7 +396,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 - Foundations for Graph, Tree and Sorting
 - Algorithms: each needs its own steps, pseudocode and inspector, for example LCA with Binary Lifting, and Trie
 - The V10 shell and the integration into the site
-- How each step explains itself, and how the behaviour is tested
+- How each step explains itself, and how the behaviour is tested (snapshot of 1 November: 3,273 unit tests, 151 browser cases)
 - Next: a few selected decisions
 
 **Script**
@@ -667,13 +405,14 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 >
 > I also implemented the algorithms. Each one needs its own steps, pseudocode and inspector. Two examples are LCA with Binary Lifting, and Trie.
 >
-> Finally, I worked on how each step explains itself, and on how we test the behaviour.
+> Finally, I worked on how each step explains itself, and on how we test the behaviour. Our report snapshot from 1 November records 3,273 passing unit tests and 151 passing browser cases.
 >
 > I will show a few decisions that you can see on screen.
 
 **Cues**
 
 - Four cards. Do not read them; name each area in one sentence.
+- The Evaluation slide is no longer in the deck, so this is the only place the test numbers are said. Say the date. Skip the sentence if you are late.
 
 **Transition:** The first one is the shell.
 
@@ -693,9 +432,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 </details>
 
-### 14. A shared shell with clear constraints
+### 09. A shared shell with clear constraints
 
-**Bao · Algorithm Visualizers · 18:40–19:50**
+**Bao · Algorithm Visualizers · 11:40–12:50**
 
 *Script: 143 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -755,9 +494,9 @@ Live alternative only if time allows.
 
 </details>
 
-### 15. Input, layout and playback
+### 10. Input, layout and playback
 
-**Bao · Algorithm Visualizers · 19:50–20:55**
+**Bao · Algorithm Visualizers · 12:50–13:55**
 
 *Script: 124 words, about 57 s at 130 words per minute; the slot is 65 s.*
 
@@ -818,9 +557,9 @@ Live layout was off. The app has no on-canvas weight edit.
 
 </details>
 
-### 16. Sorting comparison
+### 11. Sorting comparison
 
-**Bao · Algorithm Visualizers · 20:55–21:55**
+**Bao · Algorithm Visualizers · 13:55–14:55**
 
 *Script: 124 words, about 57 s at 130 words per minute; the slot is 60 s.*
 
@@ -873,9 +612,9 @@ Live layout was off. The app has no on-canvas weight edit.
 
 </details>
 
-### 17. LCA: explaining a decision to stay
+### 12. LCA: explaining a decision to stay
 
-**Bao · Algorithm Visualizers · 21:55–23:50**
+**Bao · Algorithm Visualizers · 14:55–16:50**
 
 *Script: 214 words, about 99 s at 130 words per minute; the slot is 115 s.*
 
@@ -944,9 +683,9 @@ Say that floating text is a design response to a formative observation; its effe
 
 </details>
 
-### 18. Pause and inspect the result
+### 13. Pause and inspect the result
 
-**Bao · Algorithm Visualizers · 23:50–25:10**
+**Bao · Algorithm Visualizers · 16:50–18:10**
 
 *Script: 153 words, about 71 s at 130 words per minute; the slot is 80 s.*
 
@@ -1008,11 +747,11 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 </details>
 
-### 19. Editors for exploring an example
+### 14. Graph/Tree Editors
 
-**Bao · Algorithm Visualizers · 25:10–26:00**
+**Bao · Algorithm Visualizers · 18:10–19:10**
 
-*Script: 105 words, about 48 s at 130 words per minute; the slot is 50 s.*
+*Script: 125 words, about 58 s at 130 words per minute; the slot is 60 s.*
 
 **Main message:** The editors start from the user's own example, and let them ask several questions about it.
 
@@ -1026,7 +765,7 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 **Script**
 
-> On the home page, there are two editors: the Graph Editor and the Tree Editor. They support a workflow that starts from an example.
+> On the home page, there are two editors: the Graph Editor and the Tree Editor. You saw both in the demo. They support a workflow that starts from an example.
 >
 > A user may already have a graph in mind, and want to investigate it. This fits competitive programming practice: build a small test, check an observation, or look for a counterexample.
 >
@@ -1037,9 +776,9 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 **Cues**
 
 - The picture is the Editors section of the home page.
-- Press → to show the Live demo slide, then switch to the browser.
+- Hand over to Kerk.
 
-**Transition:** Let us look at this live.
+**Transition:** That is my part. Kerk will now explain how we designed the layout, and then the engine and the website.
 
 <details>
 <summary>Slide text, clip details and sources</summary>
@@ -1056,154 +795,412 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 </details>
 
-### 20. Live demo
+### 15. Wireframing
 
-**Both · Demo & Evaluation · 26:00–29:00**
+**Kerk · UI/UX Evolution · 19:10–20:20**
 
-*Script: 230 words, about 106 s at 130 words per minute; the slot is 180 s.*
+*Script: 147 words, about 68 s at 130 words per minute; the slot is 70 s.*
 
-**Main message:** One example, several questions: the same input drives different algorithms, in one interface.
+**Main message:** From nine wireframes and a student survey, we chose two layouts to build: V2 and V7.
 
 **Talking points**
 
-- This is the running app, not a recording
-- Graph Editor: one small graph; eleven graph algorithms on the same input
-- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
-- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
-- Kerk: one interface for every structure
-- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
+- Low-fidelity wireframes of the visualisation page, with an AVL tree as the example
+- Nine versions: seven layouts and two drag states of V7
+- Layout survey: 61 respondents, mostly past and present CS2040S and CS3230 students
+- Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both
 
 **Script**
 
-> **Bao:** This is the running app, not a recording. I start from the Graph Editor.
+> Let me go back to how we designed the page you have been looking at. Alongside the design system, I drew low-fidelity wireframes of the visualisation page. I used an AVL tree as the example.
 >
-> **Bao:** This small graph is the input. The editor offers eleven graph algorithms on this same input.
+> Every version has the same top bar and footer. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop.
 >
-> **Bao:** Question one: what are the shortest paths from A? I run Dijkstra and jump to the end. Hovering E shows its path: A, B, E, with distance 7. D goes through C, with distance 3. Nothing runs again; the app reads the finished result.
+> I then ran a layout survey. We had 61 respondents, mostly past and present CS2040S and CS3230 students.
 >
-> **Bao:** Question two, on the same graph: in what order does recursive DFS visit the vertices? I switch to DFS and let it play. At the last frame, the drawing replays the DFS tree in visit order: A, B, D, F, then E, then C. So one input answered two questions.
+> After that, Bao and I chose two layouts together: V2, with split rails, and V7, with draggable docks. They are the two on the right.
 >
-> **Kerk:** The site gives these activities one interface. You go back to the editors and choose another structure, with the same bar, panels and footer.
->
-> **Bao:** In the Tree Editor, one tree is shared by Binary Lifting, BST and AVL. I pause on a step and hover node 6. The app shows its path to the root, marks its ancestors one and two levels up, 4 and 8, and highlights row 6 of the ancestor table. The hover does not move the step.
->
-> **Bao:** That is the workflow we aim for: one example, several questions.
+> Bao then built Graph, Tree and Sorting in both layouts. So we could compare them on real runs and not on drawings.
 
 **Cues**
 
-- A proposed plan, checked on app 346e84b on 16 November. Settle it in rehearsal.
-- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
-- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
-- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
-- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
-- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
-- 1:30 Kerk speaks. Bao clicks HOME, then the Tree Editor card.
-- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
-- 2:40 Return to PowerPoint and press → for slide 21.
-- If a step fails, do not debug: use the clips on slides 15, 17 and 18, or B1 in the backup file. If time is short, stop after the DFS recap.
+- Left: the nine wireframes, with V2 and V7 outlined. Right: V2 on top, V7 below.
+- Kerk's slide, made on 16 November. This script is a draft from the slide text and his earlier script; it is his to confirm.
+- The number 61 is from the slide.
 
-**Transition:** So how did we evaluate all this?
+**Transition:** So what did the two builds show?
 
 <details>
 <summary>Slide text, clip details and sources</summary>
 
 **On slide**
 
-- Live demo
-- A short demo of VisuAlgo+
+- Wireframing
+- 61 survey respondents, primarily past and present CS2040S and CS3230 students
 
-**Visual:** A navy divider slide with only those two lines. At Bao's request (16 November), what the demo shows is settled here in the script, not on the slide. The text and cue below are a working plan to settle in rehearsal.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+**Visual:** Left: Kerk's nine wireframes (4 September) with V2 and V7 outlined. Right: the V2 and V7 wireframes, large. Kerk remade this slide by hand on 16 November, from the earlier slide 7; Bao's working V2 and V7 builds are no longer pictured. The figure 61 is Kerk's.
 
 </details>
 
-### 21. Evaluation and design response
+### 16. Prototyping
 
-**Both · Demo & Evaluation · 29:00–31:00**
+**Kerk · UI/UX Evolution · 20:20–21:25**
 
-*Script: 189 words, about 87 s at 130 words per minute; the slot is 120 s.*
+*Script: 134 words, about 62 s at 130 words per minute; the slot is 65 s.*
 
-**Main message:** We tested the software and ran a formative trial in Week 10; floating text is a design response, and its effect is not yet measured.
+**Main message:** V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.
 
 **Talking points**
 
-- Bao: tests, a snapshot of 1 November: 3,273 unit tests and 151 browser cases passing
-- Bao: an example of an independent check: cut vertices and bridges
-- Kerk: Week 10: NUS students used V10 on their own for 15 to 20 minutes; sessions recorded; a short post-use test and feedback
-- Bao: as I remember it, newer learners often had to read Status, so I added floating text, with legend and Status changes
-- Not measured yet; a follow-up study needs defined tasks
+- Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock
+- Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9
+- V10: panels stacked and visible together, tabs dragged between areas, the canvas in the centre
+- Bao built the panel-group model and the shell
+- Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application
 
 **Script**
 
-> **Bao:** We evaluated in two ways: software tests, and formative feedback from users.
+> Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place, and several can be open at once. V7 lets you move panels, but each dock shows only one tab.
 >
-> **Bao:** On testing, our report snapshot from 1 November records 3,273 passing unit tests and 151 passing browser cases in Chromium. Here is one example. For cut vertices and bridges, a separate check removes each vertex or edge and counts the connected components again. So the result is checked by a different method.
+> Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths. This is V10.
 >
-> **Kerk:** In Week 10, NUS students with different levels of algorithm experience used V10 on their own, for 15 to 20 minutes. We recorded the sessions, then collected a short post-use test and feedback. This was separate from the earlier layout survey.
+> Panels stay stacked and visible together, as in V2. You can drag tabs between areas, as in V7. And the canvas stays in the centre and is never covered.
 >
-> **Bao:** As I remember it, newer learners still often had to read Status, especially for algorithms with several stages, such as LCA. So I added floating text near the objects on the canvas, together with changes to the legend and Status.
->
-> **Bao:** These are design responses to formative observations. We have not measured whether floating text improves learning or reduces attention switching. A follow-up study needs defined tasks, with the revised interface.
+> Bao built the panel-group model and the shell, which he showed earlier. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application.
 
 **Cues**
 
-- The two numbers are a snapshot of 1 November, not a rerun today. Say the date.
-- Order: Bao, Kerk, Bao.
+- The picture is V10 in the current app.
+- Kerk's slide, made on 16 November. This script is a draft from the slide text and his earlier script; it is his to confirm.
 
-**Transition:** That brings us to the plan for Semester 2.
+**Transition:** Then we put V10 in front of students.
 
 <details>
 <summary>Slide text, clip details and sources</summary>
 
 **On slide**
 
-- 1 Nov 2026: 3,273 unit tests and 151 Chromium cases (snapshot, app 662e7b3; not a rerun today)
-- Week 10: independent use, post-use test and feedback
-- Frequent Status reading motivated floating text
-- Learning impact remains unmeasured
+- Prototyping
 
-**Visual:** Two stat callouts, a Week 10 card, a design-response band and an amber limits band.
-
-**Delivery cue:** Historical test snapshot: app commit 662e7b3, 1 November 2026. LCA-specific observation is Bao’s recollection clarified on 16 November, not a coded analysis of reviewed footage.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
+**Visual:** V10 in the current app (Tree Editor, BST Insert preview, app 346e84b). Kerk remade this slide by hand on 16 November, from the earlier slide 8; the V2 and V7 thumbnails and the credit band are no longer on it.
 
 </details>
 
-### 22. Semester 2 priorities
+### 17. Prototyping
 
-**Both · Future Work · 31:00–33:00**
+**Kerk · UI/UX Evolution · 21:25–22:00**
 
-*Script: 216 words, about 100 s at 130 words per minute; the slot is 120 s.*
+*Script: 64 words, about 30 s at 130 words per minute; the slot is 35 s.*
 
-**Main message:** Next: one Graph algorithm through the engine end to end, a stable and evaluated prototype, and a first release around March 2027.
+**Main message:** Eight students tried V10 in Week 10, in a formative trial.
 
 **Talking points**
 
-- Kerk: the integration milestone is one Graph algorithm across the full application, checked against the TypeScript version
-- Bao: stabilise the workflows we showed; evaluate the explanations with defined tasks; measure startup, seeking and memory
-- Kerk: target a first public release around March 2027; the original platform stays available
-- Bao: the wider ambition is the original range, then advanced topics; Heavy-Light and Centroid Decomposition are possibilities, not commitments
-- Today we have the foundation and a working prototype
+- 8 prototype testers, mostly current CS2040S and CS3230 students
+- Each used V10 on their own for 15 to 20 minutes
+- Sessions recorded; then a short post-use test and feedback
+- Formative: it shows what to fix, not how much students learn
 
 **Script**
 
-> **Kerk:** Our next integration milestone is one Graph algorithm working across the full application. The input, the engine and the playback must agree on three things: node and edge identity, the meaning of each step, and cancellation. We can check the result against the current TypeScript version before we go further.
+> In Week 10, we tested the V10 prototype with eight students, mostly current CS2040S and CS3230 students.
 >
-> **Bao:** In parallel, I want to stabilise the workflows we showed today, and evaluate the new explanations. For example, we can ask a learner to explain why an LCA step keeps both nodes in place, and observe how they use the canvas, the ancestor table and Status. We also need measurements for startup, seeking, and memory on long runs.
+> Each of them used it on their own, for 15 to 20 minutes. We recorded the sessions, then collected a short post-use test and feedback.
 >
-> **Kerk:** We are targeting a first public release around March 2027, depending on integration and validation. The current plan keeps the original platform available, and links to the completed topics.
->
-> **Bao:** Our wider ambition is to cover the original range of algorithms and, later, to add advanced topics. For example, LCA already uses rooted trees and ancestor queries. That work could later support Heavy-Light Decomposition or Centroid Decomposition. These are possibilities, not Semester 2 commitments. Integration, validation and stability come first.
->
-> **Bao:** What we have today is the foundation: working visualizers, and a prototype to build that release on.
+> This was a formative trial. It tells us what to fix, not how much students learn.
 
 **Cues**
 
-- Four steps on the roadmap. Kerk takes integration and the release; Bao takes validation and coverage.
-- The release paragraph was marked 'Both' before; this split is a proposal for Kerk to confirm.
+- The photo is from one of the sessions.
+- Kerk's slide, made on 16 November. This script is a draft from the slide text and his earlier script; it is his to confirm.
+- The number 8 is from the slide.
+
+**Transition:** Here is what they told us.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Prototyping
+- 8 prototype testers, primarily current CS2040S and CS3230 students
+
+**Visual:** A photo of one trial session: a laptop running the Tree visualizer. Added by Kerk on 16 November. The figure 8 is Kerk's.
+
+</details>
+
+### 18. Prototyping
+
+**Kerk · UI/UX Evolution · 22:00–23:10**
+
+*Script: 107 words, about 49 s at 130 words per minute; the slot is 70 s.*
+
+**Main message:** The trial supported the layout, showed that onboarding is weak, and left one open question: reading versus inference.
+
+**Talking points**
+
+- Plus: the layout worked for the testers
+- Minus: onboarding. Overwhelming at first glance (4 of 8); e-Lecture not helpful enough (3); less common features hard to discover (3); hard to navigate between pages (3)
+- Open question: should a learner read the explanation, or infer it from the animation?
+- Eight testers give signals, not statistics
+
+**Script**
+
+> First, the good news. The layout worked for our testers.
+>
+> The weak point is onboarding. Four of the eight found the page overwhelming at first glance. Three said the e-Lecture was not helpful enough. Three found the less common features hard to discover, and three found it hard to navigate between pages.
+>
+> There is also an open question. Should a learner read the explanation, or infer it from the animation? Bao's floating text is one response to that, and we have not measured its effect yet.
+>
+> With eight testers, these are signals, not statistics. They tell us where to work next.
+
+**Cues**
+
+- The table counts testers out of 8.
+- The slide says 'Layout is validated'. With eight testers, say 'the layout worked for our testers'.
+- Kerk's slide, made on 16 November. This script is a draft from the slide text and his earlier script; it is his to confirm.
+
+**Transition:** Now the system behind the page.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Prototyping
+- + Layout is validated
+- − Poor onboarding
+- ? Reading vs inference
+
+**Visual:** A table of feedback by number of users: overwhelming at first glance, 4; e-Lecture not helpful enough, 3; hard to discover the less common features, 3; hard to navigate between pages, 3. Added by Kerk on 16 November; the figures are Kerk's.
+
+</details>
+
+### 19. Architecture
+
+**Kerk · Engine & Website · 23:10–25:10**
+
+*Script: 135 words, about 62 s at 130 words per minute; the slot is 120 s.*
+
+**Main message:** The architecture has a browser side and a server side; say clearly which parts the demo already uses.
+
+**Talking points**
+
+- Browser: the frontend (React, design tokens, panels and e-Lectures) starts a Run
+- Algorithm engine: C++ compiled to WebAssembly; it records the History
+- Render engine: d3 into SVG; it draws any History
+- CDN: static files, the frontend bundle and the wasm binary
+- Server: a Go API over REST, with Postgres, Redis and an email provider
+- Boundary: the demo ran TypeScript algorithms in the browser; this engine is not connected to those visualizers yet
+
+**Script**
+
+> This is the architecture of the system. On the left is the browser, on the right the server.
+>
+> In the browser, the frontend holds the React interface: the design tokens, the panels and the e-Lectures. It starts a run in the algorithm engine, which is C++ compiled to WebAssembly. The engine records a history, and the render engine draws that history.
+>
+> On the server, a Go API handles accounts, preferences and progress. It uses Postgres for users, progress and content, Redis for login sessions and cache, and an email provider for login and reset codes.
+>
+> One thing must be clear. The demo you saw runs TypeScript algorithms in the browser. The algorithm engine in this diagram is not connected to those visualizers yet. Connecting them is Semester 2 work.
+
+**Cues**
+
+- Kerk: say which boxes already run and which are planned. The slide does not show it.
+- Keep the last paragraph: the evaluator will otherwise assume the demo ran on this engine.
+- Kerk's slide, made on 16 November. This script is a draft from the slide text and his earlier script; it is his to confirm.
+
+**Transition:** Let me now describe that engine.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Architecture
+
+**Visual:** Kerk's diagram, added on 16 November. Browser: the Frontend (React, design tokens, panels and e-Lectures) starts a Run in the Algorithm engine (C++ to WebAssembly, records the History); the Render engine (d3 into SVG) draws any History; a CDN serves the static files. Server: a Go API (accounts, preferences and progress) over REST, with Postgres, Redis and an email provider. The diagram does not say which parts run today.
+
+</details>
+
+### 20. Architecture
+
+**Kerk · Engine & Website · same picture as slide 19**
+
+*Script: 9 words, about 4 s at 130 words per minute.*
+
+**Main message:** This slide shows the same picture as slide 19.
+
+**Talking points**
+
+- In file (8), slides 19 and 20 are identical
+- Kerk: delete one of them, or replace this picture with the second one you meant to show
+
+**Script**
+
+> (No separate script. Go on to the next slide.)
+
+**Cues**
+
+- If it stays, press → without stopping.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**Visual:** The same picture as slide 19. In the file Kerk sent, the two slides are identical.
+
+</details>
+
+### 21. Engine foundation
+
+**Kerk · Engine & Website · 25:10–27:40**
+
+*Script: 156 words, about 72 s at 130 words per minute; the slot is 150 s.*
+
+**Main message:** The engine runs algorithms in a worker; the plan is that it describes their state and the visualizer explains it to the learner.
+
+**Talking points**
+
+- C++ algorithms compiled to WebAssembly, running inside a worker
+- The page and the engine talk through protocol messages, not direct calls
+- Protobuf messages with graph and array representations; a Python path through Pyodide for tracing sorting algorithms
+- Design question: expose enough state without tying the engine to the page layout
+- Plan: the engine describes state and changes; the visualizer decides the note and the pseudocode line
+
+**Script**
+
+> The engine foundation explores running C++ algorithms, compiled to WebAssembly, inside a worker.
+>
+> The page and the engine talk through protocol messages, not through direct calls into the visual components. The worker gives execution its own context. The page stays responsible for interaction and drawing.
+>
+> The documented engine uses protobuf messages, with graph and array representations. It also has a Python path, through Pyodide, for tracing sorting algorithms.
+>
+> The main design question is this. How do we expose enough state for visualization, without making the engine depend on the page layout?
+>
+> Our answer is a division of work. The engine should describe the algorithm's state and its changes. The visualizer still has to explain them to the learner. For example, when the engine updates a distance, it does not decide where a note appears, or which pseudocode line to highlight. That belongs to the integration boundary.
+
+**Cues**
+
+- Follow the flow on the diagram: the page, the protocol messages, the worker.
+- Optional engine demonstration: one forward step in the separate engine build, then its state output. Keep it within 45 seconds, and skip it if time is short.
+- Kerk to confirm against the current implementation.
+
+**Transition:** The harder part is connecting the engine to the visualizers.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- C++20 compiled to WebAssembly
+- Execution inside a worker
+- Protocol messages connect the page and engine
+- Python tracing explored through Pyodide
+
+**Visual:** Flow diagram: page ⇄ protocol messages ⇄ worker (WebAssembly engine, Pyodide); band with the design question about exposing state without depending on page layout.
+
+**Delivery cue:** Kerk: confirm against your current engine build. Optional 45-second separate-engine demonstration is included in this time slot.
+
+**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+</details>
+
+### 22. Reversible execution and integration
+
+**Kerk · Engine & Website · 27:40–29:40**
+
+*Script: 162 words, about 75 s at 130 words per minute; the slot is 120 s.*
+
+**Main message:** The engine and the visualizers keep history differently, so connecting them needs an explicit translation, one Graph algorithm first.
+
+**Talking points**
+
+- Engine: a reversible journal, one record per step, and it can move backward
+- Visualizers: Graph and Tree build all steps when a run starts; Sorting pulls from generators and keeps history
+- Three things must stay consistent: node and edge identity, run identity, and the meaning of a step
+- Bao's earlier integration experiment stays separate from the delivered visualizers
+- Next step: one complete Graph integration, checked against the TypeScript behaviour
+
+**Script**
+
+> The engine and the visualizers keep history in different ways.
+>
+> The documented engine keeps a reversible journal: a record for each step, and it can move backward through those records. The current Graph and Tree visualizers build all their steps when a run starts. Sorting pulls operations from generators and keeps history for seeking.
+>
+> So connecting them needs an explicit translation. We cannot simply replace one algorithm function with another.
+>
+> Three things must stay consistent. First, the identity of nodes and edges, especially parallel edges. Second, the identity of a run, when the user changes the input or starts again. Third, the meaning of a step: the drawing, the pseudocode and the text must agree.
+>
+> Bao did an earlier integration experiment, with stable edge identities and a browser client. It remains separate from the delivered visualizers.
+>
+> Our proposed next step is one complete Graph integration, checked against the current TypeScript behaviour, before we expand.
+
+**Cues**
+
+- Left card: the engine's history. Right card: the visualizers' history. The three chips below are what integration must keep.
+- Kerk to confirm against the current implementation.
+
+**Transition:** Finally, the website that hosts all of this.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Engine history: reversible records per step
+- Current visualizers: sequences or operation history
+- Integration must preserve identity and step meaning
+
+**Visual:** Two cards marked ≠, over a band with three chips: node and edge identity, the same run across edits and restarts, state/pseudocode/notes agree on a step.
+
+**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+</details>
+
+### 23. Website integration
+
+**Kerk · Engine & Website, then Future Work · 29:40–33:00**
+
+*Script: 263 words, about 121 s at 130 words per minute; the slot is 200 s.*
+
+**Main message:** The site hosts the visualizers without duplicating their controls; then, with no slide of its own, the plan for Semester 2.
+
+**Talking points**
+
+- The site owns the top bar and the theme; each visualizer supplies its topic-specific parts
+- Bao built the working catalogue, the routes and the host adapters on the design system
+- Kerk's consolidation and refinements made it a single application
+- The wider website infrastructure and the engine still have to join the visualization layer
+- Clear responsibilities avoid a second set of playback controls and conflicting theme state
+- Future work, said over this slide: one Graph algorithm through the engine end to end; a first public release around March 2027 (a target); stabilise and evaluate; advanced tree topics are possibilities, not commitments
+
+**Script**
+
+> The website has to host the visualizers without duplicating their controls.
+>
+> In the prototype, the site owns the top bar and the theme. Each visualizer supplies the topic-specific parts, such as the algorithm choices or the sorting pane controls. The host then presents them inside one site.
+>
+> Bao built the working catalogue, the routes and the host adapters, on top of the design system. My consolidation and refinements made it a single application. So this boundary is where our contributions meet.
+>
+> The wider website infrastructure and the engine still need to come together with the visualization layer.
+>
+> Keeping these responsibilities explicit helps us avoid two problems: a second set of playback controls, and conflicting theme state.
+>
+> To finish, our plan for Semester 2. Our next integration milestone is one Graph algorithm working across the full application. The input, the engine and the playback must agree on three things: node and edge identity, the meaning of each step, and cancellation. We can check the result against the current TypeScript version before we go further.
+>
+> We are targeting a first public release around March 2027, depending on integration and validation. The current plan keeps the original platform available, and links to the completed topics.
+>
+> Bao will stabilise the workflows you saw today and evaluate the new explanations with defined tasks. Our wider ambition is to cover the original range of algorithms and, later, to add advanced tree topics, such as Heavy-Light Decomposition or Centroid Decomposition. These are possibilities, not Semester 2 commitments. Integration, validation and stability come first.
+
+**Cues**
+
+- Point at the site frame, then the three visualizer slots, then the attribution line.
+- The deck has no Future Work slide. The last three paragraphs are said over this slide. If you want a slide for them, the earlier 'Semester 2 priorities' slide can go back in before Questions.
 - March 2027 is a target, not a promise.
+- Kerk to confirm against the current implementation.
 
 **Transition:** That is the end of our talk.
 
@@ -1212,20 +1209,21 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 **On slide**
 
-- Integrate one Graph algorithm end to end
-- Validate interaction, correctness and resource use
-- Evaluate revised explanations with defined tasks
-- Target an initial release around March 2027
+- One site controls navigation and theme
+- Visualizers supply topic-specific controls
+- Shared infrastructure supports further integration
 
-**Visual:** Four-step roadmap, each with a one-line detail. Limits lines: March 2027 is a target; possible later extensions, not Semester 2 commitments: advanced tree topics such as Heavy-Light Decomposition and Centroid Decomposition.
+**Visual:** Site frame with three visualizer slots and an infrastructure card; attribution line: Bao built the functional catalogue, routes and host adapters; Kerk consolidated and refined.
 
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
+**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
 
 </details>
 
-### 23. Questions
+### 24. Questions
 
-**Backup / Q&A, outside timed talk**
+**Both · Q&A · after 33:00**
 
 *Script: 21 words, about 10 s at 130 words per minute.*
 
@@ -1275,13 +1273,13 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 **Talking points**
 
-- The same S, A, B, T graph as the clips on slides 14 and 15
+- The same S, A, B, T graph as the clips on slides 9 and 10
 - The final frame replays the DFS tree in visit order: S, A, T, then S, B
 - Different from Dijkstra's final frame, where you hover a vertex to see its path
 
 **Script**
 
-> This is recursive DFS on the same S, A, B, T graph as the clips on slides 14 and 15.
+> This is recursive DFS on the same S, A, B, T graph as the clips on slides 9 and 10.
 >
 > [Press → to play the clip.] On the final frame, the drawing replays the DFS tree in visit order, every few seconds: S to A to T, then S to B.
 >
@@ -1297,7 +1295,7 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 **On slide**
 
-- Same graph, another question: recursive DFS from S on the S, A, B, T graph of slides 14–15
+- Same graph, another question: recursive DFS from S on the S, A, B, T graph of slides 9–10
 - The final frame replays the DFS tree: glow and streak in visit order, S → A → T, then S → B
 - Different from Dijkstra's hover: a recap of the traversal, not a path query
 
@@ -1449,22 +1447,295 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 </details>
 
+## Earlier slides that are no longer in the deck
+
+Kerk replaced the earlier slides 7, 8 and 9 with his own slides 15 to 20, and the earlier slides 21 (Evaluation and design response) and 22 (Semester 2 priorities) are not in the deck he arranged. Their scripts are kept here as a record. What they said is now spoken on other slides: the test snapshot on slide 8, the Week 10 trial on slides 17 and 18, and the plan for Semester 2 over slide 23.
+
+### Earlier slide 07: From nine wireframes to two working layouts
+
+**Kerk · UI/UX Evolution · 07:00–08:30**
+
+*Script: 164 words, about 76 s at 130 words per minute; the slot is 90 s.*
+
+**Main message:** We narrowed nine wireframes to two layouts, and Bao built both, so we could compare real runs.
+
+**Talking points**
+
+- Low-fidelity wireframes of the visualisation page, with an AVL tree as the example
+- Same top bar and footer everywhere; the versions differ in where panels live and how they open
+- Nine versions: seven layouts and two drag states of V7
+- An early layout survey with students: formative, separate from the Week 10 trial
+- Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both
+
+**Script**
+
+> Alongside the design system, I drew low-fidelity wireframes of the visualisation page. I used an AVL tree as the example.
+>
+> Every version has the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop.
+>
+> I then organised an early layout survey with students. It was formative input, and it is separate from the Week 10 trial.
+>
+> After that, Bao and I chose two layouts together: V2, with split rails, and V7, with draggable docks.
+>
+> Bao then built Graph, Tree and Sorting in both layouts, on top of his prototypes and my design tokens and themes. Both builds had the same features. So when we compared them, we were comparing the layouts themselves, on real runs and not on drawings.
+
+**Cues**
+
+- Left: the nine wireframes, with V2 and V7 outlined. Middle: the two chosen wireframes. Right: Bao's working builds.
+- Kerk to confirm the wording.
+
+**Transition:** So what did the comparison show?
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Kerk's wireframes, V1–V9: One top bar and footer; seven panel layouts and two drag states of V7
+- V2 and V7 chosen together: By Kerk and Bao, after an early layout survey of students that Kerk organised
+- Bao's six working builds: Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes
+- Same features in both builds, so our discussions compared the layouts on real runs, not just as drawings
+
+**Visual:** Left: the "At a glance" grid of Kerk's wireframe page (commit 69aa8e4, 4 Sep 2026), nine frames V1–V9 with V2 and V7 outlined on the slide. Middle: the V2 and V7 wireframes. Right: Bao's working Graph builds in V2 (split rails) and V7 (docks). He made them on 20–27 September; the stills show them as they stood on 17 October, at commit ae63a62, the last one that still had them.
+
+**Team review:** Kerk to confirm this slide: the wireframes, the student feedback he organised (no numbers are on record) and how the choice is described. The script was rewritten on 16 November from the records and Bao's account.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
+
+</details>
+
+### Earlier slide 08: From V2 and V7 to V10
+
+**Kerk · UI/UX Evolution · 08:30–10:00**
+
+*Script: 154 words, about 71 s at 130 words per minute; the slot is 90 s.*
+
+**Main message:** V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.
+
+**Talking points**
+
+- Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock
+- Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9
+- V10: panels stacked and visible together, tabs dragged between areas, several tab groups per area, the canvas in the centre
+- Bao built the panel-group model and the shell
+- Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application
+
+**Script**
+
+> Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place, and several can be open at once. V7 lets you move panels, but each dock shows only one tab.
+>
+> Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths.
+>
+> Panels stay stacked and visible together, as in V2. You can drag tabs between areas, as in V7. Each area can hold several tab groups. And the canvas stays in the centre and is never covered.
+>
+> Bao built the panel-group model and the shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place.
+
+**Cues**
+
+- Left: what V10 keeps from V2 and from V7. Right: the current app, with its regions outlined.
+- The band at the bottom says who did what.
+- Kerk to confirm the wording.
+
+**Transition:** Bao will show the shell in detail later. Next, I will turn to the website and the execution architecture.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- From V2 · split rails: Panels stacked and visible together; Its panel positions as V10's default
+- From V7 · draggable docks: Panels moved by dragging their tabs; A bottom area and splitters to resize
+- V10 · panel groups: The canvas stays central and uncovered; Tab groups around the drawing; One playback bar for every topic
+- Discussed together: Kerk and Bao, with Prof. Halim's feedback
+- Bao: built V10's panel-group model and shell (16–18 Oct)
+- Kerk: refined V10's dragging, controls and fonts; made its site and visualizers one app (18–22 Oct)
+
+**Visual:** Left: Bao's working Tree builds in V2 (split rails) and V7 (docks), as of 17 October, with what V10 keeps from each. Right: the current app (Tree Editor, app 346e84b) with coloured outlines for the tab groups, the canvas and the shared playback bar.
+
+**Team review:** Kerk to confirm this slide: his refinements, the consolidation and how the discussion with Prof. Halim is described. The script was rewritten on 16 November from the records and Bao's account.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/design-history/README.md
+
+</details>
+
+### Earlier slide 09: Application boundaries
+
+**Kerk · Engine & Website · 10:00–12:00**
+
+*Script: 131 words, about 60 s at 130 words per minute; the slot is 120 s.*
+
+**Main message:** The prototype is one application with clear owners, and today the engine is still separate from it.
+
+**Talking points**
+
+- One React and TypeScript application, built with Vite
+- The site host owns routing, the top bar and the theme; it mounts Graph, Tree or Sorting
+- Each visualizer owns its input and playback; a shared layer supplies the panel layout and presentation utilities
+- Drawing: React Flow for Graph and Tree, D3 for some layout calculations, Canvas 2D for Sorting
+- Boundary: the visualizers run TypeScript in the page; the WebAssembly engine is a separate project
+
+**Script**
+
+> The prototype is one React and TypeScript application, built with Vite.
+>
+> The site host owns the routing, the top bar and the theme. It mounts Graph, Tree or Sorting. Each visualizer owns its own input and playback. A shared layer supplies the panel layout and some reusable presentation utilities.
+>
+> Why separate them this way? The shell should know where the Status panel sits. The algorithm decides what that panel means.
+>
+> For drawing, Graph and Tree use React Flow, with D3 for some layout calculations. Sorting uses Canvas 2D.
+>
+> There is one important boundary in the current build. These visualizers run TypeScript algorithms in the page. The WebAssembly engine is a separate project. This lets us develop interaction and execution independently, while we work toward integration.
+
+**Cues**
+
+- Walk down the diagram: the site host, the three visualizers, the shared layer. The engine is the dashed box at the side.
+- Kerk to confirm against the current implementation.
+
+**Transition:** Let me now describe that engine.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Site host: routes, top bar and theme
+- Visualizers: input, execution and playback (TypeScript in the page)
+- Shared layer: layout and presentation utilities
+- Separate engine foundation awaiting integration
+
+**Visual:** Layered diagram: site host over three visualizer boxes (Graph and Tree: React Flow with D3 layout; Sorting: Canvas 2D) over the shared layer; the engine is a dashed box to the side.
+
+**Team review:** Kerk to confirm current implementation and add his own technical detail. The script uses the documented architecture, not a fresh engine audit.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/03_architecture_and_decisions.md
+
+</details>
+
+### Earlier slide 21: Evaluation and design response
+
+**Both · Demo & Evaluation · 29:00–31:00**
+
+*Script: 189 words, about 87 s at 130 words per minute; the slot is 120 s.*
+
+**Main message:** We tested the software and ran a formative trial in Week 10; floating text is a design response, and its effect is not yet measured.
+
+**Talking points**
+
+- Bao: tests, a snapshot of 1 November: 3,273 unit tests and 151 browser cases passing
+- Bao: an example of an independent check: cut vertices and bridges
+- Kerk: Week 10: NUS students used V10 on their own for 15 to 20 minutes; sessions recorded; a short post-use test and feedback
+- Bao: as I remember it, newer learners often had to read Status, so I added floating text, with legend and Status changes
+- Not measured yet; a follow-up study needs defined tasks
+
+**Script**
+
+> **Bao:** We evaluated in two ways: software tests, and formative feedback from users.
+>
+> **Bao:** On testing, our report snapshot from 1 November records 3,273 passing unit tests and 151 passing browser cases in Chromium. Here is one example. For cut vertices and bridges, a separate check removes each vertex or edge and counts the connected components again. So the result is checked by a different method.
+>
+> **Kerk:** In Week 10, NUS students with different levels of algorithm experience used V10 on their own, for 15 to 20 minutes. We recorded the sessions, then collected a short post-use test and feedback. This was separate from the earlier layout survey.
+>
+> **Bao:** As I remember it, newer learners still often had to read Status, especially for algorithms with several stages, such as LCA. So I added floating text near the objects on the canvas, together with changes to the legend and Status.
+>
+> **Bao:** These are design responses to formative observations. We have not measured whether floating text improves learning or reduces attention switching. A follow-up study needs defined tasks, with the revised interface.
+
+**Cues**
+
+- The two numbers are a snapshot of 1 November, not a rerun today. Say the date.
+- Order: Bao, Kerk, Bao.
+
+**Transition:** That brings us to the plan for Semester 2.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- 1 Nov 2026: 3,273 unit tests and 151 Chromium cases (snapshot, app 662e7b3; not a rerun today)
+- Week 10: independent use, post-use test and feedback
+- Frequent Status reading motivated floating text
+- Learning impact remains unmeasured
+
+**Visual:** Two stat callouts, a Week 10 card, a design-response band and an amber limits band.
+
+**Delivery cue:** Historical test snapshot: app commit 662e7b3, 1 November 2026. LCA-specific observation is Bao’s recollection clarified on 16 November, not a coded analysis of reviewed footage.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
+
+</details>
+
+### Earlier slide 22: Semester 2 priorities
+
+**Both · Future Work · 31:00–33:00**
+
+*Script: 216 words, about 100 s at 130 words per minute; the slot is 120 s.*
+
+**Main message:** Next: one Graph algorithm through the engine end to end, a stable and evaluated prototype, and a first release around March 2027.
+
+**Talking points**
+
+- Kerk: the integration milestone is one Graph algorithm across the full application, checked against the TypeScript version
+- Bao: stabilise the workflows we showed; evaluate the explanations with defined tasks; measure startup, seeking and memory
+- Kerk: target a first public release around March 2027; the original platform stays available
+- Bao: the wider ambition is the original range, then advanced topics; Heavy-Light and Centroid Decomposition are possibilities, not commitments
+- Today we have the foundation and a working prototype
+
+**Script**
+
+> **Kerk:** Our next integration milestone is one Graph algorithm working across the full application. The input, the engine and the playback must agree on three things: node and edge identity, the meaning of each step, and cancellation. We can check the result against the current TypeScript version before we go further.
+>
+> **Bao:** In parallel, I want to stabilise the workflows we showed today, and evaluate the new explanations. For example, we can ask a learner to explain why an LCA step keeps both nodes in place, and observe how they use the canvas, the ancestor table and Status. We also need measurements for startup, seeking, and memory on long runs.
+>
+> **Kerk:** We are targeting a first public release around March 2027, depending on integration and validation. The current plan keeps the original platform available, and links to the completed topics.
+>
+> **Bao:** Our wider ambition is to cover the original range of algorithms and, later, to add advanced topics. For example, LCA already uses rooted trees and ancestor queries. That work could later support Heavy-Light Decomposition or Centroid Decomposition. These are possibilities, not Semester 2 commitments. Integration, validation and stability come first.
+>
+> **Bao:** What we have today is the foundation: working visualizers, and a prototype to build that release on.
+
+**Cues**
+
+- Four steps on the roadmap. Kerk takes integration and the release; Bao takes validation and coverage.
+- The release paragraph was marked 'Both' before; this split is a proposal for Kerk to confirm.
+- March 2027 is a target, not a promise.
+
+**Transition:** That is the end of our talk.
+
+<details>
+<summary>Slide text, clip details and sources</summary>
+
+**On slide**
+
+- Integrate one Graph algorithm end to end
+- Validate interaction, correctness and resource use
+- Evaluate revised explanations with defined tasks
+- Target an initial release around March 2027
+
+**Visual:** Four-step roadmap, each with a one-line detail. Limits lines: March 2027 is a target; possible later extensions, not Semester 2 commitments: advanced tree topics such as Heavy-Light Decomposition and Centroid Decomposition.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
+
+</details>
+
 ## Demo preparation and remaining work
 
-Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, recorded 15–16 November), so no window switching is needed during the technical section. The live demo stays on slide 20. Each clip has a poster frame on the slide as its static fallback; press → or click to play. Details: [media map](CA_PRESENTATION_MEDIA_USAGE.md) · [changelog](CA_DECK_CHANGELOG.md).
+Slides 9–13 play real-app clips embedded in the deck (app `346e84b`, recorded 15–16 November), so no window switching is needed during the technical section. The live demo is slide 2, right after the title. Each clip has a poster frame on the slide as its static fallback; press → or click to play. Details: [media map](CA_PRESENTATION_MEDIA_USAGE.md) · [changelog](CA_DECK_CHANGELOG.md).
 
 | Clip or live action | Slide | Length | Fallback |
 |---|---:|---:|---|
-| V10: split, join and dock Status while paused | 14 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
-| Vertex drag, weight edit and a parallel edge | 15 | 16.2 s clip | Poster: both B → A edges, labelled 5 and 2 |
-| Sorting shared input and clock | 16 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
-| Root moved from 10 to 16, then LCA(8, 20) | 17 | 27.9 s clip | Poster: frame 9/12, "differ · lift both" |
-| Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 18 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
-| Joint editor workflow | 20 | 3 min live | Clips on slides 15, 17 and 18; backup B1 for the DFS recap |
+| V10: split, join and dock Status while paused | 9 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
+| Vertex drag, weight edit and a parallel edge | 10 | 16.2 s clip | Poster: both B → A edges, labelled 5 and 2 |
+| Sorting shared input and clock | 11 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
+| Root moved from 10 to 16, then LCA(8, 20) | 12 | 27.9 s clip | Poster: frame 9/12, "differ · lift both" |
+| Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 13 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
+| Live demo (Bao) | 2 | about 3 min live | Clips on slides 10, 12 and 13 later in the talk; backup B1 for the DFS recap |
 
 ### Demo input: the editors' defaults
 
-The proposed demo in section 20 needs no typing. It was run step by step on app `346e84b` on 16 November; these are the values the app showed.
+The proposed demo in section 02 needs no typing. It was run step by step on app `346e84b` on 16 November; these are the values the app showed.
 
 - **Graph Editor.** It opens on Breadth-First Search with a directed graph: vertices A to F and the eight edges below. The Algorithms menu lists 11 algorithms in 5 groups.
 - **Dijkstra (DIJ), start A.** 31 frames. Final distances: A 0, B 4, C 2, D 3, E 7, F 5. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3. Hover F: A → C → D → F · distance 5.
@@ -1486,7 +1757,7 @@ An earlier idea, kept as an alternative if you want to show an edit live: type t
 
 ### Prepared LCA input
 
-Choose the preset Balanced · 10 nodes (root 10), then set Root to 16 under Edit tree → Structure; the slide-17 clip shows this step. The clip then queries 8 and 20: 8 first lifts two levels to 4; at k = 3, 2 and 1 both ancestors are 16, so the cursors stay; at k = 0 the ancestors are 10 and 18, so both lift; LCA(8, 20) = 16. The earlier clips use the default tree (root 8): LCA(6, 10) = 8 and LCA(6, 2) = 4.
+Choose the preset Balanced · 10 nodes (root 10), then set Root to 16 under Edit tree → Structure; the slide-12 clip shows this step. The clip then queries 8 and 20: 8 first lifts two levels to 4; at k = 3, 2 and 1 both ancestors are 16, so the cursors stay; at k = 0 the ancestors are 10 and 18, so both lift; LCA(8, 20) = 16. The earlier clips use the default tree (root 8): LCA(6, 10) = 8 and LCA(6, 2) = 4.
 
 ```text
 10 4
@@ -1506,13 +1777,13 @@ Choose the preset Balanced · 10 nodes (root 10), then set Root to 16 under Edit
 - Disable Live layout for the graph drag comparison.
 - Check Animate paused steps and reduced-motion preferences.
 - Use Next to trigger floating text; verify the note remains legible long enough.
-- The clips come from main 346e84b; if the demo build differs, check the slide-20 steps on it.
-- Click through slides 14–18 of the main deck and B1–B2 of the backup file once in slideshow mode; each clip should play on →.
+- The clips come from main 346e84b; if the demo build differs, check the demo steps of slide 2 on it.
+- Click through slides 9–13 of the main deck and B1–B2 of the backup file once in slideshow mode; each clip should play on →.
 - Open both files before the talk and share the whole screen on Zoom, not one window, so the audience also sees the backup file and the browser when you switch to them.
 - Present from copies of the two files outside OneDrive. On 16 November, after the deck in the synced folder was opened in PowerPoint, it came back with shapes from an older version doubled on slide 2.
-- Kerk confirms slides 7–12 and the first integration algorithm.
+- Kerk confirms slides 15–23 and the first integration algorithm.
 - Keep March 2027 as a target, not a guaranteed release date.
-- If running late, stop the demo after the DFS recap; the LCA clip was already shown on slide 17.
+- If running late, stop the demo after the DFS recap; the LCA clip comes later, on slide 12.
 
 ## Source notes
 

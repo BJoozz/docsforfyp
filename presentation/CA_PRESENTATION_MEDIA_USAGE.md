@@ -9,6 +9,8 @@ All app images and clips are real captures; none is generated or composited. The
 - the [design-history stills](ca-2026-11-16-deck-media/design-history/README.md): Kerk's UI kit (`634b5be`, 3 September) and wireframes (`69aa8e4`, 4 September), and Bao's working V2 and V7 builds (`ae63a62`), each rendered from its own commit on 16 November;
 - the [historical figures](../figures/README.md): app `662e7b3`, 1 November.
 
+**Order changed on 16 November, about 12:30.** The table uses the earlier slide numbers: 1 → 1, 20 → 2, 2–6 → 3–7, 13–19 → 8–14 (so the clips are on 9–13), 10–12 → 21–23. Kerk's slides 15–20 replace the earlier 7, 8 and 9 and use his own pictures: the two large wireframes, a V10 capture, a photo of a trial session, a feedback table and an architecture diagram.
+
 | Slide | Asset | What it shows | If a clip will not play, the poster shows |
 |---|---|---|---|
 | 1 | [`stills/home_page.png`](ca-2026-11-16-deck-media/stills/home_page.png) | The home page of the current app at 1440 × 900, uncropped: the logo, the sponsors, the credit line, the Editors row and the top of the catalogue | — |

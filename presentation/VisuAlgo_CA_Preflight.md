@@ -2,6 +2,23 @@
 
 **Meeting:** Monday, 16 November 2026, 15:00–15:45 SGT, joint presentation on Zoom. 45 minutes TOTAL for Bao and Kerk.
 
+## Order changed on 16 November, about 12:30
+
+Kerk rearranged the deck: the live demo comes right after the title, Bao speaks to slide 14 and Kerk from 15 to 23. The run of show below is the new one. **The other sections of this file still use the earlier slide numbers**; this table converts them.
+
+| Earlier slide | Now |
+|---|---|
+| 1 Title | 1 |
+| 20 Live demo | 2 |
+| 2–6 Motivation to Two parallel foundations | 3–7 |
+| 13–19 Visualization contributions to Editors | 8–14 |
+| 7, 8, 9 (wireframes, V2/V7 to V10, application boundaries) | replaced by Kerk's 15–20 |
+| 10–12 Engine foundation to Website integration | 21–23 |
+| 21 Evaluation, 22 Semester 2 priorities | not in the deck |
+| 23 Questions | 24 |
+
+Clips are now on slides 9–13. For Kerk before the talk: slides 19 and 20 are identical, there is no Future Work slide, and the Architecture slide needs a sentence on what runs today.
+
 ## What is ready
 
 - **Two editable PowerPoint files:**
@@ -22,14 +39,15 @@
 
 | Clock (from start) | Slides | Owner | Section |
 |---|---|---|---|
-| 00:00–04:00 | 1–4 | Bao | Motivation, original foundation, objectives |
-| 04:00–07:00 | 5–6 | Bao | Early Graph/Tree/Sorting prototypes and division of work |
-| 07:00–10:00 | 7–8 | Kerk | V2/V7, user feedback, V10 |
-| 10:00–18:00 | 9–12 | Kerk | Website, WASM engine, integration boundary |
-| 18:00–26:00 | 13–19 | Bao | Shell, graph state, sorting, LCA, interactions (clips on 14–18) |
-| 26:00–31:00 | 20–21 | Both | Live workflow demo and formative evaluation |
-| 31:00–33:00 | 22 | Both | Semester 2 priorities |
-| 33:00–45:00 | 23, and the backup file (B1–B4) as needed | Both | Q&A / buffer |
+| 00:00–00:40 | 1 | Bao | Title |
+| 00:40–04:30 | 2 | Bao | Live demo |
+| 04:30–08:00 | 3–5 | Bao | Motivation, original foundation, objectives |
+| 08:00–10:50 | 6–7 | Bao | Early prototypes and the two parallel foundations |
+| 10:50–19:10 | 8–14 | Bao | Contributions, shell, graph state, sorting, LCA, interactions, editors (clips on 9–13) |
+| 19:10–23:10 | 15–18 | Kerk | Wireframing, V10, the Week 10 trial and its feedback |
+| 23:10–31:10 | 19–23 | Kerk | Architecture, engine, integration, website |
+| 31:10–33:00 | 23 | Kerk | Future work, said over slide 23 |
+| 33:00–45:00 | 24 and the backup file as needed | Both | Q&A / buffer |
 
 ## Must complete before 3:00 PM
 

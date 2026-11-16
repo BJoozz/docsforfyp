@@ -127,6 +127,41 @@ A second reviewer then read the rewrite against the earlier script, the clips an
 
 Only the notes changed in the two PowerPoint files; the slides are as they were after the QA pass.
 
+## New order from Kerk's file (added 16 November, about 12:30)
+
+Kerk rearranged the deck by hand in PowerPoint, and Bao adopted his file. The deck now has 24 slides.
+- **Order:** the title, then the live demo, then Bao's slides (to 14), then Kerk's (15–23), then Questions.
+- **Kerk's new slides (15–20):** Wireframing, three Prototyping slides and two Architecture slides replace the earlier slides 7, 8 and 9. They carry his own pictures and figures: 61 survey respondents, 8 prototype testers, a table of feedback and an architecture diagram.
+- **Gone from the deck:** the earlier slides 21 (Evaluation and design response) and 22 (Semester 2 priorities). The test snapshot is now said on slide 8, the Week 10 trial on slides 17 and 18, and the Semester 2 plan over slide 23.
+- **Two titles changed:** "Visualization contributions" (slide 8) and "Graph/Tree Editors" (slide 14).
+
+| Earlier slide | Now |
+|---|---|
+| 1 Title | 1 |
+| 20 Live demo | 2 |
+| 2–6 Motivation to Two parallel foundations | 3–7 |
+| 13–19 Visualization contributions to Editors | 8–14 |
+| 7, 8, 9 (wireframes, V2/V7 to V10, application boundaries) | replaced by Kerk's 15–20 |
+| 10–12 Engine foundation to Website integration | 21–23 |
+| 21 Evaluation, 22 Semester 2 priorities | not in the deck |
+| 23 Questions | 24 |
+
+Three things were fixed in a copy of his file, with `adopt_rearranged_deck.py` and `write_notes.py`; no slide design was touched:
+- **Motivation slide:** five shapes left over from an older version sat on top of the current ones, so the caption read as two overlapping lines. They were removed.
+- **Page numbers:** they still showed the earlier order (for example 20 on the second slide, and 08 three times). They now run 01 to 24.
+- **Speaker notes:** his file had the notes from before the script was rewritten. The notes now hold the speaking script in the new order, with new transitions where the order changed (after slides 1, 2, 7, 14 and 23). For his remade slides the script is a draft from the slide text and his earlier script.
+
+Backup B1 names the S, A, B, T graph of slides 9–10, and the notes of B1 and B4 use the new numbers.
+
+Left for Kerk to decide:
+- Slides 19 and 20 are identical in his file.
+- The deck has no Future Work slide, although he plans to speak about it.
+- "Layout is validated" on slide 18 rests on eight testers.
+- The Architecture diagram does not say which parts run today; the script keeps the sentence that the demo runs TypeScript in the browser.
+- On slide 15 the large picture reaches the top and bottom edges and covers the page number.
+
+The sections above and the table below use the earlier slide numbers. `build_deck.py` still rebuilds the deck as it was before this rearrangement.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |

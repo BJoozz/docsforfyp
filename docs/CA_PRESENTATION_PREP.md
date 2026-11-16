@@ -239,8 +239,10 @@ In the backup file, B1 is a recursive DFS recap that serves as the fallback for 
 
 See the [media map](../presentation/CA_PRESENTATION_MEDIA_USAGE.md), the [changelog](../presentation/CA_DECK_CHANGELOG.md), the [master script](../presentation/VisuAlgo_CA_Master_Script.md) with the speaking script, its short [cheat sheet](../presentation/VisuAlgo_CA_Cheat_Sheet.md) and the [preflight](../presentation/VisuAlgo_CA_Preflight.md).
 
+On 16 November at about 12:30 Kerk rearranged the deck: the live demo is slide 2, Bao's slides run to 14 and Kerk's from 15 to 23, six of which he remade. The deck now has 24 slides, and the slide numbers above are the earlier ones; the [changelog](../presentation/CA_DECK_CHANGELOG.md) has the conversion.
+
 Still open:
-- Kerk’s confirmation of slides 7–12;
+- Kerk’s confirmation of his slides (now 15–23);
 - one slideshow click-through on the presenting computer;
 - a timed joint rehearsal.
 
