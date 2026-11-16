@@ -237,7 +237,7 @@ Slides 14–18 embed five real-app clips of app `346e84b`:
 
 In the backup file, B1 is a recursive DFS recap that serves as the fallback for the live demo, and B2 is the BST preview/Apply clip. On the slides a capture is labelled only "Real app capture", and slide 20 says only "Live demo"; Bao asked for both on 16 November. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.
 
-See the [media map](../presentation/CA_PRESENTATION_MEDIA_USAGE.md), the [changelog](../presentation/CA_DECK_CHANGELOG.md), the updated [master script](../presentation/VisuAlgo_CA_Master_Script.md) and the [preflight](../presentation/VisuAlgo_CA_Preflight.md).
+See the [media map](../presentation/CA_PRESENTATION_MEDIA_USAGE.md), the [changelog](../presentation/CA_DECK_CHANGELOG.md), the [master script](../presentation/VisuAlgo_CA_Master_Script.md) with the speaking script, its short [cheat sheet](../presentation/VisuAlgo_CA_Cheat_Sheet.md) and the [preflight](../presentation/VisuAlgo_CA_Preflight.md).
 
 Still open:
 - Kerk’s confirmation of slides 7–12;

@@ -108,6 +108,25 @@ An independent review read the finished deck four ways: every slide as rendered,
 
 Left as they are, for the presenters to decide: slide 12's "supplies operation and query" for Tree (Kerk's slide), the shared "Both:" paragraph on slide 22, mixed -ise/-ize spellings, and the small footer counters in the clips, which the speaker should read out.
 
+## Speaking script (added 16 November)
+
+Bao asked for a script that is easy to say and easy to follow: plain spoken English, short and complete, with talking points so that the speaker can adjust while speaking. The format follows a suggestion from GPT that he passed on.
+- **Five parts per slide:** a main message, three to five talking points, the script, cues and a transition to the next slide.
+- **One source:** [`speaking_script.json`](ca-2026-11-16-deck-media/deck-build/speaking_script.json). `build_deck.py` writes it into the speaker notes of both files, above the CLIP, VISUAL and SOURCE blocks that were already there. `make_script_docs.py` writes it into the [master script](VisuAlgo_CA_Master_Script.md) and the new [cheat sheet](VisuAlgo_CA_Cheat_Sheet.md).
+- **Same claims, simpler words.** No fact, number or attribution changed. Sentences were shortened and the order follows what is on screen. On the clip slides (14–18) the sentence said during the clip is short enough to keep pace with it.
+- **Length.** Every script fits its slot at about 130 words per minute; the master script shows the count for each slide. The talk is still 33 minutes.
+- **Kerk's slides (7–12)** were reworded in the same style with their technical content kept. They are his to confirm.
+- **Slide 22:** the closing paragraph was marked "Both". It is now split: Kerk takes the release target and the transition plan, Bao the wider ambition and the last sentence. This is a proposal for Kerk to confirm.
+- **Slide 20, the live demo:** the notes hold a proposed three-minute plan with no typing: the Graph Editor's default graph, Dijkstra, then recursive DFS on the same graph, then the Tree Editor with the Ancestor table and a hover. Every step and value was run on app `346e84b` on 16 November. It replaces the earlier cue line and is still to be settled in rehearsal.
+
+A second reviewer then read the rewrite against the earlier script, the clips and the records. It found the meaning and every accuracy rule kept, and these points, which were fixed:
+- **Clip narration (slides 14, 15, 17, 18 and B2):** some sentences were still said a few seconds after the clip had moved on. They are now short lines named as each action lands, with the reasons given after the clip.
+- **Hedges restored:** slide 10 says what the engine *should* describe (it is a plan); slides 17 and 21 say "often", not "very often", for the Status recollection; slide 19 says a user "may" have a graph in mind; slide 21 says "checked", not "confirmed"; B4 says "main evidence".
+- **Attribution and scope:** slide 8's talking point says Kerk merged the site and the visualizers, not "everything"; slide 7's message says Bao built both layouts; slide 5's transition names only the prototypes that overlapped with Kerk's design work.
+- **Fit with the slides:** on slides 2 and 4 the spoken list now follows the numbered cards.
+
+Only the notes changed in the two PowerPoint files; the slides are as they were after the QA pass.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |

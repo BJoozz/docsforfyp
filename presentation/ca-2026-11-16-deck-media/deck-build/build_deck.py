@@ -939,6 +939,42 @@ notes_replace(S[26], 'Slide 5 uses the standalone prototype builds,', 'Slide 5, 
 notes_replace(S[26], 'The November 16 clarifications record', 'The 15–16 November clarifications record')
 notes_replace(S[26], '(no written record; he did not name specific topics)', '(no written record; no specific topic is attributed to him)')
 
+# ======================= the speaking script (16 November) =======================
+# Bao's choice of 16 November: every slide's notes open with a main message, talking
+# points, a script in plain spoken English, cues and a transition. The text lives in
+# speaking_script.json, keyed by the final slide numbers. The reference blocks that
+# follow in the notes (CLIP, VISUAL, SOURCE and so on) are kept as they are.
+import json as _sj  # noqa: E402
+import re as _sre  # noqa: E402
+SPEAK = _sj.loads((Path(__file__).resolve().parent / 'speaking_script.json').read_text(encoding='utf-8'))['slides']
+_BLOCK = _sre.compile(r'^(CLIP|SOURCE|VISUAL|DEMO CUE|EVIDENCE|EARLIER CLIP|CURRENT APP MEDIA|LIVE ALTERNATIVE|BACKUP FILE|TEAM REVIEW)\b')
+_DRAFT_NO = {'16': 17, '17': 16, 'B1': 27, 'B2': 24, 'B3': 25, 'B4': 26}
+
+
+def speaking_notes(entry, old):
+    paras = old.split('\n\n')
+    head = paras[0].split('\n')[0].strip()
+    keep_from = next((i for i, para in enumerate(paras[1:], 1) if _BLOCK.match(para.strip())), len(paras))
+    spoken_old, kept = paras[1:keep_from], paras[keep_from:]
+    kept = [para for para in kept if not any(para.strip().startswith(d) for d in entry.get('drop_blocks', []))]
+    out = [head,
+           'MAIN MESSAGE\n' + entry['message'],
+           'TALKING POINTS\n' + '\n'.join('• ' + x for x in entry['points']),
+           'SCRIPT\n' + '\n\n'.join(entry['script'])]
+    if entry.get('cues'):
+        out.append('CUES\n' + '\n'.join('• ' + x for x in entry['cues']))
+    if entry.get('transition'):
+        out.append('TRANSITION\n' + entry['transition'])
+    if entry.get('keep_old_as'):
+        out.append(entry['keep_old_as'] + '\n' + '\n\n'.join(spoken_old))
+    return '\n\n'.join(out + kept)
+
+
+for _key, _entry in SPEAK.items():
+    _sl = S[_DRAFT_NO[_key] if _key in _DRAFT_NO else int(_key)]
+    set_notes(_sl, speaking_notes(_entry, notes_get(_sl)))
+LOG.append(f'speaking script: written into the notes of {len(SPEAK)} slides')
+
 # ======================= two files: the main deck and the Q&A backup =======================
 # Bao's choice of 16 November: the main deck ends on Questions (slide 23). The four
 # backup slides go to a second file, with the DFS recap first because it is the

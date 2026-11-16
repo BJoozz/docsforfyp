@@ -1,0 +1,590 @@
+{
+  "about": "The speaking script of the CA talk, one entry per slide of the final deck (16 is Sorting, 17 is LCA; B1 to B4 are the backup file). build_deck.py writes it into the speaker notes; make_script_docs.py writes it into the master script and the cheat sheet. Plain spoken English: short sentences, one idea at a time. Paragraphs that start with 'Bao:' or 'Kerk:' say who speaks on a shared slide.",
+  "slides": {
+    "1": {
+      "message": "We are rebuilding VisuAlgo, and we keep what it is for: learning and exploring algorithms.",
+      "points": [
+        "We are Bao and Kerk; the project is VisuAlgo+",
+        "Rebuild the platform, keep its purpose",
+        "Three parts today: how the design evolved, what each of us built, what the prototype taught us"
+      ],
+      "script": [
+        "Good afternoon. We are Bao and Kerk, and our project is VisuAlgo+.",
+        "We are rebuilding VisuAlgo, and we keep its purpose: helping people learn and explore data structures and algorithms.",
+        "Today we will cover three things: how the design evolved, what each of us built, and what we learned from the working prototype."
+      ],
+      "cues": [
+        "The picture is the home page of the current prototype. No click is needed."
+      ],
+      "transition": "Let me start with why we are doing this."
+    },
+    "2": {
+      "message": "We keep VisuAlgo's strengths, and we follow Prof. Halim's directions: better interaction and a wider range of algorithms.",
+      "points": [
+        "VisuAlgo already has custom input and step-by-step runs; we keep them",
+        "Prof. Halim's directions: easier graph editing, clearer parallel and curved edges, richer canvas interaction, side-by-side sorting",
+        "He also encouraged a wider range of algorithms; LCA and Trie are topics I added",
+        "My own focus, from competitive programming and teaching: explain why a step happens"
+      ],
+      "script": [
+        "VisuAlgo already lets students try their own inputs and follow an algorithm step by step. We want to keep these strengths.",
+        "In our early meetings, Prof. Halim suggested several directions. First, easier graph editing, with clearer parallel and curved edges. Second, richer interaction on the canvas. Third, comparing sorting algorithms side by side. He also encouraged us to cover a wider range of algorithms. The two examples on the last card, LCA and Trie, are topics I added.",
+        "These directions were our starting point, and the prototypes helped us explore them.",
+        "I come from competitive programming and teaching, so I care about one more thing. Students should understand why a step happens, not only see the final answer."
+      ],
+      "cues": [
+        "Point at one card for each direction, left to right; the fourth card is the wider range of algorithms.",
+        "The images come from the current prototype."
+      ],
+      "transition": "So why not just add these features to the existing site?"
+    },
+    "3": {
+      "message": "In the original code, one common change touches several topics, so we reorganised the foundation.",
+      "points": [
+        "The platform grew over many years; some parts are shared, such as the graph widget",
+        "But each topic has its own input handling and state building",
+        "So one editing change means changes and checks in several topics",
+        "Sorting comparison: each pane needs its own state, with shared controls",
+        "Decision: reorganise the foundation, and keep tools that fit, such as D3"
+      ],
+      "script": [
+        "The original platform has grown over many years, with many contributors. It already shares some parts, such as the graph widget in this diagram.",
+        "But a lot of logic still lives inside each topic. In the graph modules we looked at, each topic handles its own input and builds its own visual state. So one change to graph editing means changes and checks in several topics.",
+        "Sorting comparison raises a different problem. Each pane needs its own state, but one set of controls must drive all of them. Splitting the screen is not enough.",
+        "So we decided to reorganise the foundation. We chose boundaries that support these interactions, and we keep useful tools, such as D3, where they fit."
+      ],
+      "cues": [
+        "Point at the three topic boxes, then the shared widget, then the amber box."
+      ],
+      "transition": "With that reason in mind, here is what we aim to deliver."
+    },
+    "4": {
+      "message": "We have three objectives and a working prototype; connecting the engine and a first release come next.",
+      "points": [
+        "Three objectives, one per card: a reusable visualization and interaction layer; a renewed website and execution foundation; a working prototype to validate",
+        "Now: Graph, Tree and Sorting share one shell; students tried the prototype in Week 10",
+        "Boundary: the visualizers run TypeScript in the browser; Kerk's C++ and WebAssembly engine is separate; connecting them is Semester 2 work",
+        "Target: a first public release around March 2027; the original VisuAlgo stays online"
+      ],
+      "script": [
+        "We have three objectives, one on each card. First, a reusable layer for visualization and interaction, with clear boundaries, so that new algorithms are easier to add. Second, a renewed website and execution foundation. Third, a working prototype that we can validate.",
+        "Where are we now? We have a working prototype. Graph, Tree and Sorting share one shell, and students tried it in Week 10.",
+        "One boundary is important. Today, the visualizers run TypeScript algorithms in the browser. Kerk has built a separate engine in C++ and WebAssembly. Connecting the two is Semester 2 work.",
+        "Our target is a first public release around March 2027, if integration and validation go well. The plan is to keep the original VisuAlgo online, and to link from it to the finished topics in VisuAlgo+."
+      ],
+      "cues": [
+        "Each card has NOW and NEXT.",
+        "Point at the band at the bottom when you reach the boundary."
+      ],
+      "transition": "Let me go back to where it started: the early prototypes."
+    },
+    "5": {
+      "message": "Each early prototype tested one requirement that the final design had to meet.",
+      "points": [
+        "The prototypes were experiments toward the goals we discussed with Prof. Halim",
+        "Graph: first separate edit and run views, then one canvas; input, positions and playback are separate, so moving a vertex keeps the same step",
+        "Tree: new topics (LCA with Binary Lifting, Trie); an ancestor table under the tree; preview before Apply",
+        "Sorting: the same array in every pane; each pane has its own state; one playback bar",
+        "Naming: the standalone Graph rewrite is not the layout called V2"
+      ],
+      "script": [
+        "These early prototypes were experiments toward the goals we discussed with Prof. Halim. Each one tested a different requirement.",
+        "Start with Graph, on the left. My first prototype had separate views for editing and running. In the rewrite, I kept one canvas, and I separated the input, the positions and the playback. So a learner can move a vertex and stay on the same step of the algorithm.",
+        "In the middle is the Tree prototype. It added new topics: LCA with Binary Lifting, and Trie. LCA needs an ancestor table under the tree. For operations that change the tree, I tried a preview: you inspect the result before you apply it.",
+        "On the right is Sorting. Several algorithms get the same array. Each pane keeps its own state, and one playback bar moves them all.",
+        "One note on names. This standalone Graph rewrite is not the layout we later call V2. I will keep the two names apart."
+      ],
+      "cues": [
+        "Point left to right: Graph prototype 1 (the dark one), the Graph rewrite, the Tree prototype, Sorting Room.",
+        "These are the old standalone builds, not the current app."
+      ],
+      "transition": "While I was building the Graph rewrite and the Tree prototype, Kerk was designing the look of the new site."
+    },
+    "6": {
+      "message": "Two foundations grew side by side: my working visualizers and Kerk's design system.",
+      "points": [
+        "From late August, Kerk and I worked in parallel",
+        "Mine: working algorithms, editors and playback, but separate apps with their own controls",
+        "Kerk's: a design system from restyling visualgo.net (nine themes, twenty-six components) and a UI kit; also the first version of his engine",
+        "Three requirements carried forward: keep the drawing available; keep playback familiar; show topic information beside the drawing"
+      ],
+      "script": [
+        "From late August, Kerk and I worked in parallel.",
+        "On my side, the visualizers already worked. Their algorithms, editors and playback became the base of the later builds. But each one was a separate app, with its own bars and controls. They needed one page and one look.",
+        "On Kerk's side, he restyled visualgo.net into a design system, with nine themes and twenty-six components. His UI kit recreates the home page and the visualisation page in the new style, and the site I built later follows his home page. Around the same time, he also committed the first version of his C++ and WebAssembly engine, which he will present later.",
+        "From the prototypes, we took three requirements. Keep the drawing available. Keep playback familiar across topics. And show topic-specific information beside the drawing."
+      ],
+      "cues": [
+        "Left card: my standalone Graph rewrite. Right card: Kerk's UI kit, home page and visualisation page.",
+        "Read the three requirements from the bottom of the slide.",
+        "Hand over to Kerk."
+      ],
+      "transition": "Kerk will now show how he laid out the new visualisation page."
+    },
+    "7": {
+      "message": "We narrowed nine wireframes to two layouts, and Bao built both, so we could compare real runs.",
+      "points": [
+        "Low-fidelity wireframes of the visualisation page, with an AVL tree as the example",
+        "Same top bar and footer everywhere; the versions differ in where panels live and how they open",
+        "Nine versions: seven layouts and two drag states of V7",
+        "An early layout survey with students: formative, separate from the Week 10 trial",
+        "Bao and I chose V2 (split rails) and V7 (draggable docks); Bao built Graph, Tree and Sorting in both"
+      ],
+      "script": [
+        "Alongside the design system, I drew low-fidelity wireframes of the visualisation page. I used an AVL tree as the example.",
+        "Every version has the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop.",
+        "I then organised an early layout survey with students. It was formative input, and it is separate from the Week 10 trial.",
+        "After that, Bao and I chose two layouts together: V2, with split rails, and V7, with draggable docks.",
+        "Bao then built Graph, Tree and Sorting in both layouts, on top of his prototypes and my design tokens and themes. Both builds had the same features. So when we compared them, we were comparing the layouts themselves, on real runs and not on drawings."
+      ],
+      "cues": [
+        "Left: the nine wireframes, with V2 and V7 outlined. Middle: the two chosen wireframes. Right: Bao's working builds.",
+        "Kerk to confirm the wording."
+      ],
+      "transition": "So what did the comparison show?"
+    },
+    "8": {
+      "message": "V10 keeps the strengths of both: visible stacked panels from V2 and draggable tabs from V7, around a canvas that is never covered.",
+      "points": [
+        "Trade-off: V2 has fixed places with several panels open; V7 has movable panels but one tab per dock",
+        "Bao and I discussed it, with Prof. Halim's feedback; we arrived at V10 in Week 9",
+        "V10: panels stacked and visible together, tabs dragged between areas, several tab groups per area, the canvas in the centre",
+        "Bao built the panel-group model and the shell",
+        "Kerk implemented the agreed refinements and, on 18 October, merged the site and the visualizers into one application"
+      ],
+      "script": [
+        "Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place, and several can be open at once. V7 lets you move panels, but each dock shows only one tab.",
+        "Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths.",
+        "Panels stay stacked and visible together, as in V2. You can drag tabs between areas, as in V7. Each area can hold several tab groups. And the canvas stays in the centre and is never covered.",
+        "Bao built the panel-group model and the shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place."
+      ],
+      "cues": [
+        "Left: what V10 keeps from V2 and from V7. Right: the current app, with its regions outlined.",
+        "The band at the bottom says who did what.",
+        "Kerk to confirm the wording."
+      ],
+      "transition": "Bao will show the shell in detail later. Next, I will turn to the website and the execution architecture."
+    },
+    "9": {
+      "message": "The prototype is one application with clear owners, and today the engine is still separate from it.",
+      "points": [
+        "One React and TypeScript application, built with Vite",
+        "The site host owns routing, the top bar and the theme; it mounts Graph, Tree or Sorting",
+        "Each visualizer owns its input and playback; a shared layer supplies the panel layout and presentation utilities",
+        "Drawing: React Flow for Graph and Tree, D3 for some layout calculations, Canvas 2D for Sorting",
+        "Boundary: the visualizers run TypeScript in the page; the WebAssembly engine is a separate project"
+      ],
+      "script": [
+        "The prototype is one React and TypeScript application, built with Vite.",
+        "The site host owns the routing, the top bar and the theme. It mounts Graph, Tree or Sorting. Each visualizer owns its own input and playback. A shared layer supplies the panel layout and some reusable presentation utilities.",
+        "Why separate them this way? The shell should know where the Status panel sits. The algorithm decides what that panel means.",
+        "For drawing, Graph and Tree use React Flow, with D3 for some layout calculations. Sorting uses Canvas 2D.",
+        "There is one important boundary in the current build. These visualizers run TypeScript algorithms in the page. The WebAssembly engine is a separate project. This lets us develop interaction and execution independently, while we work toward integration."
+      ],
+      "cues": [
+        "Walk down the diagram: the site host, the three visualizers, the shared layer. The engine is the dashed box at the side.",
+        "Kerk to confirm against the current implementation."
+      ],
+      "transition": "Let me now describe that engine."
+    },
+    "10": {
+      "message": "The engine runs algorithms in a worker; the plan is that it describes their state and the visualizer explains it to the learner.",
+      "points": [
+        "C++ algorithms compiled to WebAssembly, running inside a worker",
+        "The page and the engine talk through protocol messages, not direct calls",
+        "Protobuf messages with graph and array representations; a Python path through Pyodide for tracing sorting algorithms",
+        "Design question: expose enough state without tying the engine to the page layout",
+        "Plan: the engine describes state and changes; the visualizer decides the note and the pseudocode line"
+      ],
+      "script": [
+        "The engine foundation explores running C++ algorithms, compiled to WebAssembly, inside a worker.",
+        "The page and the engine talk through protocol messages, not through direct calls into the visual components. The worker gives execution its own context. The page stays responsible for interaction and drawing.",
+        "The documented engine uses protobuf messages, with graph and array representations. It also has a Python path, through Pyodide, for tracing sorting algorithms.",
+        "The main design question is this. How do we expose enough state for visualization, without making the engine depend on the page layout?",
+        "Our answer is a division of work. The engine should describe the algorithm's state and its changes. The visualizer still has to explain them to the learner. For example, when the engine updates a distance, it does not decide where a note appears, or which pseudocode line to highlight. That belongs to the integration boundary."
+      ],
+      "cues": [
+        "Follow the flow on the diagram: the page, the protocol messages, the worker.",
+        "Optional engine demonstration: one forward step in the separate engine build, then its state output. Keep it within 45 seconds, and skip it if time is short.",
+        "Kerk to confirm against the current implementation."
+      ],
+      "transition": "The harder part is connecting the engine to the visualizers."
+    },
+    "11": {
+      "message": "The engine and the visualizers keep history differently, so connecting them needs an explicit translation, one Graph algorithm first.",
+      "points": [
+        "Engine: a reversible journal, one record per step, and it can move backward",
+        "Visualizers: Graph and Tree build all steps when a run starts; Sorting pulls from generators and keeps history",
+        "Three things must stay consistent: node and edge identity, run identity, and the meaning of a step",
+        "Bao's earlier integration experiment stays separate from the delivered visualizers",
+        "Next step: one complete Graph integration, checked against the TypeScript behaviour"
+      ],
+      "script": [
+        "The engine and the visualizers keep history in different ways.",
+        "The documented engine keeps a reversible journal: a record for each step, and it can move backward through those records. The current Graph and Tree visualizers build all their steps when a run starts. Sorting pulls operations from generators and keeps history for seeking.",
+        "So connecting them needs an explicit translation. We cannot simply replace one algorithm function with another.",
+        "Three things must stay consistent. First, the identity of nodes and edges, especially parallel edges. Second, the identity of a run, when the user changes the input or starts again. Third, the meaning of a step: the drawing, the pseudocode and the text must agree.",
+        "Bao did an earlier integration experiment, with stable edge identities and a browser client. It remains separate from the delivered visualizers.",
+        "Our proposed next step is one complete Graph integration, checked against the current TypeScript behaviour, before we expand."
+      ],
+      "cues": [
+        "Left card: the engine's history. Right card: the visualizers' history. The three chips below are what integration must keep.",
+        "Kerk to confirm against the current implementation."
+      ],
+      "transition": "Finally, the website that hosts all of this."
+    },
+    "12": {
+      "message": "The site hosts the visualizers without duplicating their controls, and this boundary is where our contributions meet.",
+      "points": [
+        "The site owns the top bar and the theme; each visualizer supplies its topic-specific parts",
+        "Bao built the working catalogue, the routes and the host adapters on the design system",
+        "Kerk's consolidation and refinements made it a single application",
+        "The wider website infrastructure and the engine still have to join the visualization layer",
+        "Clear responsibilities avoid a second set of playback controls and conflicting theme state"
+      ],
+      "script": [
+        "The website has to host the visualizers without duplicating their controls.",
+        "In the prototype, the site owns the top bar and the theme. Each visualizer supplies the topic-specific parts, such as the algorithm choices or the sorting pane controls. The host then presents them inside one site.",
+        "Bao built the working catalogue, the routes and the host adapters, on top of the design system. My consolidation and refinements made it a single application. So this boundary is where our contributions meet.",
+        "The wider website infrastructure and the engine still need to come together with the visualization layer.",
+        "Keeping these responsibilities explicit helps us avoid two problems: a second set of playback controls, and conflicting theme state."
+      ],
+      "cues": [
+        "Point at the site frame, then the three visualizer slots, then the attribution line.",
+        "Kerk to confirm against the current implementation.",
+        "Hand back to Bao."
+      ],
+      "transition": "Bao will now explain how the visualization layer uses these boundaries for editing, comparison and explanations."
+    },
+    "13": {
+      "message": "I built the visualizer foundations, the algorithms, the shell and the step explanations; I will show a few decisions you can see on screen.",
+      "points": [
+        "Foundations for Graph, Tree and Sorting",
+        "Algorithms: each needs its own steps, pseudocode and inspector, for example LCA with Binary Lifting, and Trie",
+        "The V10 shell and the integration into the site",
+        "How each step explains itself, and how the behaviour is tested",
+        "Next: a few selected decisions"
+      ],
+      "script": [
+        "This slide sums up my part. I built the foundations for Graph, Tree and Sorting, the V10 shell, and the integration into the site.",
+        "I also implemented the algorithms. Each one needs its own steps, pseudocode and inspector. Two examples are LCA with Binary Lifting, and Trie.",
+        "Finally, I worked on how each step explains itself, and on how we test the behaviour.",
+        "I will show a few decisions that you can see on screen."
+      ],
+      "cues": [
+        "Four cards. Do not read them; name each area in one sentence."
+      ],
+      "transition": "The first one is the shell."
+    },
+    "14": {
+      "message": "You can move panels around without losing the drawing or the run.",
+      "points": [
+        "The layout has state: moving a panel must keep the canvas and the panel's input",
+        "One model keeps the groups (left, right, bottom) and enforces size limits",
+        "One resolver computes both the real layout and the drop preview, so the preview matches the result",
+        "Saved layouts are versioned and checked; a broken one is repaired or reset",
+        "Trade-off: less freedom than a fully general split layout, for a stable drawing and predictable drops"
+      ],
+      "script": [
+        "In the V10 shell, the layout has state. When you move a panel, the canvas and the panel's input must survive.",
+        "[Press → to play the clip.] Watch the Status tab. It splits the right column. The counter still says 12. Now it joins the left group. The drawing does not reload. Now it docks under the drawing. Still frame 12.",
+        "Behind this is one layout model. It keeps the groups on the left, right and bottom, and it enforces size limits. One resolver computes both the real layout and the drop preview. So the preview matches the result.",
+        "Saved layouts are versioned and checked when they load. A broken one is repaired or reset.",
+        "The trade-off is this. We give up a fully free split layout, and we get a stable drawing and predictable drops."
+      ],
+      "cues": [
+        "Press → after the first two sentences. The clip is 16 seconds and plays once.",
+        "Name each move as it lands: the split (4 s), the left group (9 s), under the drawing (14 s).",
+        "The footer counter stays at 12 of 21. It is small on Zoom, so say the number."
+      ],
+      "transition": "The same care for the run applies when the user edits the graph."
+    },
+    "15": {
+      "message": "Moving a vertex changes the drawing; changing a weight changes the problem. So they are stored separately.",
+      "points": [
+        "Four things stored separately: the graph document, the layout, the playback session, the presentation",
+        "Drag a vertex: only the layout changes, so the run continues",
+        "Change a weight: the document changes, so the old run is no longer valid",
+        "A parallel edge is a separate edge, with its own identity and weight",
+        "Result: consistent interaction, because each piece of state has one owner"
+      ],
+      "script": [
+        "Moving a vertex changes the drawing. Changing a weight changes the problem. So I store four things separately: the graph document, the layout, the playback session and the presentation.",
+        "[Press → to play the clip.] I drag B. Still frame 12. Now the weight of B to A: 1 becomes 5. The run is gone. Now a second edge from B to A, with weight 2.",
+        "Dragging changed only the layout. The new weight changed the document. And the two parallel edges are separate edges: each has its own identity and its own weight, in the editor, in the drawing and in the algorithms.",
+        "So the interaction stays consistent, because each piece of state has one clear owner."
+      ],
+      "cues": [
+        "Press →. The clip is 16 seconds.",
+        "Say each action as it happens: drag B (2 s), weight 1 to 5 and NO RUN (5 s), the second edge (8 s), its weight 2 (11 s).",
+        "End on the final frame: two B → A edges, labelled 5 and 2."
+      ],
+      "transition": "That was one run. Sorting comparison needs several runs side by side."
+    },
+    "16": {
+      "message": "The panes share one input and one clock, but each keeps its own state; the counters are operations, not runtime.",
+      "points": [
+        "Every pane gets the same input and keeps its own state",
+        "One shared clock moves all panes, one logical operation at a time; they can finish at different times",
+        "Operations come from generators; history is kept for stepping back, which costs memory on long runs",
+        "The counters count operations in the visualization, not CPU time"
+      ],
+      "script": [
+        "Sorting comparison gives every pane the same input, but each pane keeps its own state.",
+        "One shared clock moves all the panes forward, one logical operation at a time. They can show different actions, and they can finish at different times.",
+        "[Press → to play the clip.] Here, Bubble Sort and Selection Sort get the same twelve values. They pause together at operation 48, then continue, and I jump to the end.",
+        "Each pane's operations come from a generator. We keep the history, so you can step backward. On long runs, that history costs memory.",
+        "One caution. These counters count operations in the visualization. They are not CPU time. So the comparison shows behaviour, not speed."
+      ],
+      "cues": [
+        "Press →. The clip is 10 seconds.",
+        "Say 'both at 48' when the panes pause.",
+        "Last is a jump to the end, not a speed result."
+      ],
+      "transition": "The next two slides are about a different question: how one step explains itself."
+    },
+    "17": {
+      "message": "Floating text puts the reason beside the node, so a step with no movement still explains itself.",
+      "points": [
+        "Binary Lifting is a topic I added; a query has several stages and reads an ancestor table",
+        "Clip: the root moves from 10 to 16, then LCA(8, 20): 8 lifts to 4; both stay at ancestor 16; both lift at k = 0; the answer is 16",
+        "During the query no node moves, and 5 of the 12 steps only decide to stay",
+        "With floating text the reason sits beside the node; Status keeps the full sentence",
+        "Why: as I remember the Week 10 trial, newer learners often had to read Status; the benefit is not measured yet"
+      ],
+      "script": [
+        "Binary Lifting is one of the topics I added. A query has several stages, and it reads an ancestor table.",
+        "[Press → to play the clip.] I move the root from 10 to 16. Then I ask for the LCA of 8 and 20. 8 is deeper, so it lifts two levels, to 4. Now both ancestors are 16, so u and v stay. At k = 0, the ancestors 10 and 18 differ, so both lift. Their parent, 16, is the answer.",
+        "Notice what happened. During the query, no node moved. And five of the twelve steps only decided to stay: two while 8 was catching up, and three at ancestor 16. Without a note, those steps look the same.",
+        "With floating text, the reason sits beside the node. The learner can read it without leaving the tree. Status still keeps the full sentence.",
+        "I added this after the Week 10 trial. As I remember it, newer learners often had to read Status for algorithms with several stages, such as LCA. We have not yet measured whether floating text helps.",
+        "The same rooted tree and ancestor queries also prepare the ground for more advanced tree topics later."
+      ],
+      "cues": [
+        "Press → after the first two sentences. The clip is 28 seconds; keep pace with it.",
+        "Clip: the root moves to 16 (3 s), the query starts (5 s), 8 lifts to 4 (10 s), both stay at 16 (14 to 20 s), both lift (20 s), the answer 16 (25 s).",
+        "After the clip, point at the three note crops on the left.",
+        "Say clearly that the benefit is not measured yet.",
+        "If you are late, skip the last sentence, on advanced tree topics."
+      ],
+      "transition": "LCA shows a note when a step arrives. The next slide adds two more tools: motion while paused, and hover on the result."
+    },
+    "18": {
+      "message": "Emphasis and progress are separate: motion while paused, a note when a step arrives, and hover on the result never advance or rerun the algorithm.",
+      "points": [
+        "Dijkstra from vertex 0 on visualgo.net's nine-vertex 'Big' example",
+        "Paused at frame 17: the light on edge 2 to 3 keeps moving, the counter does not (Kerk's suggestion, my implementation)",
+        "Next: a note beside 3 says 12 + 14 < 33, so update; 33 becomes 26",
+        "Final frame: hover 8 gives 0, 2, 3, 8 with distance 42; hover 4 gives distance 46; read from the stored result",
+        "The motion can be turned off and respects the reduced-motion setting"
+      ],
+      "script": [
+        "I also separate visual emphasis from algorithm progress. This is Dijkstra from vertex 0, on the nine-vertex 'Big' example from visualgo.net.",
+        "[Press → to play the clip, and name each step as it happens.] Still 17: watch edge 2 to 3. Next: a note. Last. Hover 8. Hover 4.",
+        "While the run was paused, the light on the edge kept moving, but the counter stayed at 17. This motion shows what we are looking at, without advancing the algorithm. Kerk suggested it, and I implemented it.",
+        "When I pressed Next, a short note appeared beside 3: 12 plus 14 is less than 33, so update. The distance changed from 33 to 26.",
+        "At the final frame, hovering 8 showed its shortest path: 0, 2, 3, 8, with distance 42. Hovering 4 gave distance 46. The app reads this from the stored result; it does not run Dijkstra again.",
+        "The motion can be turned off, and it respects the reduced-motion setting."
+      ],
+      "cues": [
+        "Press →. The clip is only 14 seconds: paused at 17 (0 s), Next (3 s), Last (6 s), hover 8 (8 s), hover 4 (11 s).",
+        "During the clip, only name the steps. Explain after it stops.",
+        "The paused motion is subtle on Zoom: say 'still 17' and point at the edge from 2 to 3."
+      ],
+      "transition": "The editors bring these features together."
+    },
+    "19": {
+      "message": "The editors start from the user's own example, and let them ask several questions about it.",
+      "points": [
+        "Two entry points on the home page: the Graph Editor and the Tree Editor",
+        "Start from an example you already have in mind, then try compatible algorithms on it",
+        "Fits competitive programming practice: a small test, an observation, a counterexample",
+        "The original VisuAlgo already accepts custom input; ours is a more explicit entry point",
+        "An intended use; adoption is not measured"
+      ],
+      "script": [
+        "On the home page, there are two editors: the Graph Editor and the Tree Editor. They support a workflow that starts from an example.",
+        "A user may already have a graph in mind, and want to investigate it. This fits competitive programming practice: build a small test, check an observation, or look for a counterexample.",
+        "The original VisuAlgo already accepts custom input. What we add is a more explicit entry point, and a workflow built around that input. The Tree Editor currently covers Binary Lifting, BST and AVL.",
+        "This is the use we intend. We have not measured adoption."
+      ],
+      "cues": [
+        "The picture is the Editors section of the home page.",
+        "Press → to show the Live demo slide, then switch to the browser."
+      ],
+      "transition": "Let us look at this live."
+    },
+    "20": {
+      "message": "One example, several questions: the same input drives different algorithms, in one interface.",
+      "points": [
+        "This is the running app, not a recording",
+        "Graph Editor: one small graph; eleven graph algorithms on the same input",
+        "Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3",
+        "Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)",
+        "Kerk: one interface for every structure",
+        "Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row"
+      ],
+      "script": [
+        "Bao: This is the running app, not a recording. I start from the Graph Editor.",
+        "Bao: This small graph is the input. The editor offers eleven graph algorithms on this same input.",
+        "Bao: Question one: what are the shortest paths from A? I run Dijkstra and jump to the end. Hovering E shows its path: A, B, E, with distance 7. D goes through C, with distance 3. Nothing runs again; the app reads the finished result.",
+        "Bao: Question two, on the same graph: in what order does recursive DFS visit the vertices? I switch to DFS and let it play. At the last frame, the drawing replays the DFS tree in visit order: A, B, D, F, then E, then C. So one input answered two questions.",
+        "Kerk: The site gives these activities one interface. You go back to the editors and choose another structure, with the same bar, panels and footer.",
+        "Bao: In the Tree Editor, one tree is shared by Binary Lifting, BST and AVL. I pause on a step and hover node 6. The app shows its path to the root, marks its ancestors one and two levels up, 4 and 8, and highlights row 6 of the ancestor table. The hover does not move the step.",
+        "Bao: That is the workflow we aim for: one example, several questions."
+      ],
+      "cues": [
+        "A proposed plan, checked on app 346e84b on 16 November. Settle it in rehearsal.",
+        "Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.",
+        "0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.",
+        "0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.",
+        "0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.",
+        "0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.",
+        "1:30 Kerk speaks. Bao clicks HOME, then the Tree Editor card.",
+        "1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.",
+        "2:40 Return to PowerPoint and press → for slide 21.",
+        "If a step fails, do not debug: use the clips on slides 15, 17 and 18, or B1 in the backup file. If time is short, stop after the DFS recap."
+      ],
+      "transition": "So how did we evaluate all this?",
+      "drop_blocks": ["DEMO CUE"]
+    },
+    "21": {
+      "message": "We tested the software and ran a formative trial in Week 10; floating text is a design response, and its effect is not yet measured.",
+      "points": [
+        "Bao: tests, a snapshot of 1 November: 3,273 unit tests and 151 browser cases passing",
+        "Bao: an example of an independent check: cut vertices and bridges",
+        "Kerk: Week 10: NUS students used V10 on their own for 15 to 20 minutes; sessions recorded; a short post-use test and feedback",
+        "Bao: as I remember it, newer learners often had to read Status, so I added floating text, with legend and Status changes",
+        "Not measured yet; a follow-up study needs defined tasks"
+      ],
+      "script": [
+        "Bao: We evaluated in two ways: software tests, and formative feedback from users.",
+        "Bao: On testing, our report snapshot from 1 November records 3,273 passing unit tests and 151 passing browser cases in Chromium. Here is one example. For cut vertices and bridges, a separate check removes each vertex or edge and counts the connected components again. So the result is checked by a different method.",
+        "Kerk: In Week 10, NUS students with different levels of algorithm experience used V10 on their own, for 15 to 20 minutes. We recorded the sessions, then collected a short post-use test and feedback. This was separate from the earlier layout survey.",
+        "Bao: As I remember it, newer learners still often had to read Status, especially for algorithms with several stages, such as LCA. So I added floating text near the objects on the canvas, together with changes to the legend and Status.",
+        "Bao: These are design responses to formative observations. We have not measured whether floating text improves learning or reduces attention switching. A follow-up study needs defined tasks, with the revised interface."
+      ],
+      "cues": [
+        "The two numbers are a snapshot of 1 November, not a rerun today. Say the date.",
+        "Order: Bao, Kerk, Bao."
+      ],
+      "transition": "That brings us to the plan for Semester 2."
+    },
+    "22": {
+      "message": "Next: one Graph algorithm through the engine end to end, a stable and evaluated prototype, and a first release around March 2027.",
+      "points": [
+        "Kerk: the integration milestone is one Graph algorithm across the full application, checked against the TypeScript version",
+        "Bao: stabilise the workflows we showed; evaluate the explanations with defined tasks; measure startup, seeking and memory",
+        "Kerk: target a first public release around March 2027; the original platform stays available",
+        "Bao: the wider ambition is the original range, then advanced topics; Heavy-Light and Centroid Decomposition are possibilities, not commitments",
+        "Today we have the foundation and a working prototype"
+      ],
+      "script": [
+        "Kerk: Our next integration milestone is one Graph algorithm working across the full application. The input, the engine and the playback must agree on three things: node and edge identity, the meaning of each step, and cancellation. We can check the result against the current TypeScript version before we go further.",
+        "Bao: In parallel, I want to stabilise the workflows we showed today, and evaluate the new explanations. For example, we can ask a learner to explain why an LCA step keeps both nodes in place, and observe how they use the canvas, the ancestor table and Status. We also need measurements for startup, seeking, and memory on long runs.",
+        "Kerk: We are targeting a first public release around March 2027, depending on integration and validation. The current plan keeps the original platform available, and links to the completed topics.",
+        "Bao: Our wider ambition is to cover the original range of algorithms and, later, to add advanced topics. For example, LCA already uses rooted trees and ancestor queries. That work could later support Heavy-Light Decomposition or Centroid Decomposition. These are possibilities, not Semester 2 commitments. Integration, validation and stability come first.",
+        "Bao: What we have today is the foundation: working visualizers, and a prototype to build that release on."
+      ],
+      "cues": [
+        "Four steps on the roadmap. Kerk takes integration and the release; Bao takes validation and coverage.",
+        "The release paragraph was marked 'Both' before; this split is a proposal for Kerk to confirm.",
+        "March 2027 is a target, not a promise."
+      ],
+      "transition": "That is the end of our talk."
+    },
+    "23": {
+      "message": "Thank the audience and open the floor.",
+      "points": [
+        "Thank you",
+        "Questions on the design decisions, the implementation or the evaluation plan",
+        "The backup slides are in the second file"
+      ],
+      "script": [
+        "Thank you for listening. We are happy to take your questions, on the design decisions, the implementation, or the evaluation plan."
+      ],
+      "cues": [
+        "Leave this slide up during questions. Switch to the backup file when a backup slide helps."
+      ],
+      "transition": ""
+    },
+    "B1": {
+      "message": "If the live Graph demo fails, this clip shows the recursive DFS recap.",
+      "points": [
+        "The same S, A, B, T graph as the clips on slides 14 and 15",
+        "The final frame replays the DFS tree in visit order: S, A, T, then S, B",
+        "Different from Dijkstra's final frame, where you hover a vertex to see its path"
+      ],
+      "script": [
+        "This is recursive DFS on the same S, A, B, T graph as the clips on slides 14 and 15.",
+        "[Press → to play the clip.] On the final frame, the drawing replays the DFS tree in visit order, every few seconds: S to A to T, then S to B.",
+        "This is different from Dijkstra's final frame, where you hover a vertex to see its path."
+      ],
+      "cues": [
+        "Use this slide only if the Graph Editor part of the live demo fails.",
+        "Press → to play. The clip is 8.5 seconds."
+      ],
+      "transition": ""
+    },
+    "B2": {
+      "message": "An operation that changes the tree runs as a preview first; only Apply commits it.",
+      "points": [
+        "A changing operation needs a different contract from a read-only query such as LCA",
+        "BST Insert 5 runs as a preview: the search path and the new node are visible, and I can step backward",
+        "The tree and its text do not change until Apply",
+        "Apply commits the result: the text gains the edge 6 5 and the run ends",
+        "Heap insertion follows the same contract"
+      ],
+      "script": [
+        "An operation that changes the tree needs a different contract from a read-only query such as LCA.",
+        "Here, BST Insert 5 runs as a preview. You can see the search path and the new node. But the tree itself, and its text input, do not change yet. [Press → to play the clip.] Two steps back. Forward again. Now Apply. The tree text gains the edge 6 5, and the run ends.",
+        "So only Apply commits the result. If I switch to another operation, the preview is discarded.",
+        "Heap insertion follows the same contract, with an array view beside the tree."
+      ],
+      "cues": [
+        "Explain the preview first, on the poster. Then press →: the clip is 8.6 seconds: two steps back, forward again, then Apply."
+      ],
+      "transition": ""
+    },
+    "B3": {
+      "message": "We check results with an independent method, and we are open about the limits.",
+      "points": [
+        "Cut vertices and bridges: an independent check removes each candidate and counts the components again",
+        "Exact edge identity matters: removing one of two parallel edges keeps the connection",
+        "Limits: sorting history is not bounded; Graph and Tree build all their steps up front",
+        "Passing tests do not prove full correctness, performance or learning benefit",
+        "AI tools assisted under my requirements; the design choices, acceptance and validation are mine"
+      ],
+      "script": [
+        "For cut vertices and bridges, an independent check removes each candidate and counts the connected components again.",
+        "Exact edge identity matters here. Removing one of two parallel edges keeps the connection, so it is different from removing the connection altogether.",
+        "There are limits. Sorting keeps a history that is not bounded, and Graph and Tree build all their steps up front.",
+        "Passing tests cover the tested cases. They do not prove complete correctness, performance, or learning benefit.",
+        "AI tools assisted the implementation and the review, under my requirements. I remained responsible for the design choices, the acceptance and the validation."
+      ],
+      "cues": [
+        "The capture is from 1 November 2026."
+      ],
+      "transition": ""
+    },
+    "B4": {
+      "message": "The main evidence is in the public repository, and each slide's notes link to its sources.",
+      "points": [
+        "Repository: BJoozz/docsforfyp",
+        "The CA report and the architecture records",
+        "The contribution map and the prototype history",
+        "The Week 10 trial addendum",
+        "Each slide's notes link to its sources and media"
+      ],
+      "script": [
+        "Our main evidence is in the public repository, BJoozz/docsforfyp. It holds the CA report, the architecture records, the contribution map, the prototype history and the Week 10 addendum.",
+        "Each slide's notes link to its sources and media. The application repository itself is private."
+      ],
+      "cues": [
+        "The details are in the REFERENCE block below."
+      ],
+      "transition": "",
+      "keep_old_as": "REFERENCE"
+    }
+  }
+}

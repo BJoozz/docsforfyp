@@ -13,7 +13,7 @@
   - Press → or click to play a clip. On 16 November, PowerPoint decoded a frame from inside each clip.
   - [Media map](CA_PRESENTATION_MEDIA_USAGE.md) · [what changed from the draft](CA_DECK_CHANGELOG.md).
 - **Speaker notes on every slide of both files.** The notes on the clip slides give the exact frame numbers, second by second.
-- **Master script:** the [master script](VisuAlgo_CA_Master_Script.md) matches the slide sequence.
+- **Speaking script:** every slide has a main message, talking points, a script in plain spoken English, cues and a transition. It is in the speaker notes, in the [master script](VisuAlgo_CA_Master_Script.md) and, in short form, in the [cheat sheet](VisuAlgo_CA_Cheat_Sheet.md).
 - **PDF previews** of both files in [`ca-2026-11-16-deck-media/deck-preview/`](ca-2026-11-16-deck-media/deck-preview/). Both files validate, and every slide was rendered and inspected.
 - **Tree example:** LCA (Binary Lifting) is the main Tree example. Slide 17 moves the root of a ten-node tree from 10 to 16, then shows LCA(8, 20); LCA(6, 10) and LCA(6, 2) are kept as alternative clips.
 - **Timing:** 33 minutes of presentation and demo, plus 12 minutes for discussion and buffer. These durations are **budgeted, not measured in rehearsal**.
@@ -47,13 +47,15 @@
    - If time is tight, shorten the joint demo on slide 20 to Graph only.
    - Reserve Q&A time.
 4. **Test the live demo in the exact build you will present** (slide 20 only; slides 14–18 now use clips):
-   - Graph Editor input → Dijkstra → recursive DFS final recap;
-   - Tree Editor LCA ancestors on hover.
+   - Graph Editor (default graph) → Dijkstra, hover E and D → recursive DFS and its final recap;
+   - Tree Editor → Ancestor table tab → Next twice → hover 6 and 14.
+   - The steps and the values to expect are in the notes of slide 20; they were run on app `346e84b` on 16 November.
    - If anything fails live, use the clips on slides 15, 17 and 18 or backup B1 (the first slide of the backup file). Do not debug during the talk.
    - Slide 20 says only "Live demo". Agree in rehearsal what the three minutes show; the notes hold a working plan.
 5. **Zoom logistics.**
    - Send the meeting link to both Dr Terence Sim and A/P Steven Halim.
    - Verify that the host can run for more than 45 minutes, and check speaker screen-sharing permissions and audio.
+   - Present from copies of the two files **outside OneDrive**. On 16 November, after the deck in the synced folder was opened in PowerPoint, it came back with shapes from an older version doubled on slide 2.
    - Share the **whole screen**, not one PowerPoint window: the backup slides are in a second file, and a shared window would not show it. Open both files before the meeting.
    - When sharing, tick **Optimize for video clip** so the clips stay smooth.
    - Make sure both speakers can control their own section.
@@ -67,7 +69,7 @@
 | 16 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
 | 17 | On Balanced · 10 nodes the root moves from 10 to 16, then LCA(8, 20) runs (27.9 s) | The Root control under Structure in the first three seconds; then u lifts from 8 to 4; both cursors stay at k = 3, 2, 1 (ancestor 16); both lift at k = 0 (10 and 18); answer 16. Say that no node moves during the query and the notes carry the reasons, and read the frame number aloud; the benefit is not measured |
 | 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |
-| 20 | **Live**: Graph Editor (Dijkstra + recursive DFS), then Tree Editor LCA | Narrate only the current action |
+| 20 | **Live**: Graph Editor (Dijkstra, then recursive DFS on the same default graph), then Tree Editor (Ancestor table and hover) | Narrate only the current action; the steps are in the notes |
 
 Live alternatives for slides 14–18 are in the notes, for use only if time allows.
 
