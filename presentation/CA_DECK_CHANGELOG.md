@@ -113,6 +113,7 @@ Left as they are, for the presenters to decide: slide 12's "supplies operation a
 Bao asked for a script that is easy to say and easy to follow: plain spoken English, short and complete, with talking points so that the speaker can adjust while speaking. The format follows a suggestion from GPT that he passed on.
 - **Five parts per slide:** a main message, three to five talking points, the script, cues and a transition to the next slide.
 - **One source:** [`speaking_script.json`](ca-2026-11-16-deck-media/deck-build/speaking_script.json). `build_deck.py` writes it into the speaker notes of both files, above the CLIP, VISUAL and SOURCE blocks that were already there. `make_script_docs.py` writes it into the [master script](VisuAlgo_CA_Master_Script.md) and the new [cheat sheet](VisuAlgo_CA_Cheat_Sheet.md).
+- **A file to read from:** [`VisuAlgo_CA_Reading_Script.docx`](VisuAlgo_CA_Reading_Script.docx) has only the slide titles and the script, in deck order, for reading practice. `make_reading_script.js` writes it from the same source.
 - **Same claims, simpler words.** No fact, number or attribution changed. Sentences were shortened and the order follows what is on screen. On the clip slides (14–18) the sentence said during the clip is short enough to keep pace with it.
 - **Length.** Every script fits its slot at about 130 words per minute; the master script shows the count for each slide. The talk is still 33 minutes.
 - **Kerk's slides (7–12)** were reworded in the same style with their technical content kept. They are his to confirm.

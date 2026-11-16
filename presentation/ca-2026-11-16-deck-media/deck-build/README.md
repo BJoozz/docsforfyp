@@ -37,6 +37,7 @@ py -3.12 presentation/ca-2026-11-16-deck-media/deck-build/write_notes.py <backup
 ## Other files
 
 - `speaking_script.json` holds what the presenters say: for each slide a main message, talking points, a script, cues and a transition. `build_deck.py` writes it into the speaker notes. `make_script_docs.py`, run from the repository root, writes it into `presentation/VisuAlgo_CA_Master_Script.md` and `presentation/VisuAlgo_CA_Cheat_Sheet.md`. Change the wording there, then run both.
+- `make_reading_script.js` writes `presentation/VisuAlgo_CA_Reading_Script.docx` from the same source: the slide titles and the spoken script only, for reading practice. It needs the `docx` npm package: `node presentation/ca-2026-11-16-deck-media/deck-build/make_reading_script.js`, with `NODE_PATH` set to the folder where `docx` is installed.
 - `slides_6_8.py` lays out slides 6–8 (the design history) and `slides_6_8_copy.json` holds their text. `build_deck.py` calls it.
 - `apply_slides_6_8.py` applies only those three slides to an already finalised deck, for when PowerPoint cannot be automated.
 - `ppt_probe.ps1` says whether PowerPoint accepts automation right now. A PowerPoint that is showing a Protected View window rejects it; the three PowerPoint scripts then stop without changing anything.

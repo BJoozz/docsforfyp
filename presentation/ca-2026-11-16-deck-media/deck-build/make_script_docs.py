@@ -92,7 +92,7 @@ FORMAT = ('Script format, 16 November, at Bao\'s request: every slide has a main
           'a script in plain spoken English, cues and a transition to the next slide. The talking points are there so the '
           'speaker can say it in their own words; the script is not meant to be learned by heart. The slide text, clip '
           'timings and sources are folded under each script. The same text is in the speaker notes of both PowerPoint '
-          'files, and [the cheat sheet](VisuAlgo_CA_Cheat_Sheet.md) has the short version. The word counts assume about '
+          'files. [The cheat sheet](VisuAlgo_CA_Cheat_Sheet.md) has the short version, and `VisuAlgo_CA_Reading_Script.docx` has the slide titles and the script only, for reading practice. The word counts assume about '
           f'{WPM} words per minute and are a guide, not a measurement. Kerk\'s slides are 15 to 23. For the ones he remade '
           '(15 to 20) the script is a draft built from the slide text and his earlier script; all of them are his to confirm.')
 if 'Script format, 16 November' not in text:
