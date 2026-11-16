@@ -65,9 +65,9 @@ Clips are now on slides 9–13. For Kerk before the talk: slides 19 and 20 are i
    - If time is tight, shorten the joint demo on slide 20 to Graph only.
    - Reserve Q&A time.
 4. **Test the live demo in the exact build you will present** (slide 20 only; slides 14–18 now use clips):
-   - Graph Editor (default graph) → Dijkstra, hover E and D → recursive DFS and its final recap;
-   - Tree Editor → Ancestor table tab → Next twice → hover 6 and 14.
-   - The steps and the values to expect are in the notes of slide 20; they were run on app `346e84b` on 16 November.
+   - home page → Graph Editor → Algorithms menu and search → the panels → add a node, draw an edge, type its weight → Dijkstra (six steps, Autoplay, hover);
+   - Tree Editor → set Root to 12.
+   - The steps and the values to expect are in the notes of the Live demo slide (now slide 2); they were run on app `346e84b` on 16 November.
    - If anything fails live, use the clips on slides 15, 17 and 18 or backup B1 (the first slide of the backup file). Do not debug during the talk.
    - Slide 20 says only "Live demo". Agree in rehearsal what the three minutes show; the notes hold a working plan.
 5. **Zoom logistics.**
@@ -87,7 +87,7 @@ Clips are now on slides 9–13. For Kerk before the talk: slides 19 and 20 are i
 | 16 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
 | 17 | On Balanced · 10 nodes the root moves from 10 to 16, then LCA(8, 20) runs (27.9 s) | The Root control under Structure in the first three seconds; then u lifts from 8 to 4; both cursors stay at k = 3, 2, 1 (ancestor 16); both lift at k = 0 (10 and 18); answer 16. Say that no node moves during the query and the notes carry the reasons, and read the frame number aloud; the benefit is not measured |
 | 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |
-| 20 | **Live**: Graph Editor (Dijkstra, then recursive DFS on the same default graph), then Tree Editor (Ancestor table and hover) | Narrate only the current action; the steps are in the notes |
+| 20 (now 2) | **Live**: a tour: the home page, the Graph Editor (menu, panels, drawing, Dijkstra), then the Tree Editor (re-root) | Narrate only the current action; the steps are in the notes |
 
 Live alternatives for slides 14–18 are in the notes, for use only if time allows.
 

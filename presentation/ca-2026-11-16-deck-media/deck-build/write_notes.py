@@ -85,6 +85,8 @@ def new_notes(entry, old):
         if a in text:
             fix_hits[a] += text.count(a)
             text = text.replace(a, b)
+        elif b in text:  # already fixed by an earlier run
+            fix_hits[a] += 1
     return text
 
 
@@ -104,7 +106,9 @@ for key, slide in zip(keys, slides):
                         if a in run.text:
                             run.text = run.text.replace(a, b)
                             hits += 1
-        if hits != 1:
+        done_before = any(b in run.text for sh in slide.shapes if sh.has_text_frame
+                          for para in sh.text_frame.paragraphs for run in para.runs)
+        if hits != 1 and not (hits == 0 and done_before):
             raise SystemExit(f'{key}: expected one run with "{a}", found {hits}')
 missed = [a for a, n in fix_hits.items() if n == 0]
 if missed:

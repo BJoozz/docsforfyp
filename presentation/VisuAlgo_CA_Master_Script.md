@@ -36,9 +36,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 01. VisuAlgo+
 
-**Bao · Introduction · 00:00–00:40**
+**Bao · Introduction · 00:00–00:30**
 
-*Script: 74 words, about 34 s at 130 words per minute; the slot is 40 s.*
+*Script: 61 words, about 28 s at 130 words per minute; the slot is 30 s.*
 
 **Main message:** We are rebuilding VisuAlgo, and we keep what it is for: learning and exploring algorithms.
 
@@ -54,13 +54,11 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 >
 > We are rebuilding VisuAlgo, and we keep its purpose: helping people learn and explore data structures and algorithms.
 >
-> Before the slides, let us show you the product. After the demo, I will explain why we rebuilt it and the decisions behind it. Then Kerk will cover the design process, the engine and the website.
+> Before the slides, let us show you the product. Then I will explain why and how we built it, and Kerk will cover the design process, the engine and the website.
 
 **Cues**
 
 - The picture is the home page of the current prototype. No click is needed.
-
-**Transition:** So let us start with the product itself.
 
 <details>
 <summary>Slide text, clip details and sources</summary>
@@ -80,50 +78,57 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 02. Live demo
 
-**Bao · Demo · 00:40–04:30**
+**Bao · Demo · 00:30–05:00**
 
-*Script: 233 words, about 108 s at 130 words per minute; the slot is 230 s.*
+*Script: 401 words, about 185 s at 130 words per minute; the slot is 270 s.*
 
-**Main message:** This is the product: one example, several questions, in one interface.
+**Main message:** A tour of the product: familiar home page, one editor for many algorithms, and a run that explains itself in three places.
 
 **Talking points**
 
-- This is the running app, not a recording
-- Graph Editor: one small graph; eleven graph algorithms on the same input
-- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
-- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
-- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
-- Name the layout: this is V10; Kerk explains its history later
+- Home page: the same structure as the original VisuAlgo, one card per topic
+- New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)
+- Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10
+- Drawing a graph: drag a vertex, add a node, draw an edge, type its weight
+- Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path
+- Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved
 
 **Script**
 
-> This is the running app, not a recording. I start from the home page and open the Graph Editor.
+> This is the running app, not a recording. We start on the home page. Its structure is close to the original VisuAlgo: one card for each topic, so a student can pick a topic and start. Cards marked 'Coming soon' are not rebuilt yet.
 >
-> This small graph is the input. The editor offers eleven graph algorithms on this same input.
+> What is new are these two editors: the Graph Editor and the Tree Editor. In the Graph Editor, many algorithms live in one place and share one input. This menu lists the eleven graph algorithms we have now. I can also search: I type 'dij', and I get Dijkstra.
 >
-> Question one: what are the shortest paths from A? I run Dijkstra and jump to the end. Hovering E shows its path: A, B, E, with distance 7. D goes through C, with distance 3. Nothing runs again; the app reads the finished result.
+> Every page has the same parts. On the left is Action, where you choose the input and the options. Next to it is the e-Lecture, which explains the topic. On the right are the pseudocode and Status, which describes the current step. In the middle is the canvas. We call this layout V10, and Kerk will explain later how we arrived at it.
 >
-> Question two, on the same graph: in what order does recursive DFS visit the vertices? I switch to DFS and let it play. At the last frame, the drawing replays the DFS tree in visit order: A, B, D, F, then E, then C. So one input answered two questions.
+> Now let me draw. I drag a vertex to move it. I add a node. I draw an edge from F to the new node, directly on the canvas. The edge also appears in the text on the left, and there I give it a weight of 3. The canvas and the text are two views of the same graph.
 >
-> In the Tree Editor, one tree is shared by Binary Lifting, BST and AVL. I pause on a step and hover node 6. The app shows its path to the root, marks its ancestors one and two levels up, 4 and 8, and highlights row 6 of the ancestor table. The hover does not move the step.
+> Now I run Dijkstra from A, one step at a time. Watch three places. The pseudocode highlights the current line. Status explains the step in one sentence. And on the canvas, a short note appears beside the node: zero plus four equals four, so B gets distance 4.
 >
-> One more thing. The layout you see, with panels around a fixed drawing, is what we call V10. Kerk will explain later how we arrived at it.
+> Let me play the rest. At the end, the shortest paths are drawn in green. When I hover a vertex, I see its path: the new node is reached through C, D and F, with distance 8.
 >
-> That is the idea of VisuAlgo+: one example, several questions.
+> Finally, a quick look at the Tree Editor. It works the same way: one tree, shared by Binary Lifting, BST and AVL. Binary Lifting answers lowest common ancestor queries. LCA is an important topic for tree problems, and it is one of the algorithms I added. The tree is easy to edit too. For example, I move the root from 8 to 12, and the same edges are drawn again under the new root.
+>
+> That was a quick tour. I will come back to several of these features in detail.
 
 **Cues**
 
-- A proposed plan, checked on app 346e84b on 16 November. It takes about three minutes; the slot is just under four.
-- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
-- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
-- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
-- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
-- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
-- 1:30 Click HOME, then the Tree Editor card.
-- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
-- If you are ahead: drag the Status tab under the drawing, to show a V10 panel move. It is also in the clip on slide 9.
+- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.
+- Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.
+- 0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.
+- 0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.
+- 0:35 Click Algorithms ▾: 11 algorithms in 5 groups. Type dij in 'Search algorithms' (it shows 1 of 11), then click Dijkstra.
+- 1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.
+- 1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.
+- 1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.
+- 2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
+- 2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
+- 3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
+- 3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
+- 3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
+- If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.
 - Then return to PowerPoint and press → for slide 3, Motivation.
-- If a step fails, do not debug: say what it would show and move on. The clips on slides 10, 12 and 13 show the same features later, and B1 in the backup file has the DFS recap.
+- If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips.
 
 **Transition:** Now let me step back. Why did we rebuild VisuAlgo?
 
@@ -143,7 +148,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 03. Motivation
 
-**Bao · Introduction · 04:30–05:40**
+**Bao · Introduction · 05:00–06:10**
 
 *Script: 129 words, about 60 s at 130 words per minute; the slot is 70 s.*
 
@@ -191,7 +196,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 04. Why rebuild the foundation?
 
-**Bao · Introduction · 05:40–06:50**
+**Bao · Introduction · 06:10–07:20**
 
 *Script: 131 words, about 60 s at 130 words per minute; the slot is 70 s.*
 
@@ -238,7 +243,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 05. Objectives and current scope
 
-**Bao · Introduction · 06:50–08:00**
+**Bao · Introduction · 07:20–08:30**
 
 *Script: 142 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -286,7 +291,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 06. Early visualizer prototypes
 
-**Bao · Early Design · 08:00–09:30**
+**Bao · Early Design · 08:30–10:00**
 
 *Script: 178 words, about 82 s at 130 words per minute; the slot is 90 s.*
 
@@ -336,9 +341,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 07. Two parallel foundations
 
-**Bao · Early Design · 09:30–10:50**
+**Bao · Early Design · 10:00–11:10**
 
-*Script: 148 words, about 68 s at 130 words per minute; the slot is 80 s.*
+*Script: 148 words, about 68 s at 130 words per minute; the slot is 70 s.*
 
 **Main message:** Two foundations grew side by side: my working visualizers and Kerk's design system.
 
@@ -385,7 +390,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 08. Visualization contributions
 
-**Bao · Algorithm Visualizers · 10:50–11:40**
+**Bao · Algorithm Visualizers · 11:10–12:00**
 
 *Script: 97 words, about 45 s at 130 words per minute; the slot is 50 s.*
 
@@ -434,7 +439,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 09. A shared shell with clear constraints
 
-**Bao · Algorithm Visualizers · 11:40–12:50**
+**Bao · Algorithm Visualizers · 12:00–13:10**
 
 *Script: 143 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -496,7 +501,7 @@ Live alternative only if time allows.
 
 ### 10. Input, layout and playback
 
-**Bao · Algorithm Visualizers · 12:50–13:55**
+**Bao · Algorithm Visualizers · 13:10–14:15**
 
 *Script: 124 words, about 57 s at 130 words per minute; the slot is 65 s.*
 
@@ -559,7 +564,7 @@ Live layout was off. The app has no on-canvas weight edit.
 
 ### 11. Sorting comparison
 
-**Bao · Algorithm Visualizers · 13:55–14:55**
+**Bao · Algorithm Visualizers · 14:15–15:15**
 
 *Script: 124 words, about 57 s at 130 words per minute; the slot is 60 s.*
 
@@ -614,7 +619,7 @@ Live layout was off. The app has no on-canvas weight edit.
 
 ### 12. LCA: explaining a decision to stay
 
-**Bao · Algorithm Visualizers · 14:55–16:50**
+**Bao · Algorithm Visualizers · 15:15–17:10**
 
 *Script: 214 words, about 99 s at 130 words per minute; the slot is 115 s.*
 
@@ -685,7 +690,7 @@ Say that floating text is a design response to a formative observation; its effe
 
 ### 13. Pause and inspect the result
 
-**Bao · Algorithm Visualizers · 16:50–18:10**
+**Bao · Algorithm Visualizers · 17:10–18:30**
 
 *Script: 153 words, about 71 s at 130 words per minute; the slot is 80 s.*
 
@@ -749,29 +754,27 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 ### 14. Graph/Tree Editors
 
-**Bao · Algorithm Visualizers · 18:10–19:10**
+**Bao · Algorithm Visualizers · 18:30–19:10**
 
-*Script: 125 words, about 58 s at 130 words per minute; the slot is 60 s.*
+*Script: 88 words, about 41 s at 130 words per minute; the slot is 40 s.*
 
-**Main message:** The editors start from the user's own example, and let them ask several questions about it.
+**Main message:** The editors start from the user's own example; that is an intended use, not a measured one.
 
 **Talking points**
 
-- Two entry points on the home page: the Graph Editor and the Tree Editor
-- Start from an example you already have in mind, then try compatible algorithms on it
+- You saw both editors in the demo
+- A workflow that starts from an example the user already has in mind
 - Fits competitive programming practice: a small test, an observation, a counterexample
 - The original VisuAlgo already accepts custom input; ours is a more explicit entry point
 - An intended use; adoption is not measured
 
 **Script**
 
-> On the home page, there are two editors: the Graph Editor and the Tree Editor. You saw both in the demo. They support a workflow that starts from an example.
+> You saw the two editors in the demo. They support a workflow that starts from an example the user already has in mind.
 >
-> A user may already have a graph in mind, and want to investigate it. This fits competitive programming practice: build a small test, check an observation, or look for a counterexample.
+> That fits competitive programming practice: build a small test, check an observation, or look for a counterexample.
 >
-> The original VisuAlgo already accepts custom input. What we add is a more explicit entry point, and a workflow built around that input. The Tree Editor currently covers Binary Lifting, BST and AVL.
->
-> This is the use we intend. We have not measured adoption.
+> The original VisuAlgo already accepts custom input. What we add is a more explicit entry point. This is the use we intend, and we have not measured adoption.
 
 **Cues**
 
@@ -1269,7 +1272,7 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 *Script: 61 words, about 28 s at 130 words per minute.*
 
-**Main message:** If the live Graph demo fails, this clip shows the recursive DFS recap.
+**Main message:** A spare clip: the recursive DFS recap on the final frame.
 
 **Talking points**
 
@@ -1287,7 +1290,7 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 **Cues**
 
-- Use this slide only if the Graph Editor part of the live demo fails.
+- A spare clip of the Graph Editor: use it if a question is about traversal, or if the Graph Editor could not be shown live.
 - Press → to play. The clip is 8.5 seconds.
 
 <details>
@@ -1731,16 +1734,18 @@ Slides 9–13 play real-app clips embedded in the deck (app `346e84b`, recorded 
 | Sorting shared input and clock | 11 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
 | Root moved from 10 to 16, then LCA(8, 20) | 12 | 27.9 s clip | Poster: frame 9/12, "differ · lift both" |
 | Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 13 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
-| Live demo (Bao) | 2 | about 3 min live | Clips on slides 10, 12 and 13 later in the talk; backup B1 for the DFS recap |
+| Live demo (Bao): a tour of the product | 2 | about 4.5 min live | Slides 9 to 13 show the same features as clips |
 
-### Demo input: the editors' defaults
+### Demo input: the opening tour
 
-The proposed demo in section 02 needs no typing. It was run step by step on app `346e84b` on 16 November; these are the values the app showed.
+The tour in section 02 follows Bao's outline of 16 November: the home page, the two editors, the Graph Editor's menu and search, the panels, drawing a graph, a Dijkstra run, then the Tree Editor. It was run step by step on app `346e84b` that day; these are the values the app showed.
 
-- **Graph Editor.** It opens on Breadth-First Search with a directed graph: vertices A to F and the eight edges below. The Algorithms menu lists 11 algorithms in 5 groups.
-- **Dijkstra (DIJ), start A.** 31 frames. Final distances: A 0, B 4, C 2, D 3, E 7, F 5. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3. Hover F: A → C → D → F · distance 5.
-- **Recursive DFS (DFS), same graph.** The graph text is unchanged and the footer says NO RUN until the run starts. 31 frames. Final frame: Visited A, B, D, F, E, C, with 5 tree edges; the drawing then replays the DFS tree.
-- **Tree Editor.** It opens on Binary Lifting, Query, with a seven-node tree rooted at 8, u = 6 and v = 2. Frame 2 of 6 shows the note "same ancestor · keep u, v". Hovering 6 on that paused step shows its path to the root, rings on 4 and 8 with the distances 1 and 2, and row 6 of the Ancestor table highlighted; the frame stays at 2 of 6.
+- **Home page.** Under "Editors": the Graph Editor and the Tree Editor, both marked New. Under "Algorithms & Data Structures": one card per topic; 19 cards are marked Coming soon.
+- **Graph Editor.** It opens on Breadth-First Search with a directed graph: vertices A to F and the eight edges below. Live force layout is off. The Algorithms menu lists 11 algorithms in 5 groups and has a "Search algorithms" box; typing dij leaves Dijkstra (1 of 11).
+- **Panels.** Action and E-Lecture share the left group; Pseudocode and Status are on the right. The Dijkstra e-Lecture opens on "Dijkstra: tentative distances", slide 1 of 3.
+- **Drawing.** Add node creates N1. Dragging from the handle on F to N1 adds the line "F N1" to the Edges text, with a notice that an edge without a weight counts as 1. Typing a space and 3 at the end gives it weight 3. The graph then has 7 nodes and 9 edges.
+- **Dijkstra from A on that graph.** 35 frames. Frame 6: "Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.", with the note "0 + 4 = 4" beside B and pseudocode line 6 lit. Autoplay from there to the end takes about 15 seconds. Final distances: A 0, B 4, C 2, D 3, E 7, F 5, N1 8. Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
+- **Tree Editor.** It opens on Binary Lifting, Query, with a seven-node tree rooted at 8 (Depth 2), u = 6 and v = 2. Setting Root to 12 under Edit tree → Structure draws the same edges again under 12 (Depth 3); u and v are kept. The query then has 6 frames and ends on LCA(6, 2) = 4.
 
 ```text
 A B 4
@@ -1753,7 +1758,7 @@ D F 2
 E F 4
 ```
 
-An earlier idea, kept as an alternative if you want to show an edit live: type the directed graph A B 4, A C 2, A D 6, C B 1, C D 7, B D 2, run Dijkstra from A, then change B D to 8 and run again. Those results were never checked on the app.
+Earlier plans, kept as alternatives; both were also run on the app on 16 November. One: Dijkstra, then recursive DFS on the unedited default graph (hover E: A → B → E · distance 7; hover D: A → C → D · distance 3; DFS visits A, B, D, F, E, C and replays its tree on the last frame). Two: on a paused Binary Lifting step, hover node 6 to see its path to the root, rings on 4 and 8, and row 6 of the Ancestor table.
 
 ### Prepared LCA input
 
@@ -1783,7 +1788,7 @@ Choose the preset Balanced · 10 nodes (root 10), then set Root to 16 under Edit
 - Present from copies of the two files outside OneDrive. On 16 November, after the deck in the synced folder was opened in PowerPoint, it came back with shapes from an older version doubled on slide 2.
 - Kerk confirms slides 15–23 and the first integration algorithm.
 - Keep March 2027 as a target, not a guaranteed release date.
-- If running late, stop the demo after the DFS recap; the LCA clip comes later, on slide 12.
+- If running late, skip the Tree Editor part of the demo; re-rooting and LCA come later, in the clip on slide 12.
 
 ## Source notes
 

@@ -162,6 +162,18 @@ Left for Kerk to decide:
 
 The sections above and the table below use the earlier slide numbers. `build_deck.py` still rebuilds the deck as it was before this rearrangement.
 
+## The opening demo as a tour (added 16 November, about 13:15)
+
+Because the demo now opens the talk, Bao asked for it to give the whole picture with a few typical examples, and gave an outline. The script for slide 2 follows it:
+- the home page, built like the original VisuAlgo with one card per topic;
+- the two editors, then the Graph Editor: many algorithms on one input, the Algorithms menu and its search;
+- the four panels (Action, e-Lecture, Pseudocode, Status) and the canvas;
+- drawing a graph: drag a vertex, add a node, draw an edge, type its weight;
+- a Dijkstra run, read in three places: the pseudocode line, the Status sentence and the note on the canvas;
+- the Tree Editor, briefly: LCA with Binary Lifting, and moving the root.
+
+Every step and value was run on app `346e84b` before it was written into the notes; the master script lists them under "Demo input: the opening tour". The earlier plan (Dijkstra, then recursive DFS, then a hover in the Tree Editor) is kept there as an alternative. The demo has 4:30. The title slide gave it 10 seconds and the Graph/Tree Editors slide 20, since the demo now introduces the editors; the talk is still 33 minutes. Backup B1 is no longer the fallback for the demo: slides 9 to 13 show the same features as clips.
+
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |

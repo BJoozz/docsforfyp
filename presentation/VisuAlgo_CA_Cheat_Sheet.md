@@ -6,7 +6,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 01 · VisuAlgo+
 
-*Bao · Introduction · 00:00–00:40*
+*Bao · Introduction · 00:00–00:30*
 
 **Message:** We are rebuilding VisuAlgo, and we keep what it is for: learning and exploring algorithms.
 
@@ -14,40 +14,43 @@ One glance per slide: the message, the points to hit and the line that leads to 
 - Rebuild the platform, keep its purpose
 - Plan: the demo first; then why and how (Bao); then the design process, the engine and the website (Kerk)
 
-**Next:** So let us start with the product itself.
-
 ## 02 · Live demo
 
-*Bao · Demo · 00:40–04:30*
+*Bao · Demo · 00:30–05:00*
 
-**Message:** This is the product: one example, several questions, in one interface.
+**Message:** A tour of the product: familiar home page, one editor for many algorithms, and a run that explains itself in three places.
 
-- This is the running app, not a recording
-- Graph Editor: one small graph; eleven graph algorithms on the same input
-- Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3
-- Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)
-- Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row
-- Name the layout: this is V10; Kerk explains its history later
+- Home page: the same structure as the original VisuAlgo, one card per topic
+- New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)
+- Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10
+- Drawing a graph: drag a vertex, add a node, draw an edge, type its weight
+- Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path
+- Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved
 
 **Cues**
 
-- A proposed plan, checked on app 346e84b on 16 November. It takes about three minutes; the slot is just under four.
-- Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.
-- 0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.
-- 0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.
-- 0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.
-- 0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.
-- 1:30 Click HOME, then the Tree Editor card.
-- 1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.
-- If you are ahead: drag the Status tab under the drawing, to show a V10 panel move. It is also in the clip on slide 9.
+- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.
+- Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.
+- 0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.
+- 0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.
+- 0:35 Click Algorithms ▾: 11 algorithms in 5 groups. Type dij in 'Search algorithms' (it shows 1 of 11), then click Dijkstra.
+- 1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.
+- 1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.
+- 1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.
+- 2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
+- 2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
+- 3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
+- 3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
+- 3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
+- If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.
 - Then return to PowerPoint and press → for slide 3, Motivation.
-- If a step fails, do not debug: say what it would show and move on. The clips on slides 10, 12 and 13 show the same features later, and B1 in the backup file has the DFS recap.
+- If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips.
 
 **Next:** Now let me step back. Why did we rebuild VisuAlgo?
 
 ## 03 · Motivation
 
-*Bao · Introduction · 04:30–05:40*
+*Bao · Introduction · 05:00–06:10*
 
 **Message:** We keep VisuAlgo's strengths, and we follow Prof. Halim's directions: better interaction and a wider range of algorithms.
 
@@ -60,7 +63,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 04 · Why rebuild the foundation?
 
-*Bao · Introduction · 05:40–06:50*
+*Bao · Introduction · 06:10–07:20*
 
 **Message:** In the original code, one common change touches several topics, so we reorganised the foundation.
 
@@ -74,7 +77,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 05 · Objectives and current scope
 
-*Bao · Introduction · 06:50–08:00*
+*Bao · Introduction · 07:20–08:30*
 
 **Message:** We have three objectives and a working prototype; connecting the engine and a first release come next.
 
@@ -87,7 +90,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 06 · Early visualizer prototypes
 
-*Bao · Early Design · 08:00–09:30*
+*Bao · Early Design · 08:30–10:00*
 
 **Message:** Each early prototype tested one requirement that the final design had to meet.
 
@@ -101,7 +104,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 07 · Two parallel foundations
 
-*Bao · Early Design · 09:30–10:50*
+*Bao · Early Design · 10:00–11:10*
 
 **Message:** Two foundations grew side by side: my working visualizers and Kerk's design system.
 
@@ -114,7 +117,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 08 · Visualization contributions
 
-*Bao · Algorithm Visualizers · 10:50–11:40*
+*Bao · Algorithm Visualizers · 11:10–12:00*
 
 **Message:** I built the visualizer foundations, the algorithms, the shell and the step explanations; I will show a few decisions you can see on screen.
 
@@ -128,7 +131,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 09 · A shared shell with clear constraints
 
-*Bao · Algorithm Visualizers · 11:40–12:50*
+*Bao · Algorithm Visualizers · 12:00–13:10*
 
 **Message:** You can move panels around without losing the drawing or the run.
 
@@ -148,7 +151,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 10 · Input, layout and playback
 
-*Bao · Algorithm Visualizers · 12:50–13:55*
+*Bao · Algorithm Visualizers · 13:10–14:15*
 
 **Message:** Moving a vertex changes the drawing; changing a weight changes the problem. So they are stored separately.
 
@@ -168,7 +171,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 11 · Sorting comparison
 
-*Bao · Algorithm Visualizers · 13:55–14:55*
+*Bao · Algorithm Visualizers · 14:15–15:15*
 
 **Message:** The panes share one input and one clock, but each keeps its own state; the counters are operations, not runtime.
 
@@ -187,7 +190,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 12 · LCA: explaining a decision to stay
 
-*Bao · Algorithm Visualizers · 14:55–16:50*
+*Bao · Algorithm Visualizers · 15:15–17:10*
 
 **Message:** Floating text puts the reason beside the node, so a step with no movement still explains itself.
 
@@ -209,7 +212,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 13 · Pause and inspect the result
 
-*Bao · Algorithm Visualizers · 16:50–18:10*
+*Bao · Algorithm Visualizers · 17:10–18:30*
 
 **Message:** Emphasis and progress are separate: motion while paused, a note when a step arrives, and hover on the result never advance or rerun the algorithm.
 
@@ -229,12 +232,12 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 14 · Graph/Tree Editors
 
-*Bao · Algorithm Visualizers · 18:10–19:10*
+*Bao · Algorithm Visualizers · 18:30–19:10*
 
-**Message:** The editors start from the user's own example, and let them ask several questions about it.
+**Message:** The editors start from the user's own example; that is an intended use, not a measured one.
 
-- Two entry points on the home page: the Graph Editor and the Tree Editor
-- Start from an example you already have in mind, then try compatible algorithms on it
+- You saw both editors in the demo
+- A workflow that starts from an example the user already has in mind
 - Fits competitive programming practice: a small test, an observation, a counterexample
 - The original VisuAlgo already accepts custom input; ours is a more explicit entry point
 - An intended use; adoption is not measured
@@ -375,7 +378,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 *Backup*
 
-**Message:** If the live Graph demo fails, this clip shows the recursive DFS recap.
+**Message:** A spare clip: the recursive DFS recap on the final frame.
 
 - The same S, A, B, T graph as the clips on slides 9 and 10
 - The final frame replays the DFS tree in visit order: S, A, T, then S, B
@@ -383,7 +386,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 **Cues**
 
-- Use this slide only if the Graph Editor part of the live demo fails.
+- A spare clip of the Graph Editor: use it if a question is about traversal, or if the Graph Editor could not be shown live.
 - Press → to play. The clip is 8.5 seconds.
 
 ## B2 · Backup: preview before Apply

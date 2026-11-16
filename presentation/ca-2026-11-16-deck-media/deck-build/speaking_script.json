@@ -11,57 +11,63 @@
       "script": [
         "Good afternoon. We are Bao and Kerk, and our project is VisuAlgo+.",
         "We are rebuilding VisuAlgo, and we keep its purpose: helping people learn and explore data structures and algorithms.",
-        "Before the slides, let us show you the product. After the demo, I will explain why we rebuilt it and the decisions behind it. Then Kerk will cover the design process, the engine and the website."
+        "Before the slides, let us show you the product. Then I will explain why and how we built it, and Kerk will cover the design process, the engine and the website."
       ],
       "cues": [
         "The picture is the home page of the current prototype. No click is needed."
       ],
-      "transition": "So let us start with the product itself.",
+      "transition": "",
       "title": "VisuAlgo+",
       "speaker": "Bao",
       "section": "Introduction",
-      "seconds": 40,
-      "time": "00:00–00:40",
+      "seconds": 30,
+      "time": "00:00–00:30",
       "ref": "1"
     },
     "2": {
-      "message": "This is the product: one example, several questions, in one interface.",
+      "message": "A tour of the product: familiar home page, one editor for many algorithms, and a run that explains itself in three places.",
       "points": [
-        "This is the running app, not a recording",
-        "Graph Editor: one small graph; eleven graph algorithms on the same input",
-        "Question 1, Dijkstra from A: hover E gives A, B, E with distance 7; hover D gives A, C, D with distance 3",
-        "Question 2, recursive DFS on the same graph: the last frame replays the DFS tree (A, B, D, F, E, C)",
-        "Tree Editor: pause on a step and hover a node to see its path to the root, its ancestors and its table row",
-        "Name the layout: this is V10; Kerk explains its history later"
+        "Home page: the same structure as the original VisuAlgo, one card per topic",
+        "New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)",
+        "Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10",
+        "Drawing a graph: drag a vertex, add a node, draw an edge, type its weight",
+        "Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path",
+        "Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved"
       ],
       "script": [
-        "This is the running app, not a recording. I start from the home page and open the Graph Editor.",
-        "This small graph is the input. The editor offers eleven graph algorithms on this same input.",
-        "Question one: what are the shortest paths from A? I run Dijkstra and jump to the end. Hovering E shows its path: A, B, E, with distance 7. D goes through C, with distance 3. Nothing runs again; the app reads the finished result.",
-        "Question two, on the same graph: in what order does recursive DFS visit the vertices? I switch to DFS and let it play. At the last frame, the drawing replays the DFS tree in visit order: A, B, D, F, then E, then C. So one input answered two questions.",
-        "In the Tree Editor, one tree is shared by Binary Lifting, BST and AVL. I pause on a step and hover node 6. The app shows its path to the root, marks its ancestors one and two levels up, 4 and 8, and highlights row 6 of the ancestor table. The hover does not move the step.",
-        "One more thing. The layout you see, with panels around a fixed drawing, is what we call V10. Kerk will explain later how we arrived at it.",
-        "That is the idea of VisuAlgo+: one example, several questions."
+        "This is the running app, not a recording. We start on the home page. Its structure is close to the original VisuAlgo: one card for each topic, so a student can pick a topic and start. Cards marked 'Coming soon' are not rebuilt yet.",
+        "What is new are these two editors: the Graph Editor and the Tree Editor. In the Graph Editor, many algorithms live in one place and share one input. This menu lists the eleven graph algorithms we have now. I can also search: I type 'dij', and I get Dijkstra.",
+        "Every page has the same parts. On the left is Action, where you choose the input and the options. Next to it is the e-Lecture, which explains the topic. On the right are the pseudocode and Status, which describes the current step. In the middle is the canvas. We call this layout V10, and Kerk will explain later how we arrived at it.",
+        "Now let me draw. I drag a vertex to move it. I add a node. I draw an edge from F to the new node, directly on the canvas. The edge also appears in the text on the left, and there I give it a weight of 3. The canvas and the text are two views of the same graph.",
+        "Now I run Dijkstra from A, one step at a time. Watch three places. The pseudocode highlights the current line. Status explains the step in one sentence. And on the canvas, a short note appears beside the node: zero plus four equals four, so B gets distance 4.",
+        "Let me play the rest. At the end, the shortest paths are drawn in green. When I hover a vertex, I see its path: the new node is reached through C, D and F, with distance 8.",
+        "Finally, a quick look at the Tree Editor. It works the same way: one tree, shared by Binary Lifting, BST and AVL. Binary Lifting answers lowest common ancestor queries. LCA is an important topic for tree problems, and it is one of the algorithms I added. The tree is easy to edit too. For example, I move the root from 8 to 12, and the same edges are drawn again under the new root.",
+        "That was a quick tour. I will come back to several of these features in detail."
       ],
       "cues": [
-        "A proposed plan, checked on app 346e84b on 16 November. It takes about three minutes; the slot is just under four.",
-        "Before the talk: open the app, load both editors once, choose Settings → Reset panel layout, check that 'Animate paused steps' is on, and return to the home page.",
-        "0:00 Home page → click the Graph Editor card. It opens on Breadth-First Search with the default graph: vertices A to F, eight directed edges.",
-        "0:10 Click Algorithms ▾ to show the list (11 algorithms in 5 groups), then press Esc.",
-        "0:20 Click DIJ. Click Next (frame 1 of 31), then Last. Hover E: A → B → E · distance 7. Hover D: A → C → D · distance 3.",
-        "0:50 Click DFS. The graph stays and the footer says NO RUN. Click Autoplay (31 frames, about 15 seconds). Final frame: Visited A, B, D, F, E, C.",
-        "1:30 Click HOME, then the Tree Editor card.",
-        "1:45 It opens on Binary Lifting, Query, root 8, u = 6, v = 2. Click the Ancestor table tab. Click Next twice (frame 2 of 6, note 'same ancestor · keep u, v'). Hover 6, then 14.",
-        "If you are ahead: drag the Status tab under the drawing, to show a V10 panel move. It is also in the clip on slide 9.",
+        "Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.",
+        "Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.",
+        "0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.",
+        "0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.",
+        "0:35 Click Algorithms ▾: 11 algorithms in 5 groups. Type dij in 'Search algorithms' (it shows 1 of 11), then click Dijkstra.",
+        "1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.",
+        "1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.",
+        "1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.",
+        "2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'",
+        "2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'",
+        "3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.",
+        "3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.",
+        "3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.",
+        "If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.",
         "Then return to PowerPoint and press → for slide 3, Motivation.",
-        "If a step fails, do not debug: say what it would show and move on. The clips on slides 10, 12 and 13 show the same features later, and B1 in the backup file has the DFS recap."
+        "If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips."
       ],
       "transition": "Now let me step back. Why did we rebuild VisuAlgo?",
       "title": "Live demo",
       "speaker": "Bao",
       "section": "Demo",
-      "seconds": 230,
-      "time": "00:40–04:30",
+      "seconds": 270,
+      "time": "00:30–05:00",
       "ref": "20",
       "drop_blocks": [
         "DEMO CUE"
@@ -90,7 +96,7 @@
       "speaker": "Bao",
       "section": "Introduction",
       "seconds": 70,
-      "time": "04:30–05:40",
+      "time": "05:00–06:10",
       "ref": "2"
     },
     "4": {
@@ -116,7 +122,7 @@
       "speaker": "Bao",
       "section": "Introduction",
       "seconds": 70,
-      "time": "05:40–06:50",
+      "time": "06:10–07:20",
       "ref": "3"
     },
     "5": {
@@ -142,7 +148,7 @@
       "speaker": "Bao",
       "section": "Introduction",
       "seconds": 70,
-      "time": "06:50–08:00",
+      "time": "07:20–08:30",
       "ref": "4"
     },
     "6": {
@@ -170,7 +176,7 @@
       "speaker": "Bao",
       "section": "Early Design",
       "seconds": 90,
-      "time": "08:00–09:30",
+      "time": "08:30–10:00",
       "ref": "5"
     },
     "7": {
@@ -195,8 +201,8 @@
       "title": "Two parallel foundations",
       "speaker": "Bao",
       "section": "Early Design",
-      "seconds": 80,
-      "time": "09:30–10:50",
+      "seconds": 70,
+      "time": "10:00–11:10",
       "ref": "6"
     },
     "8": {
@@ -223,7 +229,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 50,
-      "time": "10:50–11:40",
+      "time": "11:10–12:00",
       "ref": "13"
     },
     "9": {
@@ -252,7 +258,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 70,
-      "time": "11:40–12:50",
+      "time": "12:00–13:10",
       "ref": "14"
     },
     "10": {
@@ -280,7 +286,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 65,
-      "time": "12:50–13:55",
+      "time": "13:10–14:15",
       "ref": "15"
     },
     "11": {
@@ -308,7 +314,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 60,
-      "time": "13:55–14:55",
+      "time": "14:15–15:15",
       "ref": "16"
     },
     "12": {
@@ -340,7 +346,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 115,
-      "time": "14:55–16:50",
+      "time": "15:15–17:10",
       "ref": "17"
     },
     "13": {
@@ -370,23 +376,22 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 80,
-      "time": "16:50–18:10",
+      "time": "17:10–18:30",
       "ref": "18"
     },
     "14": {
-      "message": "The editors start from the user's own example, and let them ask several questions about it.",
+      "message": "The editors start from the user's own example; that is an intended use, not a measured one.",
       "points": [
-        "Two entry points on the home page: the Graph Editor and the Tree Editor",
-        "Start from an example you already have in mind, then try compatible algorithms on it",
+        "You saw both editors in the demo",
+        "A workflow that starts from an example the user already has in mind",
         "Fits competitive programming practice: a small test, an observation, a counterexample",
         "The original VisuAlgo already accepts custom input; ours is a more explicit entry point",
         "An intended use; adoption is not measured"
       ],
       "script": [
-        "On the home page, there are two editors: the Graph Editor and the Tree Editor. You saw both in the demo. They support a workflow that starts from an example.",
-        "A user may already have a graph in mind, and want to investigate it. This fits competitive programming practice: build a small test, check an observation, or look for a counterexample.",
-        "The original VisuAlgo already accepts custom input. What we add is a more explicit entry point, and a workflow built around that input. The Tree Editor currently covers Binary Lifting, BST and AVL.",
-        "This is the use we intend. We have not measured adoption."
+        "You saw the two editors in the demo. They support a workflow that starts from an example the user already has in mind.",
+        "That fits competitive programming practice: build a small test, check an observation, or look for a counterexample.",
+        "The original VisuAlgo already accepts custom input. What we add is a more explicit entry point. This is the use we intend, and we have not measured adoption."
       ],
       "cues": [
         "The picture is the Editors section of the home page.",
@@ -396,8 +401,8 @@
       "title": "Graph/Tree Editors",
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
-      "seconds": 60,
-      "time": "18:10–19:10",
+      "seconds": 40,
+      "time": "18:30–19:10",
       "ref": "19"
     },
     "15": {
@@ -677,7 +682,7 @@
       "ref": "23"
     },
     "B1": {
-      "message": "If the live Graph demo fails, this clip shows the recursive DFS recap.",
+      "message": "A spare clip: the recursive DFS recap on the final frame.",
       "points": [
         "The same S, A, B, T graph as the clips on slides 9 and 10",
         "The final frame replays the DFS tree in visit order: S, A, T, then S, B",
@@ -689,7 +694,7 @@
         "This is different from Dijkstra's final frame, where you hover a vertex to see its path."
       ],
       "cues": [
-        "Use this slide only if the Graph Editor part of the live demo fails.",
+        "A spare clip of the Graph Editor: use it if a question is about traversal, or if the Graph Editor could not be shown live.",
         "Press → to play. The clip is 8.5 seconds."
       ],
       "transition": "",
