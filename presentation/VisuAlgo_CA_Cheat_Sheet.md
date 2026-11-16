@@ -16,7 +16,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 02 · Live demo
 
-*Bao · Demo · 00:30–05:00*
+*Bao · Demo · 00:30–05:20*
 
 **Message:** A tour of the product: familiar home page, one editor for many algorithms, and a run that explains itself in three places.
 
@@ -24,12 +24,13 @@ One glance per slide: the message, the points to hit and the line that leads to 
 - New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)
 - Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10
 - Drawing a graph: drag a vertex, add a node, draw an edge, type its weight
+- Planned for the editors: text, free drawing and vertex colours; for lecturers and tutors who teach, and students who draft competitive programming problems; these frequent users, who like to customise, are who the editors are for
 - Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path
 - Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved
 
 **Cues**
 
-- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.
+- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little under five minutes.
 - Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.
 - 0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.
 - 0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.
@@ -37,11 +38,12 @@ One glance per slide: the message, the points to hit and the line that leads to 
 - 1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.
 - 1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.
 - 1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.
-- 2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
-- 2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
-- 3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
-- 3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
-- 3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
+- 2:10 Stop clicking while you talk about the planned tools and who the editors are for. They are plans: say "we plan to add".
+- 2:40 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
+- 3:05 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
+- 3:25 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
+- 3:45 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
+- 4:00 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
 - If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.
 - Then return to PowerPoint and press → for slide 3, Motivation.
 - If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips.
@@ -50,7 +52,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 03 · Motivation
 
-*Bao · Introduction · 05:00–06:10*
+*Bao · Introduction · 05:20–06:25*
 
 **Message:** We keep VisuAlgo's strengths, and we follow Prof. Halim's directions: better interaction and a wider range of algorithms.
 
@@ -63,7 +65,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 04 · Why rebuild the foundation?
 
-*Bao · Introduction · 06:10–07:20*
+*Bao · Introduction · 06:25–07:30*
 
 **Message:** In the original code, one common change touches several topics, so we reorganised the foundation.
 
@@ -77,7 +79,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 05 · Objectives and current scope
 
-*Bao · Introduction · 07:20–08:30*
+*Bao · Introduction · 07:30–08:40*
 
 **Message:** We have three objectives and a working prototype; connecting the engine and a first release come next.
 
@@ -90,7 +92,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 06 · Early visualizer prototypes
 
-*Bao · Early Design · 08:30–10:00*
+*Bao · Early Design · 08:40–10:10*
 
 **Message:** Each early prototype tested one requirement that the final design had to meet.
 
@@ -104,7 +106,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 07 · Two parallel foundations
 
-*Bao · Early Design · 10:00–11:10*
+*Bao · Early Design · 10:10–11:20*
 
 **Message:** Two foundations grew side by side: my working visualizers and Kerk's design system.
 
@@ -117,7 +119,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 08 · Visualization contributions
 
-*Bao · Algorithm Visualizers · 11:10–12:00*
+*Bao · Algorithm Visualizers · 11:20–12:10*
 
 **Message:** I built the visualizer foundations, the algorithms, the shell and the step explanations; I will show a few decisions you can see on screen.
 
@@ -131,7 +133,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 09 · A shared shell with clear constraints
 
-*Bao · Algorithm Visualizers · 12:00–13:10*
+*Bao · Algorithm Visualizers · 12:10–13:20*
 
 **Message:** You can move panels around without losing the drawing or the run.
 
@@ -151,7 +153,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 10 · Input, layout and playback
 
-*Bao · Algorithm Visualizers · 13:10–14:15*
+*Bao · Algorithm Visualizers · 13:20–14:20*
 
 **Message:** Moving a vertex changes the drawing; changing a weight changes the problem. So they are stored separately.
 
@@ -171,7 +173,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 11 · Sorting comparison
 
-*Bao · Algorithm Visualizers · 14:15–15:15*
+*Bao · Algorithm Visualizers · 14:20–15:20*
 
 **Message:** The panes share one input and one clock, but each keeps its own state; the counters are operations, not runtime.
 
@@ -190,7 +192,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 12 · LCA: explaining a decision to stay
 
-*Bao · Algorithm Visualizers · 15:15–17:10*
+*Bao · Algorithm Visualizers · 15:20–17:05*
 
 **Message:** Floating text puts the reason beside the node, so a step with no movement still explains itself.
 
@@ -212,7 +214,7 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 13 · Pause and inspect the result
 
-*Bao · Algorithm Visualizers · 17:10–18:30*
+*Bao · Algorithm Visualizers · 17:05–18:25*
 
 **Message:** Emphasis and progress are separate: motion while paused, a note when a step arrives, and hover on the result never advance or rerun the algorithm.
 
@@ -232,13 +234,13 @@ One glance per slide: the message, the points to hit and the line that leads to 
 
 ## 14 · Graph/Tree Editors
 
-*Bao · Algorithm Visualizers · 18:30–19:10*
+*Bao · Algorithm Visualizers · 18:25–19:10*
 
-**Message:** The editors start from the user's own example; that is an intended use, not a measured one.
+**Message:** The editors are for frequent users who start from their own example; that is an intended use, not a measured one.
 
 - You saw both editors in the demo
-- A workflow that starts from an example the user already has in mind
-- Fits competitive programming practice: a small test, an observation, a counterexample
+- For frequent users: lecturers and tutors who teach, and students who practise competitive programming
+- They start from their own example: a small test, an observation, a counterexample
 - The original VisuAlgo already accepts custom input; ours is a more explicit entry point
 - An intended use; adoption is not measured
 

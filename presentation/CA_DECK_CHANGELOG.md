@@ -169,10 +169,11 @@ Because the demo now opens the talk, Bao asked for it to give the whole picture 
 - the two editors, then the Graph Editor: many algorithms on one input, the Algorithms menu and its search;
 - the four panels (Action, e-Lecture, Pseudocode, Status) and the canvas;
 - drawing a graph: drag a vertex, add a node, draw an edge, type its weight;
+- what is planned for the editors and who they are for, added by Bao a little later: text, free drawing and vertex colours, for lecturers and tutors who teach and for students who draft competitive programming problems. The script says "we plan to add";
 - a Dijkstra run, read in three places: the pseudocode line, the Status sentence and the note on the canvas;
 - the Tree Editor, briefly: LCA with Binary Lifting, and moving the root.
 
-Every step and value was run on app `346e84b` before it was written into the notes; the master script lists them under "Demo input: the opening tour". The earlier plan (Dijkstra, then recursive DFS, then a hover in the Tree Editor) is kept there as an alternative. The demo has 4:30. The title slide gave it 10 seconds and the Graph/Tree Editors slide 20, since the demo now introduces the editors; the talk is still 33 minutes. Backup B1 is no longer the fallback for the demo: slides 9 to 13 show the same features as clips.
+Every step and value was run on app `346e84b` before it was written into the notes; the master script lists them under "Demo input: the opening tour". The earlier plan (Dijkstra, then recursive DFS, then a hover in the Tree Editor) is kept there as an alternative. The demo has 4:50. The time comes from the title slide, the Graph/Tree Editors slide (the demo now introduces the editors) and a few seconds from slides 3, 4, 7, 10 and 12; the talk is still 33 minutes. Backup B1 is no longer the fallback for the demo: slides 9 to 13 show the same features as clips.
 
 ## Slide by slide
 

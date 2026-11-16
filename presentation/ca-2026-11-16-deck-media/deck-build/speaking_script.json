@@ -31,6 +31,7 @@
         "New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)",
         "Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10",
         "Drawing a graph: drag a vertex, add a node, draw an edge, type its weight",
+        "Planned for the editors: text, free drawing and vertex colours; for lecturers and tutors who teach, and students who draft competitive programming problems; these frequent users, who like to customise, are who the editors are for",
         "Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path",
         "Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved"
       ],
@@ -39,13 +40,13 @@
         "What is new are these two editors: the Graph Editor and the Tree Editor. In the Graph Editor, many algorithms live in one place and share one input. This menu lists the eleven graph algorithms we have now. I can also search: I type 'dij', and I get Dijkstra.",
         "Every page has the same parts. On the left is Action, where you choose the input and the options. Next to it is the e-Lecture, which explains the topic. On the right are the pseudocode and Status, which describes the current step. In the middle is the canvas. We call this layout V10, and Kerk will explain later how we arrived at it.",
         "Now let me draw. I drag a vertex to move it. I add a node. I draw an edge from F to the new node, directly on the canvas. The edge also appears in the text on the left, and there I give it a weight of 3. The canvas and the text are two views of the same graph.",
+        "Later, we plan to add more tools here, such as text, free drawing and colouring vertices. The aim is that a lecturer or tutor can use the editor to teach, and a student doing competitive programming can use it as a draft, to think through a problem. These frequent users are the people I built the two editors for. They like to set things up their own way.",
         "Now I run Dijkstra from A, one step at a time. Watch three places. The pseudocode highlights the current line. Status explains the step in one sentence. And on the canvas, a short note appears beside the node: zero plus four equals four, so B gets distance 4.",
         "Let me play the rest. At the end, the shortest paths are drawn in green. When I hover a vertex, I see its path: the new node is reached through C, D and F, with distance 8.",
-        "Finally, a quick look at the Tree Editor. It works the same way: one tree, shared by Binary Lifting, BST and AVL. Binary Lifting answers lowest common ancestor queries. LCA is an important topic for tree problems, and it is one of the algorithms I added. The tree is easy to edit too. For example, I move the root from 8 to 12, and the same edges are drawn again under the new root.",
-        "That was a quick tour. I will come back to several of these features in detail."
+        "Finally, a quick look at the Tree Editor. It works the same way: one tree, shared by Binary Lifting, BST and AVL. Binary Lifting answers lowest common ancestor queries. LCA is an important topic for tree problems, and it is one of the algorithms I added. The tree is easy to edit too. For example, I move the root from 8 to 12, and the same edges are drawn again under the new root."
       ],
       "cues": [
-        "Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.",
+        "Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little under five minutes.",
         "Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.",
         "0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.",
         "0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.",
@@ -53,11 +54,12 @@
         "1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.",
         "1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.",
         "1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.",
-        "2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'",
-        "2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'",
-        "3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.",
-        "3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.",
-        "3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.",
+        "2:10 Stop clicking while you talk about the planned tools and who the editors are for. They are plans: say \"we plan to add\".",
+        "2:40 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'",
+        "3:05 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'",
+        "3:25 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.",
+        "3:45 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.",
+        "4:00 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.",
         "If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.",
         "Then return to PowerPoint and press → for slide 3, Motivation.",
         "If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips."
@@ -66,8 +68,8 @@
       "title": "Live demo",
       "speaker": "Bao",
       "section": "Demo",
-      "seconds": 270,
-      "time": "00:30–05:00",
+      "seconds": 290,
+      "time": "00:30–05:20",
       "ref": "20",
       "drop_blocks": [
         "DEMO CUE"
@@ -95,8 +97,8 @@
       "title": "Motivation",
       "speaker": "Bao",
       "section": "Introduction",
-      "seconds": 70,
-      "time": "05:00–06:10",
+      "seconds": 65,
+      "time": "05:20–06:25",
       "ref": "2"
     },
     "4": {
@@ -121,8 +123,8 @@
       "title": "Why rebuild the foundation?",
       "speaker": "Bao",
       "section": "Introduction",
-      "seconds": 70,
-      "time": "06:10–07:20",
+      "seconds": 65,
+      "time": "06:25–07:30",
       "ref": "3"
     },
     "5": {
@@ -148,7 +150,7 @@
       "speaker": "Bao",
       "section": "Introduction",
       "seconds": 70,
-      "time": "07:20–08:30",
+      "time": "07:30–08:40",
       "ref": "4"
     },
     "6": {
@@ -176,7 +178,7 @@
       "speaker": "Bao",
       "section": "Early Design",
       "seconds": 90,
-      "time": "08:30–10:00",
+      "time": "08:40–10:10",
       "ref": "5"
     },
     "7": {
@@ -202,7 +204,7 @@
       "speaker": "Bao",
       "section": "Early Design",
       "seconds": 70,
-      "time": "10:00–11:10",
+      "time": "10:10–11:20",
       "ref": "6"
     },
     "8": {
@@ -229,7 +231,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 50,
-      "time": "11:10–12:00",
+      "time": "11:20–12:10",
       "ref": "13"
     },
     "9": {
@@ -258,7 +260,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 70,
-      "time": "12:00–13:10",
+      "time": "12:10–13:20",
       "ref": "14"
     },
     "10": {
@@ -285,8 +287,8 @@
       "title": "Input, layout and playback",
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
-      "seconds": 65,
-      "time": "13:10–14:15",
+      "seconds": 60,
+      "time": "13:20–14:20",
       "ref": "15"
     },
     "11": {
@@ -314,7 +316,7 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 60,
-      "time": "14:15–15:15",
+      "time": "14:20–15:20",
       "ref": "16"
     },
     "12": {
@@ -345,8 +347,8 @@
       "title": "LCA: explaining a decision to stay",
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
-      "seconds": 115,
-      "time": "15:15–17:10",
+      "seconds": 105,
+      "time": "15:20–17:05",
       "ref": "17"
     },
     "13": {
@@ -376,21 +378,21 @@
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
       "seconds": 80,
-      "time": "17:10–18:30",
+      "time": "17:05–18:25",
       "ref": "18"
     },
     "14": {
-      "message": "The editors start from the user's own example; that is an intended use, not a measured one.",
+      "message": "The editors are for frequent users who start from their own example; that is an intended use, not a measured one.",
       "points": [
         "You saw both editors in the demo",
-        "A workflow that starts from an example the user already has in mind",
-        "Fits competitive programming practice: a small test, an observation, a counterexample",
+        "For frequent users: lecturers and tutors who teach, and students who practise competitive programming",
+        "They start from their own example: a small test, an observation, a counterexample",
         "The original VisuAlgo already accepts custom input; ours is a more explicit entry point",
         "An intended use; adoption is not measured"
       ],
       "script": [
-        "You saw the two editors in the demo. They support a workflow that starts from an example the user already has in mind.",
-        "That fits competitive programming practice: build a small test, check an observation, or look for a counterexample.",
+        "You saw the two editors in the demo. They start from an example the user already has in mind.",
+        "As I said, they are meant for frequent users: lecturers and tutors, and students who practise competitive programming. They build a small test, check an observation, or look for a counterexample.",
         "The original VisuAlgo already accepts custom input. What we add is a more explicit entry point. This is the use we intend, and we have not measured adoption."
       ],
       "cues": [
@@ -401,8 +403,8 @@
       "title": "Graph/Tree Editors",
       "speaker": "Bao",
       "section": "Algorithm Visualizers",
-      "seconds": 40,
-      "time": "18:30–19:10",
+      "seconds": 45,
+      "time": "18:25–19:10",
       "ref": "19"
     },
     "15": {

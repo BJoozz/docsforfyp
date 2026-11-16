@@ -10,6 +10,8 @@ Script format, 16 November, at Bao's request: every slide has a main message, th
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
+Who the editors are for, 16 November, in Bao's words: the Graph Editor and the Tree Editor are aimed at frequent users, who like to set things up their own way: lecturers and tutors who teach with them, and students who use them as a draft while working on competitive programming problems. Planned tools for them are text, free drawing and colouring vertices. These are plans; none is built yet.
+
 Order and test case, 16 November, at Bao's request: Sorting (now slide 11) comes before LCA (now slide 12), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset. Its clip first moves the root from 10 to 16 on camera, which also shows the re-root operation, then runs the query LCA(8, 20). The slide stresses what floating text is for.
 
 Finalised on 16 November, at Bao's request: the captions under captures say only "Real app capture"; dates, commits and play instructions stay in the speaker notes and the media map. The dated caption that remains, on backup B3, marks a snapshot of 1 November. The "Live demo" slide (now slide 2) says only that; the text and cue in section 02 below are a working plan to settle in rehearsal. The backup slides moved to their own file.
@@ -78,9 +80,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 02. Live demo
 
-**Bao · Demo · 00:30–05:00**
+**Bao · Demo · 00:30–05:20**
 
-*Script: 401 words, about 185 s at 130 words per minute; the slot is 270 s.*
+*Script: 453 words, about 209 s at 130 words per minute; the slot is 290 s.*
 
 **Main message:** A tour of the product: familiar home page, one editor for many algorithms, and a run that explains itself in three places.
 
@@ -90,6 +92,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 - New: the Graph Editor and the Tree Editor; many algorithms share one input (eleven graph algorithms, with search)
 - Every page: Action, e-Lecture, Pseudocode and Status around the canvas; this layout is V10
 - Drawing a graph: drag a vertex, add a node, draw an edge, type its weight
+- Planned for the editors: text, free drawing and vertex colours; for lecturers and tutors who teach, and students who draft competitive programming problems; these frequent users, who like to customise, are who the editors are for
 - Running Dijkstra: the pseudocode line, the Status sentence and a note on the canvas change together; hover shows a shortest path
 - Tree Editor: LCA with Binary Lifting is a topic I added; the root can be moved
 
@@ -103,17 +106,17 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 >
 > Now let me draw. I drag a vertex to move it. I add a node. I draw an edge from F to the new node, directly on the canvas. The edge also appears in the text on the left, and there I give it a weight of 3. The canvas and the text are two views of the same graph.
 >
+> Later, we plan to add more tools here, such as text, free drawing and colouring vertices. The aim is that a lecturer or tutor can use the editor to teach, and a student doing competitive programming can use it as a draft, to think through a problem. These frequent users are the people I built the two editors for. They like to set things up their own way.
+>
 > Now I run Dijkstra from A, one step at a time. Watch three places. The pseudocode highlights the current line. Status explains the step in one sentence. And on the canvas, a short note appears beside the node: zero plus four equals four, so B gets distance 4.
 >
 > Let me play the rest. At the end, the shortest paths are drawn in green. When I hover a vertex, I see its path: the new node is reached through C, D and F, with distance 8.
 >
 > Finally, a quick look at the Tree Editor. It works the same way: one tree, shared by Binary Lifting, BST and AVL. Binary Lifting answers lowest common ancestor queries. LCA is an important topic for tree problems, and it is one of the algorithms I added. The tree is easy to edit too. For example, I move the root from 8 to 12, and the same edges are drawn again under the new root.
->
-> That was a quick tour. I will come back to several of these features in detail.
 
 **Cues**
 
-- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little over four minutes.
+- Bao's outline of 16 November; every step and value was run on app 346e84b that day. It takes a little under five minutes.
 - Before the talk: open the app on the home page. In both editors choose Settings → Reset panel layout and check that 'Animate paused steps' is on. Browser zoom 100%, window maximised.
 - 0:00 Home page. Scroll down a little to show the topic cards, then back up to Editors.
 - 0:25 Click the Graph Editor card. It opens on Breadth-First Search with a graph of six vertices, A to F.
@@ -121,11 +124,12 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 - 1:00 Point at Action. Click the E-LECTURE tab ('Dijkstra: tentative distances', slide 1 of 3), then ACTION again. Point at Pseudocode, Status and the canvas.
 - 1:35 Drag vertex E a little. Click Add node, at the bottom of Action: a vertex N1 appears.
 - 1:50 Drag from the dot on the edge of F to N1: a new edge. The Edges text gains the line 'F N1', and a notice says it counts as 1. Click in the Edges box, press Ctrl+End and type a space and 3: the label 3 appears. The graph now has 7 nodes and 9 edges.
-- 2:20 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
-- 2:45 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
-- 3:05 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
-- 3:25 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
-- 3:40 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
+- 2:10 Stop clicking while you talk about the planned tools and who the editors are for. They are plans: say "we plan to add".
+- 2:40 Click Next six times, to frame 6 of 35. The note '0 + 4 = 4' is beside B, pseudocode line 6 is lit, and Status says 'Relax A → B: 0 + 4 = 4, so the distance to B becomes 4.'
+- 3:05 Click Autoplay: about 15 seconds to frame 35 of 35, 'Dijkstra complete. Settled 7 nodes.'
+- 3:25 Hover N1: A → C → D → F → N1 · distance 8. Hover E: A → B → E · distance 7.
+- 3:45 Click HOME, then the Tree Editor card. It opens on Binary Lifting, Query, with a seven-node tree rooted at 8.
+- 4:00 Under Edit tree → Structure, set Root to 12. The ROOT badge moves to 12, the tree is drawn again, and Depth goes from 2 to 3.
 - If you are ahead: click Autoplay. The query ends on LCA(6, 2) = 4 after 6 frames.
 - Then return to PowerPoint and press → for slide 3, Motivation.
 - If drawing the edge fails, type the line 'F N1 3' in the Edges box. If anything else fails, do not debug: say what it would show and move on. Slides 9 to 13 show the same features as clips.
@@ -148,9 +152,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 03. Motivation
 
-**Bao · Introduction · 05:00–06:10**
+**Bao · Introduction · 05:20–06:25**
 
-*Script: 129 words, about 60 s at 130 words per minute; the slot is 70 s.*
+*Script: 129 words, about 60 s at 130 words per minute; the slot is 65 s.*
 
 **Main message:** We keep VisuAlgo's strengths, and we follow Prof. Halim's directions: better interaction and a wider range of algorithms.
 
@@ -196,9 +200,9 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 04. Why rebuild the foundation?
 
-**Bao · Introduction · 06:10–07:20**
+**Bao · Introduction · 06:25–07:30**
 
-*Script: 131 words, about 60 s at 130 words per minute; the slot is 70 s.*
+*Script: 131 words, about 60 s at 130 words per minute; the slot is 65 s.*
 
 **Main message:** In the original code, one common change touches several topics, so we reorganised the foundation.
 
@@ -243,7 +247,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 05. Objectives and current scope
 
-**Bao · Introduction · 07:20–08:30**
+**Bao · Introduction · 07:30–08:40**
 
 *Script: 142 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -291,7 +295,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 06. Early visualizer prototypes
 
-**Bao · Early Design · 08:30–10:00**
+**Bao · Early Design · 08:40–10:10**
 
 *Script: 178 words, about 82 s at 130 words per minute; the slot is 90 s.*
 
@@ -341,7 +345,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 07. Two parallel foundations
 
-**Bao · Early Design · 10:00–11:10**
+**Bao · Early Design · 10:10–11:20**
 
 *Script: 148 words, about 68 s at 130 words per minute; the slot is 70 s.*
 
@@ -390,7 +394,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 08. Visualization contributions
 
-**Bao · Algorithm Visualizers · 11:10–12:00**
+**Bao · Algorithm Visualizers · 11:20–12:10**
 
 *Script: 97 words, about 45 s at 130 words per minute; the slot is 50 s.*
 
@@ -439,7 +443,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 
 ### 09. A shared shell with clear constraints
 
-**Bao · Algorithm Visualizers · 12:00–13:10**
+**Bao · Algorithm Visualizers · 12:10–13:20**
 
 *Script: 143 words, about 66 s at 130 words per minute; the slot is 70 s.*
 
@@ -501,9 +505,9 @@ Live alternative only if time allows.
 
 ### 10. Input, layout and playback
 
-**Bao · Algorithm Visualizers · 13:10–14:15**
+**Bao · Algorithm Visualizers · 13:20–14:20**
 
-*Script: 124 words, about 57 s at 130 words per minute; the slot is 65 s.*
+*Script: 124 words, about 57 s at 130 words per minute; the slot is 60 s.*
 
 **Main message:** Moving a vertex changes the drawing; changing a weight changes the problem. So they are stored separately.
 
@@ -564,7 +568,7 @@ Live layout was off. The app has no on-canvas weight edit.
 
 ### 11. Sorting comparison
 
-**Bao · Algorithm Visualizers · 14:15–15:15**
+**Bao · Algorithm Visualizers · 14:20–15:20**
 
 *Script: 124 words, about 57 s at 130 words per minute; the slot is 60 s.*
 
@@ -619,9 +623,9 @@ Live layout was off. The app has no on-canvas weight edit.
 
 ### 12. LCA: explaining a decision to stay
 
-**Bao · Algorithm Visualizers · 15:15–17:10**
+**Bao · Algorithm Visualizers · 15:20–17:05**
 
-*Script: 214 words, about 99 s at 130 words per minute; the slot is 115 s.*
+*Script: 214 words, about 99 s at 130 words per minute; the slot is 105 s.*
 
 **Main message:** Floating text puts the reason beside the node, so a step with no movement still explains itself.
 
@@ -690,7 +694,7 @@ Say that floating text is a design response to a formative observation; its effe
 
 ### 13. Pause and inspect the result
 
-**Bao · Algorithm Visualizers · 17:10–18:30**
+**Bao · Algorithm Visualizers · 17:05–18:25**
 
 *Script: 153 words, about 71 s at 130 words per minute; the slot is 80 s.*
 
@@ -754,25 +758,25 @@ Point at the 2 → 3 edge while the counter reads 17. Edge weights are small at 
 
 ### 14. Graph/Tree Editors
 
-**Bao · Algorithm Visualizers · 18:30–19:10**
+**Bao · Algorithm Visualizers · 18:25–19:10**
 
-*Script: 88 words, about 41 s at 130 words per minute; the slot is 40 s.*
+*Script: 98 words, about 45 s at 130 words per minute; the slot is 45 s.*
 
-**Main message:** The editors start from the user's own example; that is an intended use, not a measured one.
+**Main message:** The editors are for frequent users who start from their own example; that is an intended use, not a measured one.
 
 **Talking points**
 
 - You saw both editors in the demo
-- A workflow that starts from an example the user already has in mind
-- Fits competitive programming practice: a small test, an observation, a counterexample
+- For frequent users: lecturers and tutors who teach, and students who practise competitive programming
+- They start from their own example: a small test, an observation, a counterexample
 - The original VisuAlgo already accepts custom input; ours is a more explicit entry point
 - An intended use; adoption is not measured
 
 **Script**
 
-> You saw the two editors in the demo. They support a workflow that starts from an example the user already has in mind.
+> You saw the two editors in the demo. They start from an example the user already has in mind.
 >
-> That fits competitive programming practice: build a small test, check an observation, or look for a counterexample.
+> As I said, they are meant for frequent users: lecturers and tutors, and students who practise competitive programming. They build a small test, check an observation, or look for a counterexample.
 >
 > The original VisuAlgo already accepts custom input. What we add is a more explicit entry point. This is the use we intend, and we have not measured adoption.
 
