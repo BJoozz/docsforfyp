@@ -49,7 +49,7 @@
 4. **Test the live demo in the exact build you will present** (slide 20 only; slides 14–18 now use clips):
    - Graph Editor input → Dijkstra → recursive DFS final recap;
    - Tree Editor LCA ancestors on hover.
-   - If anything fails live, use the clips on slides 15–18 or backup B1 (the first slide of the backup file). Do not debug during the talk.
+   - If anything fails live, use the clips on slides 15, 17 and 18 or backup B1 (the first slide of the backup file). Do not debug during the talk.
    - Slide 20 says only "Live demo". Agree in rehearsal what the three minutes show; the notes hold a working plan.
 5. **Zoom logistics.**
    - Send the meeting link to both Dr Terence Sim and A/P Steven Halim.
@@ -65,7 +65,7 @@
 | 14 | The Status tab splits the right group, joins the left group, then docks under the drawing | Frame stays 12/21 throughout; the drawing only re-fits when the bottom row opens |
 | 15 | B dragged at 12/21; B → A changed from 1 to 5 in Draw graph → Edges; a second B → A edge drawn on the canvas, then given weight 2 | Counter unchanged after the drag; NO RUN after the edit; two separate B → A edges labelled 5 and 2 |
 | 16 | Bubble vs Selection, same 12 values, pause at operation 48, resume, Last | Operation counts ≠ CPU time; Last is a seek, not a speed result |
-| 17 | On Balanced · 10 nodes the root moves from 10 to 16, then LCA(8, 20) runs (27.9 s) | The Root control under Structure in the first three seconds; then u lifts from 8 to 4; both cursors stay at k = 3, 2, 1 (ancestor 16); both lift at k = 0 (10 and 18); answer 16. Say that no node moves during the query and the notes carry the reasons; the benefit is not measured |
+| 17 | On Balanced · 10 nodes the root moves from 10 to 16, then LCA(8, 20) runs (27.9 s) | The Root control under Structure in the first three seconds; then u lifts from 8 to 4; both cursors stay at k = 3, 2, 1 (ancestor 16); both lift at k = 0 (10 and 18); answer 16. Say that no node moves during the query and the notes carry the reasons, and read the frame number aloud; the benefit is not measured |
 | 18 | Dijkstra on the nine-vertex Big preset: paused at 17/53, Next to 18/53 with `12 + 14 < 33 · update`, Last, hover 8 then 4 | Paused motion is subtle: point at the 2 → 3 edge while the counter reads 17 |
 | 20 | **Live**: Graph Editor (Dijkstra + recursive DFS), then Tree Editor LCA | Narrate only the current action |
 

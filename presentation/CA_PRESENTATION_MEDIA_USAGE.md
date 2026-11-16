@@ -5,13 +5,13 @@ This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlg
 All app images and clips are real captures; none is generated or composited. The only additions are coloured outlines drawn on the slide over an image: around V2 and V7 in the wireframe grid on slide 7, and around the regions of the app on slide 8. The sources are:
 
 - the [Codex pack](ca-2026-11-16/README.md): app `346e84b`, captured 15–16 November;
-- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and four stills in `stills/` (one of the Trie page, three of the LCA run);
+- the [deck media](ca-2026-11-16-deck-media/README.md): app `346e84b`, recorded 16 November. It holds the clips with their posters, the [standalone prototype stills](ca-2026-11-16-deck-media/early-prototypes/README.md) and five stills in `stills/` (the home page, the Trie page and three of the LCA run);
 - the [design-history stills](ca-2026-11-16-deck-media/design-history/README.md): Kerk's UI kit (`634b5be`, 3 September) and wireframes (`69aa8e4`, 4 September), and Bao's working V2 and V7 builds (`ae63a62`), each rendered from its own commit on 16 November;
 - the [historical figures](../figures/README.md): app `662e7b3`, 1 November.
 
 | Slide | Asset | What it shows | If a clip will not play, the poster shows |
 |---|---|---|---|
-| 1 | Codex `02_dijkstra_decision.png`, cropped | A Dijkstra step with its note | — |
+| 1 | [`stills/home_page.png`](ca-2026-11-16-deck-media/stills/home_page.png) | The home page of the current app at 1440 × 900, uncropped: the logo, the sponsors, the credit line, the Editors row and the top of the catalogue | — |
 | 2 | Crops of Codex `06`, `02`, `05`, and of [`stills/trie_insert_care_frame5.png`](ca-2026-11-16-deck-media/stills/trie_insert_care_frame5.png) | A graph, a step note, two sorting panes, and the current Trie page (Insert "care" on car, cart, cat, dog, dot; frame 5/7, "Create edge e and prefix care") | — |
 | 5 | `early-prototypes/02_graph_v1_run_crop.png`, `03_graph_v2_workspace.png`, `04_tree_binary_lifting_table_crop.png`, `05_sorting_two_panes_crop.png` | The standalone builds at 5fc06a0, c8b14e6, 46ce0a7 and 9236a65, rebuilt and captured on 16 November; not the current app | — |
 | 6 | `early-prototypes/03_graph_v2_workspace.png`; `design-history/C1_ui_kit_home.png`, `C2_ui_kit_visualisation.png` | Left: Bao's standalone Graph rewrite. Right: the home and visualisation screens of Kerk's design-system UI kit, which recreate visualgo.net's pages (commit 634b5be, 3 September) | — |

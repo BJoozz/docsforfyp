@@ -118,18 +118,21 @@ def notes_replace(slide, old, new):
 
 # ======================= slide 1: title =======================
 s = S[1]
-hero_src = first(NEW / 'posters' / f'{LCA_VARIANT}.png', PACK / '01_main_slides/02_dijkstra_decision.png')
-hero = crop(PACK / '01_main_slides/02_dijkstra_decision.png', (300, 40, 1440, 900), 'title_hero.png')
+# Bao's choice of 16 November: the title slide shows the home page, the product both
+# presenters built, instead of a Dijkstra step (slide 2 already shows that step).
+hero = NEW / 'stills' / 'home_page.png'
+if not hero.exists():
+    raise SystemExit('stills/home_page.png is missing')
 for nm, (x, y, w, h) in {'title': (0.81, 1.62, 6.1, 1.1), 'subtitle': (0.85, 2.85, 5.9, 1.25),
                           'presenters': (0.85, 4.55, 6.0, 0.95)}.items():
     sh = shape_by_name(s, nm)
     sh.left, sh.top, sh.width, sh.height = I(x), I(y), I(w), I(h)
 text(s, 0.85, 5.62, 6.0, 0.6, ['NUS School of Computing · CP4101 Continuous Assessment', '16 November 2026'],
      size=13, color='9FB3C6', name='event')
-hx, hy, hw, hh = fit(hero, 7.15, 1.3, 5.6, 4.9)
+hx, hy, hw, hh = fit(hero, 6.75, 1.3, 6.0, 4.9)
 picture(s, hero, hx, hy, hw, hh, border='3A5571', name='hero')
-text(s, hx, hy + hh + 0.08, hw, 0.28, 'VisuAlgo+ prototype',
-     size=10.5, color='9FB3C6', name='hero-caption')
+text(s, hx, hy + hh + 0.08, hw, 0.28, 'VisuAlgo+ home page',
+     size=12, color='9FB3C6', name='hero-caption')
 
 # ======================= slide 2: motivation =======================
 s = S[2]
@@ -173,7 +176,7 @@ for k, topic in enumerate(['Traversal', 'Shortest paths', 'Spanning trees']):
     arrow(s, x + 0.925, 3.42, x + 0.925, 4.12, name=f'arrow-{k}')
 card(s, 0.62, 4.15, 5.85, 0.72, 'Shared graph widget (drawing)', fill=TINT, size=15, color=TEAL, bold=True,
      align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE, name='shared-widget')
-card(s, 0.62, 5.15, 5.85, 0.95, 'One editing change → coordinated changes and checks across every topic',
+card(s, 0.62, 5.15, 5.85, 0.95, 'One editing change → coordinated changes and checks across several topics',
      fill=AMBER_TINT, size=14.5, color=AMBER, bold=True, anchor=MSO_ANCHOR.MIDDLE, name='consequence')
 for k, (h1, h2) in enumerate([
         ('Shared components already exist', 'for example, a graph widget used by several topics'),
@@ -189,13 +192,13 @@ s = S[4]
 clear_body(s)
 objs = [
     ('A reusable visualization and interaction layer',
-     'Graph, Tree and Sorting share one V10 shell; LCA and Trie already run on it',
+     'Graph, Tree and Sorting share one shell; LCA and Trie already run on it',
      'Stabilize the shown workflows; add topics on the same foundations'),
     ('A renewed website and execution foundation',
      'Site with catalogue and routes; a separate C++/WebAssembly engine foundation',
      'Connect the engine and infrastructure to the visualizers'),
     ('A working prototype with further integration ahead',
-     'Students tried the V10 prototype in Week 10', 'Validate, then an initial release around March 2027 (target)'),
+     'Students tried the prototype in Week\u00a010', 'Validate, then an initial release around March 2027 (target)'),
 ]
 for k, (h1, now, nxt) in enumerate(objs):
     x = 0.62 + k * 4.2
@@ -241,7 +244,7 @@ if EARLY_READY:
     arrow(s, gx + 2.3, gy + 1.15, gx + 2.62, gy + 1.15, color=TEAL, name='g-arrow')
     x, y, w, h = fit(EP_V2, gx + 2.68, gy, 2.32, 2.3)
     picture(s, EP_V2, x, y, w, h, name='graph-v2')
-    text(s, gx + 2.68, gy + 2.38, 2.32, 0.5, 'Rewrite (Sep): one canvas for editing and playback', size=11, color=MUTED, name='cap-v2')
+    text(s, gx + 2.68, gy + 2.38, 2.32, 0.5, 'Rewrite (Aug–Sep): one canvas for editing and playback', size=11, color=MUTED, name='cap-v2')
     x, y, w, h = fit(EP_TREE, 5.92, 2.3, 3.3, 2.3)
     picture(s, EP_TREE, x, y, w, h, name='tree')
     text(s, 5.92, 4.68, 3.3, 0.5, 'Tree prototype (Sep): Binary Lifting builds its ancestor table', size=11, color=MUTED, name='cap-tree')
@@ -249,14 +252,15 @@ if EARLY_READY:
     picture(s, EP_SORT, x, y, w, h, name='sorting')
     text(s, 9.52, 4.68, 3.2, 0.5, 'Sorting Room (Aug): two panes on one input, shared controls', size=11, color=MUTED, name='cap-sort')
     for k, (x, w, t) in enumerate([(0.62, 5.0, 'Moving a vertex keeps the same step; input, positions and playback are separate'),
-                                   (5.92, 3.3, 'LCA: an ancestor table beside the tree · Trie: insert and search along a prefix · changes previewed before Apply'),
-                                   (9.52, 3.2, 'Each pane keeps its own state; one transport moves them together')]):
+                                   (5.92, 3.3, ['LCA: ancestor table under the tree', 'Trie: insert and search along a prefix',
+                                                 'Changes previewed before Apply']),
+                                   (9.52, 3.2, 'Each pane keeps its own state; one playback bar moves them all')]):
         card(s, x, 5.3, w, 1.25, t, fill=TINT, size=13, anchor=MSO_ANCHOR.MIDDLE, pad=0.16, name=f'tested-{k}')
     text(s, 0.62, 6.66, 12.1, 0.3, 'Standalone prototypes, built July to September 2026', size=12, color=MUTED, name='capture-source')
     notes_replace(s, 'For Tree, I explored operations that change the structure, and how to inspect a proposed result before applying it. '
                   'Binary Lifting also required a tree and an ancestor table to explain one query together.',
                   'The Tree prototype also widened the range of topics: it included LCA with Binary Lifting, and Trie. '
-                  'Different algorithms brought different visualization needs: an ancestor table beside the tree for LCA queries, '
+                  'Different algorithms brought different visualization needs: an ancestor table under the tree for LCA queries, '
                   'and insert and search along a prefix for Trie. For operations that change the structure, I explored how to '
                   'inspect a proposed result before applying it.')
     notes_replace(s, 'SOURCE\n', 'VISUAL\nPoint left to right: the dark prototype-1 run view (it has its own Back to Edit button), '
@@ -379,9 +383,9 @@ s = S[13]
 clear_body(s)
 contrib = [
     ('Graph, Tree and Sorting foundations', 'Graph rewrite keeps document, layout, session and presentation apart; Tree operations; Sorting Room'),
-    ('Algorithm and operation extensions', 'more topics: LCA (Binary Lifting), Trie, recursive DFS, Bellman-Ford, Prim, bridges, AVL, heap, lazy segment tree; each with its own steps, pseudocode and inspector'),
+    ('Algorithm and operation extensions', 'implemented: LCA (Binary Lifting), Trie, recursive DFS, Bellman-Ford, Prim, bridges, AVL, heap, lazy segment tree; each with its own steps, pseudocode and inspector'),
     ('V10 shell and site integration', 'tab groups, drag, split and resize, validated saved layouts; catalogue, routes, host adapters'),
-    ('Step explanations and validation', 'floating text, paused focus, final recap; independent oracles, property and regression tests'),
+    ('Step explanations and validation', 'floating text, paused motion, final recap; independent oracles, property and regression tests'),
 ]
 thumbs13 = [
     crop(PACK / '01_main_slides/03_dijkstra_final_path_t.png', (400, 230, 1060, 642), 'c13_graph.png'),
@@ -459,7 +463,7 @@ if mp4 is None:
 # what floating text is for, in one card
 card(s, 0.62, 1.36, 3.15, 1.02,
      [[('Floating text puts the reason beside the node', {'bold': True, 'color': NAVY, 'size': 14.5})],
-      [('9 of this query’s 12 steps carry a note; no node ever moves', {'size': 12, 'color': INK})]],
+      [('9 of this query’s 12 steps carry a note; no node moves during the query', {'size': 12, 'color': INK})]],
      fill=TINT, anchor=MSO_ANCHOR.MIDDLE, pad=0.14, space_after=3, name='point-0')
 text(s, 0.62, 2.48, 3.15, 0.5,
      [[('Query: LCA(8, 20) = 16', {'bold': True, 'color': NAVY, 'size': 14})],
@@ -467,7 +471,7 @@ text(s, 0.62, 2.48, 3.15, 0.5,
 STILLS = NEW / 'stills'
 notes3 = [('lca_8_20_depth_lift.png', (430, 578, 870, 711), 'Depth gap 2: lift u from 8 to 4'),
           ('lca_8_20_keep.png', (395, 66, 835, 199), 'Same ancestor 16: keep u and v'),
-          ('lca_8_20_lift_both.png', (384, 212, 824, 345), 'Ancestors 10 and 18 differ: lift both')]
+          ('lca_8_20_lift_both.png', (508, 212, 948, 345), 'Ancestors 10 and 18 differ: lift both')]
 for k, (fname, box_px, label) in enumerate(notes3):
     y = 3.1 + k * 1.24
     cimg = crop(STILLS / fname, box_px, 'lca_note_' + fname)
@@ -508,7 +512,7 @@ ed = PACK / '01_main_slides/01_editor_entry_points.png'
 x, y, w, h = fit(ed, 0.62, 1.4, 12.1, 1.95)
 picture(s, ed, x, y, w, h, name='editors')
 steps = [('Begin with a graph or tree', 'Graph Editor, or Tree Editor (LCA, BST, AVL)'),
-         ('Try compatible algorithms on the example', 'e.g. Dijkstra, then recursive DFS on the same graph'),
+         ('Try compatible algorithms', 'e.g. Dijkstra, then recursive DFS on the same graph'),
          ('Build small tests and investigate conjectures', 'check an observation or look for a counterexample')]
 for k, (h1, h2) in enumerate(steps):
     x = 0.62 + k * 4.2
@@ -518,7 +522,7 @@ for k, (h1, h2) in enumerate(steps):
     text(s, x + 0.25, 4.9, 3.2, 0.9, h2, size=14, color=INK, name=f'detail-{k}')
     if k < 2:
         arrow(s, x + 3.72, 4.85, x + 4.18, 4.85, color=TEAL, name=f'flow-{k}')
-text(s, 0.62, 6.2, 12.1, 0.55, 'The original VisuAlgo already supports custom input; this is a clearer entry point and workflow. '
+text(s, 0.62, 6.2, 12.1, 0.55, 'The original VisuAlgo already supports custom input; this is a more explicit entry point and workflow. '
      'An intended use, not a measured adoption result.', size=13, color=MUTED, name='limits')
 caption(s, NEW_CAP, x=0.62, w=12.1)
 notes_replace(s, 'Screenshot: https://github.com/BJoozz/docsforfyp/blob/main/figures/F1-home-catalogue.png\n'
@@ -545,7 +549,7 @@ for r20 in shape_by_name(s, 'page').text_frame.paragraphs[0].runs:
 # ======================= slide 21: evaluation =======================
 s = S[21]
 clear_body(s)
-for k, (num, lab) in enumerate([('3,273', 'unit tests passing'), ('151', 'Chromium browser cases')]):
+for k, (num, lab) in enumerate([('3,273', 'unit tests passing'), ('151', ['Chromium browser', 'cases passing'])]):
     x = 0.62 + k * 3.0
     box(s, x, 1.45, 2.8, 2.0, fill=WHITE, line=BORDER, name=f'stat-{k}')
     text(s, x + 0.2, 1.55, 2.4, 1.0, num, size=44, color=TEAL, bold=True, name=f'stat-num-{k}')
@@ -558,8 +562,8 @@ card(s, 6.85, 1.45, 5.87, 2.0, [[('02  ', {'color': TEAL}), ('Week 10 trial', {'
                                   'then a short post-use test and feedback.', {'size': 14.5})]],
      fill=WHITE, line=BORDER, size=18, pad=0.22, space_after=4, name='trial')
 card(s, 0.62, 4.3, 12.1, 1.15, [[('03  ', {'color': TEAL}), ('Frequent Status reading motivated floating text', {'bold': True, 'color': NAVY})],
-                                [('Design response: short notes near the canvas object, with legend and Status changes '
-                                  '(a formative observation, not a coded analysis).', {'size': 14})]],
+                                [('A formative observation, not a coded analysis. Design response: short notes near the canvas object, '
+                                  'with legend and Status changes.', {'size': 14})]],
      fill=TINT, size=18, anchor=MSO_ANCHOR.MIDDLE, pad=0.25, name='response')
 card(s, 0.62, 5.65, 12.1, 0.95, [[('04  ', {'color': AMBER}), ('Learning impact remains unmeasured', {'bold': True}),
                                   ('  ·  a follow-up needs defined tasks and the revised interface', {'size': 14, 'bold': False})]],
@@ -607,7 +611,7 @@ media_slide(s, still=PACK / '01_main_slides/04_tree_insert_preview.png', mp4=mp4
 s = S[25]
 clear_body(s)
 points(s, [('Independent oracle for cut vertices and bridges', 'remove each candidate, recount components'),
-           ('Stable edge identity for parallel edges', 'removing one of two parallel edges differs'),
+           ('Stable edge identity for parallel edges', 'removing one of two parallel edges keeps the connection'),
            ('Long sorting histories still cost memory', 'retained history is not bounded')], head=16)
 media_slide(s, still=FIG / 'F8-cut-vertex-bridge-cp4-4-7-last.png', cap='Real app capture, 1 Nov 2026')
 
@@ -617,7 +621,7 @@ clear_body(s)
 ev = [('CA report and architecture records', 'report/main.tex · 03_architecture_and_decisions.md'),
       ('Contribution map and prototype history', 'docs/CA_PRESENTATION_CONTRIBUTION_MAP.md · docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md'),
       ('Week 10 trial addendum', 'report/week10_user_trial_addendum.md'),
-      ('Source links in each slide’s notes', 'media manifests: presentation/ca-2026-11-16/ and presentation/ca-2026-11-16-deck-media/')]
+      ('Source links in each slide’s notes', ['media manifests: presentation/ca-2026-11-16/ and', 'presentation/ca-2026-11-16-deck-media/'])]
 for k, (h1, h2) in enumerate(ev):
     x = 0.62 + (k % 2) * 6.15
     y = 1.45 + (k // 2) * 2.35
@@ -625,7 +629,7 @@ for k, (h1, h2) in enumerate(ev):
     badge(s, x + 0.25, y + 0.25, f'{k + 1:02d}', name=f'number-{k}')
     text(s, x + 0.85, y + 0.2, 4.9, 0.6, h1, size=18, color=NAVY, bold=True, anchor=MSO_ANCHOR.MIDDLE, name=f'point-{k}')
     text(s, x + 0.25, y + 0.95, 5.45, 1.0, h2, size=13, color=MUTED, name=f'detail-{k}')
-text(s, 0.62, 6.35, 12.1, 0.35, 'Repository: github.com/BJoozz/docsforfyp · application: kerktaiheng/visualgo-plus-design (main 346e84b)',
+text(s, 0.62, 6.35, 12.1, 0.35, 'Repository: github.com/BJoozz/docsforfyp · application: kerktaiheng/visualgo-plus-design (main 346e84b, private)',
      size=13, color=MUTED, name='repo')
 
 GH = 'https://github.com/BJoozz/docsforfyp/blob/main/'
@@ -665,7 +669,7 @@ if mp4 is not None:
     set_title_text(s27, 'Backup: recursive DFS recap (demo fallback)')
     pg = shape_by_name(s27, 'page').text_frame.paragraphs[0].runs
     pg[0].text = '27'
-    points(s27, [('Same graph, another question', 'recursive DFS from S on the Dijkstra example'),
+    points(s27, [('Same graph, another question', 'recursive DFS from S on the S, A, B, T graph of slides 14–15'),
                  ('The final frame replays the DFS tree', 'glow and streak in visit order: S → A → T, then S → B'),
                  ('Different from Dijkstra’s hover', 'a recap of the traversal, not a path query')])
     media_slide(s27, mp4=mp4, poster=poster, cap=NEW_CAP)
@@ -829,7 +833,7 @@ set_notes(S[24], notes_get(S[24]).replace('{CLIP24}', clip_block(
     f'\nMedia: {MEDIA}clips/05_bst_preview_apply.mp4 (app 346e84b, recorded 16 Nov 2026)')))
 
 notes_replace(S[20], 'Avoid repeating the full floating-text explanation.',
-              'Avoid repeating the full floating-text explanation. Fallback: if a live step fails, use the clips on slides 15-18, '
+              'Avoid repeating the full floating-text explanation. Fallback: if a live step fails, use the clips on slides 15, 17 and 18, '
               'or the recursive DFS recap, the first slide of the backup file; do not debug during the talk.')
 notes_replace(S[20], 'DEMO CUE\n', 'DEMO CUE (a working plan to settle in rehearsal; the slide itself only says "Live demo")\n')
 
@@ -876,6 +880,64 @@ if SWAP_16_17:
     for sl, num in ((S[17], '16'), (S[16], '17')):
         shape_by_name(sl, 'page').text_frame.paragraphs[0].runs[0].text = num
     LOG.append('order: Sorting is slide 16, LCA is slide 17')
+
+# ======================= final QA pass (16 November) =======================
+# Notes changes that a review of the finished deck confirmed. They work on the final
+# notes text, so each one fails loudly if the sentence it replaces is no longer there.
+def notes_span(slide, start, end, new):
+    """Replace the notes text from `start` to the end of `end` with `new`."""
+    t = notes_get(slide)
+    if t.count(start) != 1 or end not in t[t.index(start):]:
+        raise SystemExit(f'notes span not found: {start[:50]!r} ... {end[:40]!r}')
+    a = t.index(start)
+    b = t.index(end, a) + len(end)
+    set_notes(slide, t[:a] + new + t[b:])
+
+
+# slide 2: the spoken list of the supervisor's directions matches the slide and the record
+notes_replace(S[2], 'clearer handling of parallel and curved edges, and multiple sorting panes for comparison.',
+              'clearer handling of parallel and curved edges, smoother and richer interaction with the canvas, '
+              'and multiple sorting panes for comparison.')
+notes_replace(S[2], 'These were goals from the beginning, and the prototypes helped us investigate how to reach them.',
+              'These were goals from the beginning, and the prototypes helped us investigate how to reach them. '
+              'The examples on the fourth card, LCA with Binary Lifting and Trie, are topics I added in the Tree prototype.')
+# slide 15: the narration keeps pace with the 16 s clip
+notes_span(S[15], 'Dragging B preserves the current step: the counter stays at 12.', 'where I give it weight 2.',
+           'I drag B: the counter stays at 12. Changing B to A from 1 to 5 edits the document and invalidates the run. '
+           'Then I draw a second edge from B to A and give it weight 2 in the text.')
+# slide 16 (Sorting, S[17]): this 12-value run is generated up front, not "as needed"
+notes_replace(S[17], 'Generators produce operations as needed.', 'Generators produce the operations.')
+# slide 17 (LCA, S[16]): the narration keeps pace with the clip; the trial remark is a recollection
+notes_span(S[16], 'I start from a ten-node tree rooted at 10', 'five of the twelve steps only decide to stay.',
+           'I move the root from 10 to 16 with one control. Then I ask for the LCA of 8 and 20. First 8 must catch up: '
+           'the gap is 2, so it stays at k = 3 and 2, and at k = 1 it lifts two levels, to 4. At k = 3, 2 and 1 both '
+           'ancestors are 16, so u and v stay. At k = 0 they are 10 and 18, so both lift, and their shared parent, 16, '
+           'is the answer. The cursors stay while the ancestors are equal, because they look for the highest ancestors '
+           'that differ. During the query no node moves, and five of the twelve steps only decide to stay.')
+notes_replace(S[16], 'During the Week 10 trial, I observed that less experienced users depended heavily on Status, '
+              'especially for algorithms with several stages such as LCA.',
+              'My recollection from the Week 10 trial is that newer learners had to read Status frequently, '
+              'especially for algorithms with several stages such as LCA.')
+notes_replace(S[16], 'cropped from stills of frames 4, 8 and 9 of the same run.',
+              'cropped from stills of frames 4, 8 and 9 of the same query, recorded as clip 01c (identical frames and notes).')
+# slide 18: short cues while the 14 s clip plays, the explanation after it
+notes_span(S[18], '[Press → to play the clip.] The run is paused at frame 17', 'reduced-motion behavior matters for accessibility.',
+           '[Press → to play the clip, and say each cue as it happens.] Paused at frame 17: the edge from 2 to 3 keeps moving. '
+           'Next: a note arrives. Last. Hover 8. Hover 4. [The clip stops on the hover over 4.] While the run was paused at '
+           'frame 17, the edge streak and the glow kept moving, but the counter stayed at 17. That emphasizes the current '
+           'relationship without advancing the computation, which helps the learner inspect it for longer. Kerk suggested this '
+           'paused motion; I implemented it. Next brought a short note beside 3: 12 plus 14 is less than 33, so update; the '
+           'badge on 3 changed from 33 to 26. Floating text handles the arrival of a step; paused motion handles waiting on it. '
+           'At the final frame, hovering 8 showed its computed shortest path, 0 to 2 to 3 to 8, distance 42; hovering 4 showed '
+           '0 to 2 to 3 to 4, distance 46. The application derives the highlight from the stored result; it does not rerun. '
+           'Motion can be turned off, and reduced-motion behavior matters for accessibility.')
+# slide 21: the dated line is evidence, not a demo cue
+notes_replace(S[21], 'DEMO CUE\n', 'EVIDENCE\n')
+# backups
+notes_replace(S[27], 'as the Dijkstra part of the demo.', 'as the Dijkstra clips on slides 14 and 15.')
+notes_replace(S[26], 'Slide 5 uses the standalone prototype builds,', 'Slide 5, and the left card of slide 6, use the standalone prototype builds,')
+notes_replace(S[26], 'The November 16 clarifications record', 'The 15–16 November clarifications record')
+notes_replace(S[26], '(no written record; he did not name specific topics)', '(no written record; no specific topic is attributed to him)')
 
 # ======================= two files: the main deck and the Q&A backup =======================
 # Bao's choice of 16 November: the main deck ends on Questions (slide 23). The four

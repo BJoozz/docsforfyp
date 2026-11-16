@@ -82,18 +82,37 @@ Bao then asked for the clip to start one step earlier: the preset as it loads, w
 
 ## Finalising the deck (added 16 November)
 
-Bao asked for a final pass with three changes. A draft from GPT proposed the same three; each was checked against the deck before it was applied.
+Bao asked for a final pass with three changes, and later for the home page on slide 1. A draft from GPT proposed the first three; each was checked against the deck before it was applied.
 - **Short captions.** The line under a capture now says only "Real app capture". Dates, commits and "press → or click to play" are in the speaker notes and the [media map](CA_PRESENTATION_MEDIA_USAGE.md). Two captions keep a date, on slide 21 and backup B3, because their numbers and image are a snapshot of 1 November. The labels that say whose work a picture shows (slides 5–8) are kept, without commits.
 - **Slide 20 is "Live demo".** It says only "A short demo of VisuAlgo+". The timeline, the second marks and the fallback card moved to the notes; the plan is settled in the script and in rehearsal.
+- **Slide 1 shows the home page.** The title slide is shared, and the home page is the product both presenters built; the Dijkstra step it showed before is also on slide 2. The image is a new capture of the current app (`346e84b`), uncropped.
 - **Backups in their own file.** The main deck ends on slide 23, Questions. The four backup slides are in [`VisuAlgo_CA_QA_Backup.pptx`](VisuAlgo_CA_QA_Backup.pptx) as B1 recursive DFS recap (first, because it is the fallback for the live demo), B2 preview before Apply, B3 correctness and limitations, and B4 evidence and ownership. Slide 23's notes name the file.
 
 Where an earlier section of this file says slide 24, 25, 26 or 27, it means B2, B3, B4 and B1. Both files were validated, rendered and decode-tested again after the split.
+
+## Final QA pass (added 16 November)
+
+An independent review read the finished deck four ways: every slide as rendered, the notes against the slides and clips, every claim against the records, and the whole talk as the evaluator would. A second reviewer re-checked each finding at its source before anything changed. What changed:
+- **Slide 2 (notes):** the spoken list of Prof. Halim's directions now includes interaction with the canvas, as the slide and the record do, and one sentence says that LCA and Trie are topics Bao added.
+- **Slide 3:** "across every topic" became "across several topics"; the check covered three graph modules.
+- **Slide 4:** "V10" is no longer used before slide 8 introduces it.
+- **Slide 5:** the Tree card says the ancestor table is under the tree, as the still shows, on three lines; "transport" became "playback bar"; the rewrite is dated Aug–Sep.
+- **Slide 8:** the bullets have a hanging indent.
+- **Slide 13:** "more topics:" became "implemented:", because visualgo.net already has several of the listed topics; "paused focus" became "paused motion".
+- **Slides 15, 17 and 18 (notes):** the narration was shortened so each sentence is said while the clip shows it. Slide 18 now gives short cues during its 14-second clip and the explanation after it, and fits its 80 seconds.
+- **Slide 16 (notes):** "Generators produce operations as needed" became "Generators produce the operations"; this run is generated up front.
+- **Slide 17:** the card says "no node moves during the query", since the clip opens with a re-root that does move the nodes; the third crop now shows both 10 and 18; the Week 10 remark is worded as Bao's recollection, as on slide 21.
+- **Slide 19:** the middle heading fits two lines; "clearer" became "more explicit".
+- **Slide 21:** the second tile says "cases passing"; "a formative observation" now sits with the observation.
+- **Backup file:** B1 names the S, A, B, T graph of slides 14–15; B3 says "keeps the connection"; B4 marks the application repository as private and its notes credit slide 6's prototype still.
+
+Left as they are, for the presenters to decide: slide 12's "supplies operation and query" for Tree (Kerk's slide), the shared "Both:" paragraph on slide 22, mixed -ise/-ize spellings, and the small footer counters in the clips, which the speaker should read out.
 
 ## Slide by slide
 
 | Slide | Draft | Now | Notes |
 |---|---|---|---|
-| 1 | Title text | Course line and a current app screenshot (a Dijkstra step with its note) | unchanged |
+| 1 | Title text | Course line and the current app's home page (the first build showed a Dijkstra step with its note) | unchanged |
 | 2 | Three numbered lines | Four cards, each with a one-line detail and a crop of today's prototype; the fourth, "A wider range of algorithms", was added with the coverage context below | one sentence replaced (coverage) |
 | 3 | Three lines | Simplified diagram of the original graph topics over one shared widget, and the three points with details | unchanged |
 | 4 | Three lines | Objective cards with NOW and NEXT, and a band stating the TypeScript/engine boundary; objective 1 now says LCA and Trie already run on the shell and that topics are added on the same foundations | one phrase replaced (coverage) |

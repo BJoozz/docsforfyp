@@ -176,8 +176,12 @@ def apply(slides, repo, copy=None):
         box(s, 0.62, y, 4.25, 1.76, fill=WHITE, line=BORDER, name=f'from-{k}')
         _pic(s, img[key], 0.78, y + 0.16, 1.55, 0.97, f'from-image-{k}')
         text(s, 2.48, y + 0.12, 2.3, 0.5, heading, size=13.5, color=TEAL, bold=True, name=f'from-heading-{k}')
-        text(s, 2.48, y + 0.68, 2.3, 1.0, [[('•  ' + p, {})] for p in pts], size=12.5, color=INK, space_after=3,
-             name=f'from-points-{k}')
+        tb = text(s, 2.48, y + 0.68, 2.3, 1.0, [[('•  ' + p, {})] for p in pts], size=12.5, color=INK, space_after=3,
+                  name=f'from-points-{k}')
+        for para in tb.text_frame.paragraphs:  # hanging indent: wrapped lines start under the text
+            ppr = para._p.get_or_add_pPr()
+            ppr.set('marL', '152400')
+            ppr.set('indent', '-152400')
     arrow(s, 4.95, LY + 1.83, 5.32, LY + 1.83, color=TEAL, width=2.5, name='join')
     # V10: the current app with its regions outlined
     VX, VW = 5.42, 4.7
