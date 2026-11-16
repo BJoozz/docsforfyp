@@ -103,7 +103,7 @@ def apply(slides, repo, copy=None):
     for k, chip_text in enumerate(c['bridge_chips']):
         chip(s, 0.84 + k * 3.92, BY + 0.47, 3.74, 0.5, chip_text, fill=WHITE, color=NAVY, size=14, line=BORDER,
              name=f'req-{k}')
-    text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=11, color=MUTED, name='capture-source')
+    text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=12, color=MUTED, name='capture-source')
     set_notes(s, _notes(
         'Bao | Early Design | 90 seconds including actions', c['notes_script'],
         'Left card: a still of my standalone Graph rewrite (slide 5 showed all three prototypes). Right card: two screens of '
@@ -133,7 +133,7 @@ def apply(slides, repo, copy=None):
     for key, colour in (('v2', TEAL), ('v7', TEAL)):
         fx, fy, fw, fh = copy['grid_cells'][key]
         _outline(s, gx + fx * gw, gy + fy * gh, fw * gw, fh * gh, colour, f'pick-{key}')
-    text(s, 0.62, IY + IH + 0.06, 3.85, 0.42, c['wireframes_caption'], size=11, color=MUTED, name='cap-wireframes')
+    text(s, 0.62, IY + IH + 0.06, 3.85, 0.42, c['wireframes_caption'], size=12, color=MUTED, name='cap-wireframes')
     arrow(s, 4.53, IY + IH / 2, 4.81, IY + IH / 2, color=TEAL, name='flow-0')
     # step 2: the two chosen wireframes
     step(4.9, 2.5, '02', c['step2_heading'], c['step2_detail'], 1)
@@ -152,7 +152,7 @@ def apply(slides, repo, copy=None):
         _pic(s, img[key], xx, IY, bw, IH - 0.3, f'build-{j}')
         text(s, xx, IY + IH - 0.26, bw, 0.24, label, size=11, color=INK, bold=True, align=PP_ALIGN.CENTER,
              name=f'build-label-{j}')
-    text(s, 7.83, IY + IH + 0.06, 4.89, 0.42, c['builds_caption'], size=11, color=MUTED, name='cap-builds')
+    text(s, 7.83, IY + IH + 0.06, 4.89, 0.42, c['builds_caption'], size=12, color=MUTED, name='cap-builds')
     card(s, 0.62, 5.92, 12.1, 0.72, c['band'], fill=TINT, size=14, color=NAVY, anchor=MSO_ANCHOR.MIDDLE, pad=0.2,
          name='band')
     set_notes(s, _notes(
@@ -197,7 +197,7 @@ def apply(slides, repo, copy=None):
         head, _, rest = line.partition(': ')
         runs = [(head + (': ' if rest else ''), {'bold': True, 'color': NAVY}), (rest, {})] if rest else [(line, {})]
         text(s, 0.84, CYB + 0.12 + k * 0.37, 11.7, 0.34, [runs], size=13.5, color=INK, name=f'credit-{k}')
-    text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=11, color=MUTED, name='capture-source')
+    text(s, 0.62, 6.68, 12.1, 0.3, c['footer'], size=12, color=MUTED, name='capture-source')
     set_notes(s, _notes(
         'Kerk | UI/UX Evolution | 90 seconds including actions', c['notes_script'],
         'Left: Bao\'s working Tree builds in V2 (split rails) and V7 (docks), as of 17 October, with what V10 keeps from each. '

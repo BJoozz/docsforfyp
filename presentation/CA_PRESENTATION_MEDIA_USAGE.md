@@ -1,6 +1,6 @@
 # Media in the CA deck (16 November 2026)
 
-This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx) to its source; [`CA_DECK_CHANGELOG.md`](CA_DECK_CHANGELOG.md) says what changed from the draft.
+This file maps every image and clip in [`VisuAlgo_CA_Presentation.pptx`](VisuAlgo_CA_Presentation.pptx) and in the backup file [`VisuAlgo_CA_QA_Backup.pptx`](VisuAlgo_CA_QA_Backup.pptx) (pages B1–B4) to its source. On the slides a capture is labelled only "Real app capture"; the dates and commits are here and in the speaker notes. [`CA_DECK_CHANGELOG.md`](CA_DECK_CHANGELOG.md) says what changed from the draft.
 
 All app images and clips are real captures; none is generated or composited. The only additions are coloured outlines drawn on the slide over an image: around V2 and V7 in the wireframe grid on slide 7, and around the regions of the app on slide 8. The sources are:
 
@@ -21,14 +21,15 @@ All app images and clips are real captures; none is generated or composited. The
 | 14 | [`02b_v10_split_left_bottom.mp4`](ca-2026-11-16-deck-media/clips/02b_v10_split_left_bottom.mp4), 16.3 s | While the run stays at frame 12/21, the Status tab is dragged down its group to split the right column in two, then into the left group, then to the bottom row under the drawing. The drawing re-fits when the canvas gets shorter. Set-up before recording, also by a real drag: Status beside Pseudocode as a tab | Status under the drawing at 12/21 |
 | 15 | [`03b_graph_drag_edit_parallel.mp4`](ca-2026-11-16-deck-media/clips/03b_graph_drag_edit_parallel.mp4), 16.2 s | Dragging B keeps frame 12/21. Changing B → A from 1 to 5 in the Edges text ends the run (NO RUN). A second B → A edge is then drawn on the canvas from B's handle to A's; it appears as a new `B A` line with no weight (the app counts it as 1 and says so) until ` 2` is typed. The two parallel edges end up curved apart and labelled 5 and 2 | the graph with both B → A edges, labelled 5 and 2 |
 | 16 | Codex [`02_sorting_shared_clock.mp4`](ca-2026-11-16/02_short_clips/02_sorting_shared_clock.mp4), 10.4 s | Bubble and Selection on the same 12 values pause together at operation 48 and resume; Last seeks to the end | both panes at operation 48 |
-| 17 | [`01c_lca_reroot_8_20.mp4`](ca-2026-11-16-deck-media/clips/01c_lca_reroot_8_20.mp4), 25.7 s; crops of `stills/lca_8_20_depth_lift.png`, `lca_8_20_keep.png`, `lca_8_20_lift_both.png` | LCA(8, 20) on the Balanced · 10 nodes preset re-rooted at 16. u lifts from 8 to 4 ("gap 2 ≥ 2 · lift u"); at k = 3, 2 and 1 both ancestors are 16 ("same ancestor · keep u, v"); at k = 0 the ancestors 10 and 18 differ ("differ · lift both"); answer 16. Nine of the twelve frames carry a note and no node moves | frame 9/12 with "differ · lift both" |
+| 17 | [`01d_lca_reroot_on_camera_8_20.mp4`](ca-2026-11-16-deck-media/clips/01d_lca_reroot_on_camera_8_20.mp4), 27.9 s; crops of `stills/lca_8_20_depth_lift.png`, `lca_8_20_keep.png`, `lca_8_20_lift_both.png` | The Balanced · 10 nodes preset loads with root 10; typing 16 in Structure → Root moves the root to 16 and the tree is laid out again. Then LCA(8, 20): u lifts from 8 to 4 ("gap 2 ≥ 2 · lift u"); at k = 3, 2 and 1 both ancestors are 16 ("same ancestor · keep u, v"); at k = 0 the ancestors 10 and 18 differ ("differ · lift both"); answer 16. Nine of the twelve frames carry a note and no node moves during the query | frame 9/12 with "differ · lift both" |
 | 18 | [`04b_dijkstra_big_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04b_dijkstra_big_note_pause_hover.mp4), 14.0 s | Dijkstra from 0 on the nine-vertex Big preset (visualgo.net's TESSELLATION). Frame 17/53 stays fixed while edge 2 → 3 is emphasised; Next gives frame 18 with `12 + 14 < 33 · update` beside 3 (badge 33→26); Last, then hover 8 (0 → 2 → 3 → 8, distance 42) and 4 (0 → 2 → 3 → 4, distance 46) | frame 18/53 with the note |
 | 19 | Codex `01_editor_entry_points.png` | The Editors section of the home page | — |
-| 24 (backup) | [`05_bst_preview_apply.mp4`](ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4), 8.6 s | BST Insert(5) preview, two steps back and forward, then Apply; the tree text gains `6 5` | the preview with Apply insertion |
-| 25 (backup) | `figures/F8-cut-vertex-bridge-cp4-4-7-last.png` | Historical, 1 November (app `662e7b3`) | — |
-| 27 (backup) | [`06_dfs_recursive_recap.mp4`](ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4), 8.5 s | Recursive DFS on the same graph; the final frame replays the DFS tree (S → A → T, then S → B) | the final frame |
+| B1 (backup file) | [`06_dfs_recursive_recap.mp4`](ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4), 8.5 s | Recursive DFS on the S, A, B, T graph; the final frame replays the DFS tree (S → A → T, then S → B) | the final frame |
+| B2 (backup file) | [`05_bst_preview_apply.mp4`](ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4), 8.6 s | BST Insert(5) preview, two steps back and forward, then Apply; the tree text gains `6 5` | the preview with Apply insertion |
+| B3 (backup file) | `figures/F8-cut-vertex-bridge-cp4-4-7-last.png` | Historical, 1 November (app `662e7b3`) | — |
 
 Kept outside the deck for Q&A or rehearsal:
+- [`01c_lca_reroot_8_20.mp4`](ca-2026-11-16-deck-media/clips/01c_lca_reroot_8_20.mp4): the same LCA(8, 20) query, starting after the re-root.
 - [`01b_lca_keep_then_jump.mp4`](ca-2026-11-16-deck-media/clips/01b_lca_keep_then_jump.mp4): the earlier LCA clip, LCA(6, 10) = 8 on the default tree.
 - [`03_graph_drag_then_edit.mp4`](ca-2026-11-16-deck-media/clips/03_graph_drag_then_edit.mp4): the first take for slide 15; it stops after the weight edit.
 - [`04_dijkstra_note_pause_hover.mp4`](ca-2026-11-16-deck-media/clips/04_dijkstra_note_pause_hover.mp4): the first take for slide 18, on the four-vertex S, A, B, T graph.
@@ -41,18 +42,19 @@ Kept outside the deck for Q&A or rehearsal:
 
 - **Start:** once the slide is up, press → or click the video. Pressing → again moves to the next slide. Each clip plays once and stops on its last frame.
 - **If a clip does not play:** its poster is already on the slide. Narrate from the CLIP section of the speaker notes, which lists the frame numbers.
-- **Zoom:** share the screen or the PowerPoint window with "Optimize for video clip" ticked. The paused motion on slide 18 is subtle, so point at the 2 → 3 edge while the counter shows 17.
-- **Before the talk:** click through slides 14–18, 24 and 27 once in slideshow mode on the presenting computer.
+- **Zoom:** share the whole screen, not one PowerPoint window, with "Optimize for video clip" ticked. The backup slides are in a second file, and a shared window would not show it. The paused motion on slide 18 is subtle, so point at the 2 → 3 edge while the counter shows 17.
+- **Before the talk:** open both files, and click through slides 14–18 and backup B1–B2 once in slideshow mode on the presenting computer.
 
 ## Presentation decisions
 
 - Clips replace the live actions on slides 14–18, so there is no window switching; the live demo stays on slide 20. Each clip is used once, and the clips stay within the existing slide times.
-- Slide 17 uses LCA(8, 20) on the Balanced · 10 nodes preset re-rooted at 16, Bao's choice of 16 November. One query shows a depth lift, three keeps and a lift, and nine of its twelve frames carry a note while no node moves. The earlier clips, LCA(6, 10) and LCA(6, 2) on the default tree, are kept. Sorting (slide 16) now comes before LCA, also Bao's choice.
+- Slide 17 uses LCA(8, 20) on the Balanced · 10 nodes preset re-rooted at 16, Bao's choice of 16 November. At his request the clip starts with the root at 10 and shows the re-root, so one more operation is on screen. One query shows a depth lift, three keeps and a lift, and nine of its twelve frames carry a note while no node moves. The earlier clips, LCA(6, 10) and LCA(6, 2) on the default tree, are kept. Sorting (slide 16) now comes before LCA, also Bao's choice.
 - Keep the claims accurate:
   - The visualizers run TypeScript today; the engine is a separate foundation.
   - Operation counts are not CPU time, and the clip lengths are not timings.
   - Paused motion does not advance the algorithm.
   - The final hover reads the stored result; it does not rerun Dijkstra.
   - The Week 10 findings are formative.
+- Finalised on 16 November, at Bao's request: short captions on the slides, slide 20 reduced to "Live demo", and the backup slides in their own file with the recursive DFS recap first.
 - Slides 7–12 are Kerk's to confirm.
 - This index is not proof of a new test-suite run, an A/B study, measured learning impact or a Zoom rehearsal.

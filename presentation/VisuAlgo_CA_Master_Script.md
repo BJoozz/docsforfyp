@@ -4,11 +4,13 @@ Working rehearsal draft • 16 November 2026 • 33 minutes plus 12 minutes for 
 
 ## How to use this version
 
-The PowerPoint contains 22 timed slides, one Q&A slide and four backup slides (slide 27, a DFS recap clip, was added on 16 November as a fallback for the live demo). Slides 14–18, 24 and 27 embed real-app clips; see [the media map](CA_PRESENTATION_MEDIA_USAGE.md). English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 7–12 are an evidence-based draft for Kerk to confirm and replace with his current details where necessary. No fabricated benchmarks or completed engine integration are claimed.
+The talk uses two PowerPoint files. `VisuAlgo_CA_Presentation.pptx` contains 22 timed slides and the Q&A slide (23). `VisuAlgo_CA_QA_Backup.pptx` contains four backup slides, B1 to B4; the recursive DFS recap comes first because it is the fallback for the live demo. Slides 14–18, B1 and B2 embed real-app clips; see [the media map](CA_PRESENTATION_MEDIA_USAGE.md). English speaking text, demo cues and source links are also embedded in speaker notes. Timing includes transitions and demonstrations; it is a rehearsal budget, not measured delivery time. Slides 7–12 are an evidence-based draft for Kerk to confirm and replace with his current details where necessary. No fabricated benchmarks or completed engine integration are claimed.
 
 Owner confirmations: editing, playback and comparison were early goals discussed with Prof. Halim; LCA is the main Tree example; Bao recalls frequent Status reading among newer learners, especially for LCA, as motivation for floating text. The intended benefit has not been measured.
 
-Order and test case, 16 November, at Bao's request: Sorting (slide 16) now comes before LCA (slide 17), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset re-rooted at 16 with the query LCA(8, 20), and stresses what floating text is for.
+Order and test case, 16 November, at Bao's request: Sorting (slide 16) now comes before LCA (slide 17), because it stands apart from the two explanation slides. The LCA slide uses the Balanced · 10 nodes preset. Its clip first moves the root from 10 to 16 on camera, which also shows the re-root operation, then runs the query LCA(8, 20). The slide stresses what floating text is for.
+
+Finalised on 16 November, at Bao's request: the captions under captures say only "Real app capture"; dates, commits and play instructions stay in the speaker notes and the media map. The two dated captions that remain, on slide 21 and backup B3, mark a snapshot of 1 November. Slide 20 says only "Live demo"; the text and cue in section 20 below are a working plan to settle in rehearsal. The backup slides moved to their own file.
 
 Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the range of algorithms VisuAlgo+ supports. There is no written record of this, and he did not name specific topics. LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions; they are not implemented and are not Semester 2 commitments.
 
@@ -23,7 +25,7 @@ Added on 16 November, on Bao's account: Prof. Halim also encouraged widening the
 | Algorithm Visualizers | Bao | 8:00 | 13–19 |
 | Demo & Evaluation | Both | 5:00 | 20–21 |
 | Future Work | Both | 2:00 | 22 |
-| Q&A and buffer | Both | 12:00 | 23 and backups |
+| Q&A and buffer | Both | 12:00 | 23, then the backup file (B1–B4) |
 
 ## Slide-by-slide script
 
@@ -382,30 +384,32 @@ Sorting comparison gives every pane the same input while keeping its execution s
 **On slide**
 
 - Floating text puts the reason beside the node: 9 of this query's 12 steps carry a note; no node ever moves
-- Query: LCA(8, 20) = 16 (Balanced · 10 nodes, re-rooted at 16)
+- Query: LCA(8, 20) = 16 (Balanced · 10 nodes; root moved 10 → 16)
 - Depth gap 2: lift u from 8 to 4
 - Same ancestor 16: keep u and v
 - Ancestors 10 and 18 differ: lift both
 
-**Visual:** Clip `01c_lca_reroot_8_20.mp4` (25.7 s, app 346e84b). The left column shows three of the run's notes, cropped from stills of frames 4, 8 and 9: "gap 2 ≥ 2 · lift u", "same ancestor · keep u, v" and "differ · lift both". Earlier clips, kept as alternatives: `01b_lca_keep_then_jump.mp4` (LCA(6, 10) = 8) and `01_lca_equal_ancestors.mp4` (LCA(6, 2) = 4), both on the default tree.
+**Visual:** Clip `01d_lca_reroot_on_camera_8_20.mp4` (27.9 s, app 346e84b): the root is moved from 10 to 16 on camera, then the query runs. The left column shows three of the run's notes, cropped from stills of frames 4, 8 and 9: "gap 2 ≥ 2 · lift u", "same ancestor · keep u, v" and "differ · lift both". Earlier clips, kept as alternatives: `01c_lca_reroot_8_20.mp4` (the same query without the re-root on camera), `01b_lca_keep_then_jump.mp4` (LCA(6, 10) = 8) and `01_lca_equal_ancestors.mp4` (LCA(6, 2) = 4), both on the default tree.
 
 **English script**
 
-Binary Lifting is one of the topics I added. A query has several stages and reads an ancestor table. Here I re-rooted a ten-node tree at 16 and asked for the LCA of 8 and 20. [Press → to play the clip.] First the deeper node must catch up: the gap is 2, so at k = 1, 8 lifts two levels to 4. Then the two cursors look for the highest ancestors that differ. At k = 3, 2 and 1 both candidates are 16, so they stay. At k = 0 the candidates are 10 and 18, so both lift, and their shared parent, 16, is the answer. In this run no node ever moves, and five of the twelve steps only decide to stay. Without a note, those steps look the same. With floating text, the reason sits beside the node, so the learner can read it without leaving the tree. Status keeps the full sentence, and the pseudocode and the table reads agree with it. During the Week 10 trial, I observed that less experienced users depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response. We still need to evaluate whether it reduces attention switching. The same rooted tree and ancestor queries are also groundwork for more advanced tree topics later.
+Binary Lifting is one of the topics I added. A query has several stages and reads an ancestor table. [Press → to play the clip.] I start from a ten-node tree rooted at 10 and move the root to 16 with one control; the same edges are laid out again under the new root. Then I ask for the LCA of 8 and 20. First the deeper node must catch up: the gap is 2, so at k = 1, 8 lifts two levels to 4. Then the two cursors look for the highest ancestors that differ. At k = 3, 2 and 1 both candidates are 16, so they stay. At k = 0 the candidates are 10 and 18, so both lift, and their shared parent, 16, is the answer. In this run no node ever moves, and five of the twelve steps only decide to stay. Without a note, those steps look the same. With floating text, the reason sits beside the node, so the learner can read it without leaving the tree. Status keeps the full sentence, and the pseudocode and the table reads agree with it. During the Week 10 trial, I observed that less experienced users depended heavily on Status, especially for algorithms with several stages such as LCA. Floating text is my design response. We still need to evaluate whether it reduces attention switching. The same rooted tree and ancestor queries are also groundwork for more advanced tree topics later.
 
-**Delivery cue:** Clip, 25.7 s; keep talking over it. Set up before recording: preset Balanced · 10 nodes, Root set to 16 under Edit tree, u = 8, v = 20.
-- Frame 1/12: depths 4 and 2.
-- Frames 2–3 (1.1 s, 3.4 s): k = 3 and k = 2, the gap 2 is smaller than 8 and 4, so u stays ("gap 2 < 8 · keep u", "gap 2 < 4 · keep u").
-- Frame 4 (5.7 s): k = 1, "gap 2 ≥ 2 · lift u". Frame 5 (8.1 s): u moves from 8 to 4, "↑ 2 levels".
-- Frames 6–8 (10.4 s, 12.7 s, 14.9 s): k = 3, 2, 1, both ancestors are 16, "same ancestor · keep u, v".
-- Frame 9 (17.2 s): k = 0, ancestors 10 and 18 differ, "differ · lift both". Frame 10 (19.5 s): u = 10, v = 18.
-- Frame 11 (21.8 s): same parent, 16. Frame 12 (23.1 s): LCA(8, 20) = 16.
+**Delivery cue:** Clip, 27.9 s; keep talking over it. Set up before recording: preset Balanced · 10 nodes (root 10), u = 8, v = 20. The re-root is in the clip.
+- 0.0–1.5 s: the preset with root 10. Root under Structure reads 10 and Depth reads 3.
+- 2.4–3.3 s: typing 16 in the Root control moves the root. The ROOT badge moves to 16, the tree is laid out again and the view re-fits. Depth reads 4; u and v are kept.
+- Frame 1/12 (5.0 s): depths 4 and 2.
+- Frames 2–3 (6.2 s, 8.2 s): k = 3 and k = 2, the gap 2 is smaller than 8 and 4, so u stays ("gap 2 < 8 · keep u", "gap 2 < 4 · keep u").
+- Frame 4 (10.2 s): k = 1, "gap 2 ≥ 2 · lift u". Frame 5 (12.2 s): u moves from 8 to 4, "↑ 2 levels".
+- Frames 6–8 (14.3 s, 16.3 s, 18.3 s): k = 3, 2, 1, both ancestors are 16, "same ancestor · keep u, v".
+- Frame 9 (20.3 s): k = 0, ancestors 10 and 18 differ, "differ · lift both". Frame 10 (22.3 s): u = 10, v = 18.
+- Frame 11 (24.2 s): same parent, 16. Frame 12 (25.4 s): LCA(8, 20) = 16.
 
 Say that floating text is a design response to a formative observation; its effect is not measured.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/week10_user_trial_addendum.md
 
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/01c_lca_reroot_8_20.mp4 (stills in https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/stills/)
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/01d_lca_reroot_on_camera_8_20.mp4 (stills in https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/stills/)
 
 ### 18. Pause and inspect the result
 
@@ -454,17 +458,16 @@ The Graph and Tree Editor entry points support a workflow that begins with an ex
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
 
-### 20. Demo: one example, several questions
+### 20. Live demo
 
 **Both · Demo & Evaluation · 26:00–29:00**
 
 **On slide**
 
-- Graph Editor: Dijkstra and recursive DFS
-- Tree Editor: a prepared LCA query
-- Change an example and inspect the result
+- Live demo
+- A short demo of VisuAlgo+
 
-**Visual:** Timeline of the four demo steps with their time ranges, and a fallback card: if a live step fails, return to the clips on slides 15–18.
+**Visual:** A navy divider slide with only those two lines. At Bao's request (16 November), what the demo shows is settled here in the script, not on the slide. The text and cue below are a working plan to settle in rehearsal.
 
 **English script**
 
@@ -476,7 +479,7 @@ Bao: In Tree Editor, I will use the small tree from the LCA example. We can insp
 
 [Run the sequence below. Narrate only the action currently on screen. Allow the audience to observe. If a live action fails, return to the prepared slide and explain the expected state rather than debug during the talk.]
 
-**Delivery cue:** 0:00–0:20 Graph Editor and input; 0:20–1:00 Dijkstra result; 1:00–1:40 recursive DFS and final recap; 1:40–2:40 Tree Editor and LCA ancestor inspection; 2:40–3:00 return to slides. Avoid repeating the full floating-text explanation.
+**Delivery cue:** 0:00–0:20 Graph Editor and input; 0:20–1:00 Dijkstra result; 1:00–1:40 recursive DFS and final recap; 1:40–2:40 Tree Editor and LCA ancestor inspection; 2:40–3:00 return to slides. Avoid repeating the full floating-text explanation. Fallback: if a live step fails, use the clips on slides 15–18, or the recursive DFS recap, the first slide of the backup file; do not debug during the talk.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
 
@@ -543,9 +546,37 @@ Both: We are targeting an initial public release around March 2027, depending on
 
 Thank you. We are happy to discuss the design decisions, implementation trade-offs or evaluation plan.
 
+**Backup file:** open `VisuAlgo_CA_QA_Backup.pptx` before the talk. It holds four slides for Q&A: B1 recursive DFS recap (also the fallback for the live demo), B2 preview before Apply (BST), B3 correctness and limitations, B4 evidence and ownership.
+
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/report/main.tex
 
-### 24. Backup: preview before Apply
+## Backup file
+
+`VisuAlgo_CA_QA_Backup.pptx` holds the four backup slides, pages B1 to B4. They are outside the timed talk. The recursive DFS recap is first because it is the fallback for the live demo.
+
+### B1. Backup: recursive DFS recap (demo fallback)
+
+**Backup / demo fallback, outside timed talk**
+
+**On slide**
+
+- Same graph, another question: recursive DFS from S on the Dijkstra example
+- The final frame replays the DFS tree: glow and streak in visit order, S → A → T, then S → B
+- Different from Dijkstra's hover: a recap of the traversal, not a path query
+
+**Visual:** Clip `06_dfs_recursive_recap.mp4` (8.5 s): Last to 21/21, visited S, A, T, B; the final frame replays the DFS tree about every 3 s.
+
+**English script**
+
+Use this slide only if the live Graph Editor part of the demo on slide 20 fails. Recursive DFS runs on the same S, A, B, T graph as the Dijkstra part of the demo. On its final frame, the drawing replays the DFS tree in visit order every few seconds: S to A to T, then S to B. This is a different final behaviour from Dijkstra's hover path.
+
+**Delivery cue:** Press → to play the clip.
+
+**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
+
+**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4
+
+### B2. Backup: preview before Apply
 
 **Backup / Q&A, outside timed talk**
 
@@ -567,7 +598,7 @@ A mutating operation needs a different contract from a read-only query such as L
 
 **Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/05_bst_preview_apply.mp4
 
-### 25. Backup: correctness and limitations
+### B3. Backup: correctness and limitations
 
 **Backup / Q&A, outside timed talk**
 
@@ -585,7 +616,7 @@ For cut vertices and bridges, an independent oracle removes each candidate and c
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_CONTRIBUTION_MAP.md
 
-### 26. Backup: evidence and ownership
+### B4. Backup: evidence and ownership
 
 **Backup / Q&A, outside timed talk**
 
@@ -600,31 +631,9 @@ For cut vertices and bridges, an independent oracle removes each candidate and c
 
 **English script**
 
-Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. Slides 1, 2, 8, 13–19, 24 and 27 use real captures of app 346e84b from 15–16 November; slide 25 is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slides 6 to 8 use design-history artifacts rendered from their own commits: Kerk's UI kit (634b5be) and wireframes (69aa8e4), and Bao's working V2 and V7 builds (ae63a62). The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
+Primary evidence lives in BJoozz/docsforfyp: report/main.tex, 03_architecture_and_decisions.md, docs/CA_PRESENTATION_CONTRIBUTION_MAP.md, docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md and report/week10_user_trial_addendum.md. Prototype history: BJoozz/graph-algorithm-visualizer, graph-visualizer-v2, tree-visualizer and sorting-algorithm-visualizer. Application: kerktaiheng/visualgo-plus-design (fork BJoozz/visualgo-plus-design), main 346e84b. In the main deck, slides 1, 2, 8 and 13–19 use real captures of app 346e84b from 15–16 November, and so do the first two slides of the backup file; the correctness slide of the backup file is a historical capture of 662e7b3 (figures/README.md); slide 5 shows the standalone prototypes rebuilt at their documented commits; slides 6 to 8 use design-history artifacts rendered from their own commits: Kerk's UI kit (634b5be) and wireframes (69aa8e4), and Bao's working V2 and V7 builds (ae63a62). The November 16 clarifications record early supervisor direction, the LCA selection and Bao's recollection about Status reading. They also record Bao's account that Prof. Halim encouraged widening the range of algorithms in general (no written record; he did not name specific topics). LCA with Binary Lifting and Trie were built in the standalone Tree prototype in September 2026 and are in the current app. Heavy-Light Decomposition and Centroid Decomposition are possible later extensions and are not implemented. Kerk should review slides 7–12 against his current engine and website work before the joint presentation.
 
 **Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_PROTOTYPE_REVIEW.md
-
-### 27. Backup: recursive DFS recap (demo fallback)
-
-**Backup / demo fallback, outside timed talk**
-
-**On slide**
-
-- Same graph, another question: recursive DFS from S on the Dijkstra example
-- The final frame replays the DFS tree: glow and streak in visit order, S → A → T, then S → B
-- Different from Dijkstra's hover: a recap of the traversal, not a path query
-
-**Visual:** Clip `06_dfs_recursive_recap.mp4` (8.5 s): Last to 21/21, visited S, A, T, B; the final frame replays the DFS tree about every 3 s.
-
-**English script**
-
-Use this slide only if the live Graph Editor part of the demo on slide 20 fails. Recursive DFS runs on the same S, A, B, T graph as the Dijkstra clips. On its final frame, the drawing replays the DFS tree in visit order every few seconds: S to A to T, then S to B. This is a different final behaviour from Dijkstra's hover path.
-
-**Delivery cue:** Press → to play the clip.
-
-**Source:** https://github.com/BJoozz/docsforfyp/blob/main/docs/CA_PRESENTATION_INTERACTIVE_DEMO.md
-
-**Media:** https://github.com/BJoozz/docsforfyp/blob/main/presentation/ca-2026-11-16-deck-media/clips/06_dfs_recursive_recap.mp4
 
 ## Demo preparation and remaining work
 
@@ -635,9 +644,9 @@ Slides 14–18 now play real-app clips embedded in the deck (app `346e84b`, reco
 | V10: split, join and dock Status while paused | 14 | 16.3 s clip | Poster: Status docked under the drawing at 12/21 |
 | Vertex drag, weight edit and a parallel edge | 15 | 16.2 s clip | Poster: both B → A edges, labelled 5 and 2 |
 | Sorting shared input and clock | 16 | 10.4 s clip (Codex) | Poster: both panes at operation 48 |
-| LCA(8, 20) on a tree re-rooted at 16 | 17 | 25.7 s clip | Poster: frame 9/12, "differ · lift both" |
+| Root moved from 10 to 16, then LCA(8, 20) | 17 | 27.9 s clip | Poster: frame 9/12, "differ · lift both" |
 | Dijkstra on the nine-vertex Big graph: paused motion, note and final hover | 18 | 14.0 s clip | Poster: frame 18/53 with the 2 → 3 update note |
-| Joint editor workflow | 20 | 3 min live | Clips on slides 15–18; backup 27 for the DFS recap |
+| Joint editor workflow | 20 | 3 min live | Clips on slides 15–18; backup B1 for the DFS recap |
 
 ### Prepared Graph input
 
@@ -654,7 +663,7 @@ B D 2
 
 ### Prepared LCA input
 
-Choose the preset Balanced · 10 nodes, then set Root to 16 under Edit tree. The slide-17 clip queries 8 and 20: 8 first lifts two levels to 4; at k = 3, 2 and 1 both ancestors are 16, so the cursors stay; at k = 0 the ancestors are 10 and 18, so both lift; LCA(8, 20) = 16. The earlier clips use the default tree (root 8): LCA(6, 10) = 8 and LCA(6, 2) = 4.
+Choose the preset Balanced · 10 nodes (root 10), then set Root to 16 under Edit tree → Structure; the slide-17 clip shows this step. The clip then queries 8 and 20: 8 first lifts two levels to 4; at k = 3, 2 and 1 both ancestors are 16, so the cursors stay; at k = 0 the ancestors are 10 and 18, so both lift; LCA(8, 20) = 16. The earlier clips use the default tree (root 8): LCA(6, 10) = 8 and LCA(6, 2) = 4.
 
 ```text
 10 4
@@ -675,7 +684,8 @@ Choose the preset Balanced · 10 nodes, then set Root to 16 under Edit tree. The
 - Check Animate paused steps and reduced-motion preferences.
 - Use Next to trigger floating text; verify the note remains legible long enough.
 - The clips come from main 346e84b; if the demo build differs, check the slide-20 steps on it.
-- Click through slides 14–18, 24 and 27 once in slideshow mode; each clip should play on →.
+- Click through slides 14–18 of the main deck and B1–B2 of the backup file once in slideshow mode; each clip should play on →.
+- Open both files before the talk and share the whole screen on Zoom, not one window, so the audience also sees the backup file when you switch to it.
 - Kerk confirms slides 7–12 and the first integration algorithm.
 - Keep March 2027 as a target, not a guaranteed release date.
 - If running late, shorten slide 20 to Graph only; the LCA clip was already shown on slide 17.

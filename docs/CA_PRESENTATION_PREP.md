@@ -226,16 +226,16 @@ This verifies the selected captures, not the entire proposed demo or a timed Zoo
 
 ## CA deck with embedded media — 16 November 2026
 
-The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../presentation/VisuAlgo_CA_Presentation.pptx). It has 27 slides (22 timed, 1 Q&A and 4 backup) and was built from the GPT draft, which is kept unchanged in `presentation/drafts/`.
+The presentation deck is [`presentation/VisuAlgo_CA_Presentation.pptx`](../presentation/VisuAlgo_CA_Presentation.pptx). It has 23 slides (22 timed and 1 Q&A). The four backup slides are in a second file, [`presentation/VisuAlgo_CA_QA_Backup.pptx`](../presentation/VisuAlgo_CA_QA_Backup.pptx), as B1 to B4. Both were built from the GPT draft, which is kept unchanged in `presentation/drafts/`.
 
 Slides 14–18 embed five real-app clips of app `346e84b`:
 - the V10 panel split, move and dock;
 - a vertex drag, a weight edit and a parallel edge added;
 - Codex’s sorting clip (slide 16 since the reorder of 16 November);
-- LCA(8, 20) on a tree re-rooted at 16: lift, keep, lift both (slide 17);
+- a tree re-rooted from 10 to 16 on camera, then LCA(8, 20): lift, keep, lift both (slide 17);
 - Dijkstra on a nine-vertex graph: paused motion, its note and the final hover.
 
-Backups 24 and 27 add the BST preview/Apply clip and a recursive DFS recap for the live demo. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.
+In the backup file, B1 is a recursive DFS recap that serves as the fallback for the live demo, and B2 is the BST preview/Apply clip. On the slides a capture is labelled only "Real app capture", and slide 20 says only "Live demo"; Bao asked for both on 16 November. Slide 5 shows the standalone prototypes, rebuilt at their documented commits. Each clip has its poster as a static fallback, and on 16 November PowerPoint decoded a frame from each embedded clip.
 
 See the [media map](../presentation/CA_PRESENTATION_MEDIA_USAGE.md), the [changelog](../presentation/CA_DECK_CHANGELOG.md), the updated [master script](../presentation/VisuAlgo_CA_Master_Script.md) and the [preflight](../presentation/VisuAlgo_CA_Preflight.md).
 

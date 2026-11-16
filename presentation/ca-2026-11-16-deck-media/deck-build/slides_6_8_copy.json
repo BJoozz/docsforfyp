@@ -33,7 +33,7 @@
       "Familiar playback across topics",
       "Topic-specific information alongside"
     ],
-    "footer": "Left: Bao's standalone Graph rewrite · right: Kerk's UI kit, rendered from commit 634b5be · both captured 16 Nov 2026",
+    "footer": "Left: Bao's standalone Graph rewrite · right: Kerk's design-system UI kit",
     "notes_script": "From late August, Kerk and I worked in parallel. I was building the standalone Graph rewrite and the Tree prototype, while Kerk designed the look of VisuAlgo+. My visualizers already worked, and their algorithms, editors and playback became the base of the later builds. But each was a separate app with its own bars and controls, so they needed one page and one look. Kerk restyled visualgo.net into a design system with nine themes and twenty-six components. His UI kit recreates visualgo.net's home and visualisation pages, and the site I built later follows his home page. Around the same time, Kerk also committed the first version of his C++ and WebAssembly engine foundation, which he will present later. The prototypes gave us three requirements: keep the drawing available, keep playback familiar across topics, and show topic-specific information beside the drawing. Kerk will now show how he laid out the new visualisation page."
   },
   "slide7": {
@@ -45,8 +45,8 @@
     "step3_heading": "Bao's six working builds",
     "step3_detail": "Graph, Tree and Sorting in both layouts: his prototypes on Kerk's tokens and themes",
     "band": "Same features in both builds, so our discussions compared the layouts on real runs, not just as drawings",
-    "wireframes_caption": "Kerk's wireframes, 4 Sep 2026 · V2 and V7 outlined on the slide",
-    "builds_caption": "Bao's builds, made 20–27 Sep · Graph shown as of 17 Oct (ae63a62)",
+    "wireframes_caption": "Kerk's wireframes, Sep 2026 (V2 and V7 outlined)",
+    "builds_caption": "Bao's V2 and V7 builds, Sep–Oct 2026 (Graph shown)",
     "notes_script": "Alongside the design system, I drew low-fidelity wireframes of the visualisation page, with an AVL tree as the example. I gave every version the same top bar and footer. e-Lecture is a panel, and the footer holds a scrubber, zoom and shortcuts. The versions differ only in where the panels live and how they open. There are nine versions: seven layouts, and two that show V7 during a drag and after the drop. I then organised an early layout survey with students. It was formative input, separate from the Week 10 trial. After that, Bao and I chose two layouts together: V2 with split rails, and V7 with draggable docks. Bao built Graph, Tree and Sorting in both layouts, reusing his standalone prototypes and my design tokens and themes. The two layouts had the same features, so when we discussed them, we were comparing the layouts themselves, on real runs rather than drawings."
   },
   "slide8": {
@@ -72,7 +72,7 @@
       "Bao: built V10's panel-group model and shell (16–18 Oct)",
       "Kerk: refined V10's dragging, controls and fonts; made its site and visualizers one app (18–22 Oct)"
     ],
-    "footer": "Left: Bao's V2 and V7 Tree builds (ae63a62, as of 17 Oct) · right: current app 346e84b, outlines added · captured 15–16 Nov 2026",
+    "footer": "Left: Bao's V2 and V7 builds (Tree) · right: the current app, outlines added",
     "notes_script": "Comparing the two builds showed a trade-off. V2 keeps every panel in a fixed place and lets several be open at once. V7 lets you move panels, but shows only one tab per dock. Bao and I discussed this, with feedback from Prof. Halim. In Week 9, we arrived at V10, which keeps both strengths. Panels stay stacked and visible together, as in V2, and you drag tabs between areas, as in V7. Each area can now hold several tab groups, and the canvas stays in the centre, never covered. Bao built the panel-group model and shell. I then implemented refinements we agreed on, such as drag sensitivity, controls and fonts. On 18 October, I merged the site and the visualizers into one application, so we now fix the shell in one place. Bao will show the shell in detail later. Next, I will turn to the website and execution architecture."
   }
 }
